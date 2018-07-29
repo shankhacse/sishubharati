@@ -74,7 +74,7 @@
                             <a href="#">Adissions Now</a>
                         </div>
                     </div>
-                   <div class="col-md-6 news"><h3>News and Update for school
+                   <div class="col-md-6 news"><h3>News and Update for school kkkkk
 </h3>
   <ul id="ticker01">
                             <li><a href="#">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
