@@ -1,0 +1,15 @@
+.login-box-body
+{
+	padding:50px 20px;
+	border: 0px solid #d8d8d8;
+	box-shadow: 0px 5px 5px 10px #E9E9E9;
+}
+.login-page
+{
+	//background: #f5f5f5;
+	background: url(image/loginbackground.jpg) #f5f5f5 no-repeat;
+}
+.login_input_err
+{
+	border:1px solid #fb9595;
+}

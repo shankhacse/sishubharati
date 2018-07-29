@@ -1,0 +1,57 @@
+.typeahead 
+	{
+		/*border: 2px solid #FFF;
+		border-radius: 4px;
+		padding: 8px 12px;
+		max-width: 300px;
+		min-width: 290px;
+		background: rgba(66, 52, 52, 0.5);
+		color: #FFF;*/
+	}
+	
+	ul.typeahead 
+	{
+		margin: 0px;
+		padding: 0px 0px;
+		width: 91% !important;
+		border-bottom: 1px solid #e4e4e4;
+		border-left: 1px solid #e4e4e4;
+		border-right: 1px solid #e4e4e4;
+	}
+	ul.typeahead.dropdown-menu li a 
+	{
+		padding: 10px !important;	
+		border-bottom:#CCC 1px solid;
+		color:#FFF;
+	}
+	ul.typeahead.dropdown-menu li:last-child a 
+	{
+		border-bottom:0px !important; 
+	}
+	
+	.demo-label 
+	{
+		font-size:1.5em;
+		color: #686868;
+		font-weight: 500;
+		color:#FFF;
+	}
+	ul.typeahead.dropdown-menu>.active>a,
+	ul.typeahead.dropdown-menu>.active>a:focus, 
+	ul.typeahead.dropdown-menu>.active>a:hover 
+	{
+		text-decoration: none;
+		background-color: #3c91c0;
+		outline: 0;
+		color: #FFF !important;
+	}
+	
+	ul.typeahead.dropdown-menu li a 
+	{
+		padding: 8px 10px !important;
+		border-bottom: #D3DEE7 1px solid;
+		color: #256B98;
+		font-weight: normal;
+		font-family: verdana;
+		font-size: 12px;
+	}

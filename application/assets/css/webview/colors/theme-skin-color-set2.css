@@ -1,0 +1,2005 @@
+/* --------------------------------------
+@Author: ThemeMascot
+@URL: http://themeforest.net/user/ThemeMascot
+
+COLOR1: #f36438
+COLOR2: #0cb8b6
+----------------------------------------- */
+/*
+ * background: theme-color
+ * -----------------------------------------------
+*/
+.post .entry-meta.meta-absolute {
+  background-color: rgba(243, 100, 56, 0.9) !important;
+}
+.tab-slider .nav.nav-pills a:hover,
+.tab-slider .nav.nav-pills a.active,
+.custom-nav-tabs > li > a:hover,
+.widget .tags a:hover,
+.progress-item .progress-bar,
+.small-title .title::after,
+.drop-caps.colored-square p:first-child:first-letter,
+.drop-caps.colored-rounded p:first-child:first-letter,
+.working-process.theme-colored a,
+.widget.dark .tags a:hover,
+.blog-posts .post .entry-content .post-date.right,
+.owl-theme.dot-theme-colored .owl-controls .owl-dot span,
+.portfolio-filter a.active,
+.portfolio-filter a:hover,
+.pagination.theme-colored li.active a,
+.section-title .both-side-line::after,
+.section-title .both-side-line::before,
+.section-title .top-side-line::after,
+.section-title .left-side-line::before,
+.section-title .right-side-line::before,
+.product .tag-sale,
+.owl-theme .owl-dots .owl-dot.active span,
+.blog-posts .post.style1 .entry-header .entry-date.entry-date-absolute,
+.title-dots span {
+  background: #f36438;
+}
+.cd-timeline-simple .cd-timeline-block .cd-timeline-img {
+  background: #f36438 !important;
+}
+.ui-state-highlight {
+  background: #f36438 !important;
+  color: #fff !important;
+}
+/*
+ * text: theme-color
+ * -----------------------------------------------
+*/
+.menuzord-menu > li > .megamenu .megamenu-row li:hover > a,
+.menuzord-menu > li > .megamenu .megamenu-row .post a:hover,
+.menuzord-menu > li > .megamenu .megamenu-row li:hover > a i,
+.menuzord-menu > li > .megamenu .megamenu-row .post a:hover i,
+.blog-posts .post .entry-meta li i,
+.widget .twitter-feed li::after,
+.widget .address li i,
+.icon-box.box-style1.practice-style3 i,
+.icon-box.services-style1:hover .heading,
+.horizontal-contact-widget .widget::before,
+.small-title i,
+.drop-caps.text-colored p:first-child:first-letter,
+.schedule-box:hover .schedule-details .title a,
+.widget.dark .nav-tabs li.active a,
+.pagination.theme-colored li a,
+.pager.theme-colored a,
+.widget .post-title a:hover,
+.donation-form .form-group label {
+  color: #f36438;
+}
+.star-rating span::before {
+  color: #f36438 !important;
+}
+/*
+ * border: theme-color
+ * -----------------------------------------------
+*/
+.line-bottom:after,
+.widget .line-bottom:after,
+.widget .line-bottom:after,
+.pager.theme-colored a,
+.owl-carousel.owl-nav-top .owl-controls .owl-nav .owl-prev,
+.owl-carousel.owl-nav-top .owl-controls .owl-nav .owl-next {
+  border: 1px solid #f36438;
+}
+.owl-theme .owl-dots .owl-dot span {
+  border-color: #f36438;
+}
+.icon-box.box-style1.practice-style3:hover .icon-wrapper::after {
+  border-color: #f36438 transparent transparent;
+}
+.section-title.title-border {
+  border-left: 4px solid #f36438;
+}
+/* border-top-color */
+.cssload-tri {
+  border-top: 27px solid #f36438;
+}
+/* border-right-color */
+.border-right-red {
+  border-right: 1px solid #f36438;
+}
+.section-title.title-border.title-right {
+  border-right: 4px solid #f36438;
+}
+/* border-bottom-color */
+.border-bottom {
+  border-bottom: 1px solid #f36438;
+}
+.cssload-tri.cssload-invert {
+  border-bottom: 27px solid #f36438;
+}
+/* box-shadow */
+/* Dropdown Search Form */
+.dropdown-search-form-content .dropdown-search-form .input-group {
+  border-color: #f36438;
+}
+.dropdown-search-form-content .dropdown-search-form button[type="submit"] {
+  background: #f36438;
+}
+.dropdown-search-form-content .dropdown-search-form button[type="submit"] i {
+  color: #fff;
+}
+/* Modern Header */
+.modern-header.modern-header-theme-colored .header-nav .header-nav-wrapper:not(.scroll-to-fixed-fixed) nav {
+  background: #f36438;
+}
+.modern-header.modern-header-theme-colored .header-nav .header-nav-wrapper.scroll-to-fixed-fixed {
+  background: #f36438;
+}
+/* -------- Text Theme Color ---------- */
+.text-theme-colored {
+  color: #f36438 !important;
+}
+.text-hover-theme-colored:hover {
+  color: #f36438 !important;
+}
+ul.list.theme-colored li:before,
+ul.list.theme-colored.angle-double-right li:before,
+ul.list.theme-colored.angle-right li:before,
+ul.list.theme-colored.check-circle li:before,
+ul.list.theme-colored.check li:before,
+.list-icon.theme-colored li i {
+  color: #f36438;
+}
+/* -------- border-theme-color ---------- */
+.border-theme-colored {
+  border-color: #f36438 !important;
+}
+.border-1px-theme-colored {
+  border: 1px solid #f36438;
+}
+/* border-left-color */
+blockquote.theme-colored {
+  border-left: 3px solid #f36438;
+}
+blockquote.bg-theme-colored {
+  border-left: 3px solid #ea420e;
+  color: #fff;
+}
+blockquote.bg-theme-colored footer {
+  color: #eeeeee;
+}
+blockquote.gray.bg-theme-colored {
+  background-color: #eeeeee !important;
+  border-left: 3px solid #f36438;
+  color: #f36438;
+}
+blockquote.gray.bg-theme-colored footer {
+  color: #777777;
+}
+/* -------- bg-theme-color ---------- */
+.bg-theme-colored {
+  background-color: #f36438 !important;
+}
+.bg-hover-theme-colored:hover {
+  background: #f36438 !important;
+  border-color: #f36438 !important;
+  color: #fff !important;
+}
+.bg-hover-theme-colored:hover h1,
+.bg-hover-theme-colored:hover h2,
+.bg-hover-theme-colored:hover h3,
+.bg-hover-theme-colored:hover h4,
+.bg-hover-theme-colored:hover h5,
+.bg-hover-theme-colored:hover h6,
+.bg-hover-theme-colored:hover p,
+.bg-hover-theme-colored:hover a,
+.bg-hover-theme-colored:hover i {
+  color: #fff !important;
+}
+.list-icon.theme-colored.square li i,
+.list-icon.theme-colored.rounded li i {
+  background: #f36438;
+}
+/* -------- lighter/darker bg Color ---------- */
+.bg-theme-colored-lighter2 {
+  background-color: #f46b42 !important;
+}
+.bg-theme-colored-lighter3 {
+  background-color: #f46f46 !important;
+}
+.bg-theme-colored-lighter4 {
+  background-color: #f4734b !important;
+}
+.bg-theme-colored-lighter5 {
+  background-color: #f47750 !important;
+}
+.bg-theme-colored-lighter6 {
+  background-color: #f57a55 !important;
+}
+.bg-theme-colored-lighter7 {
+  background-color: #f57e5a !important;
+}
+.bg-theme-colored-lighter8 {
+  background-color: #f5825e !important;
+}
+.bg-theme-colored-lighter9 {
+  background-color: #f68663 !important;
+}
+.bg-theme-colored-darker2 {
+  background-color: #f25d2e !important;
+}
+.bg-theme-colored-darker3 {
+  background-color: #f2592a !important;
+}
+.bg-theme-colored-darker4 {
+  background-color: #f25525 !important;
+}
+.bg-theme-colored-darker5 {
+  background-color: #f25120 !important;
+}
+.bg-theme-colored-darker6 {
+  background-color: #f14e1b !important;
+}
+.bg-theme-colored-darker7 {
+  background-color: #f14a16 !important;
+}
+.bg-theme-colored-darker8 {
+  background-color: #f14612 !important;
+}
+.bg-theme-colored-darker9 {
+  background-color: #ef430e !important;
+}
+/* -------- Transparent bg Color ---------- */
+.bg-theme-colored-transparent-9 {
+  background-color: rgba(243, 100, 56, 0.9) !important;
+}
+.bg-theme-colored-transparent-8 {
+  background-color: rgba(243, 100, 56, 0.8) !important;
+}
+.bg-theme-colored-transparent-7 {
+  background-color: rgba(243, 100, 56, 0.7) !important;
+}
+.bg-theme-colored-transparent-6 {
+  background-color: rgba(243, 100, 56, 0.6) !important;
+}
+.bg-theme-colored-transparent-5 {
+  background-color: rgba(243, 100, 56, 0.5) !important;
+}
+.bg-theme-colored-transparent-4 {
+  background-color: rgba(243, 100, 56, 0.4) !important;
+}
+.bg-theme-colored-transparent-3 {
+  background-color: rgba(243, 100, 56, 0.3) !important;
+}
+.bg-theme-colored-transparent-2 {
+  background-color: rgba(243, 100, 56, 0.2) !important;
+}
+.bg-theme-colored-transparent-1 {
+  background-color: rgba(243, 100, 56, 0.1) !important;
+}
+.bg-theme-colored-transparent {
+  background-color: rgba(243, 100, 56, 0.5) !important;
+}
+/* -------- layer overlay Color ---------- */
+.layer-overlay {
+  /* .overlay-theme-colored */
+}
+.layer-overlay.overlay-theme-colored::before {
+  background-color: rgba(243, 100, 56, 0.8);
+}
+.layer-overlay.overlay-theme-colored-1::before {
+  background-color: rgba(243, 100, 56, 0.1);
+}
+.layer-overlay.overlay-theme-colored-2::before {
+  background-color: rgba(243, 100, 56, 0.2);
+}
+.layer-overlay.overlay-theme-colored-3::before {
+  background-color: rgba(243, 100, 56, 0.3);
+}
+.layer-overlay.overlay-theme-colored-4::before {
+  background-color: rgba(243, 100, 56, 0.4);
+}
+.layer-overlay.overlay-theme-colored-5::before {
+  background-color: rgba(243, 100, 56, 0.5);
+}
+.layer-overlay.overlay-theme-colored-6::before {
+  background-color: rgba(243, 100, 56, 0.6);
+}
+.layer-overlay.overlay-theme-colored-7::before {
+  background-color: rgba(243, 100, 56, 0.7);
+}
+.layer-overlay.overlay-theme-colored-8::before {
+  background-color: rgba(243, 100, 56, 0.8);
+}
+.layer-overlay.overlay-theme-colored-9::before {
+  background-color: rgba(243, 100, 56, 0.9);
+}
+/*
+ * btn-default: theme-color
+ * -----------------------------------------------
+*/
+.btn-default.btn-theme-colored {
+  color: #f36438;
+  background-color: #fff;
+  border-color: #f36438;
+}
+.btn-default.btn-theme-colored:focus,
+.btn-default.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #a22e0a;
+}
+.btn-default.btn-theme-colored:hover {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #e03f0e;
+}
+.btn-default.btn-theme-colored:active,
+.btn-default.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-default.btn-theme-colored {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #e03f0e;
+}
+.btn-default.btn-theme-colored:active:hover,
+.btn-default.btn-theme-colored.active:hover,
+.open > .dropdown-toggle.btn-default.btn-theme-colored:hover,
+.btn-default.btn-theme-colored:active:focus,
+.btn-default.btn-theme-colored.active:focus,
+.open > .dropdown-toggle.btn-default.btn-theme-colored:focus,
+.btn-default.btn-theme-colored:active.focus,
+.btn-default.btn-theme-colored.active.focus,
+.open > .dropdown-toggle.btn-default.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #d4d4d4;
+  border-color: #a22e0a;
+}
+.btn-default.btn-theme-colored:active,
+.btn-default.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-default.btn-theme-colored {
+  background-image: none;
+}
+.btn-default.btn-theme-colored.disabled:hover,
+.btn-default.btn-theme-colored[disabled]:hover,
+fieldset[disabled] .btn-default.btn-theme-colored:hover,
+.btn-default.btn-theme-colored.disabled:focus,
+.btn-default.btn-theme-colored[disabled]:focus,
+fieldset[disabled] .btn-default.btn-theme-colored:focus,
+.btn-default.btn-theme-colored.disabled.focus,
+.btn-default.btn-theme-colored[disabled].focus,
+fieldset[disabled] .btn-default.btn-theme-colored.focus {
+  background-color: #fff;
+  border-color: #f36438;
+}
+.btn-default.btn-theme-colored .badge {
+  color: #fff;
+  background-color: #f36438;
+}
+.btn-default.btn-theme-colored:hover,
+.btn-default.btn-theme-colored:active,
+.btn-default.btn-theme-colored:focus {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+/*
+ * btn-border
+ * -----------------------------------------------
+*/
+.btn-border.btn-theme-colored {
+  color: #f36438;
+  background-color: #fff;
+  border-color: #f36438;
+}
+.btn-border.btn-theme-colored:focus,
+.btn-border.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #a22e0a;
+}
+.btn-border.btn-theme-colored:hover {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #e03f0e;
+}
+.btn-border.btn-theme-colored:active,
+.btn-border.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-border.btn-theme-colored {
+  color: #f36438;
+  background-color: #e6e6e6;
+  border-color: #e03f0e;
+}
+.btn-border.btn-theme-colored:active:hover,
+.btn-border.btn-theme-colored.active:hover,
+.open > .dropdown-toggle.btn-border.btn-theme-colored:hover,
+.btn-border.btn-theme-colored:active:focus,
+.btn-border.btn-theme-colored.active:focus,
+.open > .dropdown-toggle.btn-border.btn-theme-colored:focus,
+.btn-border.btn-theme-colored:active.focus,
+.btn-border.btn-theme-colored.active.focus,
+.open > .dropdown-toggle.btn-border.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #d4d4d4;
+  border-color: #a22e0a;
+}
+.btn-border.btn-theme-colored:active,
+.btn-border.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-border.btn-theme-colored {
+  background-image: none;
+}
+.btn-border.btn-theme-colored.disabled:hover,
+.btn-border.btn-theme-colored[disabled]:hover,
+fieldset[disabled] .btn-border.btn-theme-colored:hover,
+.btn-border.btn-theme-colored.disabled:focus,
+.btn-border.btn-theme-colored[disabled]:focus,
+fieldset[disabled] .btn-border.btn-theme-colored:focus,
+.btn-border.btn-theme-colored.disabled.focus,
+.btn-border.btn-theme-colored[disabled].focus,
+fieldset[disabled] .btn-border.btn-theme-colored.focus {
+  background-color: #fff;
+  border-color: #f36438;
+}
+.btn-border.btn-theme-colored .badge {
+  color: #fff;
+  background-color: #f36438;
+}
+.btn-border.btn-theme-colored:hover,
+.btn-border.btn-theme-colored:active,
+.btn-border.btn-theme-colored:focus {
+  background-color: #ea420e;
+  border-color: #ea420e;
+  color: #fff;
+}
+/*
+ * btn-dark
+ * -----------------------------------------------
+*/
+.btn-dark.btn-theme-colored {
+  color: #fff;
+  background-color: #f36438;
+  border-color: #f36438;
+}
+.btn-dark.btn-theme-colored:focus,
+.btn-dark.btn-theme-colored.focus {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #a22e0a;
+}
+.btn-dark.btn-theme-colored:hover {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #e03f0e;
+}
+.btn-dark.btn-theme-colored:active,
+.btn-dark.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #e03f0e;
+}
+.btn-dark.btn-theme-colored:active:hover,
+.btn-dark.btn-theme-colored.active:hover,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored:hover,
+.btn-dark.btn-theme-colored:active:focus,
+.btn-dark.btn-theme-colored.active:focus,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored:focus,
+.btn-dark.btn-theme-colored:active.focus,
+.btn-dark.btn-theme-colored.active.focus,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored.focus {
+  color: #fff;
+  background-color: #c8380c;
+  border-color: #a22e0a;
+}
+.btn-dark.btn-theme-colored:active,
+.btn-dark.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored {
+  background-image: none;
+}
+.btn-dark.btn-theme-colored.disabled:hover,
+.btn-dark.btn-theme-colored[disabled]:hover,
+fieldset[disabled] .btn-dark.btn-theme-colored:hover,
+.btn-dark.btn-theme-colored.disabled:focus,
+.btn-dark.btn-theme-colored[disabled]:focus,
+fieldset[disabled] .btn-dark.btn-theme-colored:focus,
+.btn-dark.btn-theme-colored.disabled.focus,
+.btn-dark.btn-theme-colored[disabled].focus,
+fieldset[disabled] .btn-dark.btn-theme-colored.focus {
+  background-color: #f36438;
+  border-color: #f36438;
+}
+.btn-dark.btn-theme-colored .badge {
+  color: #f36438;
+  background-color: #fff;
+}
+/*
+ * btn-gray
+ * -----------------------------------------------
+*/
+.btn-gray.btn-theme-colored {
+  color: #f36438;
+  background-color: #f68968;
+  border-color: #f68968;
+}
+.btn-gray.btn-theme-colored:focus,
+.btn-gray.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #f36438;
+  border-color: #d23b0d;
+}
+.btn-gray.btn-theme-colored:hover {
+  color: #f36438;
+  background-color: #f36438;
+  border-color: #f25d2e;
+}
+.btn-gray.btn-theme-colored:active,
+.btn-gray.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored {
+  color: #f36438;
+  background-color: #f36438;
+  border-color: #f25d2e;
+}
+.btn-gray.btn-theme-colored:active:hover,
+.btn-gray.btn-theme-colored.active:hover,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored:hover,
+.btn-gray.btn-theme-colored:active:focus,
+.btn-gray.btn-theme-colored.active:focus,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored:focus,
+.btn-gray.btn-theme-colored:active.focus,
+.btn-gray.btn-theme-colored.active.focus,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored.focus {
+  color: #f36438;
+  background-color: #f14a16;
+  border-color: #d23b0d;
+}
+.btn-gray.btn-theme-colored:active,
+.btn-gray.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored {
+  background-image: none;
+}
+.btn-gray.btn-theme-colored.disabled:hover,
+.btn-gray.btn-theme-colored[disabled]:hover,
+fieldset[disabled] .btn-gray.btn-theme-colored:hover,
+.btn-gray.btn-theme-colored.disabled:focus,
+.btn-gray.btn-theme-colored[disabled]:focus,
+fieldset[disabled] .btn-gray.btn-theme-colored:focus,
+.btn-gray.btn-theme-colored.disabled.focus,
+.btn-gray.btn-theme-colored[disabled].focus,
+fieldset[disabled] .btn-gray.btn-theme-colored.focus {
+  background-color: #f68968;
+  border-color: #f68968;
+}
+.btn-gray.btn-theme-colored .badge {
+  color: #f68968;
+  background-color: #f36438;
+}
+/*
+ * btn-primary: theme-color
+ * -----------------------------------------------
+*/
+.btn-theme-colored {
+  color: #fff;
+  background-color: #f36438;
+  border-color: #f36438;
+}
+.btn-theme-colored:focus,
+.btn-theme-colored.focus {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #a22e0a;
+}
+.btn-theme-colored:hover {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #e03f0e;
+}
+.btn-theme-colored:active,
+.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-theme-colored {
+  color: #fff;
+  background-color: #ea420e;
+  border-color: #e03f0e;
+}
+.btn-theme-colored:active:hover,
+.btn-theme-colored.active:hover,
+.open > .dropdown-toggle.btn-theme-colored:hover,
+.btn-theme-colored:active:focus,
+.btn-theme-colored.active:focus,
+.open > .dropdown-toggle.btn-theme-colored:focus,
+.btn-theme-colored:active.focus,
+.btn-theme-colored.active.focus,
+.open > .dropdown-toggle.btn-theme-colored.focus {
+  color: #fff;
+  background-color: #c8380c;
+  border-color: #a22e0a;
+}
+.btn-theme-colored:active,
+.btn-theme-colored.active,
+.open > .dropdown-toggle.btn-theme-colored {
+  background-image: none;
+}
+.btn-theme-colored.disabled:hover,
+.btn-theme-colored[disabled]:hover,
+fieldset[disabled] .btn-theme-colored:hover,
+.btn-theme-colored.disabled:focus,
+.btn-theme-colored[disabled]:focus,
+fieldset[disabled] .btn-theme-colored:focus,
+.btn-theme-colored.disabled.focus,
+.btn-theme-colored[disabled].focus,
+fieldset[disabled] .btn-theme-colored.focus {
+  background-color: #f36438;
+  border-color: #f36438;
+}
+.btn-theme-colored .badge {
+  color: #f36438;
+  background-color: #fff;
+}
+/*
+ * btn-transparent
+ * -----------------------------------------------
+*/
+.btn-transparent {
+  background-color: transparent;
+  color: #fff;
+}
+.btn-transparent.btn-theme-colored {
+  background-color: transparent;
+}
+.btn-transparent.btn-dark {
+  background-color: #111111;
+  border-color: #111111;
+}
+.btn-transparent.btn-dark:hover {
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-transparent.btn-dark.btn-theme-colored {
+  background-color: #f36438;
+  border-color: #f36438;
+}
+.btn-transparent.btn-dark.btn-theme-colored:hover {
+  background-color: #ea420e;
+  border-color: #ea420e;
+}
+.btn-transparent.btn-border {
+  background-color: transparent;
+  border-color: #eeeeee;
+}
+.btn-transparent.btn-border:hover {
+  background-color: #eeeeee;
+  color: #000;
+}
+.btn-transparent.btn-border.btn-theme-colored {
+  background-color: transparent;
+  border-color: #f36438;
+}
+.btn-transparent.btn-border.btn-theme-colored:hover {
+  background-color: #f36438;
+  color: #fff;
+}
+.btn-gray.btn-transparent {
+  background-color: #d3d3d3;
+  color: #333333;
+}
+.btn-gray.btn-transparent:hover {
+  background-color: #ececec;
+  color: #1a1a1a;
+}
+.btn-gray.btn-transparent.btn-theme-colored {
+  background-color: #f68968;
+  color: #fff;
+}
+.btn-gray.btn-transparent.btn-theme-colored:hover {
+  background-color: #ea420e;
+  color: #ea420e;
+}
+.btn-hover-theme-colored:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+/*
+ * Shortcode: styled-icons Theme Colored
+ * -----------------------------------------------
+*/
+.icon-theme-colored a {
+  color: #f36438;
+}
+.icon-theme-colored.icon-bordered a {
+  border-color: #f36438;
+}
+.icon-theme-colored.icon-bordered a:hover {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-theme-colored.icon-dark a {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-theme-colored.icon-dark a:hover {
+  background-color: #ea420e;
+}
+.icon-theme-colored.icon-dark.icon-bordered a {
+  border-color: #f36438;
+  color: #f36438;
+}
+.icon-theme-colored.icon-dark.icon-bordered a:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+.icon-theme-colored.icon-gray a {
+  color: #f36438;
+}
+.icon-theme-colored.icon-gray a:hover {
+  color: #ea420e;
+}
+.icon-theme-colored.icon-gray.icon-bordered a {
+  color: #f36438;
+}
+.icon-theme-colored.icon-gray.icon-bordered a:hover {
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+  color: #f36438;
+}
+.icon-hover-theme-colored a:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+.styled-icons.icon-hover-theme-colored a:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+/*
+ * Shortcode: Icon Boxes Theme Colored
+ * -----------------------------------------------
+*/
+.icon-box.iconbox-theme-colored .icon {
+  color: #f36438;
+}
+.icon-box.iconbox-theme-colored .icon.icon-border-effect::after {
+  box-shadow: 0 0 0 3px #f36438;
+}
+.icon-box.iconbox-theme-colored .icon.icon-bordered {
+  border-color: #f36438;
+}
+.icon-box.iconbox-theme-colored .icon.icon-bordered:hover {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-gray:hover {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-gray.icon-bordered {
+  border-color: #eeeeee;
+}
+.icon-box.iconbox-theme-colored .icon.icon-gray.icon-bordered:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-dark {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-dark:hover {
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-dark.icon-bordered {
+  background-color: transparent;
+  border-color: #f36438;
+  color: #f36438;
+}
+.icon-box.iconbox-theme-colored .icon.icon-dark.icon-bordered:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-white {
+  background-color: #fff;
+  color: #f36438;
+}
+.icon-box.iconbox-theme-colored .icon.icon-white:hover {
+  background-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-white.icon-bordered {
+  background-color: transparent;
+  border-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored .icon.icon-white.icon-bordered:hover {
+  background-color: #f36438;
+  border-color: #f36438;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored.iconbox-border {
+  border-color: #f36438;
+}
+/*
+ *  accordion.less
+ * -----------------------------------------------
+*/
+.accordion-theme-colored .panel-default > .panel-heading {
+  background-color: #f36438;
+}
+.accordion-theme-colored .panel-default > .panel-heading .panel-title > a,
+.accordion-theme-colored .panel-default > .panel-heading .panel-title > a:hover,
+.accordion-theme-colored .panel-default > .panel-heading .panel-title > a:focus {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored .panel-heading .panel-title a.active:before {
+  background: #f36438;
+}
+.panel-group.accordion-classic-theme-colored-filled .panel-heading {
+  background: #f36438;
+}
+.panel-group.accordion-classic-theme-colored-filled .panel-heading .panel-title a {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored-filled .panel-heading .panel-title a:before {
+  background: #f2592a;
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored-filled .panel-heading .panel-title a.active:before {
+  background: #db3e0d;
+}
+.panel-group.accordion-classic-theme-colored12 .panel-heading {
+  background: #f36438;
+}
+.panel-group.accordion-classic-theme-colored12 .panel-heading .panel-title a {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored12 .panel-heading .panel-title a:before {
+  background: #f25120;
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored12 .panel-heading .panel-title a.active:before {
+  background: #0cb8b6;
+}
+.panel-group.accordion-icon-filled.accordion-icon-left.accordion-icon-filled-theme-colored .panel-heading .panel-title a:before {
+  background-color: #f36438;
+}
+.panel-group.accordion-icon-filled.accordion-icon-right.accordion-icon-filled-theme-colored .panel-heading .panel-title a:after {
+  background-color: #f36438;
+}
+/* Modern Header */
+.modern-header.modern-header-theme-colored2 .header-nav .header-nav-wrapper:not(.scroll-to-fixed-fixed) nav {
+  background: #0cb8b6;
+}
+.modern-header.modern-header-theme-colored2 .header-nav .header-nav-wrapper.scroll-to-fixed-fixed {
+  background: #0cb8b6;
+}
+/* -------- Text Theme Color ---------- */
+.text-theme-colored2 {
+  color: #0cb8b6 !important;
+}
+.text-hover-theme-colored2:hover {
+  color: #0cb8b6 !important;
+}
+ul.list.theme-colored2 li:before,
+ul.list.theme-colored2.angle-double-right li:before,
+ul.list.theme-colored2.angle-right li:before,
+ul.list.theme-colored2.check-circle li:before,
+ul.list.theme-colored2.check li:before,
+.list-icon.theme-colored2 li i {
+  color: #0cb8b6;
+}
+/* -------- border-theme-color ---------- */
+.border-theme-colored2 {
+  border-color: #0cb8b6 !important;
+}
+.border-1px-theme-colored2 {
+  border: 1px solid #0cb8b6;
+}
+/* border-left-color */
+blockquote.theme-colored2 {
+  border-left: 3px solid #0cb8b6;
+}
+blockquote.bg-theme-colored2 {
+  border-left: 3px solid #098887;
+  color: #fff;
+}
+blockquote.bg-theme-colored2 footer {
+  color: #eeeeee;
+}
+blockquote.gray.bg-theme-colored2 {
+  background-color: #eeeeee !important;
+  border-left: 3px solid #0cb8b6;
+  color: #0cb8b6;
+}
+blockquote.gray.bg-theme-colored2 footer {
+  color: #777777;
+}
+/* -------- bg-theme-color ---------- */
+.bg-theme-colored2 {
+  background-color: #0cb8b6 !important;
+}
+.bg-hover-theme-colored2:hover {
+  background: #0cb8b6 !important;
+  border-color: #0cb8b6 !important;
+  color: #fff !important;
+}
+.bg-hover-theme-colored2:hover h1,
+.bg-hover-theme-colored2:hover h2,
+.bg-hover-theme-colored2:hover h3,
+.bg-hover-theme-colored2:hover h4,
+.bg-hover-theme-colored2:hover h5,
+.bg-hover-theme-colored2:hover h6,
+.bg-hover-theme-colored2:hover p,
+.bg-hover-theme-colored2:hover a,
+.bg-hover-theme-colored2:hover i {
+  color: #fff !important;
+}
+.list-icon.theme-colored2.square li i,
+.list-icon.theme-colored2.rounded li i {
+  background: #0cb8b6;
+}
+/* -------- lighter/darker bg Color ---------- */
+.bg-theme-colored2-lighter2 {
+  background-color: #0dc2bf !important;
+}
+.bg-theme-colored2-lighter3 {
+  background-color: #0dc6c4 !important;
+}
+.bg-theme-colored2-lighter4 {
+  background-color: #0dcbc9 !important;
+}
+.bg-theme-colored2-lighter5 {
+  background-color: #0ed0ce !important;
+}
+.bg-theme-colored2-lighter6 {
+  background-color: #0ed5d2 !important;
+}
+.bg-theme-colored2-lighter7 {
+  background-color: #0edad7 !important;
+}
+.bg-theme-colored2-lighter8 {
+  background-color: #0ededc !important;
+}
+.bg-theme-colored2-lighter9 {
+  background-color: #0fe3e1 !important;
+}
+.bg-theme-colored2-darker2 {
+  background-color: #0baead !important;
+}
+.bg-theme-colored2-darker3 {
+  background-color: #0baaa8 !important;
+}
+.bg-theme-colored2-darker4 {
+  background-color: #0ba5a3 !important;
+}
+.bg-theme-colored2-darker5 {
+  background-color: #0aa09e !important;
+}
+.bg-theme-colored2-darker6 {
+  background-color: #0a9b9a !important;
+}
+.bg-theme-colored2-darker7 {
+  background-color: #0a9695 !important;
+}
+.bg-theme-colored2-darker8 {
+  background-color: #0a9290 !important;
+}
+.bg-theme-colored2-darker9 {
+  background-color: #098d8b !important;
+}
+/* -------- Transparent bg Color ---------- */
+.bg-theme-colored2-transparent-9 {
+  background-color: rgba(12, 184, 182, 0.9) !important;
+}
+.bg-theme-colored2-transparent-8 {
+  background-color: rgba(12, 184, 182, 0.8) !important;
+}
+.bg-theme-colored2-transparent-7 {
+  background-color: rgba(12, 184, 182, 0.7) !important;
+}
+.bg-theme-colored2-transparent-6 {
+  background-color: rgba(12, 184, 182, 0.6) !important;
+}
+.bg-theme-colored2-transparent-5 {
+  background-color: rgba(12, 184, 182, 0.5) !important;
+}
+.bg-theme-colored2-transparent-4 {
+  background-color: rgba(12, 184, 182, 0.4) !important;
+}
+.bg-theme-colored2-transparent-3 {
+  background-color: rgba(12, 184, 182, 0.3) !important;
+}
+.bg-theme-colored2-transparent-2 {
+  background-color: rgba(12, 184, 182, 0.2) !important;
+}
+.bg-theme-colored2-transparent-1 {
+  background-color: rgba(12, 184, 182, 0.1) !important;
+}
+.bg-theme-colored2-transparent {
+  background-color: rgba(12, 184, 182, 0.5) !important;
+}
+/* -------- layer overlay Color ---------- */
+.layer-overlay {
+  /* .overlay-theme-colored2 */
+}
+.layer-overlay.overlay-theme-colored2::before {
+  background-color: rgba(12, 184, 182, 0.8) !important;
+}
+.layer-overlay.overlay-theme-colored2-1::before {
+  background-color: rgba(12, 184, 182, 0.1);
+}
+.layer-overlay.overlay-theme-colored2-2::before {
+  background-color: rgba(12, 184, 182, 0.2);
+}
+.layer-overlay.overlay-theme-colored2-3::before {
+  background-color: rgba(12, 184, 182, 0.3);
+}
+.layer-overlay.overlay-theme-colored2-4::before {
+  background-color: rgba(12, 184, 182, 0.4);
+}
+.layer-overlay.overlay-theme-colored2-5::before {
+  background-color: rgba(12, 184, 182, 0.5);
+}
+.layer-overlay.overlay-theme-colored2-6::before {
+  background-color: rgba(12, 184, 182, 0.6);
+}
+.layer-overlay.overlay-theme-colored2-7::before {
+  background-color: rgba(12, 184, 182, 0.7);
+}
+.layer-overlay.overlay-theme-colored2-8::before {
+  background-color: rgba(12, 184, 182, 0.8);
+}
+.layer-overlay.overlay-theme-colored2-9::before {
+  background-color: rgba(12, 184, 182, 0.9);
+}
+/*
+ * btn-default: theme-color
+ * -----------------------------------------------
+*/
+.btn-default.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #fff;
+  border-color: #0cb8b6;
+}
+.btn-default.btn-theme-colored2:focus,
+.btn-default.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #044040;
+}
+.btn-default.btn-theme-colored2:hover {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #087f7d;
+}
+.btn-default.btn-theme-colored2:active,
+.btn-default.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-default.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #087f7d;
+}
+.btn-default.btn-theme-colored2:active:hover,
+.btn-default.btn-theme-colored2.active:hover,
+.open > .dropdown-toggle.btn-default.btn-theme-colored2:hover,
+.btn-default.btn-theme-colored2:active:focus,
+.btn-default.btn-theme-colored2.active:focus,
+.open > .dropdown-toggle.btn-default.btn-theme-colored2:focus,
+.btn-default.btn-theme-colored2:active.focus,
+.btn-default.btn-theme-colored2.active.focus,
+.open > .dropdown-toggle.btn-default.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #d4d4d4;
+  border-color: #044040;
+}
+.btn-default.btn-theme-colored2:active,
+.btn-default.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-default.btn-theme-colored2 {
+  background-image: none;
+}
+.btn-default.btn-theme-colored2.disabled:hover,
+.btn-default.btn-theme-colored2[disabled]:hover,
+fieldset[disabled] .btn-default.btn-theme-colored2:hover,
+.btn-default.btn-theme-colored2.disabled:focus,
+.btn-default.btn-theme-colored2[disabled]:focus,
+fieldset[disabled] .btn-default.btn-theme-colored2:focus,
+.btn-default.btn-theme-colored2.disabled.focus,
+.btn-default.btn-theme-colored2[disabled].focus,
+fieldset[disabled] .btn-default.btn-theme-colored2.focus {
+  background-color: #fff;
+  border-color: #0cb8b6;
+}
+.btn-default.btn-theme-colored2 .badge {
+  color: #fff;
+  background-color: #0cb8b6;
+}
+.btn-default.btn-theme-colored2:hover,
+.btn-default.btn-theme-colored2:active,
+.btn-default.btn-theme-colored2:focus {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+/*
+ * btn-border
+ * -----------------------------------------------
+*/
+.btn-border.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #fff;
+  border-color: #0cb8b6;
+}
+.btn-border.btn-theme-colored2:focus,
+.btn-border.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #044040;
+}
+.btn-border.btn-theme-colored2:hover {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #087f7d;
+}
+.btn-border.btn-theme-colored2:active,
+.btn-border.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-border.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #e6e6e6;
+  border-color: #087f7d;
+}
+.btn-border.btn-theme-colored2:active:hover,
+.btn-border.btn-theme-colored2.active:hover,
+.open > .dropdown-toggle.btn-border.btn-theme-colored2:hover,
+.btn-border.btn-theme-colored2:active:focus,
+.btn-border.btn-theme-colored2.active:focus,
+.open > .dropdown-toggle.btn-border.btn-theme-colored2:focus,
+.btn-border.btn-theme-colored2:active.focus,
+.btn-border.btn-theme-colored2.active.focus,
+.open > .dropdown-toggle.btn-border.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #d4d4d4;
+  border-color: #044040;
+}
+.btn-border.btn-theme-colored2:active,
+.btn-border.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-border.btn-theme-colored2 {
+  background-image: none;
+}
+.btn-border.btn-theme-colored2.disabled:hover,
+.btn-border.btn-theme-colored2[disabled]:hover,
+fieldset[disabled] .btn-border.btn-theme-colored2:hover,
+.btn-border.btn-theme-colored2.disabled:focus,
+.btn-border.btn-theme-colored2[disabled]:focus,
+fieldset[disabled] .btn-border.btn-theme-colored2:focus,
+.btn-border.btn-theme-colored2.disabled.focus,
+.btn-border.btn-theme-colored2[disabled].focus,
+fieldset[disabled] .btn-border.btn-theme-colored2.focus {
+  background-color: #fff;
+  border-color: #0cb8b6;
+}
+.btn-border.btn-theme-colored2 .badge {
+  color: #fff;
+  background-color: #0cb8b6;
+}
+.btn-border.btn-theme-colored2:hover,
+.btn-border.btn-theme-colored2:active,
+.btn-border.btn-theme-colored2:focus {
+  background-color: #098887;
+  border-color: #098887;
+  color: #fff;
+}
+/*
+ * btn-dark
+ * -----------------------------------------------
+*/
+.btn-dark.btn-theme-colored2 {
+  color: #fff;
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+}
+.btn-dark.btn-theme-colored2:focus,
+.btn-dark.btn-theme-colored2.focus {
+  color: #fff;
+  background-color: #098887;
+  border-color: #044040;
+}
+.btn-dark.btn-theme-colored2:hover {
+  color: #fff;
+  background-color: #098887;
+  border-color: #087f7d;
+}
+.btn-dark.btn-theme-colored2:active,
+.btn-dark.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored2 {
+  color: #fff;
+  background-color: #098887;
+  border-color: #087f7d;
+}
+.btn-dark.btn-theme-colored2:active:hover,
+.btn-dark.btn-theme-colored2.active:hover,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored2:hover,
+.btn-dark.btn-theme-colored2:active:focus,
+.btn-dark.btn-theme-colored2.active:focus,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored2:focus,
+.btn-dark.btn-theme-colored2:active.focus,
+.btn-dark.btn-theme-colored2.active.focus,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored2.focus {
+  color: #fff;
+  background-color: #076765;
+  border-color: #044040;
+}
+.btn-dark.btn-theme-colored2:active,
+.btn-dark.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-dark.btn-theme-colored2 {
+  background-image: none;
+}
+.btn-dark.btn-theme-colored2.disabled:hover,
+.btn-dark.btn-theme-colored2[disabled]:hover,
+fieldset[disabled] .btn-dark.btn-theme-colored2:hover,
+.btn-dark.btn-theme-colored2.disabled:focus,
+.btn-dark.btn-theme-colored2[disabled]:focus,
+fieldset[disabled] .btn-dark.btn-theme-colored2:focus,
+.btn-dark.btn-theme-colored2.disabled.focus,
+.btn-dark.btn-theme-colored2[disabled].focus,
+fieldset[disabled] .btn-dark.btn-theme-colored2.focus {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+}
+.btn-dark.btn-theme-colored2 .badge {
+  color: #0cb8b6;
+  background-color: #fff;
+}
+/*
+ * btn-gray
+ * -----------------------------------------------
+*/
+.btn-gray.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #0fe8e5;
+  border-color: #0fe8e5;
+}
+.btn-gray.btn-theme-colored2:focus,
+.btn-gray.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #0cb8b6;
+  border-color: #07706f;
+}
+.btn-gray.btn-theme-colored2:hover {
+  color: #0cb8b6;
+  background-color: #0cb8b6;
+  border-color: #0baead;
+}
+.btn-gray.btn-theme-colored2:active,
+.btn-gray.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored2 {
+  color: #0cb8b6;
+  background-color: #0cb8b6;
+  border-color: #0baead;
+}
+.btn-gray.btn-theme-colored2:active:hover,
+.btn-gray.btn-theme-colored2.active:hover,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored2:hover,
+.btn-gray.btn-theme-colored2:active:focus,
+.btn-gray.btn-theme-colored2.active:focus,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored2:focus,
+.btn-gray.btn-theme-colored2:active.focus,
+.btn-gray.btn-theme-colored2.active.focus,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored2.focus {
+  color: #0cb8b6;
+  background-color: #0a9695;
+  border-color: #07706f;
+}
+.btn-gray.btn-theme-colored2:active,
+.btn-gray.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-gray.btn-theme-colored2 {
+  background-image: none;
+}
+.btn-gray.btn-theme-colored2.disabled:hover,
+.btn-gray.btn-theme-colored2[disabled]:hover,
+fieldset[disabled] .btn-gray.btn-theme-colored2:hover,
+.btn-gray.btn-theme-colored2.disabled:focus,
+.btn-gray.btn-theme-colored2[disabled]:focus,
+fieldset[disabled] .btn-gray.btn-theme-colored2:focus,
+.btn-gray.btn-theme-colored2.disabled.focus,
+.btn-gray.btn-theme-colored2[disabled].focus,
+fieldset[disabled] .btn-gray.btn-theme-colored2.focus {
+  background-color: #0fe8e5;
+  border-color: #0fe8e5;
+}
+.btn-gray.btn-theme-colored2 .badge {
+  color: #0fe8e5;
+  background-color: #0cb8b6;
+}
+/*
+ * btn-primary: theme-color
+ * -----------------------------------------------
+*/
+.btn-theme-colored2 {
+  color: #fff;
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+}
+.btn-theme-colored2:focus,
+.btn-theme-colored2.focus {
+  color: #fff;
+  background-color: #098887;
+  border-color: #044040;
+}
+.btn-theme-colored2:hover {
+  color: #fff;
+  background-color: #098887;
+  border-color: #087f7d;
+}
+.btn-theme-colored2:active,
+.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-theme-colored2 {
+  color: #fff;
+  background-color: #098887;
+  border-color: #087f7d;
+}
+.btn-theme-colored2:active:hover,
+.btn-theme-colored2.active:hover,
+.open > .dropdown-toggle.btn-theme-colored2:hover,
+.btn-theme-colored2:active:focus,
+.btn-theme-colored2.active:focus,
+.open > .dropdown-toggle.btn-theme-colored2:focus,
+.btn-theme-colored2:active.focus,
+.btn-theme-colored2.active.focus,
+.open > .dropdown-toggle.btn-theme-colored2.focus {
+  color: #fff;
+  background-color: #076765;
+  border-color: #044040;
+}
+.btn-theme-colored2:active,
+.btn-theme-colored2.active,
+.open > .dropdown-toggle.btn-theme-colored2 {
+  background-image: none;
+}
+.btn-theme-colored2.disabled:hover,
+.btn-theme-colored2[disabled]:hover,
+fieldset[disabled] .btn-theme-colored2:hover,
+.btn-theme-colored2.disabled:focus,
+.btn-theme-colored2[disabled]:focus,
+fieldset[disabled] .btn-theme-colored2:focus,
+.btn-theme-colored2.disabled.focus,
+.btn-theme-colored2[disabled].focus,
+fieldset[disabled] .btn-theme-colored2.focus {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+}
+.btn-theme-colored2 .badge {
+  color: #0cb8b6;
+  background-color: #fff;
+}
+.btn-hover-theme-colored2:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+/*
+ * Shortcode: styled-icons Theme Colored
+ * -----------------------------------------------
+*/
+.icon-theme-colored2 a {
+  color: #0cb8b6;
+}
+.icon-theme-colored2.icon-bordered a {
+  border-color: #0cb8b6;
+}
+.icon-theme-colored2.icon-bordered a:hover {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-theme-colored2.icon-dark a {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-theme-colored2.icon-dark a:hover {
+  background-color: #098887;
+}
+.icon-theme-colored2.icon-dark.icon-bordered a {
+  border-color: #0cb8b6;
+  color: #0cb8b6;
+}
+.icon-theme-colored2.icon-dark.icon-bordered a:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.icon-theme-colored2.icon-gray a {
+  color: #0cb8b6;
+}
+.icon-theme-colored2.icon-gray a:hover {
+  color: #098887;
+}
+.icon-theme-colored2.icon-gray.icon-bordered a {
+  color: #0cb8b6;
+}
+.icon-theme-colored2.icon-gray.icon-bordered a:hover {
+  background-color: #eeeeee;
+  border-color: #eeeeee;
+  color: #0cb8b6;
+}
+.icon-hover-theme-colored2 a:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.styled-icons.icon-hover-theme-colored2 a:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+/*
+ * Shortcode: Icon Boxes Theme Colored
+ * -----------------------------------------------
+*/
+.icon-box.iconbox-theme-colored2 .icon {
+  color: #0cb8b6;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-border-effect::after {
+  box-shadow: 0 0 0 3px #0cb8b6;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-bordered {
+  border-color: #0cb8b6;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-bordered:hover {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-gray:hover {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-gray.icon-bordered {
+  border-color: #eeeeee;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-gray.icon-bordered:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-dark {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-dark:hover {
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-dark.icon-bordered {
+  background-color: transparent;
+  border-color: #0cb8b6;
+  color: #0cb8b6;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-dark.icon-bordered:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-white {
+  background-color: #fff;
+  color: #0cb8b6;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-white:hover {
+  background-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-white.icon-bordered {
+  background-color: transparent;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2 .icon.icon-white.icon-bordered:hover {
+  background-color: #0cb8b6;
+  border-color: #0cb8b6;
+  color: #fff;
+}
+.icon-box.iconbox-theme-colored2.iconbox-border {
+  border-color: #0cb8b6;
+}
+/*
+ *  accordion.less
+ * -----------------------------------------------
+*/
+.accordion-theme-colored2 .panel-default > .panel-heading {
+  background-color: #0cb8b6;
+}
+.accordion-theme-colored2 .panel-default > .panel-heading .panel-title > a,
+.accordion-theme-colored2 .panel-default > .panel-heading .panel-title > a:hover,
+.accordion-theme-colored2 .panel-default > .panel-heading .panel-title > a:focus {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored2 .panel-heading .panel-title a.active:before {
+  background: #0cb8b6;
+}
+.panel-group.accordion-classic-theme-colored2-filled .panel-heading {
+  background: #0cb8b6;
+}
+.panel-group.accordion-classic-theme-colored2-filled .panel-heading .panel-title a {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored2-filled .panel-heading .panel-title a:before {
+  background: #0baaa8;
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored2-filled .panel-heading .panel-title a.active:before {
+  background: #087a78;
+}
+.panel-group.accordion-classic-theme-colored21 .panel-heading {
+  background: #0cb8b6;
+}
+.panel-group.accordion-classic-theme-colored21 .panel-heading .panel-title a {
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored21 .panel-heading .panel-title a:before {
+  background: #0aa09e;
+  color: #fff;
+}
+.panel-group.accordion-classic-theme-colored21 .panel-heading .panel-title a.active:before {
+  background: #f36438;
+}
+.panel-group.accordion-icon-filled.accordion-icon-left.accordion-icon-filled-theme-colored2 .panel-heading .panel-title a:before {
+  background-color: #0cb8b6;
+}
+.panel-group.accordion-icon-filled.accordion-icon-right.accordion-icon-filled-theme-colored2 .panel-heading .panel-title a:after {
+  background-color: #0cb8b6;
+}
+/*
+ *  common.less
+ * -----------------------------------------------
+*/
+/*
+ * custom-theme-color-set.less
+ * -----------------------------------------------
+*/
+/*
+ * custom-theme-color1.less
+ * -----------------------------------------------
+*/
+/*
+ * custom-theme-color2.less
+ * -----------------------------------------------
+*/
+.services-tab .nav-tabs > li > a i {
+  color: #0cb8b6;
+}
+.horizontal-tab-centered .nav-pills > li > a:hover,
+.horizontal-tab-centered .nav-pills > li.active > a,
+.horizontal-tab-centered .nav-pills > li.active > a:hover,
+.horizontal-tab-centered .nav-pills > li.active > a:focus,
+.services-tab .nav-tabs > li.active > a,
+.services-tab .nav-tabs > li.active > a:hover,
+.services-tab .nav-tabs > li.active > a:focus,
+.services-tab .nav-tabs > li a:hover,
+.services-tab .nav-tabs > li a:focus {
+  background-color: #0cb8b6;
+}
+/*
+ * home-info-box.less
+ * -----------------------------------------------
+*/
+.home-info-box {
+  background-color: #f36438;
+}
+.home-info-box:hover {
+  background-color: #0cb8b6;
+}
+/*
+ * service-icon-box.less
+ * -----------------------------------------------
+*/
+.service-icon-box .icon {
+  background: #0cb8b6;
+}
+.service-icon-box:hover .icon {
+  background: #f36438;
+}
+/*
+ * pricing-table.less
+ * -----------------------------------------------
+*/
+.pricing-table .pricing-icon {
+  background: #0cb8b6;
+}
+.pricing-table:hover {
+  border-color: #f36438;
+}
+.pricing-table:hover .pricing-icon {
+  background: #0cb8b6;
+}
+/*
+ * team-members.less
+ * -----------------------------------------------
+*/
+.team-members .team-details {
+  background-color: #f36438;
+}
+.team-members .team-details:hover {
+  background-color: #0cb8b6;
+}
+/*
+ *  Gradients BG+BGTransparent Color
+ * -----------------------------------------------
+*/
+/* Gradient BG Colors */
+.bg-theme-colored-gradient {
+  background-color: #ea420e;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ea420e), to(#f9af98));
+  background: -webkit-linear-gradient(top, #ea420e, #f9af98);
+  background: -moz-linear-gradient(top, #ea420e, #f9af98);
+  background: -ms-linear-gradient(top, #ea420e, #f9af98);
+  background: -o-linear-gradient(top, #ea420e, #f9af98);
+}
+.bg-theme-colored-gradient-horizontal {
+  background: #ea420e;
+  background: -webkit-gradient(linear, left top, right top, from(#ea420e), to(#f9af98));
+  background: -webkit-linear-gradient(left, #ea420e, #f9af98);
+  background: -moz-linear-gradient(left, #ea420e, #f9af98);
+  background: -ms-linear-gradient(left, #ea420e, #f9af98);
+  background: -o-linear-gradient(left, #ea420e, #f9af98);
+}
+.bg-theme-colored2-gradient {
+  background-color: #098887;
+  background: -webkit-gradient(linear, left top, left bottom, from(#098887), to(#38f2f0));
+  background: -webkit-linear-gradient(top, #098887, #38f2f0);
+  background: -moz-linear-gradient(top, #098887, #38f2f0);
+  background: -ms-linear-gradient(top, #098887, #38f2f0);
+  background: -o-linear-gradient(top, #098887, #38f2f0);
+}
+.bg-theme-colored2-gradient-horizontal {
+  background: #098887;
+  background: -webkit-gradient(linear, left top, right top, from(#098887), to(#38f2f0));
+  background: -webkit-linear-gradient(left, #098887, #38f2f0);
+  background: -moz-linear-gradient(left, #098887, #38f2f0);
+  background: -ms-linear-gradient(left, #098887, #38f2f0);
+  background: -o-linear-gradient(left, #098887, #38f2f0);
+}
+.bg-theme-colored12-gradient {
+  background-color: #f36438;
+  background: -webkit-gradient(linear, left top, left bottom, from(#f36438), to(#0cb8b6));
+  background: -webkit-linear-gradient(top, #f36438, #0cb8b6);
+  background: -moz-linear-gradient(top, #f36438, #0cb8b6);
+  background: -ms-linear-gradient(top, #f36438, #0cb8b6);
+  background: -o-linear-gradient(top, #f36438, #0cb8b6);
+}
+.bg-theme-colored12-gradient-horizontal {
+  background: #f36438;
+  background: -webkit-gradient(linear, left top, right top, from(#f36438), to(#0cb8b6));
+  background: -webkit-linear-gradient(left, #f36438, #0cb8b6);
+  background: -moz-linear-gradient(left, #f36438, #0cb8b6);
+  background: -ms-linear-gradient(left, #f36438, #0cb8b6);
+  background: -o-linear-gradient(left, #f36438, #0cb8b6);
+}
+.bg-theme-colored21-gradient {
+  background-color: #0cb8b6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0cb8b6), to(#f36438));
+  background: -webkit-linear-gradient(top, #0cb8b6, #f36438);
+  background: -moz-linear-gradient(top, #0cb8b6, #f36438);
+  background: -ms-linear-gradient(top, #0cb8b6, #f36438);
+  background: -o-linear-gradient(top, #0cb8b6, #f36438);
+}
+.bg-theme-colored21-gradient-horizontal {
+  background: #0cb8b6;
+  background: -webkit-gradient(linear, left top, right top, from(#0cb8b6), to(#f36438));
+  background: -webkit-linear-gradient(left, #0cb8b6, #f36438);
+  background: -moz-linear-gradient(left, #0cb8b6, #f36438);
+  background: -ms-linear-gradient(left, #0cb8b6, #f36438);
+  background: -o-linear-gradient(left, #0cb8b6, #f36438);
+}
+/* -------- layer overlay gradient Color1 ---------- */
+.layer-overlay.overlay-theme-colored-gradient::before {
+  background: rgba(243, 100, 56, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.9)), to(rgba(249, 175, 152, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+}
+.layer-overlay.overlay-theme-colored-gradient-1::before {
+  background: rgba(243, 100, 56, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.1)), to(rgba(249, 175, 152, 0.1)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(249, 175, 152, 0.1));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(249, 175, 152, 0.1));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(249, 175, 152, 0.1));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(249, 175, 152, 0.1));
+}
+.layer-overlay.overlay-theme-colored-gradient-2::before {
+  background: rgba(243, 100, 56, 0.2);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.2)), to(rgba(249, 175, 152, 0.2)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(249, 175, 152, 0.2));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(249, 175, 152, 0.2));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(249, 175, 152, 0.2));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(249, 175, 152, 0.2));
+}
+.layer-overlay.overlay-theme-colored-gradient-3::before {
+  background: rgba(243, 100, 56, 0.3);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.3)), to(rgba(249, 175, 152, 0.3)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(249, 175, 152, 0.3));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(249, 175, 152, 0.3));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(249, 175, 152, 0.3));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(249, 175, 152, 0.3));
+}
+.layer-overlay.overlay-theme-colored-gradient-4::before {
+  background: rgba(243, 100, 56, 0.4);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.4)), to(rgba(249, 175, 152, 0.4)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(249, 175, 152, 0.4));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(249, 175, 152, 0.4));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(249, 175, 152, 0.4));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(249, 175, 152, 0.4));
+}
+.layer-overlay.overlay-theme-colored-gradient-5::before {
+  background: rgba(243, 100, 56, 0.5);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.5)), to(rgba(249, 175, 152, 0.5)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(249, 175, 152, 0.5));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(249, 175, 152, 0.5));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(249, 175, 152, 0.5));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(249, 175, 152, 0.5));
+}
+.layer-overlay.overlay-theme-colored-gradient-6::before {
+  background: rgba(243, 100, 56, 0.6);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.6)), to(rgba(249, 175, 152, 0.6)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(249, 175, 152, 0.6));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(249, 175, 152, 0.6));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(249, 175, 152, 0.6));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(249, 175, 152, 0.6));
+}
+.layer-overlay.overlay-theme-colored-gradient-7::before {
+  background: rgba(243, 100, 56, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.7)), to(rgba(249, 175, 152, 0.7)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(249, 175, 152, 0.7));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(249, 175, 152, 0.7));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(249, 175, 152, 0.7));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(249, 175, 152, 0.7));
+}
+.layer-overlay.overlay-theme-colored-gradient-8::before {
+  background: rgba(243, 100, 56, 0.8);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.8)), to(rgba(249, 175, 152, 0.8)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(249, 175, 152, 0.8));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(249, 175, 152, 0.8));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(249, 175, 152, 0.8));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(249, 175, 152, 0.8));
+}
+.layer-overlay.overlay-theme-colored-gradient-9::before {
+  background: rgba(243, 100, 56, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.9)), to(rgba(249, 175, 152, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(249, 175, 152, 0.9));
+}
+/* -------- layer overlay gradient Color2 ---------- */
+.layer-overlay.overlay-theme-colored2-gradient::before {
+  background: rgba(12, 184, 182, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.9)), to(rgba(56, 242, 240, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+}
+.layer-overlay.overlay-theme-colored2-gradient-1::before {
+  background: rgba(12, 184, 182, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.1)), to(rgba(56, 242, 240, 0.1)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(56, 242, 240, 0.1));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(56, 242, 240, 0.1));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(56, 242, 240, 0.1));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(56, 242, 240, 0.1));
+}
+.layer-overlay.overlay-theme-colored2-gradient-2::before {
+  background: rgba(12, 184, 182, 0.2);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.2)), to(rgba(56, 242, 240, 0.2)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(56, 242, 240, 0.2));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(56, 242, 240, 0.2));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(56, 242, 240, 0.2));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(56, 242, 240, 0.2));
+}
+.layer-overlay.overlay-theme-colored2-gradient-3::before {
+  background: rgba(12, 184, 182, 0.3);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.3)), to(rgba(56, 242, 240, 0.3)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(56, 242, 240, 0.3));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(56, 242, 240, 0.3));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(56, 242, 240, 0.3));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(56, 242, 240, 0.3));
+}
+.layer-overlay.overlay-theme-colored2-gradient-4::before {
+  background: rgba(12, 184, 182, 0.4);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.4)), to(rgba(56, 242, 240, 0.4)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(56, 242, 240, 0.4));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(56, 242, 240, 0.4));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(56, 242, 240, 0.4));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(56, 242, 240, 0.4));
+}
+.layer-overlay.overlay-theme-colored2-gradient-5::before {
+  background: rgba(12, 184, 182, 0.5);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.5)), to(rgba(56, 242, 240, 0.5)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(56, 242, 240, 0.5));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(56, 242, 240, 0.5));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(56, 242, 240, 0.5));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(56, 242, 240, 0.5));
+}
+.layer-overlay.overlay-theme-colored2-gradient-6::before {
+  background: rgba(12, 184, 182, 0.6);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.6)), to(rgba(56, 242, 240, 0.6)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(56, 242, 240, 0.6));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(56, 242, 240, 0.6));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(56, 242, 240, 0.6));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(56, 242, 240, 0.6));
+}
+.layer-overlay.overlay-theme-colored2-gradient-7::before {
+  background: rgba(12, 184, 182, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.7)), to(rgba(56, 242, 240, 0.7)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(56, 242, 240, 0.7));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(56, 242, 240, 0.7));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(56, 242, 240, 0.7));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(56, 242, 240, 0.7));
+}
+.layer-overlay.overlay-theme-colored2-gradient-8::before {
+  background: rgba(12, 184, 182, 0.8);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.8)), to(rgba(56, 242, 240, 0.8)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(56, 242, 240, 0.8));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(56, 242, 240, 0.8));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(56, 242, 240, 0.8));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(56, 242, 240, 0.8));
+}
+.layer-overlay.overlay-theme-colored2-gradient-9::before {
+  background: rgba(12, 184, 182, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.9)), to(rgba(56, 242, 240, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(56, 242, 240, 0.9));
+}
+/* -------- layer overlay gradient Color Combined 12 ---------- */
+.layer-overlay.overlay-theme-colored12-gradient::before {
+  background: rgba(243, 100, 56, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.9)), to(rgba(12, 184, 182, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+}
+.layer-overlay.overlay-theme-colored12-gradient-1::before {
+  background: rgba(243, 100, 56, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.1)), to(rgba(12, 184, 182, 0.1)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(12, 184, 182, 0.1));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(12, 184, 182, 0.1));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(12, 184, 182, 0.1));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.1), rgba(12, 184, 182, 0.1));
+}
+.layer-overlay.overlay-theme-colored12-gradient-2::before {
+  background: rgba(243, 100, 56, 0.2);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.2)), to(rgba(12, 184, 182, 0.2)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(12, 184, 182, 0.2));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(12, 184, 182, 0.2));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(12, 184, 182, 0.2));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.2), rgba(12, 184, 182, 0.2));
+}
+.layer-overlay.overlay-theme-colored12-gradient-3::before {
+  background: rgba(243, 100, 56, 0.3);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.3)), to(rgba(12, 184, 182, 0.3)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(12, 184, 182, 0.3));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(12, 184, 182, 0.3));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(12, 184, 182, 0.3));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.3), rgba(12, 184, 182, 0.3));
+}
+.layer-overlay.overlay-theme-colored12-gradient-4::before {
+  background: rgba(243, 100, 56, 0.4);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.4)), to(rgba(12, 184, 182, 0.4)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(12, 184, 182, 0.4));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(12, 184, 182, 0.4));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(12, 184, 182, 0.4));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.4), rgba(12, 184, 182, 0.4));
+}
+.layer-overlay.overlay-theme-colored12-gradient-5::before {
+  background: rgba(243, 100, 56, 0.5);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.5)), to(rgba(12, 184, 182, 0.5)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(12, 184, 182, 0.5));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(12, 184, 182, 0.5));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(12, 184, 182, 0.5));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.5), rgba(12, 184, 182, 0.5));
+}
+.layer-overlay.overlay-theme-colored12-gradient-6::before {
+  background: rgba(243, 100, 56, 0.6);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.6)), to(rgba(12, 184, 182, 0.6)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(12, 184, 182, 0.6));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(12, 184, 182, 0.6));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(12, 184, 182, 0.6));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.6), rgba(12, 184, 182, 0.6));
+}
+.layer-overlay.overlay-theme-colored12-gradient-7::before {
+  background: rgba(243, 100, 56, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.7)), to(rgba(12, 184, 182, 0.7)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(12, 184, 182, 0.7));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(12, 184, 182, 0.7));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(12, 184, 182, 0.7));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.7), rgba(12, 184, 182, 0.7));
+}
+.layer-overlay.overlay-theme-colored12-gradient-8::before {
+  background: rgba(243, 100, 56, 0.8);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.8)), to(rgba(12, 184, 182, 0.8)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(12, 184, 182, 0.8));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(12, 184, 182, 0.8));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(12, 184, 182, 0.8));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.8), rgba(12, 184, 182, 0.8));
+}
+.layer-overlay.overlay-theme-colored12-gradient-9::before {
+  background: rgba(243, 100, 56, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(243, 100, 56, 0.9)), to(rgba(12, 184, 182, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -moz-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -ms-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+  background: -o-linear-gradient(left, rgba(243, 100, 56, 0.9), rgba(12, 184, 182, 0.9));
+}
+/* -------- layer overlay gradient Color Combined 21 ---------- */
+.layer-overlay.overlay-theme-colored21-gradient::before {
+  background: rgba(12, 184, 182, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.9)), to(rgba(243, 100, 56, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+}
+.layer-overlay.overlay-theme-colored21-gradient-1::before {
+  background: rgba(12, 184, 182, 0.1);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.1)), to(rgba(243, 100, 56, 0.1)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(243, 100, 56, 0.1));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(243, 100, 56, 0.1));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(243, 100, 56, 0.1));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.1), rgba(243, 100, 56, 0.1));
+}
+.layer-overlay.overlay-theme-colored21-gradient-2::before {
+  background: rgba(12, 184, 182, 0.2);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.2)), to(rgba(243, 100, 56, 0.2)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(243, 100, 56, 0.2));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(243, 100, 56, 0.2));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(243, 100, 56, 0.2));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.2), rgba(243, 100, 56, 0.2));
+}
+.layer-overlay.overlay-theme-colored21-gradient-3::before {
+  background: rgba(12, 184, 182, 0.3);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.3)), to(rgba(243, 100, 56, 0.3)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(243, 100, 56, 0.3));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(243, 100, 56, 0.3));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(243, 100, 56, 0.3));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.3), rgba(243, 100, 56, 0.3));
+}
+.layer-overlay.overlay-theme-colored21-gradient-4::before {
+  background: rgba(12, 184, 182, 0.4);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.4)), to(rgba(243, 100, 56, 0.4)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(243, 100, 56, 0.4));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(243, 100, 56, 0.4));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(243, 100, 56, 0.4));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.4), rgba(243, 100, 56, 0.4));
+}
+.layer-overlay.overlay-theme-colored21-gradient-5::before {
+  background: rgba(12, 184, 182, 0.5);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.5)), to(rgba(243, 100, 56, 0.5)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(243, 100, 56, 0.5));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(243, 100, 56, 0.5));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(243, 100, 56, 0.5));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.5), rgba(243, 100, 56, 0.5));
+}
+.layer-overlay.overlay-theme-colored21-gradient-6::before {
+  background: rgba(12, 184, 182, 0.6);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.6)), to(rgba(243, 100, 56, 0.6)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(243, 100, 56, 0.6));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(243, 100, 56, 0.6));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(243, 100, 56, 0.6));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.6), rgba(243, 100, 56, 0.6));
+}
+.layer-overlay.overlay-theme-colored21-gradient-7::before {
+  background: rgba(12, 184, 182, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.7)), to(rgba(243, 100, 56, 0.7)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(243, 100, 56, 0.7));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(243, 100, 56, 0.7));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(243, 100, 56, 0.7));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.7), rgba(243, 100, 56, 0.7));
+}
+.layer-overlay.overlay-theme-colored21-gradient-8::before {
+  background: rgba(12, 184, 182, 0.8);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.8)), to(rgba(243, 100, 56, 0.8)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(243, 100, 56, 0.8));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(243, 100, 56, 0.8));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(243, 100, 56, 0.8));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.8), rgba(243, 100, 56, 0.8));
+}
+.layer-overlay.overlay-theme-colored21-gradient-9::before {
+  background: rgba(12, 184, 182, 0.9);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(12, 184, 182, 0.9)), to(rgba(243, 100, 56, 0.9)));
+  background: -webkit-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -moz-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -ms-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+  background: -o-linear-gradient(left, rgba(12, 184, 182, 0.9), rgba(243, 100, 56, 0.9));
+}
