@@ -235,7 +235,7 @@ $(document).ready(function(){
 	*/
 function initialize() {
 			var myLatlng = new google.maps.LatLng(23.710411,87.2663636);
-			var imagePath = 'map/map.png'
+			
 			var mapOptions = {
 				zoom: 16,
 				center: myLatlng,
@@ -255,7 +255,7 @@ function initialize() {
 		var marker = new google.maps.Marker({
 			position: myLatlng,
 			map: map,
-			icon: imagePath,
+			icon: map,
 			title: 'image title'
 		});
 

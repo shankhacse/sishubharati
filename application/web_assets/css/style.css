@@ -1845,15 +1845,19 @@ z-index:-1;
 
 
 #map_container{
-	width:80%;
-	min-height:600px;
+	margin-top: 40px;
+	
+	
+	min-height:400px;
   position: relative;
 }
 #map{
-    height: 0;
+	width:100%;
+    min-height:400px;
+    border: 10px solid Black;
     overflow: hidden;
-    padding-bottom: 35.25%;
-    padding-top: 30px;
+   
+    
     position: relative;
 }
 

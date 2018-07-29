@@ -15,14 +15,7 @@
                     	<h3>Contact Us</h3>
                     </div>
                 </div>
-                <div class="col-md-6">
-                	<div class="ct_breadcrumb">
-                    	<ul>
-                        	<li><a href="#">Home</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </section>
@@ -31,7 +24,7 @@
     <!--Content Wrap Start-->
     <div class="ct_content_wrap">
         <!--Map Wrap Start--><br>
-        <div class="map-canvas gt_contact_us_map" id="map_container" >
+       <div class="col-md-10 col-md-offset-1 map-canvas gt_contact_us_map" id="map_container">
              <div id="map"></div>
         </div>
         <!--Map Wrap End-->
