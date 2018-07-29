@@ -244,7 +244,7 @@ function initialize() {
 
 		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		//Callout Content
-		var contentString = 'Some address here..';
+		var contentString = 'Sishu Bharati Vidya Mandir';
 		//Set window width + content
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString,
@@ -256,7 +256,7 @@ function initialize() {
 			position: myLatlng,
 			map: map,
 			icon: map,
-			title: 'image title'
+			title: 'Sishu Bharati Vidya Mandir'
 		});
 
 		google.maps.event.addListener(marker, 'click', function() {
