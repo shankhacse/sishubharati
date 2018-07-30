@@ -187,9 +187,9 @@
 </div>
         </div>    
         <div class="col-md-6 holder2">
-        <h2>Birthday Wish</h2>
+        <!-- <h2>Birthday Wish</h2> -->
         
- <img src="<?php echo base_url();?>application/web_assets/images/birthday.png" height="200" weight="100" class="wish" alt="">
+ <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif" height="300" width="210" class="wish" alt="">
 
         <div class="birthday">
 

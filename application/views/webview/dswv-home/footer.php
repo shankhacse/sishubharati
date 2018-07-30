@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6">
                         <div class="footer_col_1 widget">
-                            <a href="#"><img src="web_assests/images/footer-logo.png" alt=""></a>
+                            <a href="#"><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="20" height="20" class="logo_pic" alt=""></a>
                             <p>Meet our profesionals they are passonate about. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura.</p>
                             <span>Email : info@educare.com</span>
                             <div class="foo_get_qoute">
