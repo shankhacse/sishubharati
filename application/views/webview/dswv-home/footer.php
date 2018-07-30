@@ -7,7 +7,7 @@
                         <div class="footer_col_1 widget">
                             <a href="#"><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="20" height="20" class="logo_pic" alt=""></a>
                             <p>Meet our profesionals they are passonate about. Aenean massa. Lorem ipsum dolor sit amet, consec tetuer adipis elit, aliquam eget nibh etlibura.</p>
-                            <span>Email : info@educare.com</span>
+                            <span>Email : asimsbbm@gmail.com</span>
                             <div class="foo_get_qoute">
                                 <a href="#">GET A Touch</a>
                             </div>

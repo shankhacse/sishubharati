@@ -244,7 +244,7 @@ function initialize() {
 
 		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 		//Callout Content
-		var contentString = 'Sishu Bharati Vidya Mandir';
+		var contentString = 'Sishu Bharati Vidya Mandir -- Pandaveswar ,Burdwan, West Bengal-713346';
 		//Set window width + content
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString,

@@ -269,7 +269,7 @@ a:focus, a:hover {
   margin: 20px auto 20px;
   position: relative;
   width: 80px;
-  background: #28ABE3;
+  background: #90a94c;
 }
 
 .bg-gray {
@@ -966,10 +966,12 @@ a:focus, a:hover {
   font-size: 14px;
   padding: 8px 20px;
   text-transform: uppercase;
-  background: #28ABE3;
+  background: #90a94c;
   border: none;
   color: #fff;
   outline: none;
+  margin:5px;
+  border-radius:2px;
 }
 
 .portfolio-filter button.active {
@@ -1029,7 +1031,7 @@ a:focus, a:hover {
 }
 
 .portfolio-block .caption .search-icon {
-  background: #28ABE3;
+  background: #90a94c;
   color: #fff;
   display: inline-block;
   padding: 4px 13px;

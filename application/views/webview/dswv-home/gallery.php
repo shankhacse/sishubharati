@@ -108,7 +108,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-2.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-2.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -119,7 +119,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-3.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-3.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -130,7 +130,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-4.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-4.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -141,7 +141,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-5.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-5.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -152,7 +152,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-6.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-6.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -163,7 +163,7 @@ End Fixed Navigation
                     <div class="portfolio-block">
                       <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-7.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-7.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
@@ -172,9 +172,9 @@ End Fixed Navigation
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-6 mix design development">
                     <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" alt="">
+                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-8.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-8.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
                         <h4><a href="">AirBnB Postcard</a></h4>
