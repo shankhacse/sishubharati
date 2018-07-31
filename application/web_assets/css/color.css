@@ -91,6 +91,7 @@
 .ct_course_link > a:hover,
 .ct_learn_more a:hover,
 .form_field input[type="text"]:focus,
+.form_field input[type="password"]:focus,
 .form_field textarea:focus,
 .ct_404_detail_wrap form input[type="search"],
 .ct_blog_detail_tag ul li:hover a,

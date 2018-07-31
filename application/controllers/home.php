@@ -51,5 +51,16 @@ class home extends CI_Controller {
 	}
 
 
+public function login()
+	{
 
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/login";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
 }

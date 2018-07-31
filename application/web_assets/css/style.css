@@ -140,7 +140,7 @@ section{
 	color:#FF5733;
 	font-weight: 900;
 	font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
-	font-size: 25px;
+	font-size: 20px;
 	
 	display: inline;
 	line-height: 42px;
@@ -1889,9 +1889,10 @@ z-index:-1;
 	font-size:15px;
 	margin:0px;	
 }
-.form_field input[type="text"],
+.form_field input[type="text"], input[type="password"],
 .form_field textarea{
 	width:100%;
+	margin-top: 10px;
 	height:65px;
 	border:1px solid #f2f2f2;
 	padding:14px 20px 12px 60px;
@@ -1906,7 +1907,8 @@ z-index:-1;
 	color:#fff;
 	font-weight:bold;
 	text-transform:uppercase;
-	padding:20px 30px;
+	padding:12px 15px;
+	border-radius: 5px;
 	font-size:16px;
 	display:inline-block;	
 }
@@ -2763,5 +2765,60 @@ background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Fir
 margin-right: -15px;
 margin-left: 5px;
 }
+
+.login_box{
+
+	background-color:white;
+
+ 
+  max-width: 550px;
+  box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
+  min-height:300px;
+  float: left;
+  overflow:hidden;
+  padding:30px;
+  font-family:Times New Roman;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+
+.login_box h1{
+    
+    
+	color:#0BD3F9;
+	font-weight: 900;
+	/* font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;  */
+	font-size: 20px;
+	display: inline;
+	line-height: 20px;
+	text-transform: uppercase;
+}
+
+@media screen and (max-width: 568px) {
+.login_box h1{
+    
+    
+	color:#0BD3F9;
+	font-weight: 900;
+	/* font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;  */
+	font-size: 9px;
+	display: inline;
+	line-height:10px;
+	text-transform: uppercase;
+}
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #0BD3F9;
+    font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
+    opacity: 0.5; /* Firefox */
+}
+
+.txt_login{
+
+	margin-top: 10px;
+}
+
 
 
