@@ -6,10 +6,36 @@
 }
 .login-page
 {
-	//background: #f5f5f5;
-	background: url(image/loginbackground.jpg) #f5f5f5 no-repeat;
+	background: #f5f5f5;
 }
 .login_input_err
 {
 	border:1px solid #fb9595;
+}
+
+ .check-mark{
+  color:#5bce5b;
+}
+.btnview{
+  float: left;
+}
+.searchby{
+  float: right;
+  margin-top: 4px;
+}
+#loadBlockList{
+  margin-top:20px;
+}
+.open{
+  border: 1px solid rgb(6, 149, 206);
+}
+
+.dropdown-menu > .active > a, .dropdown-menu >
+ .active > a:focus, .dropdown-menu > .active > a:hover {
+    
+    background-color: #cbdce0;
+    
+}
+.btnview{
+  text-align: center;
 }

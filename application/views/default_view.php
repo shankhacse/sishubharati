@@ -67,6 +67,10 @@
 		border-left: 1px solid #e4e4e4;
 		border-right: 1px solid #e4e4e4;
 	}
+
+  .error-border{
+    border: 1px solid red;
+  }
   </style>
 
 
