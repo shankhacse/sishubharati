@@ -1,10 +1,15 @@
  <style type="text/css">
   .login_bgs{
-background: #0cebeb;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  }
+background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 13, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+        url(https://images.pexels.com/photos/808510/pexels-photo-808510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover; /* Fit by window size */
+    background-position: center; /* Which side will stay after resize */
+    background-attachment: fixed;
+   
+}
  </style>
 
 
@@ -27,7 +32,7 @@ background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+
                                   <input class="conatct_plchldr" type="password" placeholder="Password">
                                 </div>
                                 
-                                <div class="form_field">
+                                <div class="login_field">
                                   <button class="login_btn">Login</button>
 
 

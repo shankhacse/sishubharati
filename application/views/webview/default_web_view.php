@@ -92,7 +92,10 @@ include('dswv-home/footer.php');
     <script src="<?php echo base_url();?>application/web_assets/js/waypoints-min.js"></script>
     <!--Custom JavaScript-->
 	<script src="<?php echo base_url();?>application/web_assets/js/custom.js"></script>
-
+<!--Accordian Javascript-->
+    <script src="<?php echo base_url();?>application/web_assets/js/jquery.accordion.js"></script>
+    <!--Accordian Javascript-->
+    <script src="<?php echo base_url();?>application/web_assets/js/chosen.jquery.min.js"></script>
 
   </body>
 </html>

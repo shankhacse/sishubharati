@@ -27,13 +27,13 @@
                 <nav class="main_navigation">
                     <ul>
                         <li><a href="<?php echo base_url();?>home">Home</a></li>
-                        <li><a href="#">courses</a>
+                        <!-- <li><a href="#">courses</a> 
                         	<ul>
                             	<li><a href="#">Course Listing</a></li>
                                 <li><a href="#">Course Detail</a></li>
                             </ul>
-                        </li>
-                        <li><a href="#">Teachers</a></li>
+                        </li>-->
+                        <li><a href="<?php echo base_url();?>home/aboutus">About Us</a></li>
                         <li><a href="<?php echo base_url();?>home/contactus">Contact Us</a>
                         	<!-- <ul>
                                                             <li><a href="#">Blog Simple</a></li>
@@ -57,13 +57,13 @@
                     <ul class="dl-menu">
                         <li class="active"><a href="<?php echo base_url();?>home">Home</a></li>
                        <!--  <li><a href="about-us.html">About Us</a></li> -->
-                        <li class="#"><a href="#">courses</a>
+                        <!-- <li class="#"><a href="#">courses</a>
                             <ul class="dl-submenu">
                                 <li><a href="#">Course Listing</a></li>
                                 <li><a href="#">Course Detail</a></li>
                             </ul>
-                        </li>
-                        <li class="menu-item kode-parent-menu"><a href="#">Teachers</a></li>
+                        </li> -->
+                        <li class="menu-item kode-parent-menu"><a href="<?php echo base_url();?>home/aboutus">About Us</a></li>
                         <li class="menu-item kode-parent-menu"><a href="<?php echo base_url();?>home/contactus">Contact Us</a>
                             <!-- <ul class="dl-submenu">
                                 <li><a href="blog-simple.html">Blog Simple</a></li>

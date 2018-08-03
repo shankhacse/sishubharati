@@ -34,6 +34,48 @@
                 </div> -->
             </li>
         </ul>
+        <div class="row">
+        <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+          <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" class="option_img"> 
+            
+            <h3>Admission</h3> 
+              
+            </div>
+            <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+              <img src="<?php echo base_url();?>application/web_assets/images/ereader-1.png" width="100" height="100" class="option_img" >
+            
+            <h3>Importent Info</h3> 
+            
+            </div>
+            <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+             
+           <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" class="option_img" >
+            <h3>E-Payment </h3> 
+              
+            </div>
+            <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
+            <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100"  class="option_img" >
+            
+            <h3>News & Event</h3> 
+            
+            </div> 
+
+            <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+            <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" class="option_img" >
+            <h3>Photo Gallery</h3> 
+            
+            </div> 
+
+           <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+            <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" class="option_img" >
+            <h3>Photo Gallery</h3> 
+            
+            </div> 
+            
+           
+            
+
+          </div>
     </div>
   
     <!--Banner Wrap End-->
@@ -77,29 +119,29 @@
                    <div class="col-md-6 news"><h3>News and Update for school
 </h3>
   <ul id="ticker01">
-                            <li><a href="#">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
                             <hr>
-                            <li><a href="#">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
                             <hr>
-                            <li><a href="#">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
                             <hr>
-                            <li><a href="#">Inside of which is the code that you want to run</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Inside of which is the code that you want to run</a></li>
                             <hr>
-                            <li><a href="#">Right when the page is loaded</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Right when the page is loaded</a></li>
                             <hr>
-                            <li><a href="#">Problematically, however, the Javascript code</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Problematically, however, the Javascript code</a></li>
                             <hr>
-                            <li><a href="#">The first thing that most Javascript programmers</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">The first thing that most Javascript programmers</a></li>
                             <hr>
-                            <li><a href="#">End up doing is adding some code</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">End up doing is adding some code</a></li>
                             <hr>
-                            <li><a href="#">The code that you want to run</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">The code that you want to run</a></li>
                             <hr>
-                            <li><a href="#">Inside of which is the code that you want to run</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Inside of which is the code that you want to run</a></li>
                             <hr>
-                            <li><a href="#">Right when the page is loaded</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Right when the page is loaded</a></li>
                             <hr>
-                            <li><a href="#">Problematically, however, the Javascript code</a></li>
+                            <li><a href="<?php echo base_url();?>home/noticeboard">Problematically, however, the Javascript code</a></li>
                             <hr>
                 </ul>
 </div>
@@ -116,11 +158,10 @@
             <div class="container">
 
                 <div class="row">
-        <div class="col-md-6" style="margin-left: 20px;">
-
-        <div id="content ">
+      
+        
  
-<div class=" font_gallery ">
+<div class=" col-md-5 font_gallery " id="content " style="margin-left: 20px;">
   <div class="container1 col-md-6">
     <div class="flipper">
       <div class="front">
@@ -174,18 +215,101 @@
         <img src="<?php echo base_url();?>application/web_assets/images/event4.jpg" width="200" height="150" alt="cherry blossoms">
         <p class="caption">Lavender</p>
       </div>
-      <!-- <div class="back">
+      <div class="back">
         <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
           <h1>Lavender</h1>
         </a>
         <p class="date">06/08/2004</p>
         <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
-      </div> -->
+      </div>
     </div>
   </div>
 </div>
-</div>
-        </div>    
+<?php 
+$birthday=2;
+
+if 
+
+
+($birthday == 0) 
+
+{ 
+
+
+  ?>
+<!-- if birthday not avialable -->
+ <div class=" col-md-5 font_gallery " id="content " style="margin-left: 20px; float:right">
+  <div class="container1 col-md-6">
+    <div class="flipper">
+      <div class="front">
+        <img src="<?php echo base_url();?>application/web_assets/images/event1.jpg" width="200" height="150" alt="cherry blossoms">
+        <p class="caption">Cherry </p>
+      </div>
+     <div class="back">
+       <a href="https://en.wikipedia.org/wiki/Cherry_blossom" target="_blank">
+         <h1>Cherry blossom</h1>
+       </a>
+       <p class="date">23/07/1997</p>
+       <p class="description">A cherry blossom is the flower of any of several trees of genus Prunus, particularly the Japanese cherry, Prunus serrulata, which is called sakura after the Japanese (桜 or 櫻; さくら).</p>
+     </div>
+    </div>
+  </div>
+
+  <div class="container1 col-md-6">
+    <div class="flipper">
+      <div class="front">
+        <img src="<?php echo base_url();?>application/web_assets/images/event2.jpg" width="200" height="150" alt="cherry blossoms">
+        <p class="caption">Tulip</p>
+      </div>
+      <div class="back">
+        <a href="https://en.wikipedia.org/wiki/Tulip" target="_blank">
+          <h1>Tulip</h1>
+        </a>
+        <p class="date">14/07/2001</p>
+        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container1 col-md-6">
+    <div class="flipper">
+      <div class="front">
+        <img src="<?php echo base_url();?>application/web_assets/images/event3.jpg" width="200" height="150" alt="cherry blossoms">
+        <p class="caption">Lavender</p>
+      </div>
+      <div class="back">
+        <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
+          <h1>Lavender</h1>
+        </a>
+        <p class="date">06/08/2004</p>
+        <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
+      </div>
+    </div>
+  </div>
+  <div class="container1 col-md-6">
+    <div class="flipper">
+      <div class="front">
+        <img src="<?php echo base_url();?>application/web_assets/images/event4.jpg" width="200" height="150" alt="cherry blossoms">
+        <p class="caption">Lavender</p>
+      </div>
+      <div class="back">
+        <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
+          <h1>Lavender</h1>
+        </a>
+        <p class="date">06/08/2004</p>
+        <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
+      </div>
+    </div>
+  </div>
+</div> 
+ <?php 
+} 
+
+else 
+
+{
+
+  ?>
         <div class="col-md-6 holder2">
         <!-- <h2>Birthday Wish</h2> -->
         
@@ -223,6 +347,9 @@ foreach ($arrayName as  $value) {
 }
 
 
+
+
+}//end of else
 ?>
             <!-- <li>
                 <img src="<?php echo base_url();?>application/web_assets/images/kid1.jpg"   alt=""><br>
@@ -258,9 +385,17 @@ foreach ($arrayName as  $value) {
         </ul>
     </div>
         
-        </div>    
+        </div> 
+
+
+<? } ?>
+
+
+
        </div>
        </div>
+     
+   
        </section>  
     <!--Content Wrap Start-->
     <div class="ct_content_wrap">
@@ -287,15 +422,15 @@ foreach ($arrayName as  $value) {
                         <div class="col-md-6">
                             <div class="get_started_video">
                                 <img src="<?php echo base_url();?>application/web_assets/images/about_school.jpg" alt="">
-                                <div class="get_video_icon">
+                                <!-- <div class="get_video_icon">
                                    
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                   </div>
                 </div>
                 
-                <div class="row">
+                <!-- <div class="row">
                   <div class="col-md-6 col-sm-6">
                       <div class="get_started_services">
                           <div class="get_started_icon">
@@ -321,7 +456,7 @@ foreach ($arrayName as  $value) {
                         </div>
                     </div>
                     
-                </div>
+                </div> -->
                 
             </div>
         </section>
@@ -422,48 +557,48 @@ foreach ($arrayName as  $value) {
         <!--Register Now Wrap Start-->
        
         <!--Register Now Wrap End-->
-        <section class="ct_menu_bg">
-    <div class="container">
-<div class="row">
-            <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
-             <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" > 
+        <!-- <section class="ct_menu_bg">
+            <div class="container">
+        <div class="row">
+        <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
+          <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" class="option_img"> 
             
-            <h3>Admission Now!!</h3> 
+            <h3>Admission</h3> 
               
             </div>
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
-              <img src="<?php echo base_url();?>application/web_assets/images/ereader-1.png" width="100" height="100" >
+              <img src="<?php echo base_url();?>application/web_assets/images/ereader-1.png" width="100" height="100" class="option_img" >
             
             <h3>Importent Info</h3> 
             
             </div>
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
              
-           <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" >
-            <h3>Online Fee Payment </h3> 
+           <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" class="option_img" >
+            <h3>Online Payment </h3> 
               
             </div>
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
-            <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100" class="menu_images" >
+            <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100"  class="option_img" >
             
             <h3>News & Event</h3> 
             
             </div> 
-
+        
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3 ">
-            <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" >
+            <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" class="option_img" >
             <h3>Photo Gallery</h3> 
             
             </div> 
-
+        
            
             
            
             
-
+        
           </div>
-      </div>
-  </section>
+              </div>
+          </section> -->
         <!--Our Teacher Wrap Start-->
         
         <!--Our Teacher Wrap End-->
@@ -473,12 +608,12 @@ foreach ($arrayName as  $value) {
             <ul>
                 <li>
                     <i class="icon-avatar"></i>
-                    <h2 class="counter">112</h2>
+                    <h2 class="counter">40</h2>
                     <span>Certified Teachers</span>
                 </li>
                 <li>
                     <i class="icon-command"></i>
-                    <h2 class="counter">282673</h2>
+                    <h2 class="counter">322</h2>
                     <span>Students Enrolled</span>
                 </li>
                 <li>
@@ -500,9 +635,9 @@ foreach ($arrayName as  $value) {
           <div class="container">
               <!--Heading Style 1 Wrap Start-->
                 <div class="ct_heading_1_wrap">
-                  <h3>Our Events</h3>
-                    <p>Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec <br/>tetuer adipis elit, aliquam eget nibh etlibura.</p>
-                    <span><img src="images/hdg-01.png" alt=""></span>
+                  <h3>Our Upcoimung Events</h3>
+                    <!-- <p>Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec <br/>tetuer adipis elit, aliquam eget nibh etlibura.</p> -->
+                    <span><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="40" height="40" alt=""></span>
                 </div>
                 <!--Heading Style 1 Wrap End-->
                 
@@ -649,20 +784,4 @@ foreach ($arrayName as  $value) {
     </div>
     <!--Content Wrap End-->
     
-    <!--Footer Wrap Start-->
-    <footer>
-      <!--NewsLetter Wrap Start-->
-        <div class="ct_newsletter_wrap">
-          <div class="container">
-              <div class="newletter_des">
-                  <h5>Subscribe Our Weekly Newsletter</h5>
-                    <form>
-                      <label class="fa fa-envelope-o"></label>
-                      <input type="text" placeholder="Enter Your Email">
-                        <button>Signup</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <!--NewsLetter Wrap End-->
-        
+   

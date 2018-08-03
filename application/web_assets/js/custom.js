@@ -234,7 +234,7 @@ $(document).ready(function(){
 	  =======================================================================
 	*/
 function initialize() {
-			var myLatlng = new google.maps.LatLng(23.710411,87.2663636);
+			var myLatlng = new google.maps.LatLng(23.710564,87.266716);
 			
 			var mapOptions = {
 				zoom: 16,

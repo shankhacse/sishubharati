@@ -449,7 +449,7 @@ section{
 	float:left;
 	width:100%;
 	position:relative;
-	border-bottom:1px solid #f2f2f2;
+	/* border-bottom:1px solid #f2f2f2; */
 	padding:0px 0px 50px;
 	margin:0px 0px 50px;	
 }
@@ -471,7 +471,7 @@ section{
 	text-transform:uppercase;	
 }
 .get_started_content_wrap p{
-		
+		text-align: justify;
 }
 .get_started_video{
 	float:left;
@@ -485,7 +485,7 @@ section{
 	left:0px;
 	width:100%;
 	height:100%;
-	background-color:rgba(0,0,0,0.5);	
+	/* background-color:rgba(0,0,0,0.5); */	
 }
 .get_started_video img{
 	width:100%;
@@ -581,8 +581,8 @@ section{
 }
 .ct_heading_1_wrap span img{
 	display:inline-block;
-	width:auto;
-	height:auto;
+	/* width:auto;
+	height:auto; */
 	margin-top:-5px;	
 }
 .ct_heading_1_wrap span:before,
@@ -621,7 +621,8 @@ section{
 	background-size:cover;
 	background-position:center;
 	background-repeat:no-repeat;
-	padding:50px 0 50px;	
+	padding:50px 0 50px;
+	background-attachment: fixed;
 }
 .ct_courses_subject_bg:before{
 	content: "";
@@ -1074,6 +1075,7 @@ h1 {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   display: inline-block;
+  text-align: center;
   margin: 3%;
 }
 
@@ -1081,6 +1083,14 @@ h1 {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 } */
+
+.container1:hover {
+  -webkit-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
+transition: 1s ease;
+}
+
 
 .container1,
 .front,
@@ -1118,6 +1128,7 @@ h1 {
 }
 
 #content {
+
 	margin-top: -10px;
   text-align: center;
 }
@@ -1129,13 +1140,20 @@ h1 {
 	  ==============================================================
 */
 .ct_register_bg{
-	background-image:url(../images/register-now-bg.jpg);
-	background-size:cover;
+	background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 13, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+        url(../images/subject_bg.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover; /* Fit by window size */
+    background-position: center; /* Which side will stay after resize */
+	/* background-size:cover;
 	background-repeat:no-repeat;
-	background-position:center;
+	background-position:center; */
 	padding:0px;
 	margin-top: 60px;
 	margin-bottom:60px;	
+	background-attachment: fixed;
 }
 .ct_menu_bg{
 	
@@ -1171,8 +1189,21 @@ h1 {
 	text-align:center;
 	min-height: 350px;
 	border-radius: 5px;
-	border: 10px solid #90a94c;	
+	border: 5px solid #90a94c;	
+	box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
 }
+.ct_hreg_wrap:hover{
+
+
+--webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+}
+
+
+
+
 .register_top_detail{
 	float:left;
 	width:100%;
@@ -1264,7 +1295,8 @@ h1 {
 	  ==============================================================
 */
 .teacher_bg{
-	padding-bottom:50px;	
+	padding-bottom:50px;
+	background-color: #E2F1F4;	
 }
 .ct_teacher_outer_wrap{
 	float:left;
@@ -1326,9 +1358,16 @@ h1 {
 	  ==============================================================
 */
 .ct_facts_bg{
-	background-image:url(../images/facts-bg-01.jpg);
-	background-size:cover;
-	background-repeat:no-repeat;	
+
+	background-image: linear-gradient(
+        to right bottom, 
+        rgba(13, 111, 107, 0.8), 
+        rgba(140, 180, 131, 0.8)),
+        url(../images/facts-bg-01.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-size: cover; /* Fit by window size */
+    background-position: center; /* Which side will stay after resize */
+	background-attachment: fixed;
+	margin-top: 50px;
 }
 .ct_facts_bg ul{
 	float:left;
@@ -1679,18 +1718,27 @@ h1 {
 	z-index:10;
 	padding:70px 10px 30px;
 	margin:0px 0px 30px;
+border-radius: 2px;
+}
+
+.sub_event_wrap:hover{
+
+box-shadow: 0 0 0 10px #90a94c;
+transition: .5s ease;
+border-radius: 2px
 }
 .sub_event_wrap:before{
 	content:"";
 	position:absolute;
 	top:0px;
+border-radius: 3px;
 	left:0px;
 	width:100%;
 	height:100%;
-	background: #0cebeb;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-z-index:-1;	
+	z-index:-1;	
+background: #fd746c;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #ff9068, #fd746c);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .sub_event_wrap h6 > a{
 	display:block;
@@ -1883,18 +1931,18 @@ z-index:-1;
 }
 .form_field label{
 	position:absolute;
-	top:26px;
-	left:30px;
-	color:#d5d5d5;
+	top:14px;
+	left:25px;
+	color:#0F90A8;
 	font-size:15px;
 	margin:0px;	
 }
 .form_field input[type="text"], input[type="password"],
 .form_field textarea{
 	width:100%;
-	margin-top: 10px;
-	height:65px;
-	border:1px solid #f2f2f2;
+	border-radius: 3px;
+	height:40px;
+	border:1px solid #0F90A8;
 	padding:14px 20px 12px 60px;
 	display:inline-block;
 	margin:0px 0px 15px;
@@ -1907,9 +1955,21 @@ z-index:-1;
 	color:#fff;
 	font-weight:bold;
 	text-transform:uppercase;
-	padding:12px 15px;
+	padding:8px 10px;
 	border-radius: 5px;
 	font-size:16px;
+	display:inline-block;	
+}
+
+.login_field button{
+	background-color: #0F90A8;
+	color:#fff;
+	font-weight:normal;
+	font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
+	text-transform:uppercase;
+	padding:8px 10px;
+	border-radius: 5px;
+	font-size:14px;
 	display:inline-block;	
 }
 .form_field button i{
@@ -2734,13 +2794,13 @@ ul.ct_course_list li span{
 }
 
 .adminhome1 {
-	height: 200px;
-    width:210px;
+	height: 180px;
+    width:200px;
     padding-top: 20px;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 25px;
    
-	background: #ff7e5f;  /* fallback for old browsers */
+background: #ff7e5f;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to top, #feb47b, #ff7e5f);  /* Chrome 10-25, Safari 5.1-6 */
 background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
@@ -2749,13 +2809,33 @@ background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Fir
     -moz-border-radius: 15px;
     border-radius: 5px;
     box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
-	}
+}
+.adminhome1:hover{
+
+background: #B2FEFA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #0ED2F7, #B2FEFA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+-webkit-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
+transition: 1s ease;
+}
+
+.adminhome1	h3{
+font-size: 25px;
+font-weight: normal;
+text-align: center;
+font-family: 'Ultra', sans-serif;
+color: white;
+}
 @media screen and (max-width: 568px) {
 .adminhome1 {
 	
     padding-top: 20px;
     margin-top: 20px;
-    margin-left: 35px;
+    margin-left: 60px;
    
 	
 }
@@ -2765,15 +2845,19 @@ background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Fir
 margin-right: -15px;
 margin-left: 5px;
 }
+.font_gallery1{
+
+float:right;
+}
 
 .login_box{
 
 	background-color:white;
 
  
-  max-width: 550px;
+  max-width: 365px;
   box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
-  min-height:300px;
+  min-height:270px;
   float: left;
   overflow:hidden;
   padding:30px;
@@ -2810,9 +2894,9 @@ margin-left: 5px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #0BD3F9;
+    color: #0F90A8;
     font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
-    opacity: 0.5; /* Firefox */
+    opacity: 1; /* Firefox */
 }
 
 .txt_login{
@@ -2820,5 +2904,116 @@ margin-left: 5px;
 	margin-top: 10px;
 }
 
+
+
+.option_img{
+
+	margin-left: 33px;
+}
+
+.about_text
+{
+	margin-top: 30px
+}
+
+.about_text p
+{
+	font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
+	font-size: 15px;
+}
+.about_us_wrap{
+	 
+background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 13, 111, 0.8), 
+        rgba(40, 180, 131, 0.8)), 
+        url(../images/slide3.JPG?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+
+background-size: cover; /* Fit by window size */
+    background-position: center; /* Which side will stay after resize */
+    background-attachment: fixed;
+}
+
+
+.about_us_wrap h3{
+	 font-weight: bold;
+	color:white;
+}
+
+.notice_box{
+    margin-top: 20px;
+	background-color: #D9EDF9;
+	padding:20px;
+	width:100%;
+	height:auto;
+
+}
+
+/* .notice_box:hover{
+border: 1px solid #3B7093;
+
+
+} */
+hr.style3 {
+	border-top: 1px dashed #8c8b8b;
+}
+.notice_box button{
+	font-size: 15px;
+}
+.notice_box button:hover{
+	background-color: #A5D5F5;
+}
+
+
+.row-fluid{
+
+	margin-top: 10px;
+}
+
+
+.notice_box h4{
+font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 20px;
+color:black;
+}
+
+.notice_box p{
+font-family: "Arial Black", Gadget, sans-serif;
+	color:black;
+}
+.about_us_warp_img{
+	background-image:url(../images/about_us_pic.jpg);
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+	padding:50px 0 50px;
+	background-attachment: fixed;
+}
+
+.about_warp_banner h2{
+text-align: center;;
+	color:#D7EBEF;
+}
+
+.mission_warp
+{
+
+	background-color: #F0F8FA
+}
+
+
+.notice_board_bg{
+	padding: 20px;
+
+	/* background-image: linear-gradient(
+	        to right bottom, 
+	        rgba(13, 111, 107, 0.8), 
+	        rgba(140, 180, 131, 0.8)),
+	        url(../images/gg.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+	    background-size: cover; Fit by window size
+	    background-position: center; Which side will stay after resize
+	background-attachment: fixed;
+	 */
+}
 
 

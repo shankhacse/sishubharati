@@ -36,7 +36,18 @@ class home extends CI_Controller {
 		webview_helper($result, $page, $header, $session);
 	
 	}
+     public function aboutus()
+	{
 
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/about_us";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
 	public function contactus()
 	{
 
@@ -58,6 +69,20 @@ public function login()
 		$header = [];
 		$result = [];
 		$page = "webview/dswv-home/login";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
+
+
+	public function noticeboard()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/notice_update";
 
 		
 		webview_helper($result, $page, $header, $session);
