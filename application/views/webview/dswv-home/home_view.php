@@ -34,7 +34,13 @@
                 </div> -->
             </li>
         </ul>
-        <div class="row">
+
+        
+    </div>
+
+<section >
+            <div class="container">
+    <div class="row">
         <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
           <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" class="option_img"> 
             
@@ -66,18 +72,13 @@
             
             </div> 
 
-           <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3 ">
-            <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" class="option_img" >
-            <h3>Photo Gallery</h3> 
-            
-            </div> 
-            
+           
            
             
 
           </div>
-    </div>
-  
+  </div>
+</section>
     <!--Banner Wrap End-->
 
 <link rel="stylesheet" href="<?php echo base_url();?>application/web_assets/css/notice.css">
@@ -388,7 +389,7 @@ foreach ($arrayName as  $value) {
         </div> 
 
 
-<? } ?>
+
 
 
 
