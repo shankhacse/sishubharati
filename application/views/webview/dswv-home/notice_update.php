@@ -1,8 +1,8 @@
 <script src="<?php echo base_url();?>application/web_assets/js/jquery.js"></script>
   <script src="<?php echo base_url();?>application/web_assets/js/bootstrap.min.js"></script> 
 
-  
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+  <!-- <script src="<?php echo base_url();?>application/web_assets/js/bootstrap-select.min.css"></script>  -->
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css"/> 
 <section class="about_us_wrap">
         <div class="container">
             <div class="row">
@@ -16,8 +16,8 @@
         </div>
     </section>
 
-  
-  
+ <!--  <script src="<?php echo base_url();?>application/web_assets/js/bootstrap-select.min.js"></script>
+  -->
  
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 
@@ -44,14 +44,29 @@
         <option >2020</option>
         
       </select>
+      </div><div class="row-fluid col-md-3">
+       
+      <select class="selectpicker"  data-live-search="true" >
+        <option >January</option>
+        <option>February</option>
+        <option >March</option>
+        
+      </select>
       </div>
+
+      <div class="col-md-3" id='search-box'>
+<form action='#' id='search-form' method='get' target='_top'>
+<input id='search-text' name='q' placeholder='Search Box' type='text'/>
+<!-- <button id='search-button' type='submit'><span>Search</span></button> -->
+</form>
+</div>
      </div>
      <div class="row">
 
 
 <div class="notice_box">
 <h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
+<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>    <span class="type_news"><i class="fa fa-shield"></i> Result</span><hr class="style3">
 
 
 <button type="button" class="btn btn-outline-primary">

@@ -85,16 +85,7 @@ AND NEAR AJOY PETROL PUMP</p>
 							</div>
 						</div>
 						
-                        <div class="newletter_des contact_us_newsltr">
-                            <h5>Subscribe Our Weekly Newsletter</h5>
-                            <form>
-                                <label class="fa fa-envelope-o"></label>
-                                <input type="text" placeholder="Enter Your Email">
-                                <button>Signup</button>
-                            </form>
-                           <!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                           incididunt ut labore et dolore magna aliqua. </p> -->
-                        </div>
+                       
                     </div>
                     
                 </div>

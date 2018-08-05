@@ -3015,5 +3015,57 @@ text-align: center;;
 	background-attachment: fixed;
 	 */
 }
+.type_news{
 
+	margin:10px;
+}
 
+#search-box {
+position: relative;
+/* width: 100%; */
+margin-top: 10px;
+}
+
+#search-form 
+{
+height: 35px;
+border: 1px solid #bfb6b6;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+background-color: #fff;
+overflow: hidden;
+}
+#search-text 
+{
+margin-top: -3px;
+font-size: 14px;
+color: #ddd;
+border-width: 0;
+background: transparent;
+}
+#search-box input[type="text"]
+{
+width: 90%;
+padding: 11px 0 12px 1em;
+color: #333;
+outline: none;
+}
+
+#search-button {
+position: absolute;
+top: 0;
+right: 0;
+height: 35px;
+width: 60px;
+font-size: 14px;
+color: #fff;
+text-align: center;
+line-height: 42px;
+border-width: 0;
+background-color: #4d90fe;
+-webkit-border-radius: 0px 5px 5px 0px;
+-moz-border-radius: 0px 5px 5px 0px;
+border-radius: 0px 5px 5px 0px;
+cursor: pointer;
+}
