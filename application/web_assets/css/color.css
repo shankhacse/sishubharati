@@ -21,7 +21,7 @@
 .copyright_text a,
 .ct_main_event_wrap h5 span,
 .ct_main_event_wrap ul.event_location_list li:nth-child(2n),
-.sub_event_wrap h6 > a:hover,
+/* .sub_event_wrap h6 > a:hover, */
 .foo_col_2 ul li:hover:before,
 .foo_col_2 ul li:hover a,
 .ct_breadcrumb ul li:hover a,

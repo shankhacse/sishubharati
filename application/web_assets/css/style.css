@@ -1723,7 +1723,7 @@ border-radius: 2px;
 
 .sub_event_wrap:hover{
 
-box-shadow: 0 0 0 10px #90a94c;
+box-shadow: 0 0 0 10px #F5B7B1;
 transition: .5s ease;
 border-radius: 2px
 }
@@ -1750,6 +1750,10 @@ background: linear-gradient(to left, #ff9068, #fd746c); /* W3C, IE 10+/ Edge, Fi
 	font-weight:600;
 	line-height:26px;
 	font-size:15px;	
+}
+
+.sub_event_wrap h6 > a:hover{
+	color:#F5B7B1;
 }
 .sub_event_wrap h6 > a:before{
 	content:"";
@@ -2932,6 +2936,7 @@ background-image: linear-gradient(
 background-size: cover; /* Fit by window size */
     background-position: center; /* Which side will stay after resize */
     background-attachment: fixed;
+    padding: 80px 0px ;
 }
 
 
@@ -3068,4 +3073,8 @@ background-color: #4d90fe;
 -moz-border-radius: 0px 5px 5px 0px;
 border-radius: 0px 5px 5px 0px;
 cursor: pointer;
+}
+
+.home_option_wrap{
+ padding: 20px 0px;
 }
