@@ -158,7 +158,7 @@
       <section class="ct_birth_bg">
             <div class="container">
 
-                <div class="row">
+                <div class="row ">
       
         
  
@@ -311,11 +311,12 @@ else
 {
 
   ?>
-        <div class="col-md-6 holder2">
+        <div class="col-md-5 holder2">
         <!-- <h2>Birthday Wish</h2> -->
+        <div class="col-md-6 col-sm-6 col-xs-12">
         
- <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif" height="300" width="210" class="wish" alt="">
-
+ <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif" height="250" width="230" class="wish" alt="">
+</div> <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="birthday">
 
         <ul class="main_slider">
@@ -330,7 +331,7 @@ foreach ($arrayName as  $value) {
             <li>
                 <img src="<?php echo base_url();?>application/web_assets/images/<?php echo($value)?>"   alt=""><br>
 
-          <b><h5 style="text-align: center;"> Shankha Ghosh<br>
+          <b><h5 style="text-align: center; color: white"> Shankha Ghosh<br>
                 Class:v<br>
                 10 Years</h5></b>
                <!--  <div class="ct_banner_caption">
@@ -385,7 +386,7 @@ foreach ($arrayName as  $value) {
             </li> -->
         </ul>
     </div>
-        
+        </div>
         </div> 
 
 

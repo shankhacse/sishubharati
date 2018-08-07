@@ -740,7 +740,7 @@ section{
 	float:right;
 
 	width:200px;
-	height:380px;
+	height:400px;
 	
 	position:relative;	
 }
@@ -749,13 +749,13 @@ section{
 	float:left;	
 }
 .birthday ul li{
-	margin-left: 10px;
+	/* #margin-left: 10px; */
 	position:relative;
-	width:50%;
-	float:right;	
+	width:100%;
+	/* float:right; */	
 }
 .wish{
-	margin-top: 30px;
+	margin-top:70px;
 }
 .birthday ul li img{
 	
@@ -1151,8 +1151,8 @@ transition: 1s ease;
 	background-repeat:no-repeat;
 	background-position:center; */
 	padding:0px;
-	margin-top: 60px;
-	margin-bottom:60px;	
+	margin-top:30px;
+	margin-bottom:40px;	
 	background-attachment: fixed;
 }
 .ct_menu_bg{
@@ -1164,11 +1164,13 @@ transition: 1s ease;
 }
 
 .ct_birth_bg{
-	background-color: white;
+	#background-color: #A3E4D7;
 	
-	margin-top: 10px;
-	margin-bottom:10px;	
+	
+	
 }
+
+
 .ct_register_bg:before{
 	content:"";
 	position:absolute;
@@ -3076,5 +3078,9 @@ cursor: pointer;
 }
 
 .home_option_wrap{
- padding: 20px 0px;
+ padding: 10px 0px;
+}
+.home_warp_birthday{
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ padding: auto;
 }
