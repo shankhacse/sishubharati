@@ -1,6 +1,6 @@
 <footer>
       <!--NewsLetter Wrap Start-->
-        <div class="ct_newsletter_wrap">
+        <!-- <div class="ct_newsletter_wrap">
           <div class="container">
               <div class="newletter_des">
                   <h5>Subscribe Our Weekly Newsletter</h5>
@@ -11,7 +11,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--Footer Col Wrap Start-->
         <div class="ct_footer_bg">
             <div class="container">

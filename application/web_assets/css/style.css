@@ -3084,3 +3084,21 @@ cursor: pointer;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
  padding: auto;
 }
+
+.search_event{
+margin-top: 20px;
+}
+
+.event_box{
+    margin-top: 20px;
+	background-color: #D9EDF9;
+	padding:20px;
+	width:100%;
+	min-height:350px;
+
+}
+
+.event_img{
+
+	border: 5px solid Black;
+}

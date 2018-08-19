@@ -97,6 +97,20 @@ padding-right: 10px;
   border-radius: 5px;
 }
 
+.news h3{
+  font-weight: bold;
+  font-family:Times New Roman;
+  font-size: 35px;
+  text-align: justify;
+}
+@media screen and (max-width: 568px) {
+
+.news h3{
+  font-weight: bold;
+  font-family:Times New Roman;
+  font-size: 25px;
+}
+}
 .news:hover{
 
 
@@ -184,12 +198,12 @@ padding-right: 10px;
 }
 .news ul {
   list-style:none;
-  margin:2;
-  padding:5;
+  margin:1;
+  padding:1;
   position: relative;
 }
 .news ul li {
-  padding:5px 0px;
+  padding:2px 0px;
 }
 .news ul li a {
   color:white;

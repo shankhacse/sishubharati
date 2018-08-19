@@ -117,7 +117,7 @@
                             <a href="#">Adissions Now</a>
                         </div>
                     </div>
-                   <div class="col-md-6 news"><h3>News and Update for school
+                   <div class="col-md-6 news"><h3>News and Update for School
 </h3>
   <ul id="ticker01">
                             <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
@@ -167,7 +167,7 @@
     <div class="flipper">
       <div class="front">
         <img src="<?php echo base_url();?>application/web_assets/images/event1.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Cherry </p>
+        <p class="caption">Sports </p>
       </div>
      <!--  <div class="back">
        <a href="https://en.wikipedia.org/wiki/Cherry_blossom" target="_blank">
@@ -183,7 +183,7 @@
     <div class="flipper">
       <div class="front">
         <img src="<?php echo base_url();?>application/web_assets/images/event2.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Tulip</p>
+        <p class="caption">Celabration</p>
       </div>
       <!-- <div class="back">
         <a href="https://en.wikipedia.org/wiki/Tulip" target="_blank">
@@ -199,7 +199,7 @@
     <div class="flipper">
       <div class="front">
         <img src="<?php echo base_url();?>application/web_assets/images/event3.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Lavender</p>
+        <p class="caption">Culture</p>
       </div>
       <!-- <div class="back">
         <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
@@ -214,15 +214,15 @@
     <div class="flipper">
       <div class="front">
         <img src="<?php echo base_url();?>application/web_assets/images/event4.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Lavender</p>
+        <p class="caption">Academy</p>
       </div>
-      <div class="back">
+      <!-- <div class="back">
         <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
           <h1>Lavender</h1>
         </a>
         <p class="date">06/08/2004</p>
         <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
@@ -678,7 +678,7 @@ foreach ($arrayName as  $value) {
                       <div class="row">
                           <div class="col-md-3">
                               <div class=" sub_event_wrap" >
-                                  <h6><a href="#">Historical Presentation inComputer Lab</a></h6>
+                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
                                     <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
                                     <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
                                 </div>
@@ -686,7 +686,7 @@ foreach ($arrayName as  $value) {
                             
                             <div class="col-md-3">
                               <div class="sub_event_wrap" >
-                                  <h6><a href="#">Historical Presentation inComputer Lab</a></h6>
+                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
                                     <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
                                     <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
                                 </div>
@@ -694,7 +694,7 @@ foreach ($arrayName as  $value) {
                             
                             <div class="col-md-3">
                               <div class="sub_event_wrap" >
-                                  <h6><a href="#">Historical Presentation inComputer Lab</a></h6>
+                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
                                     <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
                                     <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
                                 </div>
@@ -702,7 +702,7 @@ foreach ($arrayName as  $value) {
                             
                             <div class="col-md-3">
                               <div class="sub_event_wrap" >
-                                  <h6><a href="#">Historical Presentation inComputer Lab</a></h6>
+                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
                                     <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
                                     <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
                                 </div>
@@ -722,14 +722,14 @@ foreach ($arrayName as  $value) {
         <!--Testimonial Wrap End-->
         
         <!--Learn More Wrap Start-->
-        <div class="ct_learn_more_bg">
+        <!-- <div class="ct_learn_more_bg">
           <div class="container">
               <div class="ct_learn_more">
                   <h4>We provide universal access to the world’s best <span>education.</span></h4>
                     <a href="#">Learn More</a>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!--Learn More Wrap End-->
         
         <!-- Latest News Wrap Start

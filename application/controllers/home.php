@@ -88,4 +88,18 @@ public function login()
 		webview_helper($result, $page, $header, $session);
 	
 	}
+
+
+	public function eventupdate()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/event";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
 }
