@@ -19,6 +19,7 @@ class admindashboard extends CI_Controller
 			$header = "";
 			$where = array('session_year.session_id' =>$session['yid'] );
 		    $result['academicsession']=$this->commondatamodel->getAllRecordWhere('session_year',$where);
+		    $result['totalStudent']=$this->commondatamodel->rowcount('student_master');
 			
 			createbody_method($result, $page, $header, $session);
 		}

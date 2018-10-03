@@ -1,103 +1,204 @@
-<div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span></button>
-      <h4 class="modal-title">Student Documents</h4>
-    </div>
-    <div class="modal-body">
-    <?php 
-      if($documentDetailData)
-      {
-       /*echo "<pre>";
-       print_r($documentDetailData);
-       echo "<pre>";*/
-        ?>
-      <div class="box">
-            <div class="box-header">
-              <h3 class="box-title"><?php echo $studentname; ?></h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body table-responsive">
-              <table class="table table-bordered table-striped dataTables" style="border-collapse: collapse !important;">
-                <thead>
-                <tr>
-                  <th style="width:10%;">Sl</th>
-                  <th>Title</th>
-                  <th>Document</th>
-                  <th>Download</th>
-                </tr>
-                </thead>
-                  <tbody>
-                    <?php 
-                      $i = 1;
-                      foreach ($documentDetailData as $key => $value) {
-        
-                          $download_link = base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
-                          $file_name = explode('.',$value->random_file_name);
-                          $file_extension = $file_name[1];
-                          //echo $file_extension;
-                          if($file_extension=="jpg" || $file_extension=="jpeg" || $file_extension=="png" || $file_extension=="gif")
-                          {
-                            $src = base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
-                            $org_file_name = "<a href='".$download_link."' download>".$value->user_file_name."</a>" ;
-                          }
-                          else
-                          {
-                            $org_file_name = "<a href='".$download_link."' download>".$value->user_file_name."</a>" ;
-
-                            if($file_extension=="pdf")
-                            {
-                              $src = base_url()."application/assets/UploadedDocs/pdf_img.png";
-                            }
-                            elseif($file_extension=="docx" || $file_extension=="doc")
-                            {
-                              $src = base_url()."application/assets/UploadedDocs/docx_img.png";
-                            }
-                            elseif($file_extension=="txt")
-                            {
-                              $src = base_url()."application/assets/UploadedDocs/txt_img.png";
-                            }
-                            elseif($file_extension=="xls")
-                            {
-                              $src = base_url()."application/assets/UploadedDocs/xls_img.png";
-                            }
-
-                          }
-                ?>
-                      <tr>
-                        <td><?php echo $i++; ?></td>
-                        <td><?php echo $value->document_type; ?></td>
-                        <td>
-                          <?php 
-                          
-                          if(isset($value->random_file_name))
-                          { ?>
-                              <img src="<?php echo $src; ?>" class="facility_icon_list" />    
-                          <?php  
-                          }
-                          else{echo "";}
-                          ?>
-                        </td>
-                        <td><?php echo $org_file_name; ?></td>
-                      </tr>
-                      <?php
-                          }
-
-                      ?>
-                  </tbody>
-                </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->          
-  
-      <?php
-        }
-     
+    <?php
+            /*echo "<pre>";
+            print_r($studentdata);
+             echo "<pre>";*/
+          
+         
     ?>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
+
+    <style type="text/css">
+       .upper_div tr:nth-child(odd) {
+    background-color: #f9f9f9;
+
+}
+.middle_div tr:nth-child(odd) {
+    background-color: #f9f9f9;
      
-    </div>
-</div>
+}
+
+.low_div tr:nth-child(odd) {
+    background-color: #f9f9f9;
+    
+}
+    </style>
+    <div class="row upper_div" style="font-family: Verdana, Geneva, sans-serif;color: #1d9dcb;">
+         <div class="student_model col-md-8">
+     <div class="table-responsive">          
+  <table class="table table-bordered">
+
+   
+    <tbody>
+      <tr>
+        <td>Date of Admission</td>
+        <td><?php echo date("d M Y", strtotime($studentdata->admission_dt));?></td>
+        
+      </tr>
+      <tr>
+        <td>Entry Class</td>
+        <td><?php echo $studentdata->entry_class;?></td>
+        
+      </tr>
+      <tr>
+        <td>Form Sl No.</td>
+        <td><?php echo $studentdata->frm_slno;?></td>
+        
+      </tr>
+      <tr>
+        <td>Admission Class</td>
+        <td><?php echo $studentdata->admission_class;?></td>
+        
+      </tr>
+      <tr>
+        <td>Current Class</td>
+        <td><?php echo $studentdata->current_class;?></td>
+        
+      </tr><tr>
+        <td>Class Roll</td>
+        <td><?php echo $studentdata->class_roll;?></td>
+        
+      </tr><tr>
+        <td>Gender</td>
+        <td><?php 
+        if ($studentdata->gender=="M") {
+           echo "Male";
+         }elseif ($studentdata->gender=="F") {
+           echo "Female";
+         } ?></td>
+        
+      </tr><tr>
+        <td>Catagory</td>
+        <td><?php echo $studentdata->student_category;?></td>
+        
+      </tr><tr>
+        <td>Blood Group</td>
+        <td><?php echo $studentdata->student_blood_group;?></td>
+        
+      </tr>
+    <tr>
+    <td>Date Of Birth</td>
+        <td><?php echo date("d M Y", strtotime($studentdata->date_of_birth));?></td>
+        
+      </tr>
+    </tbody>
+  </table>
+  </div>
+     </div>
+     <div class="col-md-4 image_box" style="text-align:center;">
+     <?php
+
+     if (!empty($documentDetailData)) {
+       $src = base_url()."application/assets/ds-documents/".$uplodedFolder."/".$documentDetailData->random_file_name;
+     }else{
+       $src = base_url()."application/assets/images/admdashboard/imagenotavailable.png";
+     }
+      
+
+     ?>
+     <img src="<?php echo $src ;?>" align="middle"  class="option_img" >
+    
+    <button type="button" class="btn-xs bg-purple margin" >ID <?php echo $studentdata->student_uniq_id;?></button>
+     </div></div>
+     <hr>
+     <div class="row" style="font-family: Verdana, Geneva, sans-serif;color: #1d9dcb;">
+     <div class="col-md-12">
+<div class="table-responsive custome_table middle_div">          
+  <table class="table table-bordered">
+   
+    <tbody>
+      <tr>
+        <td style="width: 39%;">Ration No</td>
+        <td><?php echo $studentdata->ration_id;?></td>
+        
+      </tr>
+    <tr>
+        <td >Aadhar No</td>
+        <td><?php echo $studentdata->aadhar_id;?></td>
+        
+      </tr>
+    <tr>
+        <td >Previous School</td>
+        <td><?php echo $studentdata->previous_school;?></td>
+        
+      </tr>
+    <tr>
+        <td>Father's/Guardian's Name</td>
+        <td><?php echo $studentdata->father_name;?></td>
+        
+      </tr><tr>
+        <td>Education Qualification</td>
+        <td><?php echo $studentdata->father_education;?></td>
+        
+      </tr><tr>
+        <td>Occupation</td>
+        <td><?php echo $studentdata->father_occu;?></td>
+        
+      </tr><tr>
+        <td>Mobile</td>
+        <td><?php echo $studentdata->father_mobile;?></td>
+        
+      </tr>
+    <tr>
+        <td>Mother's Name</td>
+        <td><?php echo $studentdata->mother_name;?></td>
+        
+      </tr><tr>
+        <td>Education Qualification</td>
+        <td><?php echo $studentdata->mother_education;?></td>
+        
+      </tr><tr>
+        <td>Occupation</td>
+        <td><?php echo $studentdata->mother_occu;?></td>
+        
+      </tr><tr>
+        <td>Mobile</td>
+        <td><?php echo $studentdata->mother_mobile;?></td>
+        
+      </tr>
+    </tbody>
+  </table>
+  </div>
+     </div>
+     </div><hr>
+     
+      <div class="row low_div" style="font-family: Verdana, Geneva, sans-serif;color: #1d9dcb;">
+     <div class="col-md-12">
+<div class="table-responsive custome_table">          
+  <table class="table table-bordered">
+   
+    <tbody>
+      <tr>
+        <td style="width: 39%;">District</td>
+        <td><?php echo $studentdata->student_district;?></td>
+        
+      </tr>
+    <tr>
+        <td >Village</td>
+        <td><?php echo $studentdata->village;?></td>
+        
+      </tr><tr>
+        <td>Police Station</td>
+        <td><?php echo $studentdata->police_station;?></td>
+        
+      </tr><tr>
+        <td>Pin Code</td>
+        <td><?php echo $studentdata->pincode;?></td>
+        
+      </tr><tr>
+        <td>Contact Email</td>
+        <td><?php echo $studentdata->email;?></td>
+        
+      </tr><tr>
+        <td>Address</td>
+        <td><?php echo $studentdata->address;?></td>
+        
+      </tr>
+    
+    </tbody>
+
+  </table>
+  </div>
+     </div>
+     </div>
+        </div>
+
+      

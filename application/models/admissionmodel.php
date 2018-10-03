@@ -2,10 +2,15 @@
 
 class admissionmodel extends CI_Model{
 
-	public function getAllStudents()
+	public function getAllStudentsbyYear($session_id)
 	{
 	
 		$data = array();
+		$where = array(
+			           'student_academic_details.session_id' => $session_id,
+			           'student_academic_details.is_active' => 'Y'
+
+			             );
 		
 			$query = $this->db->select("
 										student_master.*,
@@ -13,8 +18,10 @@ class admissionmodel extends CI_Model{
 										student_academic_details.class_roll
 										")
 					->from('student_master')
-					->join('class_master','class_master.id = student_master.class_id','INNER')
+					
 					->join('student_academic_details','student_academic_details.student_uniq_id = student_master.student_uniq_id','INNER')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+					->where($where)
 					->get();
 
 		#echo $this->db->last_query();
@@ -37,12 +44,109 @@ class admissionmodel extends CI_Model{
          }
 	}
 
+/* Get all student by class*/
+
+public function getAllStudentsbyClass($session_id,$sel_class)
+	{
+	
+		$data = array();
+		$where = array(
+						'student_academic_details.session_id' => $session_id, 
+						'student_academic_details.class_id' => $sel_class,
+						'student_academic_details.is_active' =>'Y' 
+					  );
+		
+			$query = $this->db->select("
+										student_master.*,
+										class_master.name as class_name,
+										student_academic_details.class_roll
+										")
+					->from('student_master')
+					
+					->join('student_academic_details','student_academic_details.student_uniq_id = student_master.student_uniq_id','INNER')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+					->where($where)
+					->get();
+
+		#echo $this->db->last_query();
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+				
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+	}
+
+
+
+
+/*--------------------------------------------------*/
 		public function getStudentDetailsbyId($where){
 		
 			$data = [];
-			$query = $this->db->select("student_master.*")
+			$query = $this->db->select("
+								student_master.*,
+								student_academic_details.class_roll
+								")
 					->from('student_master')
 					->join('student_academic_details','student_academic_details.student_uniq_id=student_master.student_uniq_id','INNER')
+
+					->where($where)
+				    ->order_by('student_master.student_id')
+				    ->limit(1);
+					$query = $this->db->get();
+				#q();
+				if($query->num_rows()> 0)
+				{
+		           $row = $query->row();
+		           return $data = $row;
+		             
+		        }
+				else
+				{
+		            return $data;
+		        }
+			       
+		
+	}
+
+
+		public function getStudentAdmissionInformationbyId($where){
+		
+			$data = [];
+			$query = $this->db->select("student_master.*,
+										amcl.name as admission_class,
+										cucl.name as current_class,
+										student_academic_details.class_roll,
+										category_master.category as student_category,
+										blood_group.blood_group as student_blood_group,
+										district.name as student_district,
+										father_edu.qualification_type as father_education,
+										mother_edu.qualification_type as mother_education,
+										father_occ.occupation_type as father_occu,
+										mother_occ.occupation_type as mother_occu
+										")
+					->from('student_master')
+					->join('student_academic_details','student_academic_details.student_uniq_id=student_master.student_uniq_id','INNER')
+					->join('class_master as amcl','amcl.id=student_master.class_id','INNER')
+					->join('class_master as cucl','cucl.id=student_academic_details.class_id','INNER')
+					->join('category_master','category_master.id=student_master.category','INNER')
+					->join('blood_group','blood_group.id=student_master.blood_group','INNER')
+					->join('district','district.id=student_master.distric_id','INNER')
+					->join('qualification_master as father_edu','father_edu.qualification_id=student_master.father_edu','LEFT')
+					->join('qualification_master as mother_edu','mother_edu.qualification_id=student_master.mother_edu','LEFT')
+					->join('occupation_master as father_occ','father_occ.occupation_id=student_master.father_occupation','LEFT')
+
+					->join('occupation_master as mother_occ','mother_occ.occupation_id=student_master.mother_occupation','LEFT')
+
 					->where($where)
 				    ->order_by('student_master.student_id')
 				    ->limit(1);
@@ -176,13 +280,14 @@ public function getLatestSerialNumber($from){
 				}
 			}
              $latest_serial = $this->getLatestSerialNumber("REG"); //it will change
-			 $studentUniqID = "SB".$latest_serial;
+			 $studentUniqID = "PSB".$latest_serial;
 
 			 $insert_into_academic = array(
 			 	'student_uniq_id' => $studentUniqID, 
 			 	'class_id' => $data['class_id'], 
+			 	'class_roll' => $data['classroll'], 
 			 	'session_id' => $sesion_data['yid'], 
-			 	'is_active' => 'Y', 
+			 	 
 			 	'created_by' => $sesion_data['userid'] 
 			 );
 
@@ -217,11 +322,13 @@ public function getLatestSerialNumber($from){
 				'email' => $data['email'],   
 				'aadhar_id' => $data['aadhar_id'],   
 				'ration_id' => $data['ration_id'],   
-				
+				'entry_class' => $data['entrycls'], 
+				'frm_slno' => $data['frmslno'], 
 				'is_file_uploaded' => $is_file_uploaded,  
 				'academic_id' => $academic_insert_ID,  
 				'created_by' => $sesion_data['userid'],  
-				'is_active' => 1  
+				'is_active' => 1,  
+				'password' => $data['date_of_birth']  
 			);
 			
 			$student_insert = $this->db->insert('student_master', $insert_student_data);
@@ -296,8 +403,7 @@ public function getLatestSerialNumber($from){
 
 				$insert_student_data = array(
 				
-				'admission_type' => $data['admission_type'],  
-				'class_id' => $data['class_id'],  
+				
 				'admission_dt' => $data['admission_dt'],  
 				'name' => $data['name'],  
 				'gender' => $data['gender'],  
@@ -321,11 +427,14 @@ public function getLatestSerialNumber($from){
 				'email' => $data['email'],   
 				'aadhar_id' => $data['aadhar_id'],   
 				'ration_id' => $data['ration_id'],   
+				'entry_class' => $data['entrycls'], 
+				'frm_slno' => $data['frmslno'],   
 				
 				'is_file_uploaded' => $is_file_uploaded,  
 				 
 				'created_by' => $sesion_data['userid'],  
-				'is_active' => 1  
+				'is_active' => 1,
+				'password' => $data['date_of_birth']  
 			);
 
 			
@@ -377,12 +486,12 @@ public function getLatestSerialNumber($from){
 
 public function insertIntoUploadFile($data,$session_data,$where_data)
 	{ 
-		if($data['mode']=="Edit" && $data['studentID']>0)
+		if($data['mode']=="EDIT" && $data['studentID']>0)
 		{
 
 			$where_student = array(
-				"document_upload_all.upload_from_module_id" => $data['studentID'],
-				"document_upload_all.upload_from_module" => $where_data['From']
+				"uploaded_documents_all.upload_from_module_id" => $data['studentID'],
+				"uploaded_documents_all.upload_from_module" => $where_data['From']
 				);
 
 				$this->db->where($where_student);
@@ -393,8 +502,9 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 		//$dir = APPPATH . 'assets/document/trainerUpload/'; //FCPATH . '/posts';
 		//$dir = APPPATH . 'assets/application_extension/';
 		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/img';
-		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/admission_upload'; //server
-		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/admission_upload'; //local
+		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/admission_upload'; //server
+
+		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/admission_upload'; //local
 		
 		//echo "<br>";
 		//echo "Document ROOT : ". $dir ='http://prosikshan.in/images';
@@ -464,8 +574,9 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 					"uploaded_file_desc" => $data['fileDesc'][$k],
 					"uploaded_on" => date('Y-m-d'),
 					"modified_on" => date('Y-m-d'),
-					"upload_from_module" => "Trainer",
+					"upload_from_module" => "Admission",
 					"upload_from_module_id" => $where_data['masterID'],
+					"upload_srl_no" => $srl_no++,
 					
 					"uploaded_by_user" => $session_data['userid'],
 					"is_active" => 'Y'
@@ -507,6 +618,49 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 				$detailData[] = $rows;
 				
             }
+            return $detailData;
+        }
+		else
+		{
+             return $detailData;
+        }
+	}
+
+
+			/* -------------------------------
+	*	getStudentProfilePicture(studentid)
+	* --------------------------------
+	*/
+
+
+	public function getStudentProfilePicture($moduleID,$moduleTag)
+	{
+		$detailData = array();
+		$where = array(
+			"uploaded_documents_all.upload_from_module_id" => $moduleID,
+			"uploaded_documents_all.upload_from_module" => $moduleTag,
+			"uploaded_documents_all.document_type_id" => 1
+		);
+
+		$this->db->select("*")
+				->from('uploaded_documents_all')
+				->join('documents_upload_type','documents_upload_type.id = uploaded_documents_all.document_type_id','INNER')
+				->where($where)
+				->order_by("uploaded_documents_all.id", "desc")
+				->limit(1); 
+
+		$query = $this->db->get();
+		#echo $this->db->last_query();
+		if($query->num_rows()> 0)
+		{
+           
+				foreach ($query->result() as $rows)
+			{
+				$detailData = $rows;
+				
+            }
+				
+           
             return $detailData;
         }
 		else

@@ -41,7 +41,7 @@ class routine extends CI_Controller
 				$result['mode'] = "ADD";
 				$result['btnText'] = "Save";
 				$result['btnTextLoader'] = "Saving...";
-				$classID = 0;
+				$routineID = 0;
 				$result['routineEditdata'] = [];
 				$result['classList']=$this->routinemodel->getClassListForRoutine();
 				//getAllRecordWhereOrderBy($table,$where,$orderby)
@@ -54,12 +54,10 @@ class routine extends CI_Controller
 				$result['mode'] = "EDIT";
 				$result['btnText'] = "Update";
 				$result['btnTextLoader'] = "Updating...";
-				$classID = $this->uri->segment(3);
-				$whereAry = array(
-					'class_master.id' => $classID
-				);
+				$routineID = $this->uri->segment(3);
+				
 				// getSingleRowByWhereCls(tablename,where params)
-				$result['routineEditdata'] = $this->routinemodel->getRoutinebyRoutineMasterID(6,1); 
+				$result['routineEditdata'] = $this->routinemodel->getRoutinebyRoutineMasterID($routineID,$session['yid']); 
 				//pre($result['routineEditdata']);
 				$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
 			}

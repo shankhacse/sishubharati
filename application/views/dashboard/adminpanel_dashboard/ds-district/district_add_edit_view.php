@@ -1,3 +1,4 @@
+   <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/district.js"></script> 
     <section class="content-header">
       <h1>
         Dashboard

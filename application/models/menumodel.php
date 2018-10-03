@@ -107,7 +107,29 @@ class menumodel extends CI_Model{
 	}
 	
 	
-	
+	public function getSessionYearData(){
+		$session = $this->session->userdata('user_data');
+			$data = [];
+			$where = array('session_year.session_id' =>$session['yid']);
+			$query = $this->db->select("*")
+					->from('session_year')
+					->where($where)
+				    ->limit(1);
+					$query = $this->db->get();
+				#q();
+				if($query->num_rows()> 0)
+				{
+		           $row = $query->row();
+		           return $data = $row;
+		             
+		        }
+				else
+				{
+		            return $data;
+		        }
+			       
+		
+	}	
 	
 	
 	

@@ -1,4 +1,85 @@
+
  <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/admission.js"></script>  
+
+ <style>
+.modal {
+  padding: 0 !important;
+  text-align: center;
+}
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+.modal .modal-dialog {
+  text-align: left;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  max-width: 90%;
+}
+.modal .close {
+  position: absolute;
+  right: 10px;
+  color: black;
+  text-shadow: none;
+  font-size: 30px;
+  line-height: 30px;
+  top: 10px;
+  opacity: 1;
+}
+.option_img{
+height:200px;
+width:160px;
+border: 0.3em  solid #d4d4d4;
+margin-top:10px;
+}
+.student_model{
+padding:20px;
+#box-shadow: 3px 3px 10px 1px rgba(95, 114, 146, 0.3);
+}
+.student_model h5
+{
+  font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  color:#1A5276;
+}
+@media screen and (max-width: 568px) {
+.option_img{
+width:100%;
+height:auto;
+}
+}
+
+.upper_div{
+padding:20px;
+margin:10px;
+}
+.image_box{
+padding:20px
+
+
+}
+.image_box h3{
+text-align: center;
+
+
+}
+.image_box img{
+    margin-left: auto;
+  margin-right: auto;
+  display: block;
+  }
+  
+  
+  .custome_table tr{
+  width:40%
+  }
+
+
+</style>
     <section class="content-header">
       <h1>
         Dashboard
@@ -68,11 +149,7 @@
             </td>
 
              <td align="center">
-              <button type="button" class="btn btn-sm bg-blue" style="color:#fff;" >
-                <a href="<?php echo base_url(); ?>patient/viewpatient/<?php //echo $value->patient_id; ?>" data-title="Details" style="color:#fff;">Documents
-               
-              </a>
-              </button> 
+               <button type="button" class="btn btn-sm bg-yellow viewStudentinfo" data-toggle="modal" data-target="#student_info" data-studentid=<?php echo $value['studentMasterData']->student_id;?> data-studentdtlmode ="INFO" data-studentname="<?php echo $value['studentMasterData']->name; ?>" >View </button> 
 
              </td>
 	
@@ -110,6 +187,36 @@
 
     </section>
     <!-- /.content -->
+
+
+
+
+
+      <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" id="student_info" role="dialog">
+    <div class="modal-dialog modal-md">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="text-align:center;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+     
+      <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="st_name"></h4></button>
+        </div>
+        <div class="modal-body">
+        <div id="detail_information_view"></div>
+
+
+
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 
 

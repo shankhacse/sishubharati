@@ -2,7 +2,14 @@ $(document).ready(function(){
     var basepath = $("#basepath").val();
     var rowNoUpload = 0;
     //alert(basepath);
-    $( ".datepicker" ).datepicker();
+   // $( ".datepicker" ).datepicker();
+    $( ".datepicker" ).datepicker({
+       
+       changeMonth: true,
+       changeYear: true,
+       format: 'dd/mm/yyyy'
+
+    });
         //Datemask dd/mm/yyyy
     $('.datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' });
 
@@ -312,8 +319,102 @@ $(document).ready(function(){
  $('#studentlist tfoot tr').insertBefore($('#studentlist thead tr'));
 
 
+$(document).on('click','.viewStudentinfo',function(){
+        var studentid = $(this).data('studentid');
+        var studentname = $(this).data('studentname');
+        var mode = $(this).data("studentdtlmode");
+
+        $.ajax({
+            type: "POST",
+            url: basepath+'admission/getAdmissionDetailStudent',
+            dataType: "html",
+            data: {studentid:studentid,studentname:studentname,mode:mode},
+            success: function (result) {
+                $("#st_name").html(studentname);
+                $("#detail_information_view").html(result);
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+    });
 
 
+
+
+/*student list by class*/
+
+   // For Listing Routine by Class
+    $(document).on("submit","#ClassStudentListForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#ClassStudentListForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'admission/classStudentList',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadStudentList").html(result);
+                    $('.dataTables').DataTable({
+                         "dom": 'Bfrtip',
+                            "buttons": [
+                                'copy', 'csv', 'excel', 'pdf', 'print'
+                            ],
+                         "ordering": false
+                    });
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
 
 
 }); // end of document ready
@@ -323,6 +424,7 @@ function validateAdmission()
 {
     var adtype = $("#admtype").val();
     var sel_class = $("#sel_class").val();
+    var classroll = $("#classroll").val();
     var dtadm = $("#dtadm").val();
     var studentname = $("#studentname").val();
     var studentgender = $("#studentgender").val();
@@ -364,6 +466,15 @@ function validateAdmission()
         .css("display", "block");
         return false;
     }
+      if(classroll=="")
+    {
+        $("#classroll").focus();
+        $("#admmsg")
+        .text("Error : Enter Class Roll")
+        .addClass("form_error")
+        .css("display", "block");
+        return false;
+    }
 
     if(studentname=="")
     {
@@ -397,7 +508,7 @@ function validateAdmission()
     {
         $("#category").focus();
         $("#admmsg")
-        .text("Error : Enter Student Birth Date")
+        .text("Error : Select Category")
         .addClass("form_error")
         .css("display", "block");
         return false;

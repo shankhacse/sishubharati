@@ -71,7 +71,11 @@ $('.selectpicker').selectpicker({dropupAuto: false});
             formDataserialize = decodeURI(formDataserialize);
             console.log(formDataserialize);
             var formData = {formDatas: formDataserialize};
-            
+
+            var sel_class = $("#sel_class option:selected").text();
+
+
+            var filename ="Routine "+sel_class;
             $(".dashboardloader").css("display","block");
 
             $.ajax({
@@ -84,7 +88,46 @@ $('.selectpicker').selectpicker({dropupAuto: false});
                    
                     $("#loadroutineList").html(result);
                     $('.dataTables').DataTable({
-                         "ordering": false
+                        "dom": 'Bfrtip',
+                         "buttons": [
+                         {
+                          "extend": 'copy',
+                          "filename": filename
+                        },
+                        {
+                          "extend": 'csv',
+                          "filename": filename,
+                          "exportOptions": {
+                            "columns": ':not(:last-child)',
+                            }
+                        },
+                        {
+                          "extend": 'excel',
+                          "title": filename,
+                          "filename": filename,
+                          "exportOptions": {
+                            "columns": ':not(:last-child)',
+                            }
+                        },
+                         {
+                          "extend": 'pdf',
+                          "title": filename,
+                          "filename": filename,
+                          "exportOptions": {
+                            "columns": ':not(:last-child)',
+                            }
+                        },
+                        {
+                          "extend": 'print',
+                          "title": filename,
+                          "filename": filename,
+                          "exportOptions": {
+                            "columns": ':not(:last-child)',
+                            }
+                        },
+                         
+                         ],
+                         "ordering": false,
                     });
                    
                     $(".dashboardloader").css("display","none");

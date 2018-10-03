@@ -37,7 +37,7 @@
               
                   <input type="hidden" name="mode" id="mode" value="<?php echo $bodycontent['mode']; ?>" />
                 <div class="box-body">
-
+                  <p style="color:red">Note: Please Select Carefully , you can not modify Admission Type and Class after save the Details.</p>
                    <p class="formSubTitle"><span class="glyphicon glyphicon-pencil"></span> Admission Info</p>
                     <div class="row">
                    <div class="col-md-6 col-sm-12 col-xs-12">
@@ -93,7 +93,8 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input class="form-control pull-right datepicker" id="dtadm" name="dtadm" type="text" value="<?php if($bodycontent['mode']=="EDIT"){echo date("d/m/Y",strtotime($bodycontent['admissionEditdata']->admission_dt));}else{echo date('d/m/Y');}  ?>">
+                  <input class="form-control pull-right datemask" id="dtadm" name="dtadm" type="text" value="<?php if($bodycontent['mode']=="EDIT"){echo date("d/m/Y",strtotime($bodycontent['admissionEditdata']->admission_dt));}else{echo date('d/m/Y');}  ?>">
+                  
 
                 </div>
                 <!-- /.input group -->
@@ -103,22 +104,30 @@
                      <div class="col-md-6 col-sm-12 col-xs-12">
                          <div class="form-group">
                      <label for="classList">Class Roll</label> 
-                     <input type="text" class="form-control forminputs removeerr" id="classroll" name="classroll" placeholder="Class Roll" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->class_id; } ?>" readonly />
+                     <input type="text" class="form-control forminputs removeerr" id="classroll" name="classroll" placeholder="Class Roll" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->class_roll; } ?>" readonly />
                   </div>
                  </div>
 
                     </div>
 
 
-                 <!--   <div class="row">
+                   <div class="row">
                  
                     <div class="col-md-6 col-sm-12 col-xs-12">
                        <div class="form-group">
-                   <label for="classList">Sl. No.</label> 
-                   <input type="text" class="form-control forminputs removeerr" id="admslno" name="admslno" placeholder="Serial Number" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->class_id; } ?>" />
+                   <label for="classList">Entry Class (optional)</label> 
+                   <input type="text" class="form-control forminputs removeerr" id="entrycls" name="entrycls" placeholder="Entry Class Name" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->entry_class; } ?>" />
                                    </div>
                                   </div>
-                  </div> -->
+
+
+                     <div class="col-md-6 col-sm-12 col-xs-12">
+                       <div class="form-group">
+                   <label for="classList">SL NO.</label> 
+                   <input type="text" class="form-control forminputs removeerr" id="frmslno" name="frmslno" placeholder="Form Serial Number" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->frm_slno; } ?>" />
+                                   </div>
+                                  </div>
+                  </div> 
 
 
 
@@ -230,7 +239,22 @@
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
                           <label for="cordmobile">Education Qualification</label>
-                          <input type="text" class="form-control forminputs removeerr " id="fatheredu" name="fatheredu" placeholder="Education Qualification" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->father_edu; } ?>" maxlength="10">
+
+                          <select id="fatheredu" name="fatheredu" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" >
+                         <option value="0">Select</option> 
+                          <?php 
+                        
+                          if($bodycontent['qualificationList'])
+                          {
+                          foreach($bodycontent['qualificationList'] as $value)
+                          { ?>
+                            <option value="<?php echo $value->qualification_id; ?>" <?php if(($bodycontent['mode']=="EDIT") && $bodycontent['admissionEditdata']->father_edu==$value->qualification_id){echo "selected";}else{echo "";} ?> ><?php echo $value->qualification_type; ?></option>
+                      <?php   }
+                          }
+                          ?>
+
+                        </select>
+                         
                         </div>
                       </div>
                     </div>
@@ -240,7 +264,22 @@
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
                           <label for="fatheroccu">Occupation</label>
-                          <input type="text" class="form-control forminputs removeerr" id="fatheroccu" name="fatheroccu" placeholder="Occupation" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->father_occupation; } ?>" />
+
+                               <select id="fatheroccu" name="fatheroccu" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" >
+                         <option value="0">Select</option> 
+                          <?php 
+                        
+                          if($bodycontent['occupationList'])
+                          {
+                          foreach($bodycontent['occupationList'] as $value)
+                          { ?>
+                            <option value="<?php echo $value->occupation_id; ?>" <?php if(($bodycontent['mode']=="EDIT") && $bodycontent['admissionEditdata']->father_occupation==$value->occupation_id){echo "selected";}else{echo "";} ?> ><?php echo $value->occupation_type; ?></option>
+                      <?php   }
+                          }
+                          ?>
+
+                        </select>
+                         
 
                           
                         </div>
@@ -248,7 +287,7 @@
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
                           <label for="cordmobile">Mobile</label>
-                          <input type="text" class="form-control forminputs removeerr numchk" id="cordmobile" name="fathermob" placeholder="fathermob" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->father_mobile; } ?>" maxlength="10">
+                          <input type="text" class="form-control forminputs removeerr numchk" id="cordmobile" name="fathermob" placeholder="Mobile" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->father_mobile; } ?>" maxlength="10">
                         </div>
                       </div>
                     </div>
@@ -265,7 +304,22 @@
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
                           <label for="cordmobile">Education Qualification</label>
-                          <input type="text" class="form-control forminputs removeerr " id="motheredu" name="motheredu" placeholder="Education Qualification" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->mother_edu; } ?>" maxlength="10">
+                          <select id="motheredu" name="motheredu" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" >
+                         <option value="0">Select</option> 
+                          <?php 
+                        
+                          if($bodycontent['qualificationList'])
+                          {
+                          foreach($bodycontent['qualificationList'] as $value)
+                          { ?>
+                            <option value="<?php echo $value->qualification_id; ?>" <?php if(($bodycontent['mode']=="EDIT") && $bodycontent['admissionEditdata']->mother_edu==$value->qualification_id){echo "selected";}else{echo "";} ?> ><?php echo $value->qualification_type; ?></option>
+                      <?php   }
+                          }
+                          ?>
+
+                        </select>
+
+
                         </div>
                       </div>
                     </div>
@@ -274,9 +328,22 @@
                       <div class="col-md-6 col-sm-12 col-xs-12">
                         <div class="form-group">
                           <label for="cordname">Occupation</label>
-                          <input type="text" class="form-control forminputs removeerr" id="motherocc" name="motherocc" placeholder="Occupation" autocomplete="off" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['admissionEditdata']->mother_occupation; } ?>" />
+                           <select id="motherocc" name="motherocc" class="form-control selectpicker" data-show-subtext="true" data-live-search="true" >
+                         <option value="0">Select</option> 
+                          <?php 
+                        
+                          if($bodycontent['occupationList'])
+                          {
+                          foreach($bodycontent['occupationList'] as $value)
+                          { ?>
+                            <option value="<?php echo $value->occupation_id; ?>" <?php if(($bodycontent['mode']=="EDIT") && $bodycontent['admissionEditdata']->mother_occupation==$value->occupation_id){echo "selected";}else{echo "";} ?> ><?php echo $value->occupation_type; ?></option>
+                      <?php   }
+                          }
+                          ?>
 
-                          
+                        </select> 
+
+                        
                         </div>
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12">
@@ -425,6 +492,7 @@
 
               <table class="table table-striped table-bordered no-footer" role="grid" aria-describedby="datatable_info" style="<?php echo $style_var; ?>">
                     <thead>
+                      
                         <tr>
                             <th style="width:25%;" >Doc Type</th>
                     <th style="width:40%;">Browse</th>

@@ -16,7 +16,7 @@ class admission extends CI_Controller {
 		{       
 			
 			$header = "";
-			$result['studentList'] = $this->admmodel->getAllStudents();
+			$result['studentList'] = $this->admmodel->getAllStudentsbyYear($session['yid']);
 			
 
 			/*echo "<pre>";
@@ -82,6 +82,8 @@ class admission extends CI_Controller {
 			$result['admissiontypeList'] = $this->commondatamodel->getAllDropdownData('admisson_type'); 
 			$result['bloodgroupList'] = $this->commondatamodel->getAllDropdownData('blood_group'); 
 			$result['districtList'] = $this->commondatamodel->getAllDropdownData('district'); 
+			$result['occupationList'] = $this->commondatamodel->getAllDropdownData('occupation_master'); 
+			$result['qualificationList'] = $this->commondatamodel->getAllDropdownData('qualification_master'); 
 			$wheresession = array('session_year.session_id' =>$session['yid']);
 			$result['year']= $this->commondatamodel->getSingleRowByWhereCls('session_year',$wheresession);
 			$result['categoryList'] = $this->commondatamodel->getAllDropdownData('category_master');
@@ -178,6 +180,7 @@ public function adddetaildocument()
 			$studentID = trim($this->input->post('studentID'));
 			$mode = trim($this->input->post('mode'));
 			$admdt=$this->input->post('dtadm');
+			$studentdob=$this->input->post('studentdob');
 			if($admdt!=""){
 				$admdt = str_replace('/', '-', $admdt);
 				$admdt = date("Y-m-d",strtotime($admdt));
@@ -185,9 +188,16 @@ public function adddetaildocument()
 			 else{
 				 $admdt = NULL;
 			 }
-		
-			$studentdob=date("Y-m-d",strtotime($this->input->post('studentdob')));
-		    
+
+			 if($studentdob!=""){
+				$studentdob = str_replace('/', '-', $studentdob);
+				$studentdob = date("Y-m-d",strtotime($studentdob));
+			 }
+			 else{
+				 $studentdob = NULL;
+		    }
+			
+			
 		    $docType = $this->input->post('docType');
 			$userFilename = $this->input->post('userFileName');
 			$fileDesc = $this->input->post('fileDesc');
@@ -201,7 +211,8 @@ public function adddetaildocument()
 				"admission_type" => $this->input->post('admtype'),
 				"class_id" => $this->input->post('sel_class'),
 				"admission_dt" => $admdt,
-				"admslno" => trim($this->input->post('admslno')),
+				"entrycls" => trim($this->input->post('entrycls')),
+				"frmslno" => trim($this->input->post('frmslno')),
 				"classroll" => trim($this->input->post('classroll')),
 				"name" => trim($this->input->post('studentname')),
 				"gender" => $this->input->post('studentgender'),
@@ -337,5 +348,100 @@ public function getDetailStudentModal()
 			redirect('administratorpanel','refresh');
 		}
  	}
+
+
+ 	public function getAdmissionDetailStudent()
+ 	{
+ 		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$student_id = trim(htmlspecialchars($this->input->post('studentid')));
+			$mode = trim(htmlspecialchars($this->input->post('mode')));
+			$info = trim(htmlspecialchars($this->input->post('studentname')));
+			
+			
+			if($mode=="INFO")
+			{
+				$page = "dashboard/adminpanel_dashboard/ds-admission/admission-modal/student_information_partial_modal_view";
+				$data['documentDetailData'] = $this->admmodel->getStudentProfilePicture($student_id,"Admission");
+				$data['studentname'] = $info;
+				$data['uplodedFolder'] = "admission_upload" ;
+
+				$where = array(
+								'student_master.student_id' => $student_id, 
+								'student_academic_details.session_id' => $session['yid'] 
+							);
+				$data['studentdata'] = $this->admmodel->getStudentAdmissionInformationbyId($where);
+
+				
+
+				$documentDetailView = $this->load->view($page,$data);
+			}
+
+			echo $documentDetailView;
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+ 	}
+
+
+	public function class_students()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-admission/class_student_list_view';
+			$result = [];
+			$header = "";
+			$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
+			//pre($result['classList']);
+			
+			createbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+	public function classStudentList()
+	{ 
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{       
+			
+			$header = "";
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			
+
+			$result=[];
+			
+			if (isset($dataArry['sel_class'])) {
+				$sel_class = $dataArry['sel_class'];
+				
+			$result['studentList'] = $this->admmodel->getAllStudentsbyClass($session['yid'],$sel_class); 	
+           
+			}else{
+					
+
+           $result['studentList']=[];
+			}
+
+
+			
+			$page = "dashboard/adminpanel_dashboard/ds-admission/class_student_list_data.php";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+			
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+	}
 
 } // end of class

@@ -14,12 +14,13 @@ if ( ! function_exists('createbody_method'))
 	 /* leftmenu */
 	 $left_menu = "";//$CI->leftmenumodel->getLeftmenu($data['user_id'],$data['role_id']);
 	 $left_menu = $CI->menumodel->getAllAdministrativeMenu('administartor_menu_master');
-
+     $yearinfo= $CI->menumodel->getSessionYearData();
 	
 		 
 	 $data['bodyview'] = $body_content_page;
 	 $data['leftmenusidebar'] = '';
 	 $data['headermenu'] = $body_content_header;
+	 $data['yearinfo']=$yearinfo;
 	
 	 $CI->template->setHeader($heared_menu_content);
 	 $CI->template->setBody($body_content_data);

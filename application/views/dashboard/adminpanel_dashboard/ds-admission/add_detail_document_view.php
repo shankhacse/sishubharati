@@ -1,4 +1,4 @@
-
+<tr><td colspan="4" style="color:red">Max File Upload Size 500KB</td></tr>
 
 		<tr id="rowDocument_0_<?php echo $rowno; ?>">
 			<td>

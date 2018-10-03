@@ -2,6 +2,7 @@
 
 $(document).ready(function(){
 	var basepath = $("#basepath").val();
+	
 
 
 	 $('#district').typeahead({

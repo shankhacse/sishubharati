@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sishubharati | Admin-Dashboard</title>
+  <title>SB | Admin-Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -36,7 +36,8 @@
    -->
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
-<!--   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+ <!--  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"> -->
+  
   
     <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="<?php echo base_url();?>application/assets/css/custominputradiocheck.css" />
@@ -47,6 +48,7 @@
   <link href="<?php echo base_url(); ?>application/assets/css/transition.min.css" rel="stylesheet">
    <link href="<?php echo base_url(); ?>application/assets/css/typeahead.css" rel="stylesheet">
    <link rel="stylesheet" href="<?php echo base_url();?>application/assets/css/bootstrap-timepicker.min.css" />
+ 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -67,17 +69,13 @@
 		border-left: 1px solid #e4e4e4;
 		border-right: 1px solid #e4e4e4;
 	}
-
-  .error-border{
-    border: 1px solid red;
-  }
   </style>
-
-
-
-
-<!-- jQuery 3 -->
-<script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/jquery/dist/jquery.min.js"></script>
+  
+  	
+	
+	<!-- jQuery 3 -->
+ <script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/jquery/dist/jquery.min.js"></script> 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 <!-- jQuery UI 1.11.4 -->
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -127,7 +125,8 @@
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/dist/js/demo.js"></script>
 -->
 <!-- DataTables -->
-<script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/datatables.net/js/jquery.dataTables.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/fixedcolumns/3.2.6/js/dataTables.fixedColumns.min.js"></script>
 <script src="<?php echo base_url(); ?>application/assets/js_scripts/bootstrap-timepicker.min.js"></script>
@@ -136,30 +135,22 @@
 <script src="<?php echo base_url(); ?>application/assets/js_scripts/transition.min.js"></script>
 <script src="<?php echo base_url(); ?>application/assets/js_scripts/typehead.js"></script>
 <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/commonutilfunc.js"></script>
-
-<script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/district.js"></script>
-<!-- Menu new --> 
- <script src="<?php echo base_url();?>application/assets/lib/menu/app.js"></script> 
-
-
-  
-  	
+	
+	
+	
+	
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <header class="main-header">
+    <header class="main-header">
     <!-- Logo -->
     <a href="javascript:;" class="logo" >
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>+</b>SB</span>
       <!-- logo for regular state and mobile devices -->
-  <!--     <?php
-      foreach ($academicsession as $value) {
-        $session_year=$value->year;
-      }
-  ?> -->
-      <span class="logo-lg"><b>Sishubharati-<?php //echo $session_year?></b></span>
+
+      <span class="logo-lg"><b>Sishubharati-<?php echo $yearinfo->year?></b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -373,7 +364,7 @@
 		  
 		  -->
 		  
-		 
+		  
 		  
 		  <input type="hidden" value="<?php echo base_url();?>" id="basepath" readonly />
           <!-- User Account: style can be found in dropdown.less -->
@@ -385,7 +376,7 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<?php echo base_url();?>application/assets/sishubharati_theme/dist/img/admin.jpg" class="img-circle" alt="User Image">
+                 <img src="<?php echo base_url();?>application/assets/sishubharati_theme/dist/img/admin.jpg" class="img-circle" alt="User Image">
 
                 <p>
                   Admin - Web Developer
@@ -408,11 +399,14 @@
               </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
+                <!-- <div class="pull-left">
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
+                </div> -->
                 <div class="pull-right">
-                  <a href="<?php echo base_url();?>administratologout/logoutadministrator" class="btn btn-default btn-flat">Sign out</a>
+                <!--   <a href="<?php echo base_url();?>adminpanel/logmeout" class="btn btn-default btn-flat">Sign out</a> -->
+
+                <a href="<?php echo base_url();?>logout" class="btn btn-default btn-flat">Sign out</a>
+
                 </div>
               </li>
             </ul>
@@ -432,7 +426,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo base_url();?>application/assets/sishubharati_theme/dist/img/admin2.jpg" class="img-circle" alt="User Image">
+         <img src="<?php echo base_url();?>application/assets/sishubharati_theme/dist/img/admin2.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Admin</p>
@@ -468,7 +462,7 @@
 					
 					<li class="treeview">
 					  <a href="javascript:;">
-						<i class="fa fa-space-shuttle"></i> <span><?php echo $firstlevel['FirstLevelMenuData']->adm_menu_name; ?></span>
+						<i class="fa fa-share"></i> <span><?php echo $firstlevel['FirstLevelMenuData']->adm_menu_name; ?></span>
 						<span class="pull-right-container">
 						  <i class="fa fa-angle-left pull-right"></i>
 						</span>
@@ -945,7 +939,7 @@
 				<h4 class="modal-title">What do you want to do?</h4>
              </div>
              <div class="modal-footer">
-			    <a href="<?php echo base_url();?>admindashboard" class="btn bg-olive btn-flat margin pull-left">Dashboard</a>
+			    <a href="<?php echo base_url();?>dashboard" class="btn bg-olive btn-flat margin pull-left">Dashboard</a>
                <a href="javascript:;" class="btn bg-maroon btn-flat margin " style="background:#f64537 !important;" id="response_add_more"> + Add More</a>
 			   <a href="javascript;" class="btn bg-purple btn-flat margin" id="response_list_view">Go to List</a>
              </div>
@@ -963,6 +957,11 @@
       <div id="detailListmodalView"></div>
    </div>
 </div>
+
+
+
+
+
 
 
 
@@ -993,7 +992,8 @@
 		//$(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
 		$(this).parent().find('.userfilesname').val($(this).val().replace(/C:\\fakepath\\/i, ''));
     });	
-	
+
+
 	function numericFilter(txb) 
 	{
 		txb.value = txb.value.replace(/[^\0-9]/ig, "");
@@ -1030,7 +1030,7 @@
         direction: 'upward'
       });
 
-/* menu selected*/
+/* onclick menu selected*/
 var url = window.location;
 
 // for sidebar menu entirely but not cover treeview
@@ -1042,7 +1042,6 @@ $('ul.sidebar-menu a').filter(function() {
 $('ul.treeview-menu a').filter(function() {
    return this.href == url;
 }).parentsUntil(".sidebar-menu > .treeview-menu").addClass('active');
-
 
 </script>
 </body>

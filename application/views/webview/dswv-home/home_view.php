@@ -637,7 +637,7 @@ foreach ($arrayName as  $value) {
           <div class="container">
               <!--Heading Style 1 Wrap Start-->
                 <div class="ct_heading_1_wrap">
-                  <h3>Our Upcoimung Events</h3>
+                  <h3>Our Upcomming Events</h3>
                     <!-- <p>Aenean commodo ligula eget dolor. Aenean massa. Lorem ipsum dolor sit amet, consec <br/>tetuer adipis elit, aliquam eget nibh etlibura.</p> -->
                     <span><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="40" height="40" alt=""></span>
                 </div>

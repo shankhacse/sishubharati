@@ -327,6 +327,52 @@ public function DeleteData($table,$where)
 		    $insert_ID = $this->db->insert_id();
             return $insert_ID;
 	}
+
+
+
+	public function rowcount($table)
+	{
+		
+		$this->db->select('*')
+				->from($table);
+
+		$query = $this->db->get();
+		$rowcount = $query->num_rows();
+	
+		if($query->num_rows()>0){
+			return $rowcount;
+		}
+		else
+		{
+			return 0;
+		}
+		
+	}
+
+
+	public function updateDataSingleTable($upd_tbl_name,$upd_data,$upd_where)
+	{
+		 try {
+            $this->db->trans_begin();
+			$this->db->where($upd_where);
+            $this->db->update($upd_tbl_name,$upd_data);
+           
+			
+			#echo $this->db->last_query();
+			
+				
+            if($this->db->trans_status() === FALSE) {
+                $this->db->trans_rollback();
+                return false;
+            } else {
+                $this->db->trans_commit();
+                return true;
+            }
+        }
+		catch (Exception $err) {
+            echo $err->getTraceAsString();
+        }
+	}
 	
 	
 }
