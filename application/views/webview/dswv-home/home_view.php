@@ -91,30 +91,13 @@
                         <div class="ct_hreg_wrap">
                             <div class="register_top_detail">
                                 <h5>New Session Admissions Started</h5>
-                                <span>Author : Simon Jones</span>
+                                <span>BY: Admission Officer</span>
                                
-                                <p>Admissions here to get online access to your <span>account. Hurry Short Time Offer!!!</span></p>
+                                <p>Admissions here to get online access to your </p>
                             </div>
 
-                            <!-- <ul class="countdown">
-                                <li>
-                                    <span class="days">00</span>
-                                    <p class="days_ref">days</p>
-                                </li>
-                                <li>
-                                    <span class="hours">00</span>
-                                    <p class="hours_ref">hours</p>
-                                </li>
-                                <li>
-                                    <span class="minutes">00</span>
-                                    <p class="minutes_ref">min</p>
-                                </li>
-                                <li>
-                                    <span class="seconds last">00</span>
-                                    <p class="seconds_ref">sec</p>
-                                </li>
-                            </ul> -->
-                            <a href="#">Adissions Now</a>
+                           
+                            <a href="#">Admission Information</a>
                         </div>
                     </div>
                    <div class="col-md-6 news"><h3>News and Update for School
@@ -402,26 +385,26 @@ foreach ($arrayName as  $value) {
     <!--Content Wrap Start-->
     <div class="ct_content_wrap">
         <!--Get Started Wrap Start-->
-        <section>
+        <section style="max-height: 529px;">
           <div class="container">
               <div class="get_started_outer_wrap">
                 <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="get_started_content_wrap ct_blog_detail_des_list">
                                 <h3>Sishu Bharati Vidya Mandir</h3>
-                                <p>We are home to 1,500 students (aged 12 to 16) and 100 expert faculty and staff  community representing over 40 different nations. We are proud of our international and multi-cultural ethos, the way our community collaborates to make a difference. Our world-renowned curriculum is built on the best.</p>
-                                <p>Global and US standards.We are home to 1,500 students (aged 12 to 16) and 100 expert faculty and staff.Community representing over 40 different nations. We are proud of our international.</p>
+                                <p>Sishu Bharati Vidya Mandir and its family dedicated to these very ideals,commits to working hand in hand with you to ensure that your child grows into the sort of citizen that your child makes every nation proud.We affirm that education and well being of a child is a joint venture between his/her parents and Academy. We seek simply not our achievers but also to render our students into good human beings with a sense of discipline and a respect for heritage.</p>
+                                 <h3>Our Aim</h3>
                                 <ul>
-                                  <li>We are home to 1,500 students and 100 experts.</li>
-                                    <li>Community representing over 40 of different nations.</li>
-                                    <li>We are proud of our international.</li>
-                                    <li>We are home to 1,500.</li>
-                                    <li>Community representing over 40 different nations.</li>
+                                  <li>Develop every child’s potential</li>
+                                    <li>Nurture a life-long love of learning</li>
+                                    <li>Create an exciting environmen</li>
+                                    <li>Ensure self esteem and confidence are high</li>
+                                    <li>Provide opportunities that challenge</li>
                                 </ul>
                             </div>
                         </div>
                     
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="get_started_video">
                                 <img src="<?php echo base_url();?>application/web_assets/images/about_school.jpg" alt="">
                                 <!-- <div class="get_video_icon">

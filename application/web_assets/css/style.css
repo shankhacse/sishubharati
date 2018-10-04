@@ -44,7 +44,7 @@ footer{
 	overflow:hidden;	
 }
 section{
-	padding:80px 0px;	
+	padding:60px 0px;	
 }
 .no_padding{
 	padding:0px;	
@@ -147,7 +147,19 @@ section{
 	text-transform: uppercase;
 	
 }
-
+@media screen and (max-width: 618px) {
+.logo_wrap h2 {
+	
+	color:red;
+	font-weight: 900;
+	font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif; 
+	font-size: 15px;
+	display: inline;
+	line-height: 12px;
+	text-transform: uppercase;
+	
+}
+}
 
 @media screen and (max-width: 568px) {
 .logo_wrap h2 {
@@ -180,7 +192,7 @@ section{
 	float:left;
 	width:100%;
 	position:relative;
-	padding:20px 0px;	
+	padding:15px 0px;	
 }
 .main_navigation{
 	margin-top: 25px;
@@ -453,14 +465,14 @@ section{
 	padding:0px 0px 50px;
 	margin:0px 0px 50px;	
 }
-.get_started_outer_wrap:before{
+/* .get_started_outer_wrap:before{
 	content:"";
 	position:absolute;
 	bottom:4px;
 	left:0px;
 	right:0px;
 	border-bottom:1px solid #f2f2f2;
-}
+} */
 .get_started_content_wrap{
 	float:left;
 	width:100%;
@@ -858,9 +870,11 @@ section{
 }
 .birthday .bx-wrapper .bx-controls-direction a.bx-prev{
 	left:0px;	
+	opacity: 0;
 }
 .birthday .bx-wrapper .bx-controls-direction a.bx-next{
 	right:0px;	
+	opacity: 0;
 }
 .birthday .bx-wrapper .bx-controls-direction a:before{
 	content:"\f104";

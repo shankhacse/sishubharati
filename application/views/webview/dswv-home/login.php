@@ -38,7 +38,7 @@ background-image: linear-gradient(
 
                                 </div>
 <a class="txt_login" href="#">
-             Forget Password          
+             Forget Password       
             </a>
                             </form>
                         </div>

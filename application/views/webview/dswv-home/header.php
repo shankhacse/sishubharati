@@ -18,7 +18,7 @@
         
         <!--Navigation Wrap Start-->
         <div class="logo_nav_outer_wrap">
-        	<div class="container">
+        	<div class="container" style="width: auto;">
                 <div class="logo_wrap">
                     <a href="<?php echo base_url();?>home"><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="80" height="80" class="logo_pic" alt=""><h2>PANDAVESWAR SISHU BHARATI <span>VIDYA MANDIR</span></h2></a>
                 </div>
