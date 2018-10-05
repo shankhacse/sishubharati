@@ -131,4 +131,18 @@ public function login()
 		webview_helper($result, $page, $header, $session);
 	
 	}
+
+
+	public function importantinfo()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/important_info";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
 }

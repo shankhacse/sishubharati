@@ -29,7 +29,7 @@
                         <div class="foo_col_2 widget">
                             <h5>More Pages</h5>
                             <ul>
-                                <li><a href="#">Admisssion</a></li>
+                                <li><a href="<?php echo base_url();?>home/admissionpage">Admisssion</a></li>
                                 
                                 <li><a href="#">Results</a></li>
                             </ul>
@@ -40,7 +40,7 @@
                         <div class="foo_col_2 widget">
                             <h5>Quick Links</h5>
                             <ul>
-                                <li><a href="#">Notice & Update</a></li>
+                                <li><a href="<?php echo base_url();?>home/noticeboard">Notice & Update</a></li>
                                 <!-- <li><a href="#">Events</a></li> -->
                                 <li><a href="<?php echo base_url();?>home/holidaylist">Holiday List</a></li>
                                 

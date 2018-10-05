@@ -44,31 +44,31 @@
         <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
           <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" class="option_img"> 
             
-            <h3>Admission</h3> 
+            <h3><a href="<?php echo base_url();?>home/admissionpage">Admission</a></h3> 
               
             </div>
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
               <img src="<?php echo base_url();?>application/web_assets/images/ereader-1.png" width="100" height="100" class="option_img" >
             
-            <h3>Importent Info</h3> 
+            <h3><a href="<?php echo base_url();?>home/importantinfo">Importent Info</a></h3> 
             
             </div>
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
              
            <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" class="option_img" >
-            <h3>E-Payment </h3> 
+            <h3><a href="#">E-payment</a></h3> 
               
             </div>
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
             <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100"  class="option_img" >
             
-            <h3>News & Event</h3> 
+            <h3><a href="<?php echo base_url();?>home/noticeboard">News & event</a></h3> 
             
             </div> 
 
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3 ">
             <img src="<?php echo base_url();?>application/web_assets/images/acoustic-guitar.png" width="100" height="100" class="option_img" >
-            <h3>Photo Gallery</h3> 
+            <h3><a href="<?php echo base_url();?>home/gallery">Photo Gallery</a></h3> 
             
             </div> 
 

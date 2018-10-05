@@ -49,11 +49,11 @@
                         </li>
 
 
-                        <li><a href="#">Blog</a>
+                        <li><a href="#">Academic</a>
                             <ul>
-                                <li><a href="#">Blog Simple</a></li>
-                                <li><a href="#">Blog Grid</a></li>
-                                <li><a href="#">Blog Detail</a></li>
+                               <li><a href="<?php echo base_url();?>home/admissionpage">Admission notice</a></li>
+                                <li><a href="<?php echo base_url();?>home/holidaylist">Holiday list</a></li>
+                                <li><a href="<?php echo base_url();?>home/noticeboard">Notice & update</a></li>
                             </ul>
                         </li>
                         <!-- <li><a href="contact-us.html"></a></li> -->
@@ -88,11 +88,11 @@
                         </li>
 
 
-                         <li class="menu-item kode-parent-menu"><a href="#">Blog</a>
+                         <li class="menu-item kode-parent-menu"><a href="#">Academic</a>
                             <ul class="dl-submenu">
-                                <li><a href="#">Blog Simple</a></li>
-                                <li><a href="#">Blog Grid</a></li>
-                                <li><a href="#">Blog Detail</a></li>
+                                <li><a href="<?php echo base_url();?>home/admissionpage">Admission notice</a></li>
+                                <li><a href="<?php echo base_url();?>home/holidaylist">Holiday list</a></li>
+                                <li><a href="<?php echo base_url();?>home/noticeboard">Notice & update</a></li>
                             </ul>
                         </li>
                          <li><a href="<?php echo base_url();?>home/login">login</a></li>

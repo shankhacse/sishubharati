@@ -63,7 +63,6 @@
      </div>
      <div class="row">
 
-
 <div class="notice_box">
 <h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
 <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>    <span class="type_news"><i class="fa fa-shield"></i> Result</span><hr class="style3">

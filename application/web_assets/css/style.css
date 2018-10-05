@@ -3130,3 +3130,22 @@ margin-top: 20px;
      overflow: hidden;
      text-overflow: ellipsis;
 }
+
+
+.info_box{
+    margin-top: 20px;
+	background-color: white;
+	padding:20px;
+	width:100%;
+	height:auto;
+
+}
+
+.importent_box{
+    margin-top: 20px;
+	background-color: #D9EDF9;
+	padding:20px;
+	width:100%;
+	height:auto;
+
+}
