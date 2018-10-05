@@ -34,7 +34,8 @@
     <!-- Responsive CSS -->
     <link href="<?php echo base_url();?>application/web_assets/css/responsive.css" rel="stylesheet">
 
-
+ <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>application/web_assets/css/css/util.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>application/web_assets/css/css/table.css">
 
     
  

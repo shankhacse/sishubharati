@@ -102,4 +102,33 @@ public function login()
 		webview_helper($result, $page, $header, $session);
 	
 	}
+
+
+	public function admissionpage()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/admission";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
+
+
+
+	public function holidaylist()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$page = "webview/dswv-home/holiday_list";
+
+		
+		webview_helper($result, $page, $header, $session);
+	
+	}
 }

@@ -42,7 +42,7 @@
                             <ul>
                                 <li><a href="#">Notice & Update</a></li>
                                 <!-- <li><a href="#">Events</a></li> -->
-                                <li><a href="#">Holiday List</a></li>
+                                <li><a href="<?php echo base_url();?>home/holidaylist">Holiday List</a></li>
                                 
                             </ul>
                         </div>
@@ -75,10 +75,10 @@
                     <div class="col-md-6">
                         <div class="copyright_social_icon">
                             <ul>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
                             </ul>
                         </div>
                     </div>

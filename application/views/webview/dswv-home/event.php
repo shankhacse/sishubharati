@@ -55,11 +55,9 @@
 <div class="col-md-6">
   <img src="<?php echo base_url();?>application/web_assets/images/465361533550364.jpg" class="event_img" >
 </div><div class="col-md-6">
-From: 09/06/2018 To 11/06/2018<br>
-Venue: New Delhi<br>
-Organized: By AFS<br>
-Resource Person: Ms. Divya Arora, Ms. Sonam Luthra<br>
-Participants: Students of Class XII<br>
+<span>Date & Time: 09/06/2018 To 11/06/2018</span><br>
+<span>Venue: New Delhi</span><br>
+<p >Organized: By AFS</p><br>
 Highlight: Subhi Sarda and Akhilesh Jhawar returned from the USA on 9th June to India. They attended the re-entry orientation at New Delhi and landed on 11th June in Kolkata. They joined the school on the next day and have come back enriched with a number of ideas.
 </div>
 <!-- <button type="button" class="btn btn-outline-primary">

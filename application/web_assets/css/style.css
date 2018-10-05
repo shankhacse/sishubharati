@@ -1732,9 +1732,15 @@ transition: 1s ease;
 	background-size:cover;
 	background-position:center;
 	z-index:10;
-	padding:70px 10px 30px;
+	padding:58px 10px 30px;
 	margin:0px 0px 30px;
 border-radius: 2px;
+}
+.sub_event_wrap h6{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 35ch;
 }
 
 .sub_event_wrap:hover{
@@ -2939,7 +2945,7 @@ float:right;
 .about_text p
 {
 	font-family: "Gingham Variable", BlinkMacSystemFont, sans-serif;
-	font-size: 15px;
+	font-size:15px;
 }
 .about_us_wrap{
 	 
@@ -3115,4 +3121,12 @@ margin-top: 20px;
 .event_img{
 
 	border: 5px solid Black;
+}
+
+.event_box p{
+
+	 width: 250px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
 }

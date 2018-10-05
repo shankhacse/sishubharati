@@ -47,6 +47,15 @@
                                                             <li><a href="comming-soon.html">Comming Soon</a></li>
                                                         </ul> -->
                         </li>
+
+
+                        <li><a href="#">Blog</a>
+                            <ul>
+                                <li><a href="#">Blog Simple</a></li>
+                                <li><a href="#">Blog Grid</a></li>
+                                <li><a href="#">Blog Detail</a></li>
+                            </ul>
+                        </li>
                         <!-- <li><a href="contact-us.html"></a></li> -->
                          <li><a href="<?php echo base_url();?>home/login">login</a></li>
                     </ul>
@@ -76,6 +85,15 @@
                                <li><a href="404-page.html">404 Page</a></li>
                                <li><a href="comming-soon.html">Comming Soon</a></li>
                            </ul> -->
+                        </li>
+
+
+                         <li class="menu-item kode-parent-menu"><a href="#">Blog</a>
+                            <ul class="dl-submenu">
+                                <li><a href="#">Blog Simple</a></li>
+                                <li><a href="#">Blog Grid</a></li>
+                                <li><a href="#">Blog Detail</a></li>
+                            </ul>
                         </li>
                          <li><a href="<?php echo base_url();?>home/login">login</a></li>
                         <!-- <li><a href="contact-us.html">Contact Us</a></li> -->

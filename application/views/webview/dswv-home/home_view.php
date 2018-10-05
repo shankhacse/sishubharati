@@ -1,4 +1,4 @@
-<div class="banner_outer_wrap">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"><div class="banner_outer_wrap">
       <ul class="main_slider">
           <li>
               <img src="<?php echo base_url();?>application/web_assets/images/slide1.jpg" alt="">
@@ -97,7 +97,7 @@
                             </div>
 
                            
-                            <a href="#">Admission Information</a>
+                            <a href="<?php echo base_url();?>home/admissionpage">Admission Information</a>
                         </div>
                     </div>
                    <div class="col-md-6 news"><h3>News and Update for School
@@ -453,18 +453,18 @@ foreach ($arrayName as  $value) {
           <div class="container">
               <!--Heading Style 1 Wrap Start-->
                 <div class="ct_heading_1_wrap ct_white_hdg">
-                  <h3>Cources By Subject</h3>
-                    <span><img src="<?php echo base_url();?>application/web_assets/images/hdg-01.png" alt=""></span>
+                  <h3>Activities Offered</h3>
+                    <span><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="40" height="40" alt=""></span>
                 </div>
                 <!--Heading Style 1 Wrap End-->
                 
                 <!--Courses Subject List Wrap Start-->
                 <div class="courses_subject_carousel owl-carousel">
                   <div class="item">
-                        <div class="course_subject_wrap ct_bg_1">
-                            <i class="fa fa-area-chart"></i>
+                        <div class="course_subject_wrap ct_bg_1 ">
+                            <i class="fa fa-music"></i>
                             <div class="course_subject_des">
-                                <p><span>Industrial</span>Business Analysis</p>
+                                <p>Dance & Music </p>
                             </div>
                         </div>
                     </div>
@@ -472,66 +472,68 @@ foreach ($arrayName as  $value) {
                         <div class="course_subject_wrap ct_bg_2">
                             <i class="fa fa-users"></i>
                             <div class="course_subject_des">
-                                <p><span>Social Media</span>Management</p>
+                                <p>Drama</p>
                             </div>
                         </div>
                     </div>
+                  <!-- 
                     <div class="item">
-                        <div class="course_subject_wrap ct_bg_3">
-                            <i class="fa fa-briefcase"></i>
-                            <div class="course_subject_des">
-                                <p><span>Business</span>Management</p>
-                            </div>
-                        </div>
-                    </div>
+                      <div class="course_subject_wrap ct_bg_3">
+                          <i class="fa fa-briefcase"></i>
+                          <div class="course_subject_des">
+                              <p>Music</p>
+                          </div>
+                      </div>
+                  </div> -->
                     <div class="item">
                         <div class="course_subject_wrap ct_bg_4">
-                            <i class="fa fa-play-circle"></i>
+                            <i class="fa fa-question"></i>
                             <div class="course_subject_des">
-                                <p><span>Movie</span>Production</p>
+                                <p>Quizzing</p>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="course_subject_wrap ct_bg_5">
-                            <i class="fa fa-television"></i>
+                           <i class="fa fa-paint-brush"></i>
                             <div class="course_subject_des">
-                                <p><span>3D Arts</span>& Sciences</p>
+                                <p>Art & Craft</p>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="course_subject_wrap ct_bg_6">
-                            <i class="fa fa-book"></i>
+                            <i class="fas fa-soccer-ball-o"></i>
                             <div class="course_subject_des">
-                                <p><span>Library</span>Managment</p>
+                                <p>Sports</p>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="item">
                         <div class="course_subject_wrap ct_bg_1">
-                            <i class="fa fa-area-chart"></i>
+                            <i class="fas fa-walking"></i>
                             <div class="course_subject_des">
-                                <p><span>Industrial</span>Business Analysis</p>
+                                <p>Karate</p>
                             </div>
                         </div>
                     </div>
                     <div class="item">
                         <div class="course_subject_wrap ct_bg_2">
-                            <i class="fa fa-briefcase"></i>
+                            <i class="fa fa-child"></i>
                             <div class="course_subject_des">
-                                <p><span>Industrial</span>Business Analysis</p>
+                                <p>Yoga</p>
                             </div>
                         </div>
                     </div>
-                    <div class="item">
+                    <!-- <div class="item">
                         <div class="course_subject_wrap ct_bg_3">
                             <i class="fa fa-users"></i>
                             <div class="course_subject_des">
                                 <p><span>Industrial</span>Business Analysis</p>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!--Courses Subject List Wrap End-->
             </div>

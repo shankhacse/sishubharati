@@ -49,6 +49,11 @@
                                 	<label class="fa fa-envelope-o"></label>
                                 	<input class="conatct_plchldr" type="text" placeholder="Email Address">
                                 </div>
+
+                                 <div class="form_field">
+                                    <label class="fa fa-phone"></label>
+                                    <input class="conatct_plchldr" type="text" placeholder="Phone Number">
+                                </div>
                                 <div class="form_field">
                                 	<label class="fa fa-edit"></label>
                                 	<textarea class="conatct_plchldr" placeholder="Write Detail"></textarea>
