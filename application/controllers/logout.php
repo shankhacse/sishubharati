@@ -12,12 +12,12 @@ class logout extends CI_Controller {
  {
       if ($this->session->userdata('user_data')) {
             $this->session->sess_destroy();
-           // redirect('administratorpanel', 'refresh');
-            redirect();
+            redirect('administratorpanel', 'refresh');
+          
 
       }else{
-         //  redirect('administratorpanel', 'refresh');
-        redirect();
+          redirect('administratorpanel', 'refresh');
+        
       }
  }
 

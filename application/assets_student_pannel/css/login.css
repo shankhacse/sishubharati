@@ -1,0 +1,333 @@
+body{
+	//background: #FC6B32  ;
+	background:#F6F6F6 ;
+	/*height:100%; */
+	/*animation-name: changebodycolor;
+    animation-duration: 10s;
+	animation-iteration-count: infinite;*/
+}
+form {
+    border: 3px solid #f1f1f1;
+}
+@keyframes changebodycolor {
+    0%  {background-color: #FA611A;}
+    25%  {background-color: #FF6016;}
+    50%  {background-color: #F56320}
+    100% {background-color: #F8560B;}
+}
+
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 20%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+	width:80%;
+}
+
+.container-fluid{
+	padding-left:2px !important;
+	padding-right:2px !important;
+}
+
+span.psw {
+    float: right;
+    padding-top: 3px;
+}
+
+.custom-login-row{
+	width:80%;
+	margin:0 auto;
+	#padding:10% 0;
+	/*position:absolute;
+	top:30%;
+	left:10%;*/
+}
+.login-text-box{
+		//border-right:1px solid #FFF;
+}
+.login-form-container{
+	padding-top:2%;
+}
+.login-icon{
+	width:21%;
+	margin:0 auto;
+	margin: 7% auto 0px;
+	margin-left: 44%;
+}
+.login-text{
+	clear:both;
+	font-size:1.3em;
+	color:#FFF;
+}
+
+.sishu-title-box{
+	
+}
+.sishu-title{
+	text-align: center;
+	font-weight: bold;
+	color: #FC5A37;
+	font-size: 3.5em;
+	margin-top: 10px;
+	margin-bottom: 3%;
+}
+.sishu-catchline{
+	text-align: center;
+	line-height: 0px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.login-form-container label{
+	color:#515151;
+	font-size:1.3em;
+	margin-top:5px;
+}
+.custom-input{
+	height: 44px;
+	border: 1px solid #FFA486;
+	border-radius: 10px;
+	
+}
+.custom-button{
+	#background:#FC6432;
+	background:#2E5C9F;;
+	height: 45px !important;
+	border: medium none !important;
+	//border-radius: 1px !important;
+	margin-top: 18px !important;
+	color: #FFF;
+	font-size: 20px;
+	line-height: 20px;
+	//text-shadow: 1px 1px 1px #CCC;
+	font-weight: bold;
+	border-radius: 10px;
+	border: 1px solid #ABAAAA;
+	//color:#ADADAD  !important;
+}
+.custom-button:hover{
+	//background:#E0E0E0;
+	background:#FC6432 ;
+	color:#FFF;
+	text-shadow: 0px 0px 0px #CCC;
+	transition:.10s;
+}
+.remeber-me{
+	font-size:13px;
+	color:#F84F2B;
+	font-weight:bold;
+}
+.psw a{
+	color:#F84F2B;
+	font-weight:bold;
+	font-size:13px;
+}
+.error{
+	color: #F00;
+	background-color: #FFF;
+	box-shadow: 1px 1px 3px #272727;
+	border:none;
+	font-weight:700;
+}
+
+
+@media only screen and (max-width: 1024px) {
+	.custom-login-row{
+	width:90%;
+	margin:0 auto;
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:20%;
+	left:5%;*/
+	padding:10% 0;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.login-icon{
+		width:11%;
+		margin:0 auto;
+	}
+	.custom-login-row{
+	width:90%;
+	margin:0 auto;
+	padding:2% 0;
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:18%;
+	left:18%;*/
+	}
+}
+@media only screen and (max-width: 991px) {
+	
+}
+@media only screen and (max-width: 800px) {
+	.login-icon{
+		width:12%;
+		margin:0 auto;
+	}
+	.custom-login-row{
+	//width:80%;
+	margin:0 auto;
+	padding-bottom:5%
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:18%;
+	left:10%;*/
+	}
+}
+@media only screen and (max-width: 800px) {
+	.login-icon{
+		width:14%;
+		margin:0 auto;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.login-icon{
+		width:16%;
+		margin:0 auto;
+	}
+	.custom-login-row{
+//	width:80%;
+	margin:0 auto;
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:18%;
+	left:10%;*/
+	}
+}
+@media only screen and (max-width: 650px) {
+		.login-icon{
+		width:19%;
+		margin:0 auto;
+	}
+}
+@media only screen and (max-width: 500px) {
+	.login-icon{
+		width:23%;
+		margin:0 auto;
+	}
+	.custom-login-row{
+	width:96%;
+	margin:0 auto;
+	padding-bottom:5%
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:18%;
+	left:10%;*/
+	}
+	.error{
+		font-size: 0.9em;
+	}
+}
+@media only screen and (max-width:460px) {
+	.login-icon{
+		width:24%;
+		margin:0 auto;
+	}
+	.login-text{
+		font-size:1.2em;
+	}
+	.custom-login-row{
+	width:96%;
+	margin:0 auto;
+	padding-bottom:5%
+	}
+	.login-form-container {
+    padding-top: 7%;
+}
+
+	
+.sishu-title{
+	font-size: 3.5em;
+	margin-top: 7px;
+}
+.sishu-catchline{
+	text-align: center;
+	line-height: 0px;
+	font-size: 21px;
+	font-weight: bold;
+}
+.login-form-container label {
+    color: #515151;
+    font-size: 1.1em;
+    margin-top: 5px;
+}
+
+}
+@media only screen and (max-width:370px) {
+	.login-icon{
+		width:30%;
+		margin:0 auto;
+	}
+	.custom-login-row{
+	width:96%;
+	margin:0 auto;
+	padding-bottom:8%
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:10%;
+	left:2%;*/
+	}
+}
+
+@media only screen and (max-width:315px) {
+	.sishu-title {
+		font-size: 3.5em;
+		margin-top: -3px;
+	}
+	.sishu-catchline {
+		
+		font-size: 16px;
+		
+	}
+}
+
+
+@media only screen and (max-width:280px) {
+	.login-icon {
+		width: 42%;
+		margin: 0px auto;
+	}
+	.custom-login-row{
+	width:98%;
+	margin:0 auto;
+	padding-bottom:8%
+	/*padding-top:15%;
+	padding-bottom:15%;*/
+	/*position:absolute;
+	top:10%;
+	left:1%;*/
+	}
+}
+
