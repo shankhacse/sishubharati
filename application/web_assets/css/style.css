@@ -789,16 +789,16 @@ section{
 }
 
 
-/* 
-@media screen and (max-width: 568px){
+
+@media screen and (max-width: 468px){
 .wish{
-	margin-top:70px;
+	
 	height:120px;
 	width:110px;
 }
 
 
-} */
+} 
 .birthday ul li img{
 	
 	width:100%;
@@ -807,7 +807,7 @@ section{
 
 
 
-@media screen and (max-width: 568px){
+@media screen and (max-width: 368px){
 
 
 .birthday ul li img{
