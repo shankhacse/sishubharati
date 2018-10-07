@@ -8,6 +8,7 @@ class studentdashboard extends CI_Controller
 	   $this->load->library('session');
 	   $this->load->model('admissionmodel','admmodel',TRUE);
 	    $this->load->model('routinemodel','routinemodel',TRUE);
+	    $this->load->model('studentdashboardmodel','studentdash',TRUE);
 		
 	}
 		
@@ -130,14 +131,8 @@ public function attendance()
 			
 			$result = [];
 			$header = "";
-			$where = array('student_academic_details.academic_id' =>$session['academicID']);
-			$studentData= $this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
-
-			$student_class=$studentData->class_id;
-			$student_session_id=$studentData->session_id;
-
-			$result['routineList'] = $this->routinemodel->getRoutinebyClass($student_class,$student_session_id); 
-			$result['memberAttendance']= array('1','2','3','4','5','6','7','8','9','10','11','12');
+			 
+			$result['studentAttendance']= $this->studentdash->getStudentAttendanceByMonth($session['studentID'],$session['academicID']);
 			
 			studentbody_method($result, $page, $header, $session);
 		}
@@ -146,6 +141,32 @@ public function attendance()
 			redirect('studentlogin','refresh');
 		}
 		
+	}
+
+	public function attendancedetailbymonth()
+	{
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$page = 'student/dashboard/attendance/student_attendence_view';
+			
+			$result = [];
+			$header = "";
+			
+			$month = $this->uri->segment(3);
+			$year = $this->uri->segment(4);
+			
+			
+			$result['memberAttDetail'] = $this->studentdash->getStudentAttendanceDetailByMonthAndYear($session['studentID'],$session['academicID'],$month,$year);
+			$result['month'] = $month;
+			$result['year'] = $year;
+			
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
 	}
  
 }
