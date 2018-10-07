@@ -756,6 +756,22 @@ section{
 	
 	position:relative;	
 }
+
+
+
+@media screen and (max-width: 568px) {
+.birthday{
+	
+	
+	float:right;
+
+	width:120px;
+	height:200px;
+	
+	position:relative;	
+}
+
+	}
 .birthday ul{
 	width:100%;
 	float:left;	
@@ -768,11 +784,38 @@ section{
 }
 .wish{
 	margin-top:70px;
+	height:350;
+	width:330;
 }
+
+
+/* 
+@media screen and (max-width: 568px){
+.wish{
+	margin-top:70px;
+	height:120px;
+	width:110px;
+}
+
+
+} */
 .birthday ul li img{
 	
 	width:100%;
 	height:250px;	
+}
+
+
+
+@media screen and (max-width: 568px){
+
+
+.birthday ul li img{
+	
+	width:100%;
+	height:150px;	
+}
+
 }
 .ct_banner_caption{
 	position:absolute;

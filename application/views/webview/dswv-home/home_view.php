@@ -296,10 +296,10 @@ else
   ?>
         <div class="col-md-5 holder2">
         <!-- <h2>Birthday Wish</h2> -->
-        <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-6">
         
- <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif" height="250" width="230" class="wish" alt="">
-</div> <div class="col-md-6 col-sm-6 col-xs-12">
+ <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif"  class="wish" style="padding: 0"alt="">
+</div> <div class="col-md-6 col-sm-6 col-xs-6">
         <div class="birthday">
 
         <ul class="main_slider">
@@ -383,9 +383,9 @@ foreach ($arrayName as  $value) {
    
        </section>  
     <!--Content Wrap Start-->
-    <div class="ct_content_wrap">
+    
         <!--Get Started Wrap Start-->
-        <section style="max-height: 529px;">
+        <section>
           <div class="container">
               <div class="get_started_outer_wrap">
                 <div class="row">

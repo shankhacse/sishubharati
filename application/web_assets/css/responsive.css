@@ -57,7 +57,7 @@
 		display:inline-block;	
 	}
 	.widget{
-		margin:0px 0px 25px;
+		margin:0px 0px -99px;
 		min-height:220px;	
 	}
 	.copyright_text{
