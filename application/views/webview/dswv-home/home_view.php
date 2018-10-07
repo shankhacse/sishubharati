@@ -563,24 +563,24 @@ foreach ($arrayName as  $value) {
         <section class="ct_facts_bg">
             <ul>
                 <li>
-                    <i class="icon-avatar"></i>
+                    <i class="fa fa-user"></i>
                     <h2 class="counter">40</h2>
                     <span>Certified Teachers</span>
                 </li>
                 <li>
-                    <i class="icon-command"></i>
+                    <i class="fas fa-users"></i>
                     <h2 class="counter">322</h2>
                     <span>Students Enrolled</span>
                 </li>
                 <li>
-                    <i class="icon-open-book"></i>
-                    <h2 class="counter">500</h2>
-                    <span>Library Books</span>
+                    <i class="fas fa-award"></i>
+                    <h2 class="counter">43</h2>
+                    <span>Student Awards</span>
                 </li>
                 <li>
-                    <i class="icon-command"></i>
-                    <h2 class="counter">1200</h2>
-                    <span>Satisfied Parents</span>
+                   <i class="fas fa-graduation-cap"></i>
+                    <h2 class="counter">10</h2>
+                    <span>Exprience years</span>
                 </li>
             </ul>
         </section>

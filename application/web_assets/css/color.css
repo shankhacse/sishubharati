@@ -52,7 +52,7 @@
 .banner_outer_wrap .bx-wrapper .bx-controls-direction a:hover,
 .course_list_img_des .ct_zoom_effect,
 .ct_course_link > a:hover,
-.ct_facts_bg ul li i:after,
+
 .ct_learn_more a:hover,
 .newletter_des form button,
 .newletter_des form input[type="submit"],
@@ -77,7 +77,10 @@
 {
 	background-color:#90a94c;	
 }
+.ct_facts_bg ul li i:after {
+background-color:white;
 
+}
 
 /*
 	  ============================================================
