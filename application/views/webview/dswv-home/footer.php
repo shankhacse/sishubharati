@@ -16,12 +16,22 @@
         <div class="ct_footer_bg">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="footer_col_1 widget">
-                            <a href="#"><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="20" height="20" class="logo_pic" alt=""></a>
-                            
-                            <span>Email : asimsbbm@gmail.com</span>
-                            
+                  <!--   <div class="col-md-3 col-sm-6">
+                      <div class="footer_col_1 widget">
+                          <a href="#"><img src="<?php echo base_url();?>application/web_assets/images/logo.png" width="20" height="20" class="logo_pic" alt=""></a>
+                          
+                          <span>Email : asimsbbm@gmail.com</span>
+                          
+                      </div>
+                  </div> -->
+                   <div class="col-md-3 col-sm-6">
+                        <div class="foo_col_2 widget">
+                            <h5>Sign In</h5>
+                            <ul>
+                                <li><a href="<?php echo base_url();?>studentlogin">Students</a></li>
+                                
+                                <li><a href="<?php echo base_url();?>admin">Admin</a></li>
+                            </ul>
                         </div>
                     </div>
                     
@@ -52,7 +62,8 @@
                         <div class="foo_col_4 widget">
                             <h5>Opening Hours</h5>
                             <ul>
-                                <li>Monday to Saturday 9:00am to 5:00pm</li>
+                                <li>Monday to Friday 6:30am to 11:30am</li>
+                                <li>Email : asimsbbm@gmail.com</li>
                                 
                             </ul>
                         </div>
@@ -69,7 +80,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="copyright_text">
-                           <!--  Built with <a class="fa fa-heart" href="#"></a> from <a href="#">Cowthemes</a>. --> All right reserved
+                           <!--  Built with <a class="fa fa-heart" href="#"></a> from <a href="#">Cowthemes</a>. --> All right reserved @ pandaveswar sishu bharati vidyamandir - 2018
                         </div>
                     </div>
                     <div class="col-md-6">

@@ -62,7 +62,7 @@
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
             <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100"  class="option_img" >
             
-            <h3><a href="<?php echo base_url();?>home/noticeboard">News & event</a></h3> 
+            <h3><a href="<?php echo base_url();?>home/noticeboard">Notice</a></h3> 
             
             </div> 
 
@@ -100,7 +100,7 @@
                             <a href="<?php echo base_url();?>home/admissionpage">Admission Information</a>
                         </div>
                     </div>
-                   <div class="col-md-6 news"><h3>News and Update for School
+                   <div class="col-md-6 news"><h3><a href="<?php echo base_url();?>home/noticeboard">News and Updates</a>
 </h3>
   <ul id="ticker01">
                             <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
@@ -210,7 +210,7 @@
   </div>
 </div>
 <?php 
-$birthday=2;
+$birthday=0;
 
 if 
 
@@ -226,63 +226,39 @@ if
   <div class="container1 col-md-6">
     <div class="flipper">
       <div class="front">
-        <img src="<?php echo base_url();?>application/web_assets/images/event1.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Cherry </p>
+        <img src="<?php echo base_url();?>application/web_assets/images/p2.jpg" width="200" height="200" alt="">
+       
       </div>
-     <div class="back">
-       <a href="https://en.wikipedia.org/wiki/Cherry_blossom" target="_blank">
-         <h1>Cherry blossom</h1>
-       </a>
-       <p class="date">23/07/1997</p>
-       <p class="description">A cherry blossom is the flower of any of several trees of genus Prunus, particularly the Japanese cherry, Prunus serrulata, which is called sakura after the Japanese (桜 or 櫻; さくら).</p>
-     </div>
+    
     </div>
   </div>
 
   <div class="container1 col-md-6">
     <div class="flipper">
       <div class="front">
-        <img src="<?php echo base_url();?>application/web_assets/images/event2.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Tulip</p>
+        <img src="<?php echo base_url();?>application/web_assets/images/p1.jpg" width="200" height="200" alt="">
+       
       </div>
-      <div class="back">
-        <a href="https://en.wikipedia.org/wiki/Tulip" target="_blank">
-          <h1>Tulip</h1>
-        </a>
-        <p class="date">14/07/2001</p>
-        <p class="description">Tulips (Tulipa) form a genus of spring-blooming perennial herbaceous bulbiferous geophytes. The flowers are usually large, showy and brightly coloured, generally red, yellow, or white.</p>
-      </div>
+   
     </div>
   </div>
 
   <div class="container1 col-md-6">
     <div class="flipper">
       <div class="front">
-        <img src="<?php echo base_url();?>application/web_assets/images/event3.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Lavender</p>
+        <img src="<?php echo base_url();?>application/web_assets/images/p3.jpg" width="200" height="200" alt="">
+       
       </div>
-      <div class="back">
-        <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
-          <h1>Lavender</h1>
-        </a>
-        <p class="date">06/08/2004</p>
-        <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
-      </div>
+    
     </div>
   </div>
   <div class="container1 col-md-6">
     <div class="flipper">
       <div class="front">
-        <img src="<?php echo base_url();?>application/web_assets/images/event4.jpg" width="200" height="150" alt="cherry blossoms">
-        <p class="caption">Lavender</p>
+        <img src="<?php echo base_url();?>application/web_assets/images/p4.jpg" width="200" height="200" alt="">
+       
       </div>
-      <div class="back">
-        <a href="https://en.wikipedia.org/wiki/Lavandula" target="_blank">
-          <h1>Lavender</h1>
-        </a>
-        <p class="date">06/08/2004</p>
-        <p class="description">Lavandula is a genus of 47 known species of flowering plants in the mint family. The most widely cultivated species is often referred to as lavender, and there is a color named for the shade of its the flowers. </p>
-      </div>
+     
     </div>
   </div>
 </div> 
@@ -526,14 +502,7 @@ foreach ($arrayName as  $value) {
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="item">
-                        <div class="course_subject_wrap ct_bg_3">
-                            <i class="fa fa-users"></i>
-                            <div class="course_subject_des">
-                                <p><span>Industrial</span>Business Analysis</p>
-                            </div>
-                        </div>
-                    </div> -->
+                  
                 </div>
                 <!--Courses Subject List Wrap End-->
             </div>
@@ -605,11 +574,11 @@ foreach ($arrayName as  $value) {
                 </li>
                 <li>
                     <i class="icon-open-book"></i>
-                    <h2 class="counter">599666</h2>
-                    <span>Passing to Universities</span>
+                    <h2 class="counter">500</h2>
+                    <span>Library Books</span>
                 </li>
                 <li>
-                    <i class="icon-pulse"></i>
+                    <i class="icon-command"></i>
                     <h2 class="counter">1200</h2>
                     <span>Satisfied Parents</span>
                 </li>

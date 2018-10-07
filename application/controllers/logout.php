@@ -21,4 +21,17 @@ class logout extends CI_Controller {
       }
  }
 
+ public function studentlogout()
+ {
+      if ($this->session->userdata('student_data')) {
+            $this->session->sess_destroy();
+            redirect('studentlogin', 'refresh');
+          
+
+      }else{
+          redirect('studentlogin', 'refresh');
+        
+      }
+ }
+
 }

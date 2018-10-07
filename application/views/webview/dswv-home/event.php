@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="sub_banner_hdg">
-                        <h3>Notice And Update</h3>
+                        <h3>Events</h3>
                     </div>
                 </div>
                

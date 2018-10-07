@@ -4,7 +4,7 @@ class studentlogin extends CI_Controller {
  public function __construct()
  {
    parent::__construct();
-   // $this->load->model('memberloginmodel','',TRUE);
+    $this->load->model('studentloginmodel','studentloginmodel',TRUE);
     $this->load->library('session');
 	
  }
@@ -12,33 +12,48 @@ class studentlogin extends CI_Controller {
  public function index()
  {
      
-     $page = 'studentlogin/student_login';
+     $page = 'student/student_login';
      $this->load->view($page);
  }
  
  
  /**
   * @method login
-  * @date:12/01/2017
-  * @chek member panel login by mobile and dob
+  * @date:06/10/2018
+  * @chek student panel login by Student Id and dob
   * */
-/* public function login(){
- $mobileNumber = $this->input->post("mobile");
- $memberPassword = $this->input->post("pwd");
+ public function login(){
+ $studentid = $this->input->post("studentid");
+ $password = $this->input->post("pwd");
  $json_response=array();
- if($mobileNumber!="" && $memberPassword!=""){
-     $maxCustomerId = $this->memberloginmodel->getMaxCustomerId($mobileNumber);
-	 //echo "Max Customer Id ".$maxCustomerId;
-     $result=  $this->memberloginmodel->checkMember($maxCustomerId,$memberPassword);
-     if($result["CUS_ID"]!=""){
-         $this->setSessionData($result);
+ if($studentid!="" && $password!=""){
+
+    
+	
+
+     $result=  $this->studentloginmodel->verifyStudentLogin($studentid,$password);
+     if(sizeof($result)>0 && !empty($result)){
+        
+        $sessionData = array(
+        "student_autoid" => $result['student_autoid'],
+        "studentID" => $result['studentID'],
+        "academicID" => $result['academicID'],    
+        "academic_session_id" => $result['academic_session_id'],    
+        "logintime" => date("Y-m-d H:i:s"),
+        "token" => $this->getSecureToken()
+      );
+        $this->setSessionData($sessionData);
+
+
+
+
          $json_response = array("msg_code"=>1,"msg_data"=>"");
      }else{
           $json_response = array("msg_code"=>3,"msg_data"=>"Incorrect mobilenumber or password");
      }
  
  }else{
-	   $json_response = array("msg_code"=>0,"msg_data"=>"Mobile number or password cannot be blank");
+	   $json_response = array("msg_code"=>0,"msg_data"=>"Student ID or password cannot be blank");
 	
            
            
@@ -49,13 +64,23 @@ class studentlogin extends CI_Controller {
     header('Content-Type: application/json');
     echo json_encode( $json_response );
    exit;
- }*/
+ }
  
- private function setSessionData($result=NULL){
+ 
+ private function getSecureToken()
+ {
+  $token="";
+  $token = openssl_random_pseudo_bytes(16);
+  $token = bin2hex($token);
+  return $token;
+ }
+
+
+  private function setSessionData($result=NULL){
    
    if($result)
    { 
-        $this->session->set_userdata("user_data",$result);
+        $this->session->set_userdata("student_data",$result);
    }
  }
  

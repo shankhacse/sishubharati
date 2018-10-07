@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="sub_banner_hdg">
-                        <h3>Important Info</h3>
+                        <h3>Important Informations</h3>
                     </div>
                 </div>
                

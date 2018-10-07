@@ -100,6 +100,7 @@ span.psw {
 	line-height: 0px;
 	font-size: 25px;
 	font-weight: bold;
+	color: #35b035;
 }
 
 .login-form-container label{
@@ -109,8 +110,14 @@ span.psw {
 }
 .custom-input{
 	height: 44px;
-	border: 1px solid #FFA486;
+	border: 1px solid #72C98C;
 	border-radius: 10px;
+	
+}
+
+.login_input_err{
+	
+	border: 1px solid red;
 	
 }
 .custom-button{
@@ -130,8 +137,8 @@ span.psw {
 	//color:#ADADAD  !important;
 }
 .custom-button:hover{
-	//background:#E0E0E0;
-	background:#FC6432 ;
+	//background:#FC6432;
+	background:#5682C2;
 	color:#FFF;
 	text-shadow: 0px 0px 0px #CCC;
 	transition:.10s;

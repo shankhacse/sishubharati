@@ -2,7 +2,7 @@
     <header>
     	<!--Top Strip Wrap Start-->
         <div class="top_strip">
-        	<div class="container">
+        	<div class="container-fluid">
                 <div class="top_location_wrap">
                     <p><i class="fa fa-map-marker"></i>Pandaveswar ,Burdwan, West Bengal-713346</p>
                 </div>
@@ -57,7 +57,7 @@
                             </ul>
                         </li>
                         <!-- <li><a href="contact-us.html"></a></li> -->
-                         <li><a href="<?php echo base_url();?>home/login">login</a></li>
+                         <li><a href="<?php echo base_url();?>studentlogin">login</a></li>
                     </ul>
                 </nav>
                 <!--DL Menu Start-->

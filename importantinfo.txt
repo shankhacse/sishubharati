@@ -11,4 +11,4 @@ adm_fee_payment now by default 'Y' it will be change 'N' after 2018
 
 
 
-ALTER TABLE table_name AUTO_INCREMENT = 1;
+
