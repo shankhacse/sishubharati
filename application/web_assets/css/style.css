@@ -714,9 +714,11 @@ section{
 }
 .courses_subject_carousel .owl-nav .owl-prev{
 	left:-20px;	
+	opacity: 0;
 }
 .courses_subject_carousel .owl-nav .owl-next{
 	right:0px;	
+	opacity: 0;
 }
 .courses_subject_carousel .owl-nav .owl-prev:before,
 .courses_subject_carousel .owl-nav .owl-next:before{
@@ -1246,7 +1248,7 @@ transition: 1s ease;
 	margin-bottom: 30px;
 	padding:50px 0px;
 	text-align:center;
-	min-height: 350px;
+	height: 350px;
 	border-radius: 5px;
 	border: 5px solid #90a94c;	
 	box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
@@ -2879,6 +2881,15 @@ background: linear-gradient(to top, #feb47b, #ff7e5f); /* W3C, IE 10+/ Edge, Fir
     border-radius: 5px;
     box-shadow: 5px 5px 15px 1px rgba(95, 114, 146, 0.3);
 }
+
+
+
+
+
+
+
+
+
 .adminhome1:hover{
 
 background: #B2FEFA;  /* fallback for old browsers */
