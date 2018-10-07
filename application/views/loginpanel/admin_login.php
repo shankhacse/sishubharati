@@ -59,8 +59,8 @@
       </div>
        <div class="form-group has-feedback">
      
-        <select class="form-control " name="year">
-          
+        <select class="form-control " name="year" id="year">
+          <option value="0">Select year</option>
           <?php 
             foreach ($year as $value) {?>
             <option value="<?php echo $value->session_id;?>"><?php echo $value->year?></option>

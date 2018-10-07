@@ -124,6 +124,7 @@ function loginRequired()
 {
 	var uname = $("#username").val();
 	var pass = $("#password").val();
+	var year = $("#year").val();
 	
 	$("#username,#password").removeClass("login_input_err");
 	
@@ -135,6 +136,11 @@ function loginRequired()
 	if(pass=="")
 	{
 		$("#password").focus().addClass("login_input_err");
+		return false;	
+	}
+	if(year=="0")
+	{
+		$("#year").focus().addClass("login_input_err");
 		return false;	
 	}
 	

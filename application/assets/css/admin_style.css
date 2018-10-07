@@ -10,7 +10,8 @@
 }
 .login_input_err
 {
-	border:1px solid #fb9595;
+  #border:1px solid #fb9595;
+	border:1px solid red;
 }
 
  .check-mark{

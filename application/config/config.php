@@ -1,5 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+//date_default_timezone_set('Asia/Kolkata');
+date_default_timezone_set("UTC");
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -14,6 +15,9 @@
 | path to your installation.
 |
 */
+//$config['base_url']	= '/Mantrapro/memberpanel';
+//$config['base_url']	= '/brittiprosikhan/';
+//$config['base_url']	= '/prosikshan_panel/';
 $config['base_url']	= '/sishubharati/';
 
 /*
@@ -126,9 +130,7 @@ $config['subclass_prefix'] = 'MY_';
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-//$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
-//$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=\#';
-$config['permitted_uri_chars'] = '\#';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 
 
 /*
@@ -157,7 +159,7 @@ $config['permitted_uri_chars'] = '\#';
 |
 */
 $config['allow_get_array']		= TRUE;
-$config['enable_query_strings'] = TRUE;
+$config['enable_query_strings'] = FALSE;
 $config['controller_trigger']	= 'c';
 $config['function_trigger']		= 'm';
 $config['directory_trigger']	= 'd'; // experimental not currently in use
@@ -296,9 +298,10 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_expire' = The number in seconds the token should expire.
 */
 $config['csrf_protection'] = FALSE;
-$config['csrf_token_name'] = 'csrf_test_name';
+$config['csrf_token_name'] = 'csrf_test_name'; //by default : csrf_test_name
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
-$config['csrf_expire'] = 7200;
+$config['csrf_expire'] = 900; // by default it value is 7200
+#$config['csrf_regenerate'] = TRUE; // added by mithilesh
 
 /*
 |--------------------------------------------------------------------------
