@@ -210,7 +210,7 @@
   </div>
 </div>
 <?php 
-$birthday=0;
+$birthday=2;
 
 if 
 
