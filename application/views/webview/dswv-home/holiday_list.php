@@ -21,7 +21,7 @@
 <section>
 <div class="container" style="overflow-x:auto">
 <div class="row header holiday_table" style="text-align:center;color:green">
-<h3>Holiday List - 2018</h3>
+<h3>Holiday List - <?php echo $bodycontent['year'];?></h3>
 </div>
 <br><br>
 <table id="myTable" class="table table-striped table-bordered table-responsive table-hover" >  
@@ -34,79 +34,19 @@
           </tr>  
         </thead>  
         <tbody>  
+          <?php
+          foreach ($bodycontent['holidays'] as  $value) {
+          
+          ?>
           <tr>  
            
-            <td>12 January 2018</td>  
-            <td>Friday</td>  
-            <td>Birthday of Swami Vivekananda</td>  
+            <td><?php echo date("d M Y", strtotime($value->date));?></td>  
+            <td><?php echo date("D", strtotime($value->date));?></td>  
+            <td><?php echo $value->title?></td>  
           </tr>  
-          <tr>  
-              
-            <td>22 January 2018</td>  
-            <td>Monday</td>  
-            <td>Vasant Panchami</td>  
-          </tr>  
-          <tr>  
-            
-            <td>Sravani</td>  
-            <td>Monday</td>  
-            <td>Vasant Panchami</td>  
-          </tr>  
-       <tr>  
-            
-            <td>Amar</td>  
-            <td>India</td>  
-            <td>18000</td>  
-          </tr>  
-          <tr>  
-           
-            <td>Lakshmi</td>  
-            <td>India</td>  
-            <td>12000</td>  
-          </tr>  
-          <tr>  
-            
-            <td>James</td>  
-            <td>Canada</td>  
-            <td>50000</td>  
-          </tr>  
-      
-       <tr>  
-             
-            <td>Ronald</td>  
-            <td>US</td>  
-            <td>75000</td>  
-          </tr>  
-          <tr>  
-           
-            <td>Mike</td>  
-            <td>Belgium</td>  
-            <td>100000</td>  
-          </tr>  
-          <tr>  
-           
-              <td>Sara</td>  
-            <td>Argentina</td>  
-            <td>45000</td>  
-          </tr>  
-      
-        <tr>  
-              
-            <td>Stephen</td>  
-            <td>Austria</td>  
-            <td>30000</td>  
-          </tr>  
-          <tr>  
-                <td>Sara</td>  
-            <td>China</td>  
-            <td>750000</td>  
-          </tr>  
-          <tr>  
-           
-            <td>JonRoot</td>  
-            <td>Argentina</td>  
-            <td>65000</td>  
-          </tr>  
+         
+        <?php }?>
+         
         </tbody>  
       </table>  
     </div>

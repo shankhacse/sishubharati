@@ -17,6 +17,7 @@ class studentdashboardmodel extends CI_Model{
 				GROUP BY DATE_FORMAT( attendance_details.taken_date,'%Y%m' )";
 		
 		$query = $this->db->query($sql);
+
 		if($query->num_rows()>0)
 			{
 				foreach($query->result() as $rows):
@@ -41,9 +42,10 @@ class studentdashboardmodel extends CI_Model{
 		$sql = "SELECT *
 					FROM `attendance_details` WHERE attendance_details.student_uniq_id = '".$studentId."' 
 				AND attendance_details.`academic_id`='".$academicid."'
-					AND DATE_FORMAT(member_attendance.att_date,'%b')='".$month."' AND DATE_FORMAT(member_attendance.att_date,'%Y')=".$year;
+					AND DATE_FORMAT(attendance_details.taken_date,'%b')='".$month."' AND DATE_FORMAT(attendance_details.taken_date,'%Y')=".$year;
 		
 		$query = $this->db->query($sql);
+		#q();
 		if($query->num_rows()>0)
 			{
 				foreach($query->result() as $rows):
@@ -59,5 +61,42 @@ class studentdashboardmodel extends CI_Model{
 		
 	}
 
+
+/* academic details*/
+
+/*--------------------------------------------------*/
+		public function getStudentAcademicDetailsbyId($academicid){
+
+			$where = array('student_academic_details.academic_id' =>$academicid);
+		
+			$data = [];
+			$query = $this->db->select("
+								student_academic_details.*,
+								class_master.name as class_name,
+								session_year.year
+								
+								")
+					->from('student_academic_details')
+					->join('student_master','student_master.student_uniq_id=student_academic_details.student_uniq_id','INNER')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+					->join('session_year','session_year.session_id = student_academic_details.session_id','INNER')
+
+					->where($where)
+				    ->limit(1);
+					$query = $this->db->get();
+				#q();
+				if($query->num_rows()> 0)
+				{
+		           $row = $query->row();
+		           return $data = $row;
+		             
+		        }
+				else
+				{
+		            return $data;
+		        }
+			       
+		
+	}
 
 }// end of class

@@ -18,7 +18,7 @@
 				<p class="attd-dys-no"><?php  echo $student_attendance['totalpresentDys'];?></p>
 				<p class="attd-dys-label">Days</p>
 				
-				<div class="view-more-attd"><a href="<?php echo base_url();?>memberdashboard/attendancedetailbymonth/<?php echo $student_attendance['month_info'];?>/<?php echo $student_attendance['full_year'];?>" >Get Detail <i class="fa fa-caret-right" aria-hidden="true" ></i></a></div>
+				<div class="view-more-attd"><a href="<?php echo base_url();?>studentdashboard/attendancedetailbymonth/<?php echo $student_attendance['month_info'];?>/<?php echo $student_attendance['full_year'];?>" >Get Detail <i class="fa fa-caret-right" aria-hidden="true" ></i></a></div>
 				
 			</div>
 		</div>

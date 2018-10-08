@@ -126,6 +126,10 @@ public function login()
 		$header = [];
 		$result = [];
 		$page = "webview/dswv-home/holiday_list";
+		$result['year']=date('Y');
+
+		$where = array('holidays.year' =>$result['year']);
+		    $result['holidays']=$this->commondatamodel->getAllRecordWhereOrderBy('holidays',$where,'holidays.date');
 
 		
 		webview_helper($result, $page, $header, $session);
@@ -145,4 +149,56 @@ public function login()
 		webview_helper($result, $page, $header, $session);
 	
 	}
-}
+
+/*insert contact*/
+public function saveContact()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data'))
+		{
+			$json_response = array();
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+
+			$name = trim(htmlspecialchars($dataArry['conpername']));
+			$email = trim(htmlspecialchars($dataArry['conemail']));
+			$phone = trim(htmlspecialchars($dataArry['conphone']));
+			$message = trim(htmlspecialchars($dataArry['message']));
+			
+
+
+					$array_insert = array(
+						"name" => $name,
+						"email" => $email,
+						"phone" => $phone,
+						"message" => $message
+						
+					);
+
+				
+				$insertData = $this->commondatamodel->insertSingleTableData('contactus',$array_insert);
+
+					
+						$json_response = array(
+							"msg_status" => 1,
+							"msg_data" => "Your message is successfully send.",
+							"mode" => "ADD"
+						);
+					
+
+				
+
+			header('Content-Type: application/json');
+			echo json_encode( $json_response );
+			exit;
+
+			
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+}// end of class

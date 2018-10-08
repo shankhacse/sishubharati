@@ -126,7 +126,7 @@ else{
 
       <!-- Modal -->
   <div class="modal fade bd-example-modal-lg" id="attendance_info" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-sm" >
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -135,7 +135,7 @@ else{
      
       <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="st_name">Rana</h4></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style="height: 300px;overflow-y: scroll;">
         <div id="detail_information_view"></div>
 
         

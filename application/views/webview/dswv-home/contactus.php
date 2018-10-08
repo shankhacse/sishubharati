@@ -1,5 +1,7 @@
- <script src="<?php echo base_url();?>application/web_assets/js/jquery.js"></script>
-  <script src="<?php echo base_url();?>application/web_assets/js/bootstrap.min.js"></script>  
+   <!-- jQuery -->
+    <script src="<?php echo base_url(); ?>application/assets_student_pannel/js/jquery.js"></script>
+ <script src="<?php echo base_url();?>application/web_assets/js/home.js"></script>
+ 
 <!--Wrapper Start-->  
 <div class="ct_wrapper">
 	
@@ -37,29 +39,33 @@
                 	<h4>GET IN TOUCH WITH US:</h4>
                    <!--  <p>We are home to 1,500 students (aged 12 to 16) and 100 expert faculty and staff community representing over 40 different nations. We are proud of our international and multi-cultural ethos, the way our community collaborates to make a difference. Our world-renowned curriculum is built on the best.</p> -->
                 </div>
+                 <?php 
+              $attr = array("id"=>"contactForm","name"=>"contactForm");
+              echo form_open('',$attr); ?>
+               <input type="hidden" id="baseurl" value="<?php echo base_url(); ?>"/>
                 <div class="row">
                 	<div class="col-md-6">
                     	<div class="ct_contact_form">
                         	<form>
                             	<div class="form_field">
                                 	<label class="fa fa-user"></label>
-                                	<input class="conatct_plchldr" type="text" placeholder="Your Name">
+                                	<input class="conatct_plchldr" type="text" placeholder="Your Name" name="conpername" required>
                                 </div>
                                 <div class="form_field">
                                 	<label class="fa fa-envelope-o"></label>
-                                	<input class="conatct_plchldr" type="text" placeholder="Email Address">
+                                	<input class="conatct_plchldr" type="text" name="conemail" placeholder="Email Address">
                                 </div>
 
                                  <div class="form_field">
                                     <label class="fa fa-phone"></label>
-                                    <input class="conatct_plchldr" type="text" placeholder="Phone Number">
+                                    <input class="conatct_plchldr" type="text" name="conphone" placeholder="Phone Number" required>
                                 </div>
                                 <div class="form_field">
                                 	<label class="fa fa-edit"></label>
-                                	<textarea class="conatct_plchldr" placeholder="Write Detail"></textarea>
+                                	<textarea class="conatct_plchldr" placeholder="Write Detail" name="message" required></textarea>
                                 </div>
                                 <div class="form_field">
-                                	<button>Send Now <i class="fa fa-arrow-right"></i> </button>
+                                	<button type="submit" >Send Now <i class="fa fa-arrow-right" id="contactmessage" ></i> </button>
                                 </div>
                             </form>
                         </div>
@@ -97,10 +103,29 @@ AND NEAR AJOY PETROL PUMP</p>
             </div>
         </section>
         <!--Get in Touch With Us Wrap End-->
-        
+       <?php echo form_close(); ?> 
         
     </div>
     <!--Content Wrap End-->
     
     <!--Footer Wrap Start-->
+
+
+<!-- Modal -->
+<div id="saveMsgModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <p id="save-msg-data"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.reload();">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     

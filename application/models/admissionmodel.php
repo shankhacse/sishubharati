@@ -433,8 +433,8 @@ public function getLatestSerialNumber($from){
 				'is_file_uploaded' => $is_file_uploaded,  
 				 
 				'created_by' => $sesion_data['userid'],  
-				'is_active' => 1,
-				'password' => $data['date_of_birth']  
+				'is_active' => 1
+				
 			);
 
 			
@@ -449,6 +449,22 @@ public function getLatestSerialNumber($from){
 			if($is_file_uploaded=="Y")
 			{
 				$detail_insert = $this->insertIntoUploadFile($data,$sesion_data,$insert_where);
+			}else{
+
+				/* if delete all uploaded file for testing 08.10.2018*/
+				if($data['mode']=="EDIT" && $data['studentID']>0)
+					{
+
+						$where_student = array(
+							"uploaded_documents_all.upload_from_module_id" => $data['studentID'],
+							"uploaded_documents_all.upload_from_module" => 'Admission'
+							);
+
+							$this->db->where($where_student);
+							$this->db->delete('uploaded_documents_all'); 
+							#q();
+					}
+
 			}
 			
 			$insert_user_activity = array(
@@ -502,6 +518,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 		//$dir = APPPATH . 'assets/document/trainerUpload/'; //FCPATH . '/posts';
 		//$dir = APPPATH . 'assets/application_extension/';
 		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/img';
+
 		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/admission_upload'; //server
 
 		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/admission_upload'; //local
@@ -627,7 +644,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 	}
 
 
-			/* -------------------------------
+	/* -------------------------------
 	*	getStudentProfilePicture(studentid)
 	* --------------------------------
 	*/

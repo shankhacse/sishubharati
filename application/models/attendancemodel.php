@@ -129,7 +129,8 @@ public function getAttendanceInfo($attendance_master_id)
 		$data = array();
 		$where = array(
 						'student_academic_details.class_id' => $class_id,
-						'student_academic_details.session_id' => $session_id
+						'student_academic_details.session_id' => $session_id,
+						'student_academic_details.is_active' =>'Y'
 						 );
 		
 		$this->db->select("student_academic_details.*,
@@ -234,7 +235,8 @@ public function getAttendanceDtlbyStudent($month,$student_uniq_id,$academic_id)
 		$data = array();
 		$where = array(
 						'student_academic_details.class_id' => $class_id,
-						'student_academic_details.session_id' => $session_id
+						'student_academic_details.session_id' => $session_id,
+						'student_academic_details.is_active' =>'Y'
 						 );
 		
 		$this->db->select("student_academic_details.*,
