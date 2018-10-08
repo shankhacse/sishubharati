@@ -8,6 +8,8 @@ class studentdashboard extends CI_Controller
 	   $this->load->library('session');
 	   $this->load->model('admissionmodel','admmodel',TRUE);
 	    $this->load->model('routinemodel','routinemodel',TRUE);
+	    $this->load->model('studentdashboardmodel','studentdash',TRUE);
+	    $this->load->model('paymentomodel','paymentomodel',TRUE);
 		
 	}
 		
@@ -22,6 +24,8 @@ class studentdashboard extends CI_Controller
 			$header = "";
 			$where = array('student_master.student_uniq_id' =>$session['studentID']);
 			$result['studentData']= $this->commondatamodel->getSingleRowByWhereCls('student_master',$where);
+
+			$result['academicData']=$this->studentdash->getStudentAcademicDetailsbyId($session['academicID']);
 			
 			studentbody_method($result, $page, $header, $session);
 		}
@@ -130,14 +134,8 @@ public function attendance()
 			
 			$result = [];
 			$header = "";
-			$where = array('student_academic_details.academic_id' =>$session['academicID']);
-			$studentData= $this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
-
-			$student_class=$studentData->class_id;
-			$student_session_id=$studentData->session_id;
-
-			$result['routineList'] = $this->routinemodel->getRoutinebyClass($student_class,$student_session_id); 
-			$result['memberAttendance']= array('1','2','3','4','5','6','7','8','9','10','11','12');
+			 
+			$result['studentAttendance']= $this->studentdash->getStudentAttendanceByMonth($session['studentID'],$session['academicID']);
 			
 			studentbody_method($result, $page, $header, $session);
 		}
@@ -147,5 +145,91 @@ public function attendance()
 		}
 		
 	}
+
+	public function attendancedetailbymonth()
+	{
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$page = 'student/dashboard/attendance/student_attendence_detail_view';
+			
+			$result = [];
+			$header = "";
+			
+			$month = $this->uri->segment(3);
+			$year = $this->uri->segment(4);
+			
+			
+			$result['studentAttDetail'] = $this->studentdash->getStudentAttendanceDetailByMonthAndYear($session['studentID'],$session['academicID'],$month,$year);
+			$result['month'] = $month;
+			$result['year'] = $year;
+			
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
  
-}
+
+/* get student paymeny history working on 30.09.2018*/
+	public function payments()
+	{
+		$session = $this->session->userdata('student_data');
+		if($this->session->userdata('student_data') )
+		{
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			$result=[];
+			$header='';
+			$result['paymentList'] = $this->paymentomodel->getPaymentList($session['academicID']);
+			  
+			//pre($result['paymentList']);exit;
+			$page = "student/dashboard/payments/payment_history_list_data";
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
+
+	/* get bill details data*/		
+	public function getBillDetailData()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$data = [];
+			
+
+			$page = 'student/dashboard/payments/bill_details_partial_modal_view.php';
+			$paymentid = $this->input->post('paymentid');
+			$paymentfor = $this->input->post('paymentfor');
+			$data['billno'] = $this->input->post('billno');
+
+			$where = array('payment_master.payment_master_id' => $paymentid);
+			$paymentData=$this->commondatamodel->getSingleRowByWhereCls('payment_master',$where);
+
+			$bill_master_id=$paymentData->bill_master_id;
+			$data['student_uniq_id']=$paymentData->student_uniq_id;
+
+
+			
+			$data['billDetails']=$this->paymentomodel->getBillDetailsData($bill_master_id);
+			$BillDetailView = $this->load->view($page,$data);
+			
+
+			echo $BillDetailView;
+			
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+
+}// end of class

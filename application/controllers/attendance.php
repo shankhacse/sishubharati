@@ -340,11 +340,14 @@ public function getPescentageStudentList()
 			$session_id=$session['yid'];
 			$view_by = $dataArry['view_by'];
 			$sel_month = $dataArry['sel_month'];
+			
 			$length = strlen((string)$sel_month);
 
 			if ($length==1) {
 				$sel_month="0".$sel_month;
 				$result['sel_month']=$sel_month;
+			}else{
+				$result['sel_month'] = $dataArry['sel_month'];
 			}
 
 			$result['session_id']=$session_id;

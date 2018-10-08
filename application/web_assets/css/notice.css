@@ -26,7 +26,7 @@
   padding:20px;
   color: white;
   font-family:Times New Roman;
- 
+ border: 5px solid;
   border-radius: 5px;
 }
 @media screen and (max-width: 988px){

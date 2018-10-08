@@ -12,11 +12,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-comments fa-5x"></i>
+                                    <i class="fa fa-openid fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
-                                    <div>New Comments!</div>
+                                    <div class="huge"><?php echo $bodycontent['academicData']->student_uniq_id;?></div>
+                                    <div>Student ID</div>
                                 </div>
                             </div>
                         </div>
@@ -34,11 +34,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-tasks fa-5x"></i>
+                                    <i class="fa fa-steam   fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
-                                    <div>New Tasks!</div>
+                                    <div class="huge"><?php echo $bodycontent['academicData']->class_name;?></div>
+                                    <div>Class</div>
                                 </div>
                             </div>
                         </div>
@@ -56,11 +56,11 @@
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa fa-shopping-cart fa-5x"></i>
+                                    <i class="fa fa-renren fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
-                                    <div>New Orders!</div>
+                                    <div class="huge"><?php echo $bodycontent['academicData']->class_roll;?></div>
+                                    <div>Class Roll</div>
                                 </div>
                             </div>
                         </div>
@@ -81,8 +81,8 @@
                                     <i class="fa fa-support fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
-                                    <div>Support Tickets!</div>
+                                    <div class="huge"><?php echo $bodycontent['academicData']->year;?></div>
+                                    <div>Academic Year</div>
                                 </div>
                             </div>
                         </div>
@@ -108,3 +108,4 @@
           
       </div>
    </div>
+
