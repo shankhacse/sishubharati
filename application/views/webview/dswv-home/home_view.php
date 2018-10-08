@@ -102,32 +102,28 @@
                     </div>
                    <div class="col-md-6 news"><h3><a href="<?php echo base_url();?>home/noticeboard">News and Updates</a>
 </h3>
-  <ul id="ticker01">
-                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">The turn of the millennium has constantly been throwing up various challenges to mankind, we at Sishu Bharati Vidya Mandir aim to preserve and enhance highest standard of excellence to match up at every stage. Our Students are equipped to face the world full of</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Inside of which is the code that you want to run</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Right when the page is loaded</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Problematically, however, the Javascript code</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">The first thing that most Javascript programmers</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">End up doing is adding some code</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">The code that you want to run</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Inside of which is the code that you want to run</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Right when the page is loaded</a></li>
-                            <hr>
-                            <li><a href="<?php echo base_url();?>home/noticeboard">Problematically, however, the Javascript code</a></li>
-                            <hr>
-                </ul>
+  <div class="container">
+      <div class="row">
+        <div class="centered">
+          <div id="nt-example1-container" >
+            
+                    <ul id="nt-example1" style="height: 230px;">
+                        <li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
+                        <li>Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna. <a href="#">Read more...</a></li>
+                        <li>Praesent ornare nisl lorem, ut condimentum lectus gravida ut. <a href="#">Read more...</a></li>
+                        <li>Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis. <a href="#">Read more...</a></li>
+                        <li>Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque. <a href="#">Read more...</a></li>
+                        <li>In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id. <a href="#">Read more...</a> </li><li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
+                        <li>Maecenas nec ligula sed est suscipit aliquet sed eget ipsum, suspendisse. <a href="#">Read more...</a></li>
+                        <li>Onec bibendum consectetur diam, nec euismod urna venenatis eget.. <a href="#">Read more...</a> </li>
+                    </ul>
+                   
+                </div>
+        </div>
+        
+        
+      </div>
+    </div>
 </div>
                 </div>
             </div>

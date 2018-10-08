@@ -151,7 +151,7 @@ margin-right: 10px;
   font-size: 25px;
 }
 }
-.news:hover{
+.iews:hover{
 
 
 --webkit-animation: swing 1s ease;
@@ -246,6 +246,6 @@ margin-right: 10px;
   padding:2px 0px;
 }
 .news ul li a {
-  color:white;
+  color:#30c9ce;
   text-decoration:none;
 }

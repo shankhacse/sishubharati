@@ -3084,6 +3084,8 @@ text-align: center;;
 
 
 .notice_board_bg{
+
+	min-height: 500px;
 	padding: 20px;
 
 	/* background-image: linear-gradient(
