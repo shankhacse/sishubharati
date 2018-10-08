@@ -107,7 +107,7 @@
         <div class="centered">
           <div id="nt-example1-container" >
             
-                    <ul id="nt-example1" style="height: 230px;">
+                    <ul id="nt-example1" >
                         <li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
                         <li>Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna. <a href="#">Read more...</a></li>
                         <li>Praesent ornare nisl lorem, ut condimentum lectus gravida ut. <a href="#">Read more...</a></li>
