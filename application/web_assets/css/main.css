@@ -1,3 +1,4 @@
+@@ -0,0 +1,611 @@
 /*
  * Author: Carlos Alvarez
  * URL: http://alvarez.is
@@ -19,72 +20,7 @@
 
 
 
-/* Paragraph & Typographic */
-p {
-    line-height: 28px;
-    margin-bottom: 25px;
-}
 
-.centered {
-    text-align: center;
-}
-
-.mt {
-	margin-top: 40px;
-}
-
-/* Links */
-
-
-/* Bootstrap Modifications */
- hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
-
-.navbar {
-	font-weight: 800;
-	font-size: 14px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	background-color: #ffffff;
-}
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-	color: #ffffff;
-	background-color: #74cfae;
-}
-
-.navbar-brand {
-	font-size: 60px;
-	padding-top: 0px;
-	padding-bottom: 0px;
-}
-
-.btn-theme {
-	color: #ffffff;
-	background-color: #74cfae;
-	border-color: transparent;
-}
-
-.btn {
-	padding: 10px 30px;
-	margin-bottom: 0;
-	font-size: 18px;
-	border: 5px solid transparent;
-	border-radius: 0px;
-}
-
-.lead {
-	letter-spacing: 1px;
-}
-
-/* WRAP SECTIONS */
 
 /* hello */
 #hello {
@@ -289,12 +225,7 @@ h2.header {
 	margin-left: 14px;
 }
 
-
-
-/*
-	NEWSTICKERS
-*/
-
+/
 
 /* nt-title */
 
@@ -346,7 +277,7 @@ h2.header {
 	overflow: hidden;
 	height:76px;
 	padding: 10px;
-	line-height: 20px;
+	line-height:20px;
 	list-style: none;
 	font-size: 14px;
 	text-align: left;
@@ -478,4 +409,3 @@ h2.header {
 	text-transform: uppercase;
 	list-style: none;
 }
-

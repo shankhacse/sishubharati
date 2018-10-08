@@ -108,14 +108,14 @@
           <div id="nt-example1-container" >
             
                     <ul id="nt-example1" >
-                        <li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
-                        <li>Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna. <a href="#">Read more...</a></li>
-                        <li>Praesent ornare nisl lorem, ut condimentum lectus gravida ut. <a href="#">Read more...</a></li>
-                        <li>Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis. <a href="#">Read more...</a></li>
-                        <li>Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque. <a href="#">Read more...</a></li>
-                        <li>In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id. <a href="#">Read more...</a> </li><li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
-                        <li>Maecenas nec ligula sed est suscipit aliquet sed eget ipsum, suspendisse. <a href="#">Read more...</a></li>
-                        <li>Onec bibendum consectetur diam, nec euismod urna venenatis eget.. <a href="#">Read more...</a> </li>
+                        <li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>Praesent ornare nisl lorem, ut condimentum lectus gravida ut. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a> </li><li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
+                        <li>Maecenas nec ligula sed est suscipit aliquet sed eget ipsum, suspendisse. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
+                        <li>Onec bibendum consectetur diam, nec euismod urna venenatis eget.. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a> </li>
                     </ul>
                    
                 </div>
@@ -576,7 +576,7 @@ foreach ($arrayName as  $value) {
                 <li>
                    <i class="fas fa-graduation-cap"></i>
                     <h2 class="counter">10</h2>
-                    <span>Exprience years</span>
+                    <span>Academic exprience years</span>
                 </li>
             </ul>
         </section>
