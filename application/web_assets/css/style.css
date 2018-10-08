@@ -433,9 +433,11 @@ section{
 }
 .banner_outer_wrap .bx-wrapper .bx-controls-direction a.bx-prev{
 	left:0px;	
+	opacity: 0;
 }
 .banner_outer_wrap .bx-wrapper .bx-controls-direction a.bx-next{
 	right:0px;	
+	opacity: 0;
 }
 .banner_outer_wrap .bx-wrapper .bx-controls-direction a:before{
 	content:"\f104";

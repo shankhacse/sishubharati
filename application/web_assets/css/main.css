@@ -34,32 +34,7 @@ p {
 }
 
 /* Links */
-a {
-    color: #f85c37;
-    word-wrap: break-word;
 
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
-a:hover,
-a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
-}
-
-a:before,
-a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-}
 
 /* Bootstrap Modifications */
  hr {
@@ -314,112 +289,7 @@ h2.header {
 	margin-left: 14px;
 }
 
-/* title */
-.title {
-	background-color: #4e4e4e;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	margin-bottom: 0px;
-}
 
-.title h3 {
-	color: white;
-	font-weight: 400;
-	margin-bottom: 20px;
-	font-weight: 700;
-}
-
-.title p {
-	color: white;
-	font-weight: 400;
-	font-size: 20px;
-}
-
-/* TABLE */
-.params-table code {
-	color: #4e4e4e;
-	border-radius: 1px;
-	background-color: rgba(116, 207, 174, .3);
-	-webkit-transition: background-color 0.1s ease-in-out;
-    -moz-transition: background-color 0.1s ease-in-out;
-    -ms-transition: background-color 0.1s ease-in-out;
-    -o-transition:background-colorl 0.1s ease-in-out;
-    transition: background-color 0.1s ease-in-out;
-}
-
-.params-table code:hover {
-	background-color: rgba(116, 207, 174, .5);
-}
-
-
-.params-table thead {
-	color: #fff;
-	background-color: #74cfae;
-}
-
-.params-table  thead > tr > th {
-	border-bottom: none;
-	font-size: 1.2em;
-	font-weight: 300;
-	text-transform: uppercase;
-}
-
-.params-table tbody > tr > td {
-	border-top: none;
-}
-
-.params-table > tbody > tr:hover > td {
-	background-color: #e4f6ef;
-}
-
-
-/* DOWNLOAD */
-
-.download-title {
-	background-color: #4e4e4e;
-}
-
-.download-title h3 {
-	margin: 3em 0;
-	color: #fff;
-}
-
-#download {
-	padding: 8em 0;
-}
-
-#download .download-link {
-	padding: 1em .5em;
-}
-
-#download .download-link:hover {
-	background: #fff;
-}
-
-#download .download-link i,
-#download .download-link .download-text {
-	-webkit-transition: color 0.2s ease-in-out;
-    -moz-transition: color 0.2s ease-in-out;
-    -ms-transition: color 0.2s ease-in-out;
-    -o-transition:colorl 0.2s ease-in-out;
-    transition: color 0.2s ease-in-out;
-}
-
-#download .download-link:hover i,
-#download .download-link:hover .download-text {
-	color: #4e4e4e;
-}
-
-#download .download-link i {
-	font-size: 80px;
-}
-
-
-#download .download-text {
-	font-size: 2.4em;
-	font-weight: 300;
-	color: #74cfae;
-}
 
 /*
 	NEWSTICKERS
@@ -476,7 +346,7 @@ h2.header {
 	overflow: hidden;
 	height:76px;
 	padding: 10px;
-	line-height: 15px;
+	line-height: 20px;
 	list-style: none;
 	font-size: 14px;
 	text-align: left;
