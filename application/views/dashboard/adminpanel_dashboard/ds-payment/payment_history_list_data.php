@@ -16,7 +16,7 @@
                   <th>Amount</th>
                   <th>Fine</th>
                   <th>Total</th>
-                  <!-- <th width="10%">Action</th> -->
+                  <th>Print</th> 
                   
                 </tr>
                 </thead>
@@ -44,7 +44,7 @@
                     }elseif ($value->payment_for=='SES') {
                       echo "Session Fee";
                     }elseif ($value->payment_for=='MON') {
-                      echo "Monthly Tution";
+                      echo "Monthly Tuition";
                     }
             ?></td>
             <td><?php echo $value->for_month; ?></td>
@@ -71,15 +71,11 @@
              
 
             </td>
-             <!--   <td>
-              <button type="button" class="btn btn-sm btn-warning ViewTutionMakePayment" data-toggle="modal" data-target="#makepaymenttution_info" 
-              data-studentid="<?php echo $value->student_uniq_id;?>" 
-              data-academicid="<?php echo $value->academic_id;?>" 
-              data-classname="<?php echo $value->class_name;?>" 
-              data-classroll="<?php echo $value->class_roll;?>" 
-              data-mode ="MONFEE" 
-              data-studentname="<?php echo $value->name; ?>" >Make Payment </button> 
-                         </td> -->
+             <td>
+             <a href="<?php echo base_url(); ?>payment/printPaymentReceipt/<?php echo $value->payment_master_id; ?>" class="btn btn-primary btn-xs" data-title="Pdf" target="_blank" >
+                <span class="glyphicon glyphicon-print"></span>
+              </a> 
+                         </td> 
            
            
          

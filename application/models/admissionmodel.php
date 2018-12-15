@@ -286,6 +286,7 @@ public function getLatestSerialNumber($from){
 			 	'student_uniq_id' => $studentUniqID, 
 			 	'class_id' => $data['class_id'], 
 			 	'class_roll' => $data['classroll'], 
+			 	'rank' => $data['classroll'], 
 			 	'session_id' => $sesion_data['yid'], 
 			 	 
 			 	'created_by' => $sesion_data['userid'] 
@@ -325,7 +326,7 @@ public function getLatestSerialNumber($from){
 				'entry_class' => $data['entrycls'], 
 				'frm_slno' => $data['frmslno'], 
 				'is_file_uploaded' => $is_file_uploaded,  
-				'academic_id' => $academic_insert_ID,  
+				'academic_master_id' => $academic_insert_ID,  
 				'created_by' => $sesion_data['userid'],  
 				'is_active' => 1,  
 				'password' => $data['date_of_birth']  

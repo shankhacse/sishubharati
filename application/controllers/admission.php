@@ -60,7 +60,11 @@ class admission extends CI_Controller {
 				$result['btnTextLoader'] = "Updating...";
 				$studentID = $this->uri->segment(3);
 				
-				$where = array('student_master.student_id' => $studentID );
+				$where = array(
+								'student_master.student_id' => $studentID 
+								,
+					'student_academic_details.session_id' => $session['yid']
+							);
 				$where_doc = array(
 					'uploaded_documents_all.upload_from_module_id' => $studentID, 
 					'uploaded_documents_all.upload_from_module' => "Admission"

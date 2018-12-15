@@ -349,7 +349,27 @@ public function DeleteData($table,$where)
 		
 	}
 
+	public function rowcountwhere($table,$where)
+	{
+		
+		$this->db->select('*')
+				->from($table)
+				->where($where);
 
+		$query = $this->db->get();
+		#q();
+		$rowcount = $query->num_rows();
+	
+		if($query->num_rows()>0){
+			return $rowcount;
+		}
+		else
+		{
+			return 0;
+		}
+		
+	}
+	
 	public function updateDataSingleTable($upd_tbl_name,$upd_data,$upd_where)
 	{
 		 try {

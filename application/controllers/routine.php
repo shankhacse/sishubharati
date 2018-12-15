@@ -43,7 +43,7 @@ class routine extends CI_Controller
 				$result['btnTextLoader'] = "Saving...";
 				$routineID = 0;
 				$result['routineEditdata'] = [];
-				$result['classList']=$this->routinemodel->getClassListForRoutine();
+				$result['classList']=$this->routinemodel->getClassListForRoutine($session['yid']);
 				//getAllRecordWhereOrderBy($table,$where,$orderby)
 				
 				

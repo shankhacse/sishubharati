@@ -66,7 +66,7 @@
                    </div>
 
                    <div class="form-group">
-                              <label>Date </label>
+                              <label>Time </label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">

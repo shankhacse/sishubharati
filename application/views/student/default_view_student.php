@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shshu bharati student zone</title>
+    <title>Sishu bharati student zone</title>
 
        <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -96,7 +96,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">SHSHU BHARATI</a>
+                <a class="navbar-brand" href="#">SISHU BHARATI</a>
             </div>
             <!-- /.navbar-header -->
 

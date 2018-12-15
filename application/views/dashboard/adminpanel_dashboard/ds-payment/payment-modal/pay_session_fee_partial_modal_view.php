@@ -16,7 +16,7 @@
                       <td>Roll</td><td><?php echo $classroll;?></td></tr>
 
                     <tr><td colspan="2">Payment Date</td><td colspan="2">
-              <input class="form-control pull-right datepicker" id="payment_dt" name="payment_dt" type="text" value="">
+              <input class="form-control pull-right datepicker" id="payment_dt" name="payment_dt" type="text" autocomplete="off" value="">
                     </td> </tr>
                  
                 </tbody>
@@ -51,6 +51,8 @@
                 </tbody>
               </table>
             <p id="sespaymsg" class="form_error"></p>
+            <?php if($sessionFeeList)
+            {?>
              <div class="btnDiv">
                       <button type="submit" class="btn btn-primary formBtn" id="sespaysavebtn">Save Payment</button>
 
@@ -58,6 +60,7 @@
                       <br>
                    
                   </div>
+                <?php }?>
 
             <?php echo form_close(); ?>
 

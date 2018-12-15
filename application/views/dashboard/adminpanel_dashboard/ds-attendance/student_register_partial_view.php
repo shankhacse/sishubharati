@@ -133,7 +133,7 @@ else{
         <input type="hidden" name="attdetailsid" id="attdetailsid">
          <table>
           <tr>
-            <td id="stname" style="font-size: 15px;color: #c43cda;font-weight: bold;">Shankha Ghosh</td>
+            <td id="stname" style="font-size: 15px;color: #c43cda;font-weight: bold;"></td>
           </tr>
         </table>
       </div>

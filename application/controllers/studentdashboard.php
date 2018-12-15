@@ -10,6 +10,9 @@ class studentdashboard extends CI_Controller
 	    $this->load->model('routinemodel','routinemodel',TRUE);
 	    $this->load->model('studentdashboardmodel','studentdash',TRUE);
 	    $this->load->model('paymentomodel','paymentomodel',TRUE);
+	    $this->load->model('marksmodel','marksmodel',TRUE);
+
+	      $this->highest_marks_method_call_view =& get_instance();
 		
 	}
 		
@@ -226,10 +229,373 @@ public function attendance()
 		}
 		else
 		{
-			redirect('administratorpanel','refresh');
+			redirect('studentlogin','refresh');
 		}
 		
 	}
 
+
+public function exammarks()
+	{
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$page = 'student/dashboard/exam/exam_list_view';
+			
+			$result = [];
+			$header = "";
+			 
+			$where = array(
+								'result_publish.is_publish' => 'Y',
+								'result_publish.session_id' => $session['academic_session_id']
+								 );
+			$orderby="result_publish.id";
+			$result['termList'] = $this->commondatamodel->getAllRecordWhereOrderBy('result_publish',$where,$orderby);
+			
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+		
+	}
+
+	/* for  individuals term marks*/
+	public function getStudentTermMarks()
+	{   $session = $this->session->userdata('student_data');
+		if($this->session->userdata('student_data'))
+		{
+				$formData = $this->input->post('formDatas');
+		    	parse_str($formData, $dataArry);
+		    	$result=[];
+                $result['term'] = $dataArry['term'];
+                /*if ($result['term']=='First') {
+                	echo "string";
+                }*/
+			   
+			    
+
+			
+
+                $academic_id=$session['academicID'];
+			
+				$where = array('student_academic_details.academic_id' => $academic_id);
+					$result['academicData']=$this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
+					$result['studentInfo']=$this->marksmodel->getStudentInfo($academic_id);
+
+					
+					if ($result['academicData']) {
+						
+					$first_term_data=$result['academicData']->first_term_data;	
+					$first_term_master_id=$result['academicData']->first_term_master_id;
+
+					$second_term_data=$result['academicData']->second_term_data;	
+					$second_term_master_id=$result['academicData']->second_term_master_id;	
+
+					$third_term_data=$result['academicData']->third_term_data;	
+					$third_term_master_id=$result['academicData']->third_term_master_id;
+
+						if ($result['term']=='First') {
+							$result['term_marks']=$this->marksmodel->getMarksDetails($first_term_master_id);
+
+							$where_marks_mst= array('marks_master.marks_master_id' => $first_term_master_id );
+				
+							$marksMasterData=$this->commondatamodel->getSingleRowByWhereCls('marks_master',$where_marks_mst);
+							if ($marksMasterData) {
+							
+							$result['attendance']=$marksMasterData->attendance;
+							$result['sporting']=$marksMasterData->sporting;
+							$result['discipline']=$marksMasterData->discipline;
+							$result['cultural_efficiency']=$marksMasterData->cultural_efficiency;
+						    }else{
+						    	$result['attendance']="";
+								$result['sporting']="";
+								$result['discipline']="";
+								$result['cultural_efficiency']="";
+						    }
+
+
+						}elseif ($result['term']=='Second') {
+							$result['term_marks']=$this->marksmodel->getMarksDetails($second_term_master_id);
+
+							$where_marks_mst= array('marks_master.marks_master_id' => $second_term_master_id );
+				
+							$marksMasterData=$this->commondatamodel->getSingleRowByWhereCls('marks_master',$where_marks_mst);
+							if ($marksMasterData) {
+							
+							$result['attendance']=$marksMasterData->attendance;
+							$result['sporting']=$marksMasterData->sporting;
+							$result['discipline']=$marksMasterData->discipline;
+							$result['cultural_efficiency']=$marksMasterData->cultural_efficiency;
+							}else{
+						    	$result['attendance']="";
+								$result['sporting']="";
+								$result['discipline']="";
+								$result['cultural_efficiency']="";
+						    }
+
+						}elseif ($result['term']=='Third') {
+							$result['term_marks']=$this->marksmodel->getMarksDetails($third_term_master_id);
+
+							$where_marks_mst= array('marks_master.marks_master_id' => $third_term_master_id );
+				
+							$marksMasterData=$this->commondatamodel->getSingleRowByWhereCls('marks_master',$where_marks_mst);
+							if ($marksMasterData) {
+							$result['attendance']=$marksMasterData->attendance;
+							$result['sporting']=$marksMasterData->sporting;
+							$result['discipline']=$marksMasterData->discipline;
+							$result['cultural_efficiency']=$marksMasterData->cultural_efficiency;
+							}else{
+						    	$result['attendance']="";
+								$result['sporting']="";
+								$result['discipline']="";
+								$result['cultural_efficiency']="";
+						    }
+
+						}else{
+							$result['term_marks']=[];
+							$result['attendance']="";
+							$result['sporting']="";
+							$result['discipline']="";
+							$result['cultural_efficiency']="";
+						}
+					
+					
+					
+
+					//pre($result['term_marks']);
+				}else{
+					$result['term_marks']=[];
+					
+				}
+
+			
+			
+			
+
+
+			//pre($result['paymentList']);exit;
+			$page = "student/dashboard/exam/student_marks_list_data.php";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
+
+
+	public function exampaper()
+	{
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$page = 'student/dashboard/paper/paper_list_view';
+			
+			$result = [];
+			$header = "";
+			 
+			$where = array(
+								'result_publish.is_publish' => 'Y',
+								'result_publish.session_id' => $session['academic_session_id']
+								 );
+			$orderby="result_publish.id";
+			$result['termList'] = $this->commondatamodel->getAllRecordWhereOrderBy('result_publish',$where,$orderby);
+			
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+		
+	}
+
+
+/**/
+/* for  individuals term marks*/
+	public function getStudentExamPapers()
+	{   $session = $this->session->userdata('student_data');
+		if($this->session->userdata('student_data'))
+		{
+				$formData = $this->input->post('formDatas');
+		    	parse_str($formData, $dataArry);
+		    	$result=[];
+                $result['term'] = $dataArry['term'];
+                /*if ($result['term']=='First') {
+                	echo "string";
+                }*/
+			   
+			    
+
+			
+                $moduleTag='ExamPaper';
+                $academic_id=$session['academicID'];
+			
+				$where = array('student_academic_details.academic_id' => $academic_id);
+					$result['academicData']=$this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
+					$result['studentInfo']=$this->marksmodel->getStudentInfo($academic_id);
+
+					
+					if ($result['academicData']) {
+						
+					$first_term_data=$result['academicData']->first_term_data;	
+					$first_term_master_id=$result['academicData']->first_term_master_id;
+
+					$second_term_data=$result['academicData']->second_term_data;	
+					$second_term_master_id=$result['academicData']->second_term_master_id;	
+
+					$third_term_data=$result['academicData']->third_term_data;	
+					$third_term_master_id=$result['academicData']->third_term_master_id;
+
+						if ($result['term']=='First') {
+
+							$result['term_papers']=$this->studentdash->getUploadedExamPapers($first_term_master_id,$moduleTag);
+
+						}elseif ($result['term']=='Second') {
+							$result['term_papers']=$this->studentdash->getUploadedExamPapers($second_term_master_id,$moduleTag);
+
+						}elseif ($result['term']=='Third') {
+							$result['term_papers']=$this->studentdash->getUploadedExamPapers($third_term_master_id,$moduleTag);;
+						}else{
+							$result['term_papers']=[];
+						}
+					
+					
+
+
+					
+
+					//pre($result['term_marks']);
+				}else{
+					$result['term_papers']=[];
+					
+				}
+
+			
+			
+			
+
+
+			//pre($result['paymentList']);exit;
+			$page = "student/dashboard/paper/student_exam_paper_list_data";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
+
+
+
+public function message()
+	{
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$page = 'student/dashboard/message/message';
+			
+			$result = [];
+			$header = "";
+			
+
+			$result['academicData']=$this->studentdash->getStudentAcademicDetailsbyId($session['academicID']);
+
+			$result['student_uniq_id']=$result['academicData']->student_uniq_id;
+			$result['academic_id']=$result['academicData']->academic_id;
+
+			$result['messageList']=$this->studentdash->getMessageByStudentID($result['student_uniq_id']);
+			
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+		
+	}
+
+
+	public function sendMessage()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$json_response = array();
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+
+			$student_uniq_id = trim(htmlspecialchars($dataArry['student_uniq_id']));
+			$academic_id = trim(htmlspecialchars($dataArry['academic_id']));
+			$message = trim(htmlspecialchars($dataArry['message']));
+			
+			
+			
+
+					/*  ADD MODE
+					 *	-----------------
+					*/
+
+
+					$array_insert = array(
+						"academic_id" => $academic_id,
+						"student_uniq_id" => $student_uniq_id,
+						"student_message" => $message
+						
+					);
+
+					
+
+						
+					$tbl_name = array('message');
+					$insert_array = array($array_insert);
+					$insertData = $this->commondatamodel->insertMultiTableData($tbl_name,$insert_array);
+
+					if($insertData)
+					{
+						$json_response = array(
+							"msg_status" => 1,
+							"msg_data" => "Saved successfully",
+							"mode" => "ADD"
+						);
+					}
+					else
+					{
+						$json_response = array(
+							"msg_status" => 1,
+							"msg_data" => "There is some problem.Try again"
+						);
+					}
+
+				
+
+
+
+			header('Content-Type: application/json');
+			echo json_encode( $json_response );
+			exit;
+
+			
+
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
+
+public function highestMarks($classid,$subjectid,$term,$sessionid)
+	{
+		
+$result=$this->studentdash->getHighestMarks($classid,$subjectid,$term,$sessionid);
+
+return $result;
+
+
+	}
 
 }// end of class

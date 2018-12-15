@@ -30,4 +30,30 @@ class loginmodel extends CI_Model{
         }
 		
 	}
+
+/* get year desending order*/
+
+public function getAcademicYear(){
+		$data = [];
+		$where = array('session_year.is_active' =>'Y' );
+		$query = $this->db->select("*")
+				->from('session_year')
+				->where($where)
+				->order_by('session_year.session_id','desc')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
 }

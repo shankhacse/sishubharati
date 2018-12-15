@@ -6,8 +6,11 @@ class payment extends CI_Controller
 	{
 	   parent::__construct();
 	   $this->load->library('session');
+	   $this->load->library('pdfl');//load PHPExcel library
 	   $this->load->model('paymentomodel','paymentomodel',TRUE);
 	   $this->load->model('admissionmodel','admissionmodel',TRUE);
+	    $this->load->model('marksmodel','marksmodel',TRUE);
+	     $this->payment_method_call_view =& get_instance();
 		
 	}
 /* get all students list of unpaid admission fees*/		
@@ -549,7 +552,7 @@ public function savepayTutionFee()
 
 			$billmaster_data = array(
 									 'bill_no' => $billno,
-									 'payment_for' => 'Tution Fees',
+									 'payment_for' => 'Tuition Fees',
 									 'student_uniq_id' => $student_uniq_id,
 									 'academic_id' => $academicid,
 									 'session_id' => $session_id,
@@ -565,7 +568,7 @@ public function savepayTutionFee()
 
     	$bill_details_data = array(
     								'bill_master_id' => $billmasterid, 
-    								'payment_desc' => 'Monthly Tutions', 
+    								'payment_desc' => 'Monthly Tuitions', 
     								'amount' => $monthly_fee+$fine_amt, 
     								'session_id' => $session_id
     							   );
@@ -725,7 +728,7 @@ $payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('
 		}
 		else
 		{
-			redirect('login','refresh');
+			redirect('administratorpanel','refresh');
 		}
 	}
 
@@ -823,4 +826,120 @@ $payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('
 		}
 	}
 
+
+
+
+/* print payment details*/
+public function printPaymentReceipt()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			
+		$paymentid = $this->uri->segment(3);
+		
+		$pdf = $this->pdfl->load();
+		$page = 'dashboard/adminpanel_dashboard/ds-payment/print_receipt_view';
+
+		$where = array('payment_master.payment_master_id' => $paymentid);
+			$paymentData=$this->commondatamodel->getSingleRowByWhereCls('payment_master',$where);
+		$bill_master_id=$paymentData->bill_master_id;
+
+		$where_billdetails = array('bill_master.bill_master_id' => $bill_master_id);
+			$billdetailsData=$this->commondatamodel->getSingleRowByWhereCls('bill_master',$where_billdetails);
+		$result['billno']=$billdetailsData->bill_no;
+		$result['paymentdate']=$paymentData->payment_dt;
+		$result['payment_for']=$paymentData->payment_for;
+		$result['fine_amount']=$paymentData->fine_amount;
+			
+			$result['student_uniq_id']=$paymentData->student_uniq_id;
+			$academic_id=$paymentData->academic_id;
+
+$result['studentInfo']=$this->marksmodel->getStudentInfo($academic_id);
+
+
+			
+			$result['billDetails']=$this->paymentomodel->getBillDetailsData($bill_master_id);
+
+
+
+		$result['data']="Hello";
+		$this->load->view($page,$result,true);
+		ini_set('memory_limit', '256M'); 
+                 
+       echo $html = $this->load->view($page, $result, true);
+       /*$pdf->WriteHTML($html); 
+       $output = 'payment_receipt' . date('Y_m_d_H_i_s') . '_.pdf'; 
+               $pdf->Output("$output", 'I');*/
+               // $pdf->Output();
+                exit();
+
+			
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+public function no_to_words($no) {
+        $words = array('0' => '', 
+            '1' => 'one',
+            '2' => 'two', 
+            '3' => 'three', 
+            '4' => 'four', 
+            '5' => 'five', 
+            '6' => 'six', 
+            '7' => 'seven', 
+            '8' => 'eight', 
+            '9' => 'nine', 
+            '10' => 'ten', 
+            '11' => 'eleven',
+            '12' => 'twelve', 
+            '13' => 'thirteen', 
+            '14' => 'fourteen', 
+            '15' => 'fifteen', 
+            '16' => 'sixteen', 
+            '17' => 'seventeen', 
+            '18' => 'eighteen', 
+            '19' => 'nineteen', 
+            '20' => 'twenty', 
+            '30' => 'thirty', 
+            '40' => 'fourty', 
+            '50' => 'fifty', 
+            '60' => 'sixty',
+            '70' => 'seventy', 
+            '80' => 'eighty', 
+            '90' => 'ninty',
+            '100' => 'hundred', 
+            '1000' => 'thousand', 
+            '100000' => 'lakh', 
+            '10000000' => 'crore');
+        if ($no == 0)
+            return ' ';
+        else {
+            $novalue = '';
+            $highno = $no;
+            $remainno = 0;
+            $value = 100;
+            $value1 = 1000;
+            while ($no >= 100) {
+                if (($value <= $no) && ($no < $value1)) {
+                    $novalue = $words["$value"];
+                    $highno = (int) ($no / $value);
+                    $remainno = $no % $value;
+                    break;
+                }
+                $value = $value1;
+                $value1 = $value * 100;
+            }
+            if (array_key_exists("$highno", $words))
+                return $words["$highno"] . " " . $novalue . " " .$this->no_to_words($remainno);
+            else {
+                $unit = $highno % 10;
+                $ten = (int) ($highno / 10) * 10;
+                return $words["$ten"] . " " . $words["$unit"] . " " . $novalue . " " .$this->no_to_words($remainno);
+            }
+        }
+    }
 }// end of class

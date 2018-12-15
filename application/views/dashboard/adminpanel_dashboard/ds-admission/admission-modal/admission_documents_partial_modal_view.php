@@ -31,12 +31,12 @@
                     <?php 
                       $i = 1;
                       foreach ($documentDetailData as $key => $value) {
-        
+      
                           $download_link = base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
                           $file_name = explode('.',$value->random_file_name);
                           $file_extension = $file_name[1];
-                          //echo $file_extension;
-                          if($file_extension=="jpg" || $file_extension=="jpeg" || $file_extension=="png" || $file_extension=="gif")
+                        //  echo $file_extension;
+                          if($file_extension=="jpg" || $file_extension=="JPG" || $file_extension=="jpeg" || $file_extension=="JPEG" || $file_extension=="png" || $file_extension=="PNG" || $file_extension=="gif")
                           {
                             $src = base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
                             $org_file_name = "<a href='".$download_link."' download>".$value->user_file_name."</a>" ;

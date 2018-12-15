@@ -32,6 +32,7 @@
                   <th>Roll</th>
                   <th>Gender</th>
                   <th>Date Of Birth</th>
+                  <th>Age</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,7 @@
                    
                  </td>
             <td><?php echo date("d M Y", strtotime($value->date_of_birth));?></td>
+            <td><?php echo $diff = (date('Y') - date('Y',strtotime($value->date_of_birth)));?></td>
 						
 						
 				

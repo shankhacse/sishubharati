@@ -1,9 +1,12 @@
 
     
         
-     <div class="table-responsive" style=" display: block;">          
+     <div class="table-responsive" style=" display: block;
+  height: 300px;
+  overflow-y: scroll;">          
   <table class="table table-bordered table-striped" style="color: #1d7894;">
 <thead>
+  <th>Sl</th>
 	<th>Date</th>
 	<th>Status</th>
 </thead>
@@ -13,10 +16,12 @@
     	<?php 
       $presentCount=0;
       $absentCount=0;
+      $i=1;
     	foreach ($studentattendancedata as $value) {
     	
     	?>
     	<tr>
+        <td><?php echo $i++;?></td>
     		<td><?php echo date("d-m-Y", strtotime($value->taken_date));?></td>
     		<td>
     			 <?php

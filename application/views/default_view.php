@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+  <link rel="shortcut icon" href="<?php echo base_url();?>application/web_assets/images/favicon.png">
   <title>SB | Admin-Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -939,7 +940,7 @@
 				<h4 class="modal-title">What do you want to do?</h4>
              </div>
              <div class="modal-footer">
-			    <a href="<?php echo base_url();?>dashboard" class="btn bg-olive btn-flat margin pull-left">Dashboard</a>
+			    <a href="<?php echo base_url();?>admindashboard" class="btn bg-olive btn-flat margin pull-left">Dashboard</a>
                <a href="javascript:;" class="btn bg-maroon btn-flat margin " style="background:#f64537 !important;" id="response_add_more"> + Add More</a>
 			   <a href="javascript;" class="btn bg-purple btn-flat margin" id="response_list_view">Go to List</a>
              </div>

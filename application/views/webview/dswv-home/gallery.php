@@ -1,4 +1,17 @@
+<style type="text/css">
+  
 
+/*    .image_poster {
+ width: 387px;
+ height:300px;
+ 
+} */
+
+.galback{
+  background-color: #f6f6f6;
+  padding: 14px 0;
+}
+</style>
 
  
 <!-- Mobile Specific Meta
@@ -66,26 +79,28 @@ End Fixed Navigation
 
 <!-- Start Portfolio Section
     =========================================== -->
+
+
+ 
     
-    <section class="portfolio section-sm" id="portfolio">
+    <section class="portfolio section-sm galback" id="portfolio">
       <div class="container-fluid">
         <div class="row " >
           <div class="col-lg-12">
-          
-            <!-- section title -->
-            <div class="title text-center">
-              <h2>Photo Gallery</h2>
-             <!--  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, veritatis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, vitae? </p> -->
-              <div class="border"></div>
-            </div>
-            <!-- /section title -->
+         
 
             <div class="portfolio-filter">
               <button type="button" data-filter="all">All</button>
-              <button type="button" data-filter=".photography">Photography</button>
-              <button type="button" data-filter=".ios">IOS App</button>
-              <button type="button" data-filter=".development">Development</button>
-              <button type="button" data-filter=".design">Design</button>
+              <?php 
+              foreach ($bodycontent['albumList'] as $value) {
+              
+
+              ?>
+              <button type="button" data-filter=".<?php echo $value->name?>"><?php echo $value->name?></button>
+               <?php 
+                      }
+              ?>
+              
             </div>
 
             
@@ -93,105 +108,55 @@ End Fixed Navigation
           
             <div class="portfolio-items-wrapper">
               <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6 mix design" >
+                <?php
+
+                    if ($bodycontent['imageList']) {
+                               foreach ($bodycontent['imageList'] as $value) {
+
+                ?>
+                <div class="col-md-3 col-sm-6 col-xs-6 mix <?php echo $value->album?>" >
                     <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" alt="">
+                      <img class="img-responsive image_poster" src="<?php echo base_url();?>application/assets/ds-documents/gallery_upload/<?php echo $value->random_file_name?>" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-1.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/assets/ds-documents/gallery_upload/<?php echo $value->random_file_name?>" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
+                        <h4><a href="">View Large</a></h4>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix design ios" >
+                  <?php  }
+                    }else{
+                ?>
+                <div class="col-md-3 col-sm-6 col-xs-6 mix all" >
                     <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-2.jpg" alt="">
+                      <img class="img-responsive" src="<?php echo base_url();?>application/assets/ds-documents/gallery_upload/slide1.jpg" alt="">
                       <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-2.jpg" data-lightbox="image-1">
+                        <a class="search-icon" href="<?php echo base_url();?>application/assets/ds-documents/gallery_upload/slide1.jpg" data-lightbox="image-1">
                           <i class="tf-ion-ios-search-strong"></i>
                         </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
+                        <h4><a href="">View Large</a></h4>
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix photography development" >
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-3.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-3.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix photography ios" >
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-4.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-4.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix design">
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-5.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-5.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix design development">
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-6.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-6.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix photography">
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-7.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-7.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 mix design development">
-                    <div class="portfolio-block">
-                      <img class="img-responsive" src="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-8.jpg" alt="">
-                      <div class="caption">
-                        <a class="search-icon" href="<?php echo base_url();?>application/web_assets/perfect_gallery/images/portfolio/portfolio-8.jpg" data-lightbox="image-1">
-                          <i class="tf-ion-ios-search-strong"></i>
-                        </a>
-                        <h4><a href="">AirBnB Postcard</a></h4>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
+
+                 <?php 
+                        }
+                 ?>
+             
+
+              </div><!-- end of row -->
+          
+            </div><!-- end portfolio-items-wrapper -->
             
           </div> <!-- /end col-lg-12 -->
         </div> <!-- end row -->
+
       </div>  <!-- end container -->
     </section>   <!-- End section -->
 
 
-
-
+     
 
 
 

@@ -25,12 +25,12 @@ class routinemodel extends CI_Model{
 	       
 	}
 
-	public function getClassListForRoutine(){
-			
+	public function getClassListForRoutine($sessionid){
+			$joinand = 'AND routine_master.`session_id`='.'".$sessionid."';
 			$data = [];
 			$query = $this->db->select("class_master.*")
 					->from('class_master')
-					->join('routine_master','routine_master.class_master_id = class_master.id','LEFT')
+					->join('routine_master','routine_master.class_master_id = class_master.id AND routine_master.session_id='.$sessionid,'LEFT')
 					->where('routine_master.class_master_id IS NULL')
 				    ->order_by('class_master.id')
 					->get();

@@ -23,7 +23,7 @@
 
 <section class="notice_board_bg">
 <div class="container">
-<div class="row">
+<!-- <div class="row">
      <div class="row-fluid col-md-3">
       <select class="selectpicker" data-show-subtext="true" data-live-search="true"  multiple data-max-options="2">
         <option data-subtext="Rep California">Tom Foolery</option>
@@ -57,71 +57,44 @@
       <div class="col-md-3" id='search-box'>
 <form action='#' id='search-form' method='get' target='_top'>
 <input id='search-text' name='q' placeholder='Search Box' type='text'/>
-<!-- <button id='search-button' type='submit'><span>Search</span></button> -->
+<button id='search-button' type='submit'><span>Search</span></button>
 </form>
 </div>
-     </div>
+
+ </div> -->
+
+
+
      <div class="row">
-
+<?php 
+if ($bodycontent['NoticeList']) {
+  
+foreach ($bodycontent['NoticeList'] as  $value) {
+ 
+  $uplodedFolder='notice_upload';
+        $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+?>
 <div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>    <span class="type_news"><i class="fa fa-shield"></i> Result</span><hr class="style3">
+<h4 style="text-transform:capitalize;"><?php echo $value->title; ?> (<?php echo $value->academic_year; ?>)</h4>
+<span>Publish Date : <?php echo date("d M Y", strtotime($value->publish_dt));?></span>   
+ <!-- <span class="type_news"><i class="fa fa-shield"></i> Result</span> -->
+ <hr class="style3">
 
+<a href="<?php echo $download_link; ?>" download>
+               <button type="button" class="btn btn-sm btn-outline-primary">
+                <span class="glyphicon glyphicon-download"></span> Download</button></a>
+<!-- <button type="button" class="btn btn-outline-primary">
+    <i class="fa fa-file"></i> Download
+</button> -->
+</div> 
 
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div>
+<?php }
+}else{
+  echo '<h3>Notice and update not available right now.   </h3>';
+}
 
-<div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
+?>
 
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div><div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div><div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div><div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div><div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div><div class="notice_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
-<span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span><hr class="style3">
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div>
 </div>
 </div>
     </section>

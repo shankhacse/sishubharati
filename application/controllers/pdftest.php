@@ -6,19 +6,33 @@ class pdftest extends CI_Controller
 	{
 	   parent::__construct();
 	   $this->load->library('session');
-	   $this->load->library('pdf');//load PHPExcel library
+	 
 		
 	}
 		
 	public function index()
-	{
-		$mpdf = new mPDF();
+	{ 
+		// load library
+        $this->load->library('pdfl');
+       // $pdf = new pdfl();
+                
+        $pdf = $this->pdfl->load();
 		$page = 'dashboard/adminpanel_dashboard/ds-pdf/pdf';
-		$result="Hello";
-		$html = $this->load->view($page,$result,true);
+		$result['data']="Hello";
+		echo $this->load->view($page,$result,true);
 		
-        $mpdf->WriteHTML($html);
-        $mpdf->Output(); 
+    
+
+                 ini_set('memory_limit', '256M'); 
+                 
+                $html = $this->load->view($page, $result, true);
+                // render the view into HTML
+                
+                $pdf->WriteHTML($html); 
+                $output = 'saleBillPdf' . date('Y_m_d_H_i_s') . '_.pdf'; 
+                $pdf->Output("$output", 'I');
+                $pdf->Output();
+                exit(); 
 		
 	}
 

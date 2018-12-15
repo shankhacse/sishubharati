@@ -91,9 +91,9 @@
                         <div class="ct_hreg_wrap">
                             <div class="register_top_detail">
                                 <h5>New Session Admissions Started</h5>
-                                <span>BY: Admission Officer</span>
+                                 <span>BY: School Authority</span> 
                                
-                                <p>Admissions here to get online access to your </p>
+                               <!--  <p>Admissions here to get online access to your </p> -->
                             </div>
 
                            
@@ -108,14 +108,22 @@
           <div id="nt-example1-container" >
             
                     <ul id="nt-example1" >
-                        <li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>Curabitur porttitor ante eget hendrerit adipiscing. Maecenas at magna. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>Praesent ornare nisl lorem, ut condimentum lectus gravida ut. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>Nunc ultrices tortor eu massa placerat posuere. Vivamus viverra sagittis. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>Morbi sodales tellus sit amet leo congue bibendum. Ut non mauris eu neque. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>In pharetra suscipit orci sed viverra. Praesent at sollicitudin tortor, id. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a> </li><li>Etiam imperdiet volutpat libero eu tristique. Aenean, rutrum felis in. <a href="#">Read more...</a></li>
-                        <li>Maecenas nec ligula sed est suscipit aliquet sed eget ipsum, suspendisse. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a></li>
-                        <li>Onec bibendum consectetur diam, nec euismod urna venenatis eget.. <a href="<?php echo base_url();?>home/noticeboard">Read more...</a> </li>
+                      <?php 
+                        if ($bodycontent['NoticeList']) {
+                          
+                        foreach ($bodycontent['NoticeList'] as  $value) {
+                         
+                          $uplodedFolder='notice_upload';
+                                $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+                        ?>
+                        <li><a href="<?php echo $download_link; ?>" download><?php echo $value->title; ?> </a></li>
+                      
+                    <?php
+
+                        }
+                      }
+
+                    ?>
                     </ul>
                    
                 </div>
@@ -206,17 +214,45 @@
   </div>
 </div>
 <?php 
-$birthday=2;
+$birthday=0;
 
-if 
+if ($bodycontent['birthdayStudentListToday']) { 
+  /* This block is display if birthday is availabkle*/
+  ?>
+    <div class="col-md-5 holder2">
+        <!-- <h2>Birthday Wish</h2> -->
+        <div class="col-md-6 col-sm-6 col-xs-6">
+        
+ <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif"  class="wish" style="padding: 0"alt="">
+</div> <div class="col-md-6 col-sm-6 col-xs-6">
+        <div class="birthday">
+
+        <ul class="main_slider">
+            <?php
+$arrayName = array('student_pic.png','kid1.jpg','IMG_0490.JPG');
+foreach ($bodycontent['birthdayStudentListToday'] as  $value) {
+    # code...
+
+$src = base_url()."application/assets/ds-documents/admission_upload/".$value->random_file_name;
+            ?>
+
+            <li>
+                <img src="<?php echo $src;?>"   alt=""><br>
+
+          <b><h5 style="text-align: center; color: white"><?php echo $value->student_name;?><br>
+                Class:<?php echo $value->class_name;?><br>
+                <?php echo $diff = (date('Y') - date('Y',strtotime($value->date_of_birth)));?> Years</h5></b>
+           
+            </li>
+<?php 
 
 
-($birthday == 0) 
-
-{ 
-
+}?>
+ <?php 
+} else {
 
   ?>
+    
 <!-- if birthday not avialable -->
  <div class=" col-md-5 font_gallery " id="content " style="margin-left: 20px; float:right">
   <div class="container1 col-md-6">
@@ -257,55 +293,10 @@ if
      
     </div>
   </div>
-</div> 
- <?php 
-} 
-
-else 
-
-{
-
-  ?>
-        <div class="col-md-5 holder2">
-        <!-- <h2>Birthday Wish</h2> -->
-        <div class="col-md-6 col-sm-6 col-xs-6">
-        
- <img src="<?php echo base_url();?>application/web_assets/images/1uGn.gif"  class="wish" style="padding: 0"alt="">
-</div> <div class="col-md-6 col-sm-6 col-xs-6">
-        <div class="birthday">
-
-        <ul class="main_slider">
-            <?php
-$arrayName = array('student_pic.png','kid1.jpg','IMG_0490.JPG');
-foreach ($arrayName as  $value) {
-    # code...
+</div> <!-- end of birthday not avialable -->
 
 
-            ?>
-
-            <li>
-                <img src="<?php echo base_url();?>application/web_assets/images/<?php echo($value)?>"   alt=""><br>
-
-          <b><h5 style="text-align: center; color: white"> Shankha Ghosh<br>
-                Class:v<br>
-                10 Years</h5></b>
-               <!--  <div class="ct_banner_caption">
-                   <h4 class="fadeInDown">WELCOME TO <span>EDU LEARN</span></h4>
-                   <span class="fadeInDown">Learning Online is Easy Now</span>
-                   <h2 class="fadeInDown">WE ARE THE BEST <br/> IN Online EDUCATION</h2>
-                   <p class="fadeInDown">HELLO, ARE YOU READY TO START RIGHT NOW ?</p>
-                   <a class="active fadeInDown" href="#">FIND COURSES</a>
-                   <a class="fadeInDown" href="#">DISCOVER MORE</a>
-               </div>  -->
-            </li>
-<?php 
-
-
-}
-
-
-
-
+<?php
 }//end of else
 ?>
             <!-- <li>
@@ -560,12 +551,12 @@ foreach ($arrayName as  $value) {
             <ul>
                 <li>
                     <i class="fa fa-user"></i>
-                    <h2 class="counter">40</h2>
+                    <h2 class="counter">25</h2>
                     <span>Certified Teachers</span>
                 </li>
                 <li>
                     <i class="fas fa-users"></i>
-                    <h2 class="counter">322</h2>
+                    <h2 class="counter">1100</h2>
                     <span>Students Enrolled</span>
                 </li>
                 <li>
@@ -575,14 +566,14 @@ foreach ($arrayName as  $value) {
                 </li>
                 <li>
                    <i class="fas fa-graduation-cap"></i>
-                    <h2 class="counter">10</h2>
+                    <h2 class="counter">14</h2>
                     <span>Academic exprience years</span>
                 </li>
             </ul>
         </section>
         <!--Figures & Facts Wrap End-->
         
-        <!--Our Events Wrap Start-->
+                <!--Our Events Wrap Start-->
         <section class="event_bg">
           <div class="container">
               <!--Heading Style 1 Wrap Start-->
@@ -626,37 +617,33 @@ foreach ($arrayName as  $value) {
                     
                     <div class="col-md-12">
                       <div class="row">
+                        <?php
+                              if ($bodycontent['EventsList']) {
+                                foreach ($bodycontent['EventsList'] as $value) { 
+                             
+                        ?>
                           <div class="col-md-3">
                               <div class=" sub_event_wrap" >
-                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
-                                    <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
-                                    <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
+                                  <h6><a href="<?php echo base_url();?>home/eventupdate"><?php echo $value->title; ?></a></h6>
+                                    <span><i class="fa fa-clock-o"></i><?php echo $value->event_time; ?>, <?php echo date("d M Y", strtotime($value->event_date));?></span>
+                                    <span><i class="fa fa-map-marker"></i><?php echo $value->event_place; ?></span>
                                 </div>
                             </div>
+
+                            <?php
+
+                          }
+                              }else{
+                               echo "<h3><center> Upcomming Event Details Comming soon...</center></h3>";
+                              }
+                        ?>
+
                             
-                            <div class="col-md-3">
-                              <div class="sub_event_wrap" >
-                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
-                                    <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
-                                    <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
-                                </div>
-                            </div>
+                          
                             
-                            <div class="col-md-3">
-                              <div class="sub_event_wrap" >
-                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
-                                    <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
-                                    <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
-                                </div>
-                            </div>
+                          
                             
-                            <div class="col-md-3">
-                              <div class="sub_event_wrap" >
-                                  <h6><a href="<?php echo base_url();?>home/eventupdate">Historical Presentation inComputer Lab</a></h6>
-                                    <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span>
-                                    <span><i class="fa fa-map-marker"></i>New Campus Newyork City, US</span>
-                                </div>
-                            </div>
+                         
                         </div>
                     </div>
                     

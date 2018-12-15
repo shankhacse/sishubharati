@@ -26,7 +26,8 @@ text-align:center;padding:10px;padding: 10px;margin-bottom: 50px;display:none;
 
           ?>
   <button type="button" class=" bg-purple btn-flat margin">Attendance Information of <?php echo $classname->name?></button>
-  <button type="button" class=" bg-purple btn-flat margin" style="float:right;"><?php echo date("F", strtotime($sel_month));?></button>
+  <button type="button" class=" bg-purple btn-flat margin" style="float:right;"><?php echo date("F", mktime(0, 0, 0, $sel_month, 10));
+  ?></button>
           <div style="">
               <table class="table table-bordered table-striped table-responsive dataTables" id="studentlistTbl" style="border-collapse: collapse !important;" >
                 <thead>
@@ -126,7 +127,7 @@ else{
 
       <!-- Modal -->
   <div class="modal fade bd-example-modal-lg" id="attendance_info" role="dialog">
-    <div class="modal-dialog modal-sm" >
+    <div class="modal-dialog modal-sm">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -135,7 +136,7 @@ else{
      
       <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="st_name">Rana</h4></button>
         </div>
-        <div class="modal-body" style="height: 300px;overflow-y: scroll;">
+        <div class="modal-body">
         <div id="detail_information_view"></div>
 
         

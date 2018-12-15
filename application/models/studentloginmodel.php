@@ -7,6 +7,7 @@ class studentloginmodel extends CI_Model{
 		$where = array(
 							'student_master.student_uniq_id' =>$studentid,
 							'student_master.password' =>$dob,
+							'student_academic_details.is_active' =>'Y'
 
 						 );
 		

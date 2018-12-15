@@ -29,7 +29,71 @@ class eventsmodel extends CI_Model{
 	        return $data;
 	       
 	}
+
+		/* get all atcive events List*/
+
+	public function getAllActiveEventsList(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'Events',
+						'events.is_active' =>1
+						 );
+		$query = $this->db->select("events.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('events')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = events.events_id','INNER')
+				->where($where)
+				->order_by('events.events_id')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
 	
+		/* get all atcive events List limit 4*/
+
+	public function getAllActiveEventsListLimit(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'Events',
+						'events.is_active' =>1
+						 );
+		$query = $this->db->select("events.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('events')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = events.events_id','INNER')
+				->where($where)
+				->order_by('events.events_id')
+				->limit(4)
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
 	public function inserIntoEvents($data,$sesion_data)
 	{
 		try

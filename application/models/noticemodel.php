@@ -54,7 +54,37 @@ class noticemodel extends CI_Model{
 	       
 	}
 
+/* get all Notice List*/
 
+	public function getAllActiveNoticeList(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'Notice', 
+						'notice.is_active' =>1 
+					);
+		$query = $this->db->select("notice.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('notice')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = notice.notice_id','INNER')
+				->where($where)
+				->order_by('notice.notice_id','desc')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
 
 	public function inserIntoNotice($data,$sesion_data)
 	{

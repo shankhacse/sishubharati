@@ -25,45 +25,61 @@
 <div class="container">
 
      
-     <div class="row">
-<div class="col-md-3"><div class="row-fluid search_event">
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true"  multiple data-max-options="2">
-        <option data-subtext="Rep California">Tom Foolery</option>
-        <option data-subtext="Sen California">Bill Gordon</option>
-        <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
-        <option data-subtext="Rep Alabama">Mario Flores</option>
-        <option data-subtext="Rep Alaska">Don Young</option>
-        <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
-      </select>
-      </div>
-
-      <div class="row-fluid ">
+<div class="row">
+<div class="col-md-3">
+ <!--  <div class="row-fluid search_event">
+     <select class="selectpicker" data-show-subtext="true" data-live-search="true"  multiple data-max-options="2">
+       <option data-subtext="Rep California">Tom Foolery</option>
+       <option data-subtext="Sen California">Bill Gordon</option>
+       <option data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+       <option data-subtext="Rep Alabama">Mario Flores</option>
+       <option data-subtext="Rep Alaska">Don Young</option>
+       <option data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+     </select>
+     </div>
+ 
+     <div class="row-fluid ">
+      
+     <select class="selectpicker"  data-live-search="true" >
+       <option >2018</option>
+       <option>2019</option>
+       <option >2020</option>
        
-      <select class="selectpicker"  data-live-search="true" >
-        <option >2018</option>
-        <option>2019</option>
-        <option >2020</option>
-        
-      </select>
-      </div>
+     </select>
+     </div> -->
 </div>
 <div class="col-md-9">
+
+<?php
+        if ($bodycontent['EventsList']) {
+          foreach ($bodycontent['EventsList'] as $value) { 
+          $uplodedFolder='events_upload';
+        $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+?>
 <div class="event_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
+<h4><?php echo $value->title; ?></h4>
 <!-- <span><i class="fa fa-clock-o"></i>10AM, 28 July 2018</span> --><hr class="style3">
 
 <div class="col-md-6">
-  <img src="<?php echo base_url();?>application/web_assets/images/465361533550364.jpg" class="event_img" >
-</div><div class="col-md-6">
-<span>Date & Time: 09/06/2018 To 11/06/2018</span><br>
-<span>Venue: New Delhi</span><br>
-<p >Organized: By AFS</p><br>
-Highlight: Subhi Sarda and Akhilesh Jhawar returned from the USA on 9th June to India. They attended the re-entry orientation at New Delhi and landed on 11th June in Kolkata. They joined the school on the next day and have come back enriched with a number of ideas.
+  <img src="<?php echo $download_link;?>" class="event_img" >
+</div><div class="col-md-6"><br>
+<h4>Date : <?php echo date("d M Y", strtotime($value->event_date));?>
+  <br>Time: <?php echo $value->event_time; ?> 
+</h4><br>
+<h4>Venue: <?php echo $value->event_place; ?></h4><br>
+<!-- <p >Organized: By AFS</p> --><br>
+
 </div>
-<!-- <button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button> -->
 </div>
+
+
+<?php
+}
+}else{
+  echo "<h3>Upcomming Event Details Comming soon...</h3>";
+}
+?>
+
 </div>
 </div>
 </div>

@@ -12,7 +12,7 @@ class administratorpanel extends CI_Controller {
  public function index()
  {
     $page = 'loginpanel/admin_login';
-	$result['year'] = $this->commondatamodel->getAllDropdownData('session_year');
+	$result['year'] = $this->loginmodel->getAcademicYear();
 	
 	$this->load->view($page,$result);
  }
@@ -24,7 +24,7 @@ class administratorpanel extends CI_Controller {
 	$formData = $this->input->post('formDatas');
 	parse_str($formData, $dataArry);
 	$username =  htmlspecialchars($dataArry['username']);
-	$password =  htmlspecialchars($dataArry['password']);
+	$password =  md5(htmlspecialchars($dataArry['password']));
 	$year =  htmlspecialchars($dataArry['year']);
 	$result=[];
 	

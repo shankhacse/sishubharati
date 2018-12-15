@@ -30,12 +30,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style type="text/css">
     
-    body {
-  background: url(sweettexture.jpg) blue;
-}
+ 
   </style>
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page bimg">
 <div class="login-box">
   <div class="login-logo">
     <a href="javascript:;"><b><span style="color: #1394c8;">Sishubharati</span></b> ADMIN</a>

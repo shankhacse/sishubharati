@@ -400,7 +400,7 @@ $(document).on('click','.ViewTutionMakePayment',function(){
             data: {studentid:studentid,studentname:studentname,
                 academicid:academicid,classname:classname,classroll:classroll,mode:mode},
             success: function (result) {
-                $("#title_info").html("Monthly Tution Fees Details");
+                $("#title_info").html("Monthly Tuition Fees Details");
                 $("#detail_information_view").html(result);
                   $( ".datepicker" ).datepicker({
        

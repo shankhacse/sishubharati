@@ -7,7 +7,11 @@ class home extends CI_Controller {
 	//	$this->load->library('session');
 	    $this->load->model('locationmodel','Locationmodel',TRUE);
 	    $this->load->model('webviewmodels/homemodel','homemodel',TRUE);
-	    $this->load->model('webviewmodels/testmodel','testModels',TRUE);
+	    $this->load->model('birthdaymodel','birthdaymodel',TRUE);
+	    $this->load->model('noticemodel','noticemodel',TRUE);
+	    $this->load->model('eventsmodel','eventsmodel',TRUE);
+	    $this->load->model('importantinfomodel','impinfo',TRUE);
+	    $this->load->model('gallerymodel','gallerymodel',TRUE);
 	}
 	
 	
@@ -17,6 +21,29 @@ class home extends CI_Controller {
 		$session = [];
 		$header = [];
 		$result = [];
+		$year=date('Y');
+		$daymonth=date('m-d');
+
+		$where = array(
+						'session_year.year' =>$year,
+						
+					);
+		$result['SessionYearData']= $this->commondatamodel->getSingleRowByWhereCls('session_year',$where);
+			
+
+			if ($result['SessionYearData']) {
+				$latest_session_id=$result['SessionYearData']->session_id;
+				$result['birthdayStudentListToday']=$this->birthdaymodel->getTodayBirthdayList($latest_session_id,$daymonth);
+			}else{
+				$result['birthdayStudentListToday']=[];
+			}
+
+
+			$result['NoticeList'] = $this->noticemodel->getAllActiveNoticeList();
+			$result['EventsList'] = $this->eventsmodel->getAllActiveEventsListLimit();
+			
+
+		//pre($result['birthdayStudentListToday']);
 		$page = "webview/dswv-home/home_view";
 
 		
@@ -30,6 +57,8 @@ class home extends CI_Controller {
 		$session = [];
 		$header = [];
 		$result = [];
+		$result['imageList'] = $this->gallerymodel->getAllImageList();
+			$result['albumList']=$this->commondatamodel->getAllDropdownData('album_master');
 		$page = "webview/dswv-home/gallery";
 
 		
@@ -43,6 +72,12 @@ class home extends CI_Controller {
 		$header = [];
 		$result = [];
 		$page = "webview/dswv-home/about_us";
+
+		$where = array(
+						'about_us.id' =>1,
+						
+					);
+		$result['aboutUsData']= $this->commondatamodel->getSingleRowByWhereCls('about_us',$where);
 
 		
 		webview_helper($result, $page, $header, $session);
@@ -82,6 +117,7 @@ public function login()
 		$session = [];
 		$header = [];
 		$result = [];
+		$result['NoticeList'] = $this->noticemodel->getAllActiveNoticeList();
 		$page = "webview/dswv-home/notice_update";
 
 		
@@ -96,6 +132,7 @@ public function login()
 		$session = [];
 		$header = [];
 		$result = [];
+		$result['EventsList'] = $this->eventsmodel->getAllActiveEventsList();
 		$page = "webview/dswv-home/event";
 
 		
@@ -143,6 +180,7 @@ public function login()
 		$session = [];
 		$header = [];
 		$result = [];
+		$result['infoList'] = $this->impinfo->getAllActiveInfoList();
 		$page = "webview/dswv-home/important_info";
 
 		

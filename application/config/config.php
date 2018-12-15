@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-//date_default_timezone_set('Asia/Kolkata');
-date_default_timezone_set("UTC");
+date_default_timezone_set('Asia/Kolkata');
+//date_default_timezone_set("UTC");
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

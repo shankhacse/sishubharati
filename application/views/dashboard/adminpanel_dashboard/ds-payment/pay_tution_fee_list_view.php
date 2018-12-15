@@ -10,7 +10,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="<?php echo base_url(); ?>dashboard"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Students List for Tution Fee </li>
+        <li class="active">Students List for Tuition Fee </li>
       </ol>
     </section>
 
@@ -19,7 +19,7 @@
 
 		    <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Students List for Monthly Tution Fee</h3>
+              <h3 class="box-title">Students List for Monthly Tuition Fee</h3>
              
             </div>
             <!-- /.box-header -->

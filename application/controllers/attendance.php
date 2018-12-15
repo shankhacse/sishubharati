@@ -353,7 +353,7 @@ public function getPescentageStudentList()
 			$result['session_id']=$session_id;
 			$result['sel_class']=$sel_class;
 			
-
+echo $result['sel_month'];
              $montlyCount = $this->attmodel->getMonthlyAttendance($sel_month,$sel_class,$session_id);
             
              	$result['monthlyopendays'] = $montlyCount->total;

@@ -99,4 +99,97 @@ class studentdashboardmodel extends CI_Model{
 		
 	}
 
+public function getUploadedExamPapers($moduleID,$moduleTag)
+	{
+		$detailData = array();
+		$where = array(
+			"uploaded_exam_papers.upload_from_module_id" => $moduleID,
+			"uploaded_exam_papers.upload_from_module" => $moduleTag
+		);
+
+		$this->db->select("*")
+				->from('uploaded_exam_papers')
+				->join('documents_upload_type','documents_upload_type.id = uploaded_exam_papers.document_type_id','INNER')
+				->where($where);
+
+		$query = $this->db->get();
+		#echo $this->db->last_query();
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$detailData[] = $rows;
+				
+            }
+            return $detailData;
+        }
+		else
+		{
+             return $detailData;
+        }
+	}
+
+
+/* message list details*/
+
+/*--------------------------------------------------*/
+		public function getMessageByStudentID($student_uniq_id){
+
+			$where = array('message.student_uniq_id' =>$student_uniq_id);
+		
+			$data = [];
+			$query = $this->db->select("*")
+					->from('message')
+					->where($where);
+
+					$query = $this->db->get();
+				#q();
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+				
+            }
+            return $data;
+        }
+		else
+		{
+             return $data;
+        }
+			       
+		
+	}
+
+	/* highest marks 02.12.2018*/
+
+	public function getHighestMarks($classid,$subjectid,$term,$sessionid){
+		$data = "";
+		
+		$sql="SELECT MAX(marks_details.obtain_total_marks) AS highest
+			FROM marks_details
+			WHERE marks_details.term='".$term."'
+			AND marks_details.class_id='".$classid."'
+			AND marks_details.subject_id='".$subjectid."'
+			AND marks_details.session_id='".$sessionid."'";
+		
+		$query = $this->db->query($sql);
+		
+			#echo $this->db->last_query();
+		
+		
+			
+			if($query->num_rows()> 0)
+			{
+                 $row = $query->row();
+          
+					$data = $row->highest;
+				
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
 }// end of class

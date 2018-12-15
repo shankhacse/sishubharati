@@ -24,17 +24,14 @@
                         <div class="get_started_content_wrap ct_blog_detail_des_list">
                             <div class="about_text">
                             <h3>OUR HISTORY</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehe derit in voluptate velit esse cillum.
-                                <br>
-
-On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, that they cannot fore see the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty.</p>
+                           <p><?php echo $bodycontent['aboutUsData']->history;?></p>
                             
                         </div>
                         </div>
                     </div>
                 
                     <div class="col-md-6">
-                        <img src="<?php echo base_url();?>application/web_assets/images/vision.jpg" alt="">
+                        <img src="<?php echo base_url();?>application/web_assets/images/history.jpg" alt="">
                 </div>
             </div>
         </section>
@@ -47,16 +44,13 @@ On the other hand, we denounce with righteous indignation and dislike men who ar
                 <div class="row">
 
                     <div class="col-md-6">
-                        <img src="<?php echo base_url();?>application/web_assets/images/vision.jpg" alt="">
+                        <img src="<?php echo base_url();?>application/web_assets/images/mission.jpg" alt="">
                 </div>
                     <div class="col-md-6">
                         <div class="get_started_content_wrap ct_blog_detail_des_list">
                             <div class="about_text">
                             <h3>OUR MISSION</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehe derit in voluptate velit esse cillum.
-                                <br>
-
-On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, that they cannot fore see the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty.</p>
+                           <p><?php echo $bodycontent['aboutUsData']->mission;?></p>
                             
                         </div>
                         </div>
@@ -75,10 +69,7 @@ On the other hand, we denounce with righteous indignation and dislike men who ar
                         <div class="get_started_content_wrap ct_blog_detail_des_list">
                             <div class="about_text">
                             <h3>OUR VISION</h3>
-                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius mod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehe derit in voluptate velit esse cillum.
-                                <br>
-
-On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, that they cannot fore see the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty.</p>
+                           <p><?php echo $bodycontent['aboutUsData']->vision;?></p>
                             
                         </div>
                     </div>

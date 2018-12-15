@@ -17,32 +17,45 @@
 
         <div class="container">
 
-     
-     <div class="row importent_box">
-<h3>Important Info</h3>
+  <?php
+            if ($bodycontent['infoList']) {
+                foreach ($bodycontent['infoList'] as $value) { 
+
+        $uplodedFolder='importantinfo_upload';
+        $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+        
+  ?>   
+ <div class="row importent_box">
 
 
-<div class="col-md-6 col-sm-6 info_box">
-<h4>Important Info For Parents</h4>
-
-
-
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div>
 
 <div class="col-md-6 col-sm-6 info_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
+<h4><?php echo $value->title; ?>
 
 
+<a href="<?php echo $download_link; ?>" download>
 <button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
+    <i class="fa fa-file"></i> Download Attachment
+</button></a></h4>
 </div>
+
+
 </div> 
+ <?php
+}
+}else{
+  ?> 
+ <div class="row importent_box">
+<div class="col-md-6 col-sm-6 info_box">
+ <h5>No record found.</h5>
+</div>
+</div>
 
-<div class="row importent_box">
+
+   <?php
+}
+  ?> 
+<!-- <div class="row importent_box">
 <h3>NOTICE</h3>
 
 
@@ -52,19 +65,14 @@
 
 
 <button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
+    <i class="fa fa-file"></i> Download Attachment
 </button>
 </div>
 
-<div class="col-md-6 col-sm-6 info_box">
-<h4>SYLLABUS FOR PRE MID TERM FOR CLASS - IX (2018-2019)</h4>
 
+</div> -->
 
-<button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
-</button>
-</div>
-</div><div class="row importent_box">
+<!-- <div class="row importent_box">
 <h3>Rules & Regulation </h3>
 
 
@@ -74,11 +82,13 @@
 
 
 <button type="button" class="btn btn-outline-primary">
-    <i class="fa fa-file"></i> Download Attahhment
+    <i class="fa fa-file"></i> Download Attachment
 </button>
 </div>
 
 
-</div>
+</div> -->
+
+
 </div>
 </section>

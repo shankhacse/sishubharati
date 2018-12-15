@@ -18,7 +18,7 @@
                       <td>Roll</td><td><?php echo $classroll;?></td></tr>
 
                     <tr><td colspan="2">Payment Date</td><td colspan="2">
-              <input class="form-control pull-right datepicker" id="payment_dt" name="payment_dt" type="text" value="">
+              <input class="form-control pull-right datepicker" id="payment_dt" name="payment_dt" type="text" autocomplete="off" value="">
 
                <input type="hidden" name="academicid" id="academicid" value="<?php echo $academicid; ?>" />
 
@@ -57,13 +57,14 @@
               </table>
             
       <p id="admpaymsg" class="form_error"></p>
+            <?php if ($admissionFeeList) {?> 
              <div class="btnDiv">
                       <button type="submit" class="btn btn-primary formBtn" id="admpaysavebtn">Save Payment</button>
 
                       <span class="btn btn-primary formBtn loaderbtn" id="loaderbtn" style="display:none;"><i class="fa fa-spinner rotating" aria-hidden="true"></i> Saving...</span>
                       <br>
                    
-                  </div>
+                  </div><?php }?>
              <?php echo form_close(); ?>
 
 </div>
