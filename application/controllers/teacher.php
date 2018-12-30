@@ -62,17 +62,12 @@ public function addTeacher()
 				
 				$result['teacherEditdata']=$this->teachermodel->getTeachersByTeacherId($teacherID);
 
-				$where_doc = array(
-					'uploaded_documents_all.upload_from_module_id' => $teacherID, 
-					'uploaded_documents_all.upload_from_module' => "Teacher"
-				);
-				$result['teacherDocumenDtl'] = $this->commondatamodel->getAllRecordWhere('uploaded_documents_all',$where_doc);
-				
+			
 			}
 
 			$header = "";
 			
-			$page = "dashboard/adminpanel_dashboard/ds-teacher/teachers_add_edit_view";
+			$page = "dashboard/adminpanel_dashboard/ds-teacher/teachers_add_edit_view2";
 			createbody_method($result, $page, $header,$session);
 		}
 		else
@@ -132,7 +127,7 @@ public function addTeacher()
 					'prvFilename' => $prvFilename, 
 					'docDetailIDs' => $docDetailIDs 
 				);
-
+//pre($teacher_array_edit_info);exit;
 				$teacher_array_new = array_merge($teacher_array,$teacher_array_edit_info);
 
 				$updateData = $this->teachermodel->updateTeacher($teacher_array_new,$session);
@@ -162,6 +157,7 @@ public function addTeacher()
 				$teacher_array_add_info = array(
 					'isChangedFile' => $isFileChanged 
 				);
+				
 
 				$teacher_array_new_add = array_merge($teacher_array,$teacher_array_add_info);
 				

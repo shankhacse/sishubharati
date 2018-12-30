@@ -1,7 +1,7 @@
 <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/teacher.js"></script>   
 <style type="text/css">
   
-  .events_poster {
+  .profile_pic {
     width: 100px;
     height: 70px;
     border-radius: 10%;
@@ -62,7 +62,12 @@
                       data-eventsid="'.$value->teacher_id.'"><span class="glyphicon glyphicon-remove"></span> Inactive</span></div>';
                     }
         $uplodedFolder='teacher_upload';
-        $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+        if ($value->is_file_uploaded=='Y') {
+           $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+        }else{
+           $download_link=base_url()."application/assets/images/blank-avatar.jpg";
+        }
+       
                   ?>
 
               		
@@ -73,7 +78,7 @@
             <td><?php echo $value->subject; ?></td>
 						
 						<td align="center"> 
-							<img src="<?php echo $download_link; ?>" class="events_poster" />
+							<img src="<?php echo $download_link; ?>" class="profile_pic" />
 						
 						</td>
             <td><?php echo $status; ?></td>

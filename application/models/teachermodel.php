@@ -11,7 +11,7 @@ public function getAllTeachersList(){
 									uploaded_documents_all.id as docid
 									")
 				->from('teachers')
-				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','INNER')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','left')
 				->where($where)
 				->order_by('teachers.teacher_id')
 				->get();
@@ -38,11 +38,11 @@ public function getAllTeachersList(){
 						'teachers.teacher_id' =>$teacherid
 						 );
 		$query = $this->db->select("teachers.*,
-									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.*,
 									uploaded_documents_all.id as docid
 									")
 				->from('teachers')
-				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','INNER')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','left')
 				->where($where)
 				->order_by('teachers.teacher_id')
 				->limit(1)
@@ -70,6 +70,10 @@ public function inserIntoTeacher($data,$sesion_data)
 			
 			$insert_user_activity = array();
 			$is_file_uploaded = "N";
+
+
+			
+			
 			if(isset($data['docFile']['fileName']))
 			{
 				if(sizeof($data['docFile']['fileName']['name'])>0)
@@ -150,6 +154,7 @@ public function inserIntoTeacher($data,$sesion_data)
 			$insert_trainer_data = array();
 			$insert_user_activity = array();
 			$is_file_uploaded = "N";
+
 			if(isset($data['docFile']['fileName']))
 			{
 				if(sizeof($data['docFile']['fileName']['name'])>0)
@@ -184,9 +189,11 @@ public function inserIntoTeacher($data,$sesion_data)
 			if($is_file_uploaded=="Y")
 			{
 				$detail_insert = $this->insertIntoUploadFile($data,$sesion_data,$insert_where);
-			}else{
+			}
 
-				/* if delete all uploaded file for testing 08.10.2018*/
+			/*else{
+
+				// if delete all uploaded file for testing 08.10.2018
 				if($data['mode']=="EDIT" && $data['teacherID']>0)
 					{
 
@@ -200,7 +207,7 @@ public function inserIntoTeacher($data,$sesion_data)
 							#q();
 					}
 
-			}
+			}*/
 			
 			$insert_user_activity = array(
 				"activity_date" => date('Y-m-d'),  
@@ -245,7 +252,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 	{ 
 		if($data['mode']=="EDIT" && $data['teacherID']>0)
 		{
-
+				//
 			$where_teacher = array(
 				"uploaded_documents_all.upload_from_module_id" => $data['teacherID'],
 				"uploaded_documents_all.upload_from_module" => $where_data['From']
@@ -253,7 +260,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 
 				$this->db->where($where_teacher);
 				$this->db->delete('uploaded_documents_all'); 
-
+				#q();
 		}
 
 		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/teacher_upload'; //server
@@ -273,7 +280,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 		$this->load->library('upload', $config);
 		$images = array();
         $detail_array = array();	
-       $count_docs = sizeof($data['docFile']['fileName']['name']);
+        $count_docs = sizeof($data['docFile']['fileName']['name']);
        $srl_no=1;
        	for($i=0;$i<sizeof($data['docFile']['fileName']['name']);$i++)
         {

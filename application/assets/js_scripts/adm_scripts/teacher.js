@@ -15,6 +15,18 @@ $(document).ready(function(){
       $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
     }); 
 
+      $(document).on('change','.fileName',function(){
+       
+        
+        var newfileName = $("#fileName_0_1")[0].files[0].name;
+        var prvVal = $("#prvFilename__0_1").val();
+
+        if(newfileName!=prvVal)
+        {
+            $("#isChangedFile_0_1").val('Y');
+        }
+
+    });
 
  $(document).on('submit','#teacherForm',function(event)
     {
@@ -127,7 +139,7 @@ function validate()
 {
     var teacher = $("#teacher").val();
     var subject = $("#subject").val();
-    var filename = $("#fileName_0_1").val();
+    var filename = $("#userFileName_0_1").val();
 
 
   
