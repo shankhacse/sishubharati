@@ -28,15 +28,22 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <link href='http://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+
   <style type="text/css">
-    
- 
+
   </style>
+
+
 </head>
 <body class="hold-transition login-page bimg">
 <div class="login-box">
   <div class="login-logo">
-    <a href="javascript:;"><b><span style="color: #1394c8;">Sishubharati</span></b> ADMIN</a>
+    <a href="javascript:;"><b><span class="sishu_text">Sishubharati</span></b> 
+      <span class="admin_text">Admin</span></a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

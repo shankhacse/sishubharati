@@ -86,7 +86,7 @@
 <div class="container">
                 
                     <div class="about_warp_banner">
-                        <h2>SISHU BHARATI VIDYA MANDIR</h2>      
+                        <h2>SISHU BHARATI VIDYAMANDIR</h2>      
                         
                     </div>
                     
@@ -108,7 +108,7 @@
                     <div class="col-md-3 col-sm-6">
                         <div class="ct_teacher_outer_wrap">
                             <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
+                                <img alt="" src="<?php echo base_url();?>application/web_assets/images/vision.jpg" style="height: 260px;" >
                             </figure>
                             <div class="ct_teacher_wrap">
                                 <h5><a href="#">STEVE JOBS</a></h5>

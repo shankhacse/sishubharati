@@ -82,20 +82,7 @@
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="hubpinlistmodal" tabindex="-1" role="dialog" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="border-bottom:0px;">
-        <h5 class="modal-title" >Pin Assigned with <span id="hubname"></span></h5>
-      </div>
-      <div class="modal-body" id="pinassigned_detail"></div>
-      <div class="modal-footer" style="border-top:0px;">
-            <button class="btn btn-default modalbtn" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 
 
@@ -117,7 +104,7 @@
 
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger closebtn" data-dismiss="modal" >Close</button>
+          <button type="button" class="btn btn-danger closebtn" data-dismiss="modal" onclick="return submitTutionFeeList();" >Close</button>
         </div>
       </div>
       

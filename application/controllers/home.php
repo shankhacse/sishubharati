@@ -149,6 +149,12 @@ public function login()
 		$result = [];
 		$page = "webview/dswv-home/admission";
 
+		$where = array(
+						'about_us.id' =>1,
+						
+					);
+		$result['aboutUsData']= $this->commondatamodel->getSingleRowByWhereCls('about_us',$where);
+
 		
 		webview_helper($result, $page, $header, $session);
 	
@@ -191,9 +197,8 @@ public function login()
 /*insert contact*/
 public function saveContact()
 	{
-		$session = $this->session->userdata('user_data');
-		if($this->session->userdata('user_data'))
-		{
+		
+		
 			$json_response = array();
 			$formData = $this->input->post('formDatas');
 			parse_str($formData, $dataArry);
@@ -232,11 +237,7 @@ public function saveContact()
 
 			
 
-		}
-		else
-		{
-			redirect('administratorpanel','refresh');
-		}
+	
 	}
 
 }// end of class

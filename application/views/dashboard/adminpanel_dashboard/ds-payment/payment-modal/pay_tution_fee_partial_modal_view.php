@@ -69,7 +69,7 @@
                     <td><?php echo $sl++;?></td>
                     <td>Fine</td>
                      <td style="text-align:right;">
-                       <input type="text" name="fine_amt_tution" id="fine_amt_tution" value="0" onkeyup="numericFilter(this)" class="numchk" />
+                       <input type="text" name="fine_amt_tution" id="fine_amt_tution" value="0" onkeyup="numericFilter(this)" class="numchk" readonly />
                      </td> 
                   </tr>
                  <tr style="background-color: #e2e2e2;font-weight: bold;">

@@ -942,4 +942,129 @@ public function no_to_words($no) {
             }
         }
     }
+
+
+
+/* calculate tuition fine*/		
+	 function calculateTutionFine()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			
+
+                   $payment_dt = $this->input->post('payment_dt');
+                   $sel_month = $this->input->post('sel_month');
+
+                   if($sel_month!='0' && $payment_dt!='')
+                   {
+
+                   	   $where = array('months_master.name' => $sel_month );
+
+		               $monthData=  $this->commondatamodel->getSingleRowByWhereCls('months_master',$where);
+		              // pre($monthData);
+		               $monthIndex=$monthData->id;
+
+		              
+		               $monthNumber= sprintf("%02d", $monthIndex);
+		                   
+		               //echo '<br>'.$session['yid'];
+
+		               $where_year = array('session_year.session_id' => $session['yid'] );
+
+		               $yearData=  $this->commondatamodel->getSingleRowByWhereCls('session_year',$where_year);
+		               $year=$yearData->year;
+
+		               $where_fine = array('fine_master.fine_type' => 'MON' );
+		               $fineData=  $this->commondatamodel->getSingleRowByWhereCls('fine_master',$where_fine);
+		               $fine_amount=$fineData->fine_amount;
+  
+		               $lastDay=cal_days_in_month(CAL_GREGORIAN,$monthNumber,$year);
+		               //echo "There was $lastDay days in February $year.<br>";
+		               $lastpaymentDate =$year."-".$monthNumber."-".$lastDay;
+
+		                //echo "---------<br>";
+		                $lastpaymentDate =date('Y-m-d', strtotime($lastpaymentDate));
+
+		                //echo $payment_dt;
+
+		               //echo $payment_dt;
+			               if($payment_dt!=""){
+							$payment_dt = str_replace('/', '-', $payment_dt);
+							$payment_dt = date("Y-m-d",strtotime($payment_dt));
+						 }
+						 else{
+							 $payment_dt = NULL;
+						 }
+
+		               
+		              $lastpaymentDateArray = explode('-', $lastpaymentDate);
+		              
+		              $paymentDateArray = explode('-', $payment_dt);
+		              
+
+		             //$dueDay=array_diff($paymentDateArray,$lastpaymentDateArray);
+		              //print_r($dueDay);
+		                $newStr1= $paymentDateArray[0].$paymentDateArray[1].$paymentDateArray[2];
+		                $newStr2= $lastpaymentDateArray[0].$lastpaymentDateArray[1].$lastpaymentDateArray[2];
+		              
+		              //echo strcmp($newStr1, $newStr2);
+
+		                 if(intval($newStr1)<=intval($newStr2))
+						 {
+						      //echo "no";
+						      $fine=0;
+						
+						 }else{
+
+						   //echo "yes";
+							   if($lastpaymentDateArray[0]!=$paymentDateArray[0])
+
+							   {
+
+							    $year_diff=$paymentDateArray[0]-$lastpaymentDateArray[0];
+
+							     $month_cal=$year_diff*12 ;
+							     $month_diff=($month_cal-$lastpaymentDateArray[1])+$paymentDateArray[1];
+							     $fine=$fine_amount*$month_diff;
+
+							    	}
+							    else{
+								$fine_month = $paymentDateArray[1]-$lastpaymentDateArray[1];
+								$fine=$fine_amount*$fine_month;
+							     
+							     }
+
+
+						}
+
+
+            
+            }
+
+            else{
+
+            	$fine=0;
+            } 
+
+
+            		$json_response = array(
+							"fine_amount" => $fine,
+							
+						);
+				
+
+					header('Content-Type: application/json');
+					echo json_encode( $json_response );
+					exit; 
+
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
 }// end of class

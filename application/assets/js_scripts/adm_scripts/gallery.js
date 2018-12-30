@@ -156,6 +156,13 @@ $(document).ready(function(){
       
 
     });
+   // check upload size
+     $("input[type='file']").on("change", function () {
+     if(this.files[0].size > 500000) {
+       alert("Please upload file less than 500KB. Thanks!!");
+       $(this).val('');
+     }
+    });
 });// end of document ready
 
 

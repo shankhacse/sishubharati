@@ -716,6 +716,61 @@ $(document).on('click','.viewPaymentDtlData',function(){
        
 
     });
+
+//calculate monthly tuition fine amount
+$(document).on("change","#payment_dt,#sel_month",function(){
+        
+       var payment_dt = $("#payment_dt").val();
+
+       var sel_month = $("#sel_month").val();
+
+       
+
+       $.ajax({
+                type: "POST",
+                url: basepath+'payment/calculateTutionFine',
+                data: {payment_dt:payment_dt, sel_month:sel_month},
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    //alert(result.fine_amount);
+                    $("#fine_amt_tution").val(result.fine_amount);
+
+                    var fine_amt = result.fine_amount;
+                    var monthly_fee = $("#monthly_fee").val();
+
+                    var total_amtount=parseInt(fine_amt)+parseInt(monthly_fee);
+
+                    $("#total_amt").html(total_amtount);
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
+
+
 });// end of document ready
 
 
@@ -748,7 +803,12 @@ function redirectMe()
 var basepath = $("#basepath").val();
 var redirectto='payment';
 window.location.href=basepath+redirectto;
-}   
+}  
+
+function submitTutionFeeList()
+{
+ $('#TutionFeeListForm').submit(); 
+} 
 
 function redirectSessionFee()
 {
