@@ -85,7 +85,8 @@ public function getUnpaidSessionFees($session_id){
 					'student_master.adm_fee_payment' =>'Y',
 					'student_academic_details.session_id' =>$session_id,
 					'student_academic_details.aca_fee_payment' =>'N',
-					'student_academic_details.is_active' =>'N'
+					'student_academic_details.is_active' =>'N',
+					'student_academic_details.is_dismiss' =>'N'
 					 );
 
 		$query = $this->db->select("student_master.*,
@@ -122,7 +123,8 @@ public function getUnpaidSessionFeesByClass($session_id,$class_id){
 					'student_academic_details.session_id' =>$session_id,
 					'student_academic_details.aca_fee_payment' =>'N',
 					'student_academic_details.is_active' =>'N',
-					'student_academic_details.class_id' =>$class_id
+					'student_academic_details.class_id' =>$class_id,
+					'student_academic_details.is_dismiss' =>'N'
 					 );
 
 		$query = $this->db->select("student_master.*,
@@ -329,13 +331,54 @@ public function getStudentsIdbyClass($session_id,$sel_class)
 		$query = $this->db->select("payment_master.*,
 									class_master.name as class_name,
 									student_master.name as student_name,
-									bill_master.bill_no
+									bill_master.bill_no,
+									administrator_user_master.username
 									")
 				->from('payment_master')
 				->join('student_academic_details','student_academic_details.academic_id = payment_master.academic_id','INNER')	
 				->join('student_master','student_master.student_uniq_id = student_academic_details.student_uniq_id','INNER')
 				->join('class_master','class_master.id = student_academic_details.class_id','INNER')
 				->join('bill_master','bill_master.bill_master_id = payment_master.bill_master_id','INNER')
+				->join('administrator_user_master','administrator_user_master.id = payment_master.created_by','left')
+				->where($where)
+				->order_by('payment_master.payment_dt','DESC')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+	/* get payment list by date id*/
+
+		public function getPaymentListbyDate($payment_dt){
+		$data = [];
+	
+		$where = array(
+						'payment_master.payment_dt' =>$payment_dt
+					);
+
+		$query = $this->db->select("payment_master.*,
+									class_master.name as class_name,
+									student_master.name as student_name,
+									bill_master.bill_no,
+									administrator_user_master.username
+									")
+				->from('payment_master')
+				->join('student_academic_details','student_academic_details.academic_id = payment_master.academic_id','INNER')	
+				->join('student_master','student_master.student_uniq_id = student_academic_details.student_uniq_id','INNER')
+				->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+				->join('bill_master','bill_master.bill_master_id = payment_master.bill_master_id','INNER')
+				->join('administrator_user_master','administrator_user_master.id = payment_master.created_by','left')
 				->where($where)
 				->order_by('payment_master.payment_dt','DESC')
 				->get();
@@ -397,7 +440,8 @@ public function getStudentsIdbyClass($session_id,$sel_class)
 	
 		$where = array(
 						'student_academic_details.session_id' =>$session_id,
-						'student_academic_details.class_id' =>$sel_class
+						'student_academic_details.class_id' =>$sel_class,
+						'student_academic_details.is_active' =>'Y'
 					   );
 
 		$query = $this->db->select("student_academic_details.*,
@@ -458,5 +502,40 @@ public function getStudentsIdbyClass($session_id,$sel_class)
 		{
              return 'Unpaid';
          }
+	}
+
+
+
+		/* get details payment fee list of paper upload*/
+
+		public function getPaymentFeelistPaperUpload($sessionid,$classid,$term){
+		$data = [];
+	
+		$where = array(
+						'upload_fee_master.session_id' =>$sessionid,
+						'upload_fee_master.term' =>$term,
+						'upload_fee_details.class_id' =>$classid
+						
+					  );
+
+		$query = $this->db->select("upload_fee_master.*,
+									upload_fee_details.amount")
+				->from('upload_fee_master')
+				->join('upload_fee_details','upload_fee_details.upload_fee_master_id = upload_fee_master.upload_fee_master_id','INNER')	
+				->where($where)
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
 	}
 }//end of class

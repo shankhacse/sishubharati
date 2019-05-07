@@ -221,7 +221,9 @@ public function getGrade()
 					"attendance" => $attendance,
 					"sporting" => $sporting,
 					"discipline" => $discipline,
-					"cultural_efficiency" => $cutural_effciency
+					"cultural_efficiency" => $cutural_effciency,
+					'created_by' => $session['userid'],
+				    'role' => $session['role']
 				    );
 
 					$where_marksmaster_updt = array("marks_master.marks_master_id" => $marksmasterID);
@@ -302,7 +304,9 @@ public function getGrade()
 				"attendance" => $attendance,
 				"sporting" => $sporting,
 				"discipline" => $discipline,
-				"cultural_efficiency" => $cutural_effciency
+				"cultural_efficiency" => $cutural_effciency,
+				'created_by' => $session['userid'],
+				'role' => $session['role']
 			    );
 
 			$insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('marks_master',$marksmaster_array);
@@ -797,5 +801,66 @@ public function adddetaildocument()
 			redirect('administratorpanel','refresh');
 		}
  	}
+
+
+ 	public function marksdetails()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-exam/exam_marks_details_view.php';
+			$result = [];
+			$header = "";
+			$daymonth=date('m-d');
+			$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
+			
+			createbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+
+	public function studentListMarksDetails()
+	{ 
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-exam/class_student_marks_details_data';
+			$result = [];
+			$header = "";
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			$sel_class = $dataArry['sel_class'];
+
+			if($dataArry['sel_term']=='first'){
+				$result['sel_term'] = 'First Term';
+			}else if($dataArry['sel_term']=='second'){
+				$result['sel_term'] = 'Second Term';
+			}else if($dataArry['sel_term']=='third'){
+				$result['sel_term'] = 'Third Term';
+			}
+			
+			$session_id=$session['yid'];
+
+			$where_class = array('class_master.id' => $sel_class );
+				$classData=$this->commondatamodel->getSingleRowByWhereCls('class_master',$where_class);
+
+				$result['classname']=$classData->name;
+			
+			$result['studentmarksDetails']=$this->exammodel->getActiveStudentListByClassForMarksDetails($sel_class,$session_id,$dataArry['sel_term']);
+			//pre($result['studentmarksDetails']);
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+			
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
 
 }// end of class

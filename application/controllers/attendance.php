@@ -188,7 +188,8 @@ public function saveAttendance()
 				"taken_date" => $attendance_date,
 				"class_id" => $class_id,
 				"session_id" => $session['yid'],
-				"created_by" => $session['userid']
+				"created_by" => $session['userid'],
+				"role" => $session['role']
 			    );
 
 			$insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('attendance_master',$attendance_array);
@@ -353,7 +354,7 @@ public function getPescentageStudentList()
 			$result['session_id']=$session_id;
 			$result['sel_class']=$sel_class;
 			
-echo $result['sel_month'];
+
              $montlyCount = $this->attmodel->getMonthlyAttendance($sel_month,$sel_class,$session_id);
             
              	$result['monthlyopendays'] = $montlyCount->total;
@@ -414,5 +415,148 @@ public function getAttendanceDetailStudent()
 			redirect('administratorpanel','refresh');
 		}
  	}
+
+
+ 	public function attendanceCount()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-attendance/attendance_count_class_view.php';
+			$result = [];
+			$header = "";
+			$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
+			$result['monthList']=$this->commondatamodel->getAllDropdownData('months_master');
+			//pre($result['classList']);
+			
+			createbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+
+		//get attendance details with percentage
+public function getAttendanceCountList()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+
+			$sel_class = $dataArry['sel_class'];
+			$session_id=$session['yid'];
+			$sel_month = $dataArry['sel_month'];
+			
+			$length = strlen((string)$sel_month);
+
+			if ($length==1) {
+				$sel_month="0".$sel_month;
+				$result['sel_month']=$sel_month;
+			}else{
+				$result['sel_month'] = $dataArry['sel_month'];
+			}
+
+			  $where = array('class_master.id' => $sel_class);
+			$result['classname']=$this->commondatamodel->getSingleRowByWhereCls('class_master',$where);
+			$result['session_id']=$session_id;
+			$result['sel_class']=$sel_class;
+			
+
+             $result['montlyCountDetails'] = $this->attmodel->getMonthlyAttendanceDetails($sel_month,$sel_class,$session_id);
+            
+           // pre($montlyCountDetails);exit;
+			$page = "dashboard/adminpanel_dashboard/ds-attendance/attendance_count_class_data.php";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+
+	public function getAttendanceDetailsClass()
+ 	{
+ 		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$attendance_master_id = trim(htmlspecialchars($this->input->post('attmastid')));
+			
+
+
+			$data['attendanceDtl']=$this->attmodel->getAttendanceDetailsByMasterid($attendance_master_id);		
+			
+		//pre($data['attendanceDtl']);
+		$page = "dashboard/adminpanel_dashboard/ds-attendance/attendance-modal/attendance_class_partial_modal_view.php";		
+
+				$documentDetailView = $this->load->view($page,$data);
+			
+
+			echo $documentDetailView;
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+ 	}
+
+
+public function deleteAttendance()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$attmastid = trim($this->input->post('attmastid'));
+			
+			
+				
+			$where_attendance = array(
+				"attendance_details.attendance_master_id" => $attmastid
+				);
+			
+
+			$delete = $this->commondatamodel->DeleteData('attendance_details',$where_attendance);
+				
+			if($delete)
+			{
+					$where_attenmst = array(
+				"attendance_master.id" => $attmastid
+				);
+			
+
+			$delete = $this->commondatamodel->DeleteData('attendance_master',$where_attenmst);
+
+
+				$json_response = array(
+					"msg_status" => 1,
+					"msg_data" => "Successfully deleted"
+				);
+			}
+			else
+			{
+				$json_response = array(
+					"msg_status" => 0,
+					"msg_data" => "Failed to delete"
+				);
+			}
+
+
+		header('Content-Type: application/json');
+		echo json_encode( $json_response );
+		exit;
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
 
 }//end of class

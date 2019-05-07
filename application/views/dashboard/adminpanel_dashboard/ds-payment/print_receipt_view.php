@@ -67,6 +67,14 @@ body {
         .break{
                 page-break-after: always;
             }
+
+            .sign {
+    position: relative;
+    width: 79px;
+    float: right;
+    height: 29px;
+    margin-right: 72px;
+}
         </style>
       
     </head>
@@ -100,16 +108,22 @@ body {
                      </tbody>
         </table>
 <div style="padding:2px 0 20px 0;"><center>
-  <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="title_info"><?php
+  <button type="button" class="btn-xs bg-green margin" style="text-transform: capitalize;"><h4 class="modal-title" id="title_info"><?php
   if ($payment_for=='ADM') {
    echo "Admission ";
   }elseif ($payment_for=='SES') {
     echo "Session ";
   }elseif ($payment_for=='MON') {
     echo "Monthly ";
+  }elseif ($payment_for=='PUB') {
+    echo "Digital Exam Paper (".$for_term."  term) ";
   }
 
-  ?>Fees Details</h4></button></center>
+  ?>Fees Details <?php 
+  if ($payment_for=='MON') {
+    echo "(".$for_month.")";
+  }
+  echo " - ".$year?></h4></button></center>
 </div>
      <table class="table table-bordered demo" style="font-family:Verdana, Geneva, sans-serif;">
               <thead>
@@ -158,7 +172,9 @@ body {
 
 
             <div style="padding:35px 0 20px 0;">
-              <table width="100%">
+              <img class="sign" src="<?php echo base_url();?>application/assets/images/asim_sign.png" alt="sign"> 
+              <table width="100%" >
+            
               <tr>
                 <td width="10%" style="font-weight: bold;">Rupees:-</td>
                 <td width="70%" style="text-decoration: underline;">
@@ -175,6 +191,120 @@ body {
            
 
 </div>
+<?php
+   //   if ($payment_for=='MON') {
+
+     if (0) {
+?>
+<center>
+<h5>-------------------------------------------------------------------------------------------------------------------------------------------------------------</h5>
+                           (School Copy)</center>   
+  <table width="100%" class="demo table table-bordered" style="margin-top: 5px;">
+             <thead>
+                <tr><th width="25%"></th>
+                <th width="25%"></th>
+                <th style="font-weight: bold;" width="25%"></th>
+                <th width="25%"></th>
+                <th width="25%"></th>
+                <th width="25%"></th>
+                
+              </tr></thead>
+                <tbody>
+                    <tr><td>Student Name</td><td><?php echo $studentInfo->student_name;?></td>
+                      <td>Student ID</td><td><?php echo $studentInfo->student_uniq_id;?></td>
+                      <td>Class</td><td><?php echo $studentInfo->class_name;?></td>  </tr>
+                    <tr>
+                      <td>Roll</td><td><?php echo $studentInfo->class_roll;?></td>
+                  <td>Payment Date</td><td><?php echo date('d-M-Y', strtotime($paymentdate));?></td><td>Bill No</td><td><?php echo $billno;?></td></tr>
+                     </tbody>
+        </table>
+
+<div style="padding:2px 0 20px 0;"><center>
+  <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="title_info"><?php
+  if ($payment_for=='ADM') {
+   echo "Admission ";
+  }elseif ($payment_for=='SES') {
+    echo "Session ";
+  }elseif ($payment_for=='MON') {
+    echo "Monthly ";
+  }
+
+  ?>Fees Details <?php 
+  if ($payment_for=='MON') {
+    echo "(".$for_month.")";
+  }
+  echo " - ".$year?></h4></button></center>
+</div>
+     <table class="table table-bordered demo" style="font-family:Verdana, Geneva, sans-serif;font-size: 12px;">
+              <thead>
+                <th width="5%">SL</th>
+                <th width="75%">Particulars with Naration</th>
+                <th width="20%"  >Amount Rs.</th>
+              </thead>
+                <tbody>
+                    <?php
+                          $totalamount=0;
+                          $sl=1;
+                          foreach ($billDetails as $value) {
+
+                          $totalamount=$totalamount+$value->amount;
+
+                          
+                        
+                     ?>
+                    <tr>
+                      <td><?php echo $sl++;?></td>
+                      <td><?php echo $value->payment_desc;?></td>
+                      <td style="text-align:right;"><?php 
+                      if ($payment_for=='MON') {
+                            echo $value->amount-$fine_amount;
+                          }else{
+                      echo $value->amount;
+                    }
+                      ?></td> 
+                    </tr>
+                    <?php if($fine_amount>0){?>
+                    <tr>
+                      <td><?php echo $sl++;?></td>
+                      <td><?php echo "Fine";?></td>
+                      <td style="text-align:right;"><?php echo $fine_amount;?></td>
+                    </tr><?php }?>
+                    
+                    <?php 
+                      }
+
+                    ?>
+                 <tr style="background-color: #e2e2e2;font-weight: bold;">
+                   <td></td><td>Total Amount</td><td style="text-align:right;"><?php echo number_format($totalamount,2);?></td>
+                 </tr>
+                </tbody>
+              </table>
+
+
+            <div style="padding:35px 0 20px 0;">
+              <table width="100%" >
+              <tr>
+                <td width="10%" style="font-weight: bold;">Rupees:-</td>
+                <td width="70%" style="text-decoration: underline;">
+                  <?php
+                    echo $this->payment_method_call_view->no_to_words($totalamount)." only";
+                  ?>
+                </td>
+                
+                <td width="20%" >Signature </td>
+              </tr>
+              </table>
+
+        </div>
+
+      <?php } ?>
+
+
+
+
+
+
+
 </div>
 
 

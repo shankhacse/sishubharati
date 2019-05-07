@@ -42,7 +42,8 @@
 <body class="hold-transition login-page bimg">
 <div class="login-box">
   <div class="login-logo">
-    <a href="javascript:;"><b><span class="sishu_text">Sishubharati</span></b> 
+  
+    <a href="<?php echo base_url();?>administratorpanel"><b><span class="sishu_text">Sishubharati</span></b> 
       <span class="admin_text">Admin</span></a>
   </div>
   <!-- /.login-logo -->

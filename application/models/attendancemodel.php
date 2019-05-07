@@ -314,4 +314,66 @@ public function getAttendanceDtlbyStudent($month,$student_uniq_id,$academic_id)
              return $data;
          }
 	}
+
+
+	public function getMonthlyAttendanceDetails($month,$class_id,$session_id)
+	{
+		$data = array();
+		$where = array('attendance_master.class_id' =>$class_id ,'attendance_master.session_id' =>$session_id  );
+		$this->db->select("attendance_master.*,administrator_user_master.username,class_master.name as classname,session_year.year,teachers.name as teachername")
+				->from('attendance_master')
+				->join('class_master','class_master.id = attendance_master.class_id','INNER')
+				->join('administrator_user_master','administrator_user_master.id = attendance_master.created_by','left')
+				->join('teachers','teachers.teacher_id = attendance_master.created_by','left')
+				->join('session_year','session_year.session_id = attendance_master.session_id','INNER')
+				->where($where)
+				->where("DATE_FORMAT(attendance_master.taken_date,'%m') =",$month);
+		$query = $this->db->get();
+		#echo $this->db->last_query();
+
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+	}
+
+
+	public function getAttendanceDetailsByMasterid($attendance_master_id)
+	{
+		$data = array();
+		$where = array(
+						'attendance_details.attendance_master_id' =>$attendance_master_id
+						 );
+
+		$this->db->select("attendance_details.*,student_master.name as student_name")
+				->from('attendance_details')
+				->join('student_master','student_master.student_uniq_id = attendance_details.student_uniq_id','INNER')
+				->where($where);
+
+		$query = $this->db->get();
+		#echo $this->db->last_query();
+
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+	}
 }//end of class

@@ -10,10 +10,17 @@ if ( ! function_exists('createbody_method'))
 	  
 	
 	 $CI->load->model('menumodel','',TRUE);
+	 $CI->load->model('teachermenumodel','',TRUE);
 	 $CI->load->library('template');
+	 $CI->load->library('session');
 	 /* leftmenu */
-	 $left_menu = "";//$CI->leftmenumodel->getLeftmenu($data['user_id'],$data['role_id']);
-	 $left_menu = $CI->menumodel->getAllAdministrativeMenu('administartor_menu_master');
+	 $session = $CI->session->userdata('user_data');
+	 if ($session['role']=='ADMIN') {
+	 	 $left_menu = $CI->menumodel->getAllAdministrativeMenu('administartor_menu_master');
+	 }else{
+	 	 $left_menu = $CI->teachermenumodel->getAllAdministrativeMenu('teacher_menu_master');
+	 }
+	
      $yearinfo= $CI->menumodel->getSessionYearData();
 	
 		 

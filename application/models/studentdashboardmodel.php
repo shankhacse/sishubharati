@@ -192,4 +192,146 @@ public function getUploadedExamPapers($moduleID,$moduleTag)
 	       
 	}
 
+
+	/*--------------------------------------------------*/
+		public function getStudentOldClass($studentID,$academicID){
+
+			$where = array(
+							'student_academic_details.student_uniq_id' => $studentID,
+							'student_academic_details.is_active' => 'Y',
+						);
+		
+			$data = [];
+			$query = $this->db->select("
+								session_year.session_id,
+								session_year.year,
+								class_master.name,
+								student_academic_details.academic_id
+								")
+					->from('student_academic_details')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+					->join('session_year','session_year.session_id = student_academic_details.session_id','INNER')
+					->where($where)
+					->where_not_in('student_academic_details.academic_id',$academicID);
+
+					$query = $this->db->get();
+				#q();
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+				
+            }
+            return $data;
+        }
+		else
+		{
+             return $data;
+        }
+			       
+		
+	}
+
+
+		/* get all Notice List*/
+
+	public function getAllNoticeList(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'Notice',
+						'notice.is_active' =>'1'
+						 );
+		$query = $this->db->select("notice.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('notice')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = notice.notice_id','INNER')
+				->where($where)
+				->order_by('notice.notice_id','desc')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+
+
+	/* get all Information List*/
+
+	public function getAllInfoList(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'ImpotrtantInfo',
+						'important_info.is_active' =>'1'
+						 );
+		$query = $this->db->select("important_info.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('important_info')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = important_info.info_id','INNER')
+				->where($where)
+				->order_by('important_info.info_id','desc')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+
+
+/* get all atcive events List*/
+
+	public function getAllActiveEventsList(){
+		$data = [];
+		$where = array(
+						'uploaded_documents_all.upload_from_module' =>'Events',
+						'events.is_active' =>1
+						 );
+		$query = $this->db->select("events.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('events')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = events.events_id','INNER')
+				->where($where)
+				->order_by('events.events_id')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
 }// end of class

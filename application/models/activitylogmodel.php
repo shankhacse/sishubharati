@@ -57,5 +57,33 @@ class activitylogmodel extends CI_Model{
 	       
 	}
 
+		public function getAllActivitylogStudent(){
+		$data = [];
+		$query = $this->db->select("student_activity.*,
+									student_master.name as student_name,
+									class_master.name as class_name,
+									student_academic_details.class_roll
+									")
+				->from('student_activity')
+				->join('student_master','student_master.student_uniq_id = student_activity.student_uniq_id','INNER')
+				->join('student_academic_details','student_academic_details.academic_id = student_activity.academic_id','INNER')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+				->order_by('student_activity.id',"DESC")
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
 
 }// end of file

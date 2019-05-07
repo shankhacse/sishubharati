@@ -1,4 +1,4 @@
-<script src="<?php echo base_url();?>application/web_assets/js/jquery.js"></script>
+<script src="<?php echo base_url();?>application/web_assets/perfect_gallery/plugins/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url();?>application/web_assets/js/bootstrap.min.js"></script> 
 
   <!-- <script src="<?php echo base_url();?>application/web_assets/js/bootstrap-select.min.css"></script>  -->

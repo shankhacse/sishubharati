@@ -31,6 +31,36 @@ class loginmodel extends CI_Model{
 		
 	}
 
+	public function verifyLoginteacher($data)
+	{
+		$username = $data['username'];
+		$password = $data['password'];
+		$userDataInfo = array();
+		$sql= "SELECT 
+				*
+				FROM teachers
+				WHERE
+				teachers.`teacher_uniq_id`='".$username."' AND 
+				teachers.`password`='".$password."'";
+				
+		#echo $sql;
+		 $query = $this->db->query($sql);
+		# echo $this->db->last_query();
+         if($query->num_rows()> 0){
+            $row = $query->row();
+            $userDataInfo =array(
+                "username"=>$row->name,
+                "userid"=>$row->teacher_id
+            );
+
+          return $userDataInfo;
+        }
+        else{
+            return $userDataInfo=array();
+        }
+		
+	}
+
 /* get year desending order*/
 
 public function getAcademicYear(){

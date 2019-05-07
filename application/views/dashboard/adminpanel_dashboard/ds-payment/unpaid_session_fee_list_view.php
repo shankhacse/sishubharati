@@ -80,7 +80,7 @@
                   <th>Roll</th>
                   <th>Father Name</th>
                   <th>Admission</th>
-                  <th width="10%">Action</th>
+                  <th width="20%">Action</th>
                   
                 </tr>
                 </thead>
@@ -104,6 +104,10 @@
             <td><?php echo $value->father_name; ?></td>
             <td><?php echo date("d M Y", strtotime($value->admission_dt));?></td>
            <td>
+                <button type="button" class="btn btn-sm btn-warning dismiss_student" 
+                data-academicid="<?php echo $value->academic_id;?>" 
+                 data-mode ="DISSMISS" 
+                 " >Leave School </button> 
                 <button type="button" class="btn btn-sm btn-danger ViewSesMakePayment" data-toggle="modal" data-target="#ses_makepayment_info" 
                 data-studentid="<?php echo $value->student_uniq_id;?>" 
                 data-academicid="<?php echo $value->academic_id;?>" 

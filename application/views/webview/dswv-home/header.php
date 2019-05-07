@@ -9,7 +9,7 @@
                 <div class="top_ui_element">
                     <ul>
                         <li><i class="fa fa-envelope"></i><a href="#">asimsbbm@gmail.com</a></li>
-                        <li><i class="fa fa-phone"></i>+91-9733069624/9476241557</li>
+                        <li><i class="fa fa-phone"></i>+91-9733069624/9333986937</li>
                     </ul>
                 </div>
             </div>
@@ -54,6 +54,7 @@
                                <li><a href="<?php echo base_url();?>home/admissionpage">Admission notice</a></li>
                                 <li><a href="<?php echo base_url();?>home/holidaylist">Holiday list</a></li>
                                 <li><a href="<?php echo base_url();?>home/noticeboard">Notice & update</a></li>
+                                <li><a href="<?php echo base_url();?>home/resultlist">Results</a></li>
                             </ul>
                         </li>
                         <!-- <li><a href="contact-us.html"></a></li> -->
@@ -93,9 +94,10 @@
                                 <li><a href="<?php echo base_url();?>home/admissionpage">Admission notice</a></li>
                                 <li><a href="<?php echo base_url();?>home/holidaylist">Holiday list</a></li>
                                 <li><a href="<?php echo base_url();?>home/noticeboard">Notice & update</a></li>
+                                <li><a href="<?php echo base_url();?>home/resultlist">Results</a></li>
                             </ul>
                         </li>
-                         <li><a href="<?php echo base_url();?>home/login">login</a></li>
+                         <li><a href="<?php echo base_url();?>studentlogin">login</a></li>
                         <!-- <li><a href="contact-us.html">Contact Us</a></li> -->
                     </ul>
                 </div>

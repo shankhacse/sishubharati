@@ -6,7 +6,87 @@
     text-decoration: underline;
     font-weight: bold;
    }
- </style>
+
+
+.inline{
+  #display: inline-block;
+}
+.inline + .inline{
+  margin-left:10px;
+}
+.radio{
+  color:#999;
+  font-size:15px;
+  position:relative;
+}
+.radio span{
+  position:relative;
+   padding-left:20px;
+}
+.radio span:after{
+  content:'';
+  width:15px;
+  height:15px;
+  border:3px solid;
+  position:absolute;
+  left:0;
+  top:1px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+  box-sizing:border-box;
+  -ms-box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+}
+.radio input[type="radio"]{
+   cursor: pointer; 
+  position:absolute;
+  width:100%;
+  height:100%;
+  z-index: 1;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+}
+.radio input[type="radio"]:checked + span{
+  color:#0B8;  
+}
+.radio input[type="radio"]:checked + span:before{
+    content:'';
+  width:5px;
+  height:5px;
+  position:absolute;
+  background:#0B8;
+  left:5px;
+  top:6px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+}
+
+.radiocol input[type="radio"]:checked + span{
+  color:#F01616;  
+}
+.radiocol input[type="radio"]:checked + span:before{
+    content:'';
+  width:5px;
+  height:5px;
+  position:absolute;
+  background:#F01616;
+  left:5px;
+  top:6px;
+  border-radius:100%;
+  -ms-border-radius:100%;
+  -moz-border-radius:100%;
+  -webkit-border-radius:100%;
+}
+
+
+   
+    </style>
 
 
     <div class="row">
@@ -25,7 +105,11 @@
                     <?php if($studentdata){
                     ?>
                 <input type="hidden" class="" id="student_uniq_id" name="student_uniq_id"  value="<?php echo $studentdata->student_uniq_id;?>" >
-                <input type="hidden" class="" id="gender" name="gender"  value="<?php echo $studentdata->gender;?>" >    
+                <input type="hidden" class="" id="gender" name="gender"  value="<?php echo $studentdata->gender;?>" > 
+
+
+                 <div class="row">
+                     <div class="col-md-10">   
                   <div class="form-group">
                   This is certify that <input type="text" class="inptc" id="studentname" name="studentname" placeholder="Student Name" autocomplete="off" style="width: 200px;" value="<?php echo $studentdata->name;?>" >
 
@@ -57,9 +141,67 @@
                       <input type="text" class="inptc" id="currentclass" name="currentclass" placeholder="Current Class" autocomplete="off"  style="width: 200px;" value="<?php echo $studentdata->current_class;?>" >
                       , the school session
                       <input type="text" class="inptc" id="session" name="session" placeholder="Current Session" autocomplete="off"  style="width: 200px;" value="<?php echo $studentdata->year;?>" >
+                       <div class="maxl">
+                    <label class="radio inline"> 
+                        <input type="radio" name="nextclassline" value="Y" >
+                        <span> Yes </span> 
+                     </label>
+                    <label class="radio radiocol inline"> 
+                        <input type="radio" name="nextclassline" value="N" checked>
+                        <span>No </span> 
+                    </label>(Add Green colour line )
+                  </div>
+                      <b style="color: #3fbf59;">and passed the annual Examination for promotion to class</b>
+                      <input type="text" class="inptc" id="nextclass" name="nextclass" placeholder="Next Class" autocomplete="off"  style="width: 200px;" value="" >
                       bears a good moral character.His/Her behaviour was good with teachers and students.
 
+                              <div class="maxl" >
+                    <label class="radio inline">&nbsp;&nbsp; <b>Need Print Date :<b>&nbsp;
+                        <input type="radio" name="needsign" value="Y" >
+                        <span> Yes </span> 
+                     </label>
+                    <label class="radio radiocol inline"> 
+                        <input type="radio" name="needsign" value="N" checked>
+                        <span>No </span> 
+                    
+                     </label>
+                          <input type="text" class="inptc" id="printdate" name="printdate" placeholder="" autocomplete="off" style="width:200px;margin-left:5px" value="<?php echo date("d.m.Y");?>" >&nbsp; & &nbsp; Signature
                   </div>
+
+                  </div>
+
+                  </div>
+                  <div class="col-md-2"> 
+
+                    <?php
+
+
+                       $uplodedFolder='admission_upload';
+        if ($studentdata->is_file_uploaded=='Y') {
+           $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$studentdata->random_file_name;
+        }else{
+          if ($studentdata->gender=="M") {
+                   $download_link=base_url()."application/assets/images/male_avatar.jpg";
+                 }elseif ($studentdata->gender=="F") {
+                    $download_link=base_url()."application/assets/images/female_blank_avatar.jpg";
+                 } 
+
+          
+        }
+
+
+                    ?>
+                    <div class="student_picture" style="width: 135px;height:161px;border: 2px solid #cd558e;">
+                             <!--  <img id="profile_img" src="/sishubharati/application/assets/images/blank-avatar.jpg" alt="Profile Picture" style="width:140px;height:160px;"> -->
+                               <img src="<?php echo $download_link; ?>" class="profile_pic" style="width: 35mm;height:42mm" />
+
+                              <input id="derault_profile_src" name="derault_profile_src" value="/sishubharati/application/assets/images/blank-avatar.jpg" type="hidden">
+                              
+                            </div>
+                    </div>
+
+
+                </div><!--end of row -->
 
              
 

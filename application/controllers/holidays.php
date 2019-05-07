@@ -88,7 +88,10 @@ class holidays extends CI_Controller
 			$holidaysID = trim(htmlspecialchars($dataArry['holidaysID']));
 			$mode = trim(htmlspecialchars($dataArry['mode']));
 			$dtholiday = trim(htmlspecialchars($dataArry['dtholiday']));
+			$todtholiday = trim(htmlspecialchars($dataArry['todtholiday']));
 			$holititle = trim(htmlspecialchars($dataArry['holititle']));
+			
+		   
 
 			 if($dtholiday!=""){
 				$dtholiday = str_replace('/', '-', $dtholiday);
@@ -97,6 +100,21 @@ class holidays extends CI_Controller
 			 else{
 				 $dtholiday = NULL;
 			 }
+
+			 if($todtholiday!=""){
+				$todtholiday = str_replace('/', '-', $todtholiday);
+				$todtholiday = date("Y-m-d",strtotime($todtholiday));
+			 }
+			 else{
+				 $todtholiday = NULL;
+			 }
+
+			if (isset($dataArry['dtrange'])) {
+				$is_daterange='Y';
+			}else{
+				$is_daterange='N';
+				 $todtholiday = NULL;
+			}
 			$year= date("Y",strtotime($dtholiday));
 			
 
@@ -113,7 +131,9 @@ class holidays extends CI_Controller
 						$array_upd = array(
 						"title" => $holititle,
 						"date" => $dtholiday,
+						"todate" => $todtholiday,
 						"year" => $year,
+						"is_daterange" => $is_daterange,
 						"session_id" => $session['yid'],
 						
 					);
@@ -172,7 +192,9 @@ class holidays extends CI_Controller
 					$array_insert = array(
 						"title" => $holititle,
 						"date" => $dtholiday,
+						"todate" => $todtholiday,
 						"year" => $year,
+						"is_daterange" => $is_daterange,
 						"session_id" => $session['yid'],
 						
 					);

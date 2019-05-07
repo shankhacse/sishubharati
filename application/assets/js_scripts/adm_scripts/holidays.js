@@ -1,6 +1,17 @@
 $(document).ready(function(){
     var basepath = $("#basepath").val();
+    $('#todate_div').hide();
     var rowNoUpload = 0;
+
+    var mode = $("#mode").val();
+  //  var check_range = $("#check_range").val();
+    
+    console.log(check_range);
+    if(mode=='EDIT'){
+     var check_range =$("#dtrange").is(":checked");
+
+     if (check_range) {$('#todate_div').show();}
+    }
     //alert(basepath);
    // $( ".datepicker" ).datepicker();
     $( ".datepicker" ).datepicker({
@@ -115,14 +126,29 @@ $(document).on('submit','#HolidaysForm',function(e){
 
     });
 
+
+    $("#dtrange").change(function() {
+    if(this.checked) {
+        console.log("checked");
+         $('#todate_div').show();
+         $("#todatelebel").text("From Date");
+    }else{
+        console.log("notchecked");
+         $('#todate_div').hide();
+         $("#todatelebel").text("Date");
+    }
+   });
+
  });// end of document ready
 
 
 function validateHolidays()
 {
     
-	var dtholiday = $("#dtholiday").val();
+    var dtholiday = $("#dtholiday").val();
+	var todtholiday = $("#todtholiday").val();
 	var holititle = $("#holititle").val();
+    var dtrange=$("#dtrange").is(":checked");
     
 
 	$("#holimsg").text("").css("dispaly", "none").removeClass("form_error");
@@ -137,6 +163,20 @@ function validateHolidays()
         .css("display", "block");
 		return false;
 	}
+
+    if (dtrange) {
+
+        if(todtholiday=="")
+        {
+            $("#todtholiday").focus();
+            $("#holimsg")
+            .text("Error : Select To Date")
+            .addClass("form_error")
+            .css("display", "block");
+            return false;
+        }
+
+    }
 
     if(holititle=="")
     {

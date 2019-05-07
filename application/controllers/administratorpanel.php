@@ -49,6 +49,7 @@ class administratorpanel extends CI_Controller {
 		{
 			$sessionData = array(
 				"username" => $result['username'],
+				"role" => 'ADMIN',
 				"yid" => $year,
 				"userid" => $result['userid'],
 				"logintime" => date("Y-m-d H:i:s"),
@@ -86,6 +87,104 @@ class administratorpanel extends CI_Controller {
 				);
 			
 			$update = $this->commondatamodel->updateData_WithUserActivity('administrator_user_master',$update_array,$where_admin_user,'user_activity_report',$user_activity);
+			
+			
+			if($update)
+			{
+				$json_response = array(
+					"msg_status" => 1,
+					"msg_data" => "Logged in successfully..."
+				);
+			}
+			
+		}
+		else
+		{
+			$json_response = array(
+				"msg_status" => 0,
+				 "msg_data" => "Invalid login data.Please check your login details..."
+			);
+		}
+		
+	}
+	
+	header('Content-Type: application/json');
+    echo json_encode( $json_response );
+	exit;
+	
+ }
+
+ /* verify teacher */
+
+  public function teacherverifyLogin()
+ {
+	$json_response = array();
+	$formData = $this->input->post('formDatas');
+	parse_str($formData, $dataArry);
+	$username =  htmlspecialchars($dataArry['username']);
+	$password =  md5(htmlspecialchars($dataArry['password']));
+	$year =  htmlspecialchars($dataArry['year']);
+	$result=[];
+	
+	$verify_data = array(
+		"username" => $username,
+		"password" => $password
+		
+	);
+	
+	if($username=="" OR $password=="")
+	{
+		$json_response = array(
+			 "msg_status" => 0,
+			 "msg_data" => "All fields are required"
+		);
+		
+	}
+	else
+	{
+		$result = $this->loginmodel->verifyLoginteacher($verify_data);
+		if(sizeof($result)>0 && !empty($result))
+		{
+			$sessionData = array(
+				"username" => $result['username'],
+				"role" => 'TEACHER',
+				"yid" => $year,
+				"userid" => $result['userid'],
+				"logintime" => date("Y-m-d H:i:s"),
+				"security_token" => $this->getSecureToken()
+			);
+			
+			
+			
+			$this->setSessionData($sessionData);
+			$session = $this->session->userdata('user_data');
+			
+			
+			$update_array  = array(
+				"last_login" => date("Y-m-d H:i:s"),
+				"is_looged_in" => TRUE
+				);
+				
+			$where_teacher_user = array(
+				"teachers.teacher_id" => $session['userid']
+				);
+			
+			
+			$user_activity = array(
+					"activity_date" => date("Y-m-d H:i:s"),
+					"activity_module" => 'TeacherLogin',
+					"action" => "Login",
+					"from_method" => "administratorpanel/teacherverifyLogin",
+					"user_id" => $session['userid'],
+					"ip_address" => getUserIPAddress(),
+					"user_browser" => getUserBrowserName(),
+					"user_platform" => getUserPlatform(),
+					"login_time" => date("Y-m-d H:i:s"),
+					"logout_time" => NULL
+					
+				);
+			
+			$update = $this->commondatamodel->updateData_WithUserActivity('teachers',$update_array,$where_teacher_user,'user_activity_report',$user_activity);
 			
 			
 			if($update)

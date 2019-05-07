@@ -1,3 +1,4 @@
+ 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"><div class="banner_outer_wrap">
       <ul class="main_slider">
           <li>
@@ -38,6 +39,24 @@
         
     </div>
 
+<!--
+
+<section class="home_option_wrap">
+  <div class="container">
+    <div class="row">
+
+
+<div class="col-md-12">
+    <div class="alert alert-danger alert-dismissible" role="alert">
+  
+   <marquee><p style=" font-size: 12pt">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor!</p></marquee>
+</div>
+</div>
+    </div>
+  </div>
+</section>
+
+-->
 <section class="home_option_wrap">
             <div class="container">
     <div class="row">
@@ -50,13 +69,13 @@
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
               <img src="<?php echo base_url();?>application/web_assets/images/ereader-1.png" width="100" height="100" class="option_img" >
             
-            <h3><a href="<?php echo base_url();?>home/importantinfo">Importent Info</a></h3> 
+            <h3><a href="<?php echo base_url();?>home/importantinfo">Important Info</a></h3> 
             
             </div>
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
              
            <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" class="option_img" >
-            <h3><a href="#">E-payment</a></h3> 
+            <h3><a href="<?php echo base_url();?>home/resultlist">Results</a></h3> 
               
             </div>
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
@@ -137,7 +156,7 @@
             </div>
         </section>
 
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="<?php echo base_url();?>application/web_assets/perfect_gallery/plugins/jquery/dist/jquery.min.js"></script>
 
   
 

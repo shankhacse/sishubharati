@@ -34,10 +34,12 @@
                 <thead>
                 <tr>
                   <th style="width:10%;">Sl</th>
+                  <th>Teacher ID</th>
                   <th>Teacher Name</th>
-                
+                 
                   <th>Subject</th>
                   <th>Picture</th>
+                  <th>DOB</th>
                   <th>Status</th>
 
                   
@@ -54,12 +56,12 @@
               		$status = "";
                     if($value->is_active=="1")
                     {
-                      $status = '<div class="status_dv "><span class="label label-success status_tag eventsstatus" data-setstatus="0" data-eventsid="'.$value->teacher_id.'"><span class="glyphicon glyphicon-ok"></span> Active</span></div>';
+                      $status = '<div class="status_dv "><span class="label label-success status_tag teacherstatus" data-setstatus="0" data-teacherid="'.$value->teacher_id.'"><span class="glyphicon glyphicon-ok"></span> Active</span></div>';
                     }
                     else
                     {
-                      $status = '<div class="status_dv"><span class="label label-danger status_tag eventsstatus" data-setstatus="1" 
-                      data-eventsid="'.$value->teacher_id.'"><span class="glyphicon glyphicon-remove"></span> Inactive</span></div>';
+                      $status = '<div class="status_dv"><span class="label label-danger status_tag teacherstatus" data-setstatus="1" 
+                      data-teacherid="'.$value->teacher_id.'"><span class="glyphicon glyphicon-remove"></span> Inactive</span></div>';
                     }
         $uplodedFolder='teacher_upload';
         if ($value->is_file_uploaded=='Y') {
@@ -74,6 +76,7 @@
 
 					<tr>
 						<td><?php echo $i++; ?></td>
+            <td><?php echo $value->teacher_uniq_id; ?></td>
             <td><?php echo $value->name; ?></td>
             <td><?php echo $value->subject; ?></td>
 						
@@ -81,6 +84,8 @@
 							<img src="<?php echo $download_link; ?>" class="profile_pic" />
 						
 						</td>
+            <td><?php 
+            if($value->date_of_birth!=''){echo date("Y-m-d", strtotime($value->date_of_birth));} ?></td>
             <td><?php echo $status; ?></td>
             <td align="center"> 
             

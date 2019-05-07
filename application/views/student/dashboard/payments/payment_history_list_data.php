@@ -21,7 +21,7 @@
                   <th>Amount</th>
                   <th>Fine</th>
                   <th>Total</th>
-                  <!-- <th width="10%">Action</th> -->
+                  <th width="10%">Print</th>
                   
                 </tr>
                 </thead>
@@ -80,7 +80,11 @@
              
 
             </td>
-           
+             <td>
+             <a href="<?php echo base_url(); ?>studentdashboard/printPaymentReceipt/<?php echo $value->payment_master_id; ?>" class="btn btn-primary btn-xs" data-title="Pdf" target="_blank" >
+                <span class="glyphicon glyphicon-print"></span>
+              </a> 
+                         </td> 
            
            
          

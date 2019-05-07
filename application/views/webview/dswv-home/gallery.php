@@ -1,11 +1,11 @@
 <style type="text/css">
   
 
-/*    .image_poster {
+    .image_poster {
  width: 387px;
  height:300px;
  
-} */
+} 
 
 .galback{
   background-color: #f6f6f6;

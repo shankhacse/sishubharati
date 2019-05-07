@@ -2,6 +2,8 @@
 
 class exammodel extends CI_Model{
 
+
+
 		public function getActiveStudentListByClass($class_id,$session_id){
 			$where = array(
 				'student_academic_details.class_id' => $class_id,
@@ -116,7 +118,7 @@ class exammodel extends CI_Model{
 				->where($where);
 		$query = $this->db->get();
 		
-		#echo $this->db->last_query();
+		//echo "<br>".$this->db->last_query();
 		
 		if($query->num_rows()> 0)
 				{
@@ -454,4 +456,95 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
         }
 
 	}
+
+/**/
+public function getActiveStudentListByClassForMarksDetails($class_id,$session_id,$sel_term){
+			$where = array(
+				'student_academic_details.class_id' => $class_id,
+				'student_academic_details.session_id' =>$session_id, 
+				'student_academic_details.is_active' =>'Y', 
+			);
+
+			
+			$whereterm = array('marks_master.term' =>$sel_term);
+			$data = [];
+			$query = $this->db->select("student_academic_details.*,
+										student_master.name as student_name,
+										class_master.name as class_name
+								")
+					->from('student_academic_details')
+					->join('student_master','student_master.student_uniq_id = student_academic_details.student_uniq_id','INNER')
+					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+					->join('marks_master','marks_master.academic_id = student_academic_details.academic_id ','INNER')
+					
+					->where($where)
+					->where($whereterm)
+				    ->order_by('student_academic_details.class_roll')
+					->get();
+				#q();
+				if($query->num_rows()> 0)
+				{
+		          foreach($query->result() as $rows)
+					{
+						if ($sel_term=='first') {
+							$marks_master_id=$rows->first_term_master_id;
+						}else if ($sel_term=='second') {
+							$marks_master_id=$rows->second_term_master_id;
+						}else if ($sel_term=='third') {
+							$marks_master_id=$rows->third_term_master_id;
+						}
+						
+						$data[] = array(
+					"subjectData" => $this->getSubjects($class_id,$session_id),
+					"studentData" => $rows,
+					"marksData" => $this->getMarksDetails($marks_master_id)
+					
+				);
+					}
+		             
+		        }
+				
+		        return $data;
+	       
+		
+	}
+
+
+	/* get marks details*/
+
+	public function getSubjects($class_id,$session_id){
+     $data = [];
+    	$where = array(
+			
+			"class_subject_asign_master.class_master_id"=>$class_id,
+			"class_subject_asign_master.session_id"=>$session_id
+		);
+        $data = array();
+		$this->db->select("class_subject_asign_master.*,
+							subject_master.subject,
+							subject_master.subject_code
+							
+							")
+				->from('class_subject_asign_master')
+				->join('class_subject_asign_details','class_subject_asign_details.asign_master_id = class_subject_asign_master.id','INNER')
+				->join('subject_master','subject_master.id = class_subject_asign_details.subject_id','INNER')
+				->where($where);
+		$query = $this->db->get();
+		
+		#echo $this->db->last_query();
+		
+		if($query->num_rows()> 0)
+				{
+		          foreach($query->result() as $rows)
+					{
+						$data[] = $rows;
+					}
+		             
+		        }
+		
+		
+            return $data;
+       
+        
+    }
 }// end of class

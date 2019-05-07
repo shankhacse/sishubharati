@@ -8,12 +8,7 @@ $(document).ready(function(){
 
                     });
 
-var view_by = $("#view_by").val();
- if (view_by=='M') {
-        $("#month_view").show();
-       }else{
-        $("#month_view").hide();
-       }
+
 
 	 // Listing Student for attendance
     $(document).on("submit","#AttendanceForm",function(event){
@@ -359,6 +354,152 @@ $(document).on('click','.viewattendainfo',function(){
     });
 
 
+ // Listing class attendance Dates
+    $(document).on("submit","#AttendanceCountForm",function(event){
+        event.preventDefault();
+
+        if(1)
+        {
+            var formDataserialize = $("#AttendanceCountForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'attendance/getAttendanceCountList',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadstudentList").html(result);
+                     /*$('.dataTables').DataTable({
+                         "ordering": false
+                    });*/
+                     $('#datepicker').datepicker({
+                     format: 'dd/mm/yyyy',
+                     todayHighlight: true,
+                     uiLibrary: 'bootstrap',
+                     'setDate': 'today'
+
+                    });
+
+                
+                    $(".dashboardloader").css("display","none");
+                   
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+        }
+
+    });
+
+
+    /*class attendance details model*/
+$(document).on('click','.calassattendainfo',function(){
+        var attmastid = $(this).data('attmastid');
+        var classname = $(this).data('classname');
+        var month = $(this).data('month');
+      ;
+
+        $.ajax({
+            type: "POST",
+            url: basepath+'attendance/getAttendanceDetailsClass',
+            dataType: "html",
+            data: {attmastid:attmastid},
+            success: function (result) {
+                $("#classname").html(month+'-'+classname);
+                $("#month").html(month);
+                $("#detail_information_view").html(result);
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+    });
+
+
+//delete all student attendance by class and date
+$(document).on('click','.attmasterdlt',function(){
+      
+       var attmastid = $(this).data('attmastid');
+       
+       
+        
+       if(ConfirmAttendanceDelete()){
+
+        $.ajax({
+            type: "POST",
+            url: basepath+'attendance/deleteAttendance',
+            dataType: "html",
+            data: {
+                attmastid:attmastid},
+            success: function (result) {
+                $('#AttendanceCountForm').submit();
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+
+    }//end if
+    });
+
   }); //end of document ready
 
 function chkvalidation(){
@@ -374,4 +515,12 @@ function chkvalidation(){
     }
     $("#attendance_manual_err_msg").css("display","none").text("");
     return true;
+}
+
+
+function ConfirmAttendanceDelete()
+{
+ 
+      return confirm("Are you sure you want to delete?");
+   
 }

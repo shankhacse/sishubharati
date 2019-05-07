@@ -41,7 +41,15 @@
 
 					<tr>
 						<td><?php echo $i++; ?></td>
-            <td><?php echo date("d M Y", strtotime($value->date));?></td>
+            <td><?php 
+
+            if ($value->is_daterange=='Y') {
+               echo date("d M Y", strtotime($value->date))." - ".date("d M Y", strtotime($value->todate));
+            }else{
+              echo date("d M Y", strtotime($value->date));
+            }
+
+           ?></td>
 						<td><?php echo $value->title; ?></td>
 						
 						

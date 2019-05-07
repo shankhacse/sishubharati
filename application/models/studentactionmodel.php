@@ -95,6 +95,8 @@ public function getAllStudentsbyClass($session_id,$sel_class)
 										mother_occ.occupation_type as mother_occu,
 										session_year.year,
 										district.name as districname,
+										uploaded_documents_all.random_file_name,
+									    uploaded_documents_all.id as docid,
 										states.name as statename
 										")
 					->from('student_master')
@@ -113,6 +115,7 @@ public function getAllStudentsbyClass($session_id,$sel_class)
 					->join('session_year','session_year.session_id=student_academic_details.session_id','INNER')
 					
 					->join('states','states.id=district.state_id','INNER')
+					->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = student_master.student_id and upload_from_module="Admission"','left')
 
 					->where($where)
 				    ->order_by('student_master.student_id')

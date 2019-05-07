@@ -62,6 +62,7 @@ public function getAllStudentsbyRankmasterId($rank_master_id)
 			$query = $this->db->select("*")
 					->from('rank_details')
 					->where($where)
+					->order_by('rank_details.rank')
 					->get();
 
 		#echo $this->db->last_query();

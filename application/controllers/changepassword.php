@@ -114,4 +114,106 @@ public function index()
 		}
 	}
 
+
+	public function teacher()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			$result=[];
+			$header = "";
+			$page = "dashboard/adminpanel_dashboard/ds-teacher/change_password";
+		
+			
+			createbody_method($result, $page, $header, $session);
+				 
+
+
+		}
+		else
+		{
+			redirect('teacher/login','refresh');
+		}
+	}
+
+// working..
+		public function UpdatepasswordTeacher()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			 $json_response = array();
+             $formData = $this->input->post('formDatas');
+               parse_str($formData, $dataArry);
+  
+ 
+ 
+			$cur_pass =  $dataArry['cur_pass'];
+			$password =  $dataArry['password'];
+			
+			 $teacherid=$session['userid'];
+			 $arrayName = array(
+			 					'teachers.teacher_id' =>$teacherid ,
+			 					'teachers.password' =>md5($cur_pass) 
+			 					 );
+			$chk=$this->commondatamodel->checkExistanceData('teachers',$arrayName);
+				if ($chk) {
+
+					$where_address = array(
+							'teachers.teacher_id' =>$teacherid
+						);
+						$update_array  = array(
+								'teachers.password' => md5($password),
+							
+							);
+						$user_activity = array(
+						"activity_module" => 'changepassword teacher',
+						"action" => 'Update',
+						"from_method" => 'changepassword/Updatepassword',
+						"user_id" => $session['userid'],
+						"ip_address" => getUserIPAddress(),
+						"user_browser" => getUserBrowserName(),
+						"user_platform" => getUserPlatform()
+					 );
+
+						$update = $this->commondatamodel->updateData_WithUserActivity('teachers',$update_array,$where_address,'user_activity_report',$user_activity);
+					
+					if($update)
+						{
+								$json_response = array(
+							"msg_status" => 1,
+							 "msg_data" => "Updated successfully"
+							);
+						}
+						else
+						{
+							$json_response = array(
+							"msg_status" => 0,
+							 "msg_data" => "There is some problem while updating ...Please try again."
+							);
+						}
+				
+
+
+				 	
+				 }else{
+
+				 	$json_response = array(
+							"msg_status" => 0,
+							 "msg_data" => "Your Current Password is wrong."
+							);
+
+				 } 
+
+				//header('Content-Type: application/json');
+   				echo json_encode( $json_response );
+  				exit;
+
+		}
+		else
+		{
+			redirect('teacher/login','refresh');
+		}
+	}
+
 }// end of class

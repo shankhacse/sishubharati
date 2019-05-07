@@ -49,7 +49,7 @@
 
 					<tr>
 						<td><?php echo $i++; ?></td>
-						<td><?php echo ($value->activity_date == NULL ? "" : date("d-m-Y", strtotime($value->activity_date))); ?></td>
+						<td><?php echo ($value->activity_date == NULL ? "" : date("d-m-Y h:i a", strtotime($value->activity_date))); ?></td>
             <td><?php echo $value->activity_module; ?></td>
             
             <td><?php echo $value->username; ?></td>

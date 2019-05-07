@@ -59,13 +59,17 @@ public function getAllStudentsbyClass($session_id,$sel_class)
 			$query = $this->db->select("
 										student_master.*,
 										class_master.name as class_name,
-										student_academic_details.class_roll
+										student_academic_details.class_roll,
+										student_academic_details.academic_id,
+										class_master.id as classid
+										
 										")
 					->from('student_master')
 					
 					->join('student_academic_details','student_academic_details.student_uniq_id = student_master.student_uniq_id','INNER')
 					->join('class_master','class_master.id = student_academic_details.class_id','INNER')
 					->where($where)
+					->order_by('student_academic_details.class_roll')
 					->get();
 
 		#echo $this->db->last_query();
@@ -192,7 +196,8 @@ public function getAllStudentsbyClass($session_id,$sel_class)
 		public function getLastClassRoll($classid,$session_id){
 			$where = array(
 							'student_academic_details.class_id' => $classid,
-							'student_academic_details.session_id' => $session_id
+							'student_academic_details.session_id' => $session_id,
+							'student_academic_details.is_active' => 'Y'
 							 );
 			$data = [];
 			$query = $this->db->select("*")
@@ -400,6 +405,9 @@ public function getLatestSerialNumber($from){
 					$is_file_uploaded = "N";
 				}
 			}
+			/*echo $is_file_uploaded;
+			pre($_FILES);
+			exit;*/
 			$upd_where = array("student_master.student_id" => $data['studentID']);
 
 				$insert_student_data = array(

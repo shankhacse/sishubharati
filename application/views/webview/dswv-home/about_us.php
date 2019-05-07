@@ -1,5 +1,5 @@
 
- <script src="<?php echo base_url();?>application/web_assets/js/jquery.js"></script>
+<script src="<?php echo base_url();?>application/web_assets/perfect_gallery/plugins/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url();?>application/web_assets/js/bootstrap.min.js"></script> 
 <section class="about_us_wrap">
         <div class="container">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 
-                    <div class="col-md-6">
+                    <div class="col-md-6" style="margin-top: 85px;">
                         <img src="<?php echo base_url();?>application/web_assets/images/history.jpg" alt="">
                 </div>
             </div>
@@ -105,102 +105,38 @@
                 </div>
             <div class="container">
                 <div class="row">
+                    <?php if($bodycontent['teacherList']){
+                        foreach ($bodycontent['teacherList'] as $key => $value) {
+
+          $uplodedFolder='teacher_upload';
+        if ($value->is_file_uploaded=='Y') {
+           $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/".$value->random_file_name;
+        }else{
+           $download_link=base_url()."application/assets/images/blank-avatar.jpg";
+        }
+                           
+                       
+                      ?>
                     <div class="col-md-3 col-sm-6">
                         <div class="ct_teacher_outer_wrap">
                             <figure>
-                                <img alt="" src="<?php echo base_url();?>application/web_assets/images/vision.jpg" style="height: 260px;" >
+                                <img alt="" src="<?php echo $download_link; ?>" style="max-height: 260px;" >
                             </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">STEVE JOBS</a></h5>
-                                <span>Master / Math</span>
+                            <div class="ct_teacher_wrap" style="padding: 9px 15px;">
+                                <h5><a href="#"><?php echo $value->name; ?></a></h5>
+                                <span><?php echo $value->subject; ?></span>
                                 
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">JULIYA ANDERSON</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">JOHN SNOW</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">GLORIA MARTIN</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">STEVE JOBS</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">HANAAH ROB</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">CHIEF MARK</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="ct_teacher_outer_wrap">
-                            <figure>
-                                <img alt="" src="https://placeholdit.imgix.net/~text?txtsize=30&txt=260%C3%97260&w=260&h=260">
-                            </figure>
-                            <div class="ct_teacher_wrap">
-                                <h5><a href="#">JOHN SNOW</a></h5>
-                                <span>Master / Math</span>
-                                
-                            </div>
-                        </div>
-                    </div>
+                <?php } }?>
+              
+               
+             
+             
+                 
+               
+                   
                 </div>
             </div>
         </section>

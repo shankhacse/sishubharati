@@ -6,6 +6,7 @@ class admission extends CI_Controller {
 	    parent::__construct();
 		$this->load->library('session');
 		$this->load->model('admissionmodel','admmodel',TRUE);
+		$this->load->model('studentprofilemodel','stupro',TRUE);
 	}
 	
 	
@@ -30,7 +31,7 @@ class admission extends CI_Controller {
 		}
 		else
 		{
-			redirect('adminpanel','refresh');
+			redirect('administratorpanel','refresh');
 		}
 	}
 
@@ -60,11 +61,7 @@ class admission extends CI_Controller {
 				$result['btnTextLoader'] = "Updating...";
 				$studentID = $this->uri->segment(3);
 				
-				$where = array(
-								'student_master.student_id' => $studentID 
-								,
-					'student_academic_details.session_id' => $session['yid']
-							);
+				$where = array('student_master.student_id' => $studentID );
 				$where_doc = array(
 					'uploaded_documents_all.upload_from_module_id' => $studentID, 
 					'uploaded_documents_all.upload_from_module' => "Admission"
@@ -438,6 +435,84 @@ public function getDetailStudentModal()
 
 			
 			$page = "dashboard/adminpanel_dashboard/ds-admission/class_student_list_data.php";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+			
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+	}
+
+
+
+	public function classStudentListwithPicture()
+	{ 
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{       
+			
+			$header = "";
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			
+
+			$result=[];
+			
+			if (isset($dataArry['sel_class'])) {
+				$sel_class = $dataArry['sel_class'];
+				
+			$result['studentList'] = $this->stupro->getAllStudenProfileList($session['yid'],$sel_class); 	
+           
+			}else{
+					
+
+           $result['studentList']=[];
+			}
+
+
+			
+			$page = "dashboard/adminpanel_dashboard/ds-admission/class_student_profile_list_data";
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+			
+		}
+		else
+		{
+			redirect('adminpanel','refresh');
+		}
+	}
+
+
+
+	public function classStudentListwithBirthCertifacate()
+	{ 
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{       
+			
+			$header = "";
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			
+
+			$result=[];
+			
+			if (isset($dataArry['sel_class'])) {
+				$sel_class = $dataArry['sel_class'];
+				
+			$result['studentList'] = $this->stupro->getAllStudenBirthCertifacateList($session['yid'],$sel_class); 	
+           
+			}else{
+					
+
+           $result['studentList']=[];
+			}
+
+
+			
+			$page = "dashboard/adminpanel_dashboard/ds-admission/class_student_birth_certifacate_list_data";
 			$partial_view = $this->load->view($page,$result);
 			echo $partial_view;
 			

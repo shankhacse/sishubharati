@@ -32,9 +32,9 @@
     font-style: italic;
    }
    .sign_contant{
-   	margin-top:.5cm;
+   	#margin-top:.5cm;
    	#border: 1px solid green;
-   	height: 2cm;
+   	height: 2.5cm;
 
    }
 
@@ -58,6 +58,16 @@
     font-family:Apple Chancery, cursive;
 
    }
+
+   .sign {
+    position: relative;
+    width: 85px;
+    float: right;
+    height: 30px;
+    margin-right: 140px;
+    #border:1px solid gray;
+    margin-top: 18px;
+    }
 
    .breakpage { 
   page-break-after: always; 
@@ -156,7 +166,11 @@
 
 			 , the school session
 			 <input type="text" class="inputdata" value="<?php echo $session;?>" style="width: 277px;">
-			
+
+       <?php if($nextclassline=='Y'){?>
+			and passed the annual Examination for promotion to class
+       <input type="text" class="inputdata" value="<?php echo $nextclass;?>" style="width: 277px;">
+      <?php }?>
 			   bears a good moral character. <?php echo $hisherb;?> behaviour was good with teachers and students.
 			   <br><br><br>
 
@@ -165,21 +179,24 @@
        </span>
 
 		</div>
-		<div class="sign_contant" >
-			
-				<div style="width: 48%;float: left;margin-top: 1cm;">
-					Date : 
-				</div>
-				<div style="width:48%;float: left;margin-top: 1cm;text-align: right;">
-					Signature of the Headmaster/Headmistress
-				</div>
-			
-			
-		</div>
+
 
  
 
   	  </div>
+          <div class="sign_contant" >
+       <div style=";height: 50px;"><?php if($needsign=='Y'){?>
+          <img class="sign" src="<?php echo base_url();?>application/assets/images/asim_sign.png" alt="sign"> <?php }?>
+       </div>
+        <div style="width: 45%;float: left;margin-left: 10px;">
+          Date : &nbsp;<?php if($needsign=='Y'){echo $printdate;}?>
+        </div>
+        <div style="width:48%;float: left;text-align: right;">
+          Signature of the Headmaster/Headmistress
+        </div>
+      
+      
+    </div>
 
 	 
 	</div>

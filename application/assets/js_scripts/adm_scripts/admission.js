@@ -417,6 +417,253 @@ $(document).on('click','.viewStudentinfo',function(){
     });
 
 
+/* class student list with picture*/
+
+
+/*student list by class*/
+
+   // For Listing Routine by Class
+    $(document).on("click","#viewstudentlist",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#ClassStudentListForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+            $("#loadStudentList").html('');
+            $.ajax({
+                type: "POST",
+                url: basepath+'admission/classStudentListwithPicture',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadStudentList").html(result);
+                    $('.dataTables').DataTable({
+                         "lengthChange": false,
+                         "ordering": false,
+                         "iDisplayLength": 100,
+                         "dom": 'Bfrtip',
+                            "buttons": [
+                                'csv', 'excel'
+                            ],
+                         
+                    });
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
+
+
+
+   // For birth certificate of student
+    $(document).on("click","#birthcertificate",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#ClassStudentListForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+            $("#loadStudentList").html('');
+            $.ajax({
+                type: "POST",
+                url: basepath+'admission/classStudentListwithBirthCertifacate',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadStudentList").html(result);
+                    $('.dataTables').DataTable();
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
+     /* edit class roll of student*/
+
+    $(document).on('click','.editroll',function(){
+        var studentid = $(this).data('studentid');
+        var studentname = $(this).data('studentname');
+        var studentdtlmode = $(this).data('studentdtlmode');
+        var studentcls = $(this).data('studentcls');
+        var studentroll = $(this).data('studentroll');
+        var acdid = $(this).data('acdid');
+        var classid = $(this).data('classid');
+
+         $('#sid').html(studentid);
+         $('#sname').html(studentname);
+         $('#studentcls').html(studentcls);
+         $('#roll').val(studentroll);
+         $('#oldroll').val(studentroll);
+         $('#acdid').val(acdid);
+         $('#classid').val(classid);
+      
+    });
+
+    $('#roll').on('input', function() {
+   // alert(this.value);
+
+    var roll=this.value;
+    $.ajax({
+                type: "POST",
+                url: basepath+'admission/classStudentListwithPicture',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadStudentList").html(result);
+                    $('.dataTables').DataTable({
+                         "lengthChange": false,
+                         "ordering": false,
+                         "iDisplayLength": 100,
+                         "dom": 'Bfrtip',
+                            "buttons": [
+                                'csv', 'excel'
+                            ],
+                         
+                    });
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+});
+
+
+ // Listing Student for attendance
+    $(document).on("click","#rollupd",function(event){
+        event.preventDefault();
+        var roll = $("#roll").val();
+        $("#roll_response_msg").html('');
+        if(roll!='')
+        {
+            var formDataserialize = $("#updateRollForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+           
+          
+            $.ajax({
+                type: "POST",
+                url: basepath+'temperrank/UpdateStudentRollIndviduals',
+                data: formData,
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                    
+                 if(result.msg_status==1)
+                {
+                    
+         $("#roll_response_msg").html('<span class="glyphicon glyphicon-ok"></span> '+result.msg_data);
+               $("#ClassStudentListForm").submit() ;
+             
+                }
+                if(result.msg_status==0)
+                {
+                    $("#roll_response_msg").html('<span class="glyphicon glyphicon-remove"></span>'+result.msg_data);
+                } 
+                  
+                  
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+        }
+
+    });
+
 }); // end of document ready
 
 

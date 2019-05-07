@@ -1,5 +1,5 @@
 
- <script src="<?php echo base_url();?>application/web_assets/js/jquery.js"></script>
+<script src="<?php echo base_url();?>application/web_assets/perfect_gallery/plugins/jquery/dist/jquery.min.js"></script>
   <script src="<?php echo base_url();?>application/web_assets/js/bootstrap.min.js"></script> 
 <section class="about_us_wrap">
         <div class="container">
@@ -24,8 +24,12 @@
                         <div class="get_started_content_wrap ct_blog_detail_des_list">
                             <div class="">
                             
-                           <p><?php echo $bodycontent['aboutUsData']->admission_info;?></p>
-                            
+                           <p><?php echo $bodycontent['aboutUsData']->admission_info;
+                             $uplodedFolder='admission_form';
+        $download_link=base_url()."application/assets/ds-documents/".$uplodedFolder."/admission_form_2019.pdf";
+                           ?></p>
+                           <p><a href="<?php echo $download_link;?>" download>
+                                    <button type="button" class="btn btn-warning">Download Admission Form </button></a></p> 
                         </div>
                         </div>
                     </div>

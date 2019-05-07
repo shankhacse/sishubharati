@@ -1,9 +1,7 @@
 
     
         
-     <div class="table-responsive" style=" display: block;
-  height: 300px;
-  overflow-y: scroll;">          
+     <div class="table-responsive" >          
   <table class="table table-bordered table-striped" style="color: #1d7894;">
 <thead>
   <th>Sl</th>

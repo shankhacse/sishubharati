@@ -17,6 +17,7 @@
                   <th>Fine</th>
                   <th>Total</th>
                   <th>Print</th> 
+                  <th>Entry By</th> 
                   
                 </tr>
                 </thead>
@@ -45,6 +46,8 @@
                       echo "Session Fee";
                     }elseif ($value->payment_for=='MON') {
                       echo "Monthly Tuition";
+                    }elseif ($value->payment_for=='PUB') {
+                      echo "Exam Paper Fee (".$value->for_term." term)";
                     }
             ?></td>
             <td><?php echo $value->for_month; ?></td>
@@ -77,7 +80,7 @@
               </a> 
                          </td> 
            
-           
+            <td><?php echo $value->username; ?></td>
          
           </tr>
                     

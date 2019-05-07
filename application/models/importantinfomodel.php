@@ -192,7 +192,7 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 		
 		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/importantinfo_upload'; //server
 
-		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/importantinfo_upload'; //local
+		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/importantinfo_upload'; //local
 		
 		//echo "<br>";
 		//echo "Document ROOT : ". $dir ='http://prosikshan.in/images';

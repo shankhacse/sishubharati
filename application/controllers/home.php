@@ -12,6 +12,8 @@ class home extends CI_Controller {
 	    $this->load->model('eventsmodel','eventsmodel',TRUE);
 	    $this->load->model('importantinfomodel','impinfo',TRUE);
 	    $this->load->model('gallerymodel','gallerymodel',TRUE);
+	    $this->load->model('teachermodel','teachermodel',TRUE);
+	     $this->load->model('publishresultmodel','publishresultmodel',TRUE);
 	}
 	
 	
@@ -78,6 +80,7 @@ class home extends CI_Controller {
 						
 					);
 		$result['aboutUsData']= $this->commondatamodel->getSingleRowByWhereCls('about_us',$where);
+		$result['teacherList'] = $this->teachermodel->getAllTeachersListForWeb();
 
 		
 		webview_helper($result, $page, $header, $session);
@@ -237,6 +240,50 @@ public function saveContact()
 
 			
 
+	
+	}
+
+
+
+	public function resultlist()
+	{
+
+		$session = [];
+		$header = [];
+		$result = [];
+		$result['resultPublishdata']=[];
+		$result['term']='';
+		$page = "webview/dswv-home/result_list";
+		$result['year']=date('Y');
+
+		$where = array(
+						'session_year.year' =>$result['year']
+					);
+		    $sessionyearData=$this->commondatamodel->getSingleRowByWhereCls('session_year',$where);
+		    if ($sessionyearData) {
+		    	 $session_id=$sessionyearData->session_id;
+
+		    	$publishData = $this->publishresultmodel->getResultListLatest($session_id);
+		 
+
+		    	if ($publishData) {
+
+		    		$publishID=$publishData->id;
+		    		$result['term']=$publishData->term;
+		    		$where_resultlist = array(
+							"uploaded_exam_papers.upload_from_module_id" => $publishID,
+							"uploaded_exam_papers.upload_from_module" => 'ResultList'
+							);
+				// getSingleRowByWhereCls(tablename,where params)
+				$result['resultPublishdata'] = $this->commondatamodel->getAllRecordWhere('uploaded_exam_papers',$where_resultlist); 
+		    	}
+
+		    }
+
+
+		//   pre($result['resultPublishdata']);
+		// exit;
+		webview_helper($result, $page, $header, $session);
 	
 	}
 

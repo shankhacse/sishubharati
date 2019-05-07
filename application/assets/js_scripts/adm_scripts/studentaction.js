@@ -140,7 +140,7 @@ $(".scbyname").css("display","none");
 
     });  
 
-// For Payment History student by class working on progress 30.09.2018
+// Tc Request form
     $(document).on("submit","#TcRequestForm",function(event){
         event.preventDefault();
 
@@ -193,5 +193,111 @@ $(".scbyname").css("display","none");
     });
 
 
+
+// Bonafied Request form
+    $(document).on("submit","#BonafiedRequestForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#BonafiedRequestForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+              $("#loadStudentDetails").html("");
+            $.ajax({
+                type: "POST",
+                url: basepath+'studentaction/getStudentInfoBonafied',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   $(".dashboardloader").css("display","none");
+                    $("#loadStudentDetails").html(result);
+                    /*$('.dataTables').DataTable({
+                         "ordering": false
+                    });*/
+                   
+                    
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
+
+
+
+    // leaving Request form
+    $(document).on("submit","#LeavingRequestForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#LeavingRequestForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            $(".dashboardloader").css("display","block");
+              $("#loadStudentDetails").html("");
+            $.ajax({
+                type: "POST",
+                url: basepath+'studentaction/getStudentInfoLeaving',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   $(".dashboardloader").css("display","none");
+                    $("#loadStudentDetails").html(result);
+                    /*$('.dataTables').DataTable({
+                         "ordering": false
+                    });*/
+                   
+                    
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       
+
+    });
 
  });// end of document ready

@@ -231,6 +231,7 @@ $(document).ready(function(){
     success: function(data){
     	//alert(data);
         $('#grade_'+rowDtlNo[1]).val(data);
+        grandTotal();
        
     },
     error: function (jqXHR, exception) {
@@ -720,6 +721,69 @@ if (validateSpecialMarks()) {
         }); /*end ajax call*/
     });
 
+
+  /* --------------------student details marks details ---------------*/
+
+    /*student list by class*/
+
+   
+    $(document).on("submit","#MarksDetailsForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#MarksDetailsForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+             $("#loadstudentList").html('');
+          
+            $(".dashboardloader").css("display","block");
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'exam/studentListMarksDetails',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadstudentList").html(result);
+                     $('.selectpicker').selectpicker();
+                   
+                    $(".dashboardloader").css("display","none");
+                  //  $('.dataTables').DataTable();
+                    $('.dataTables').DataTable({
+                         "dom": 'Bfrtip',
+                            "buttons": [
+                                'copy', 'csv', 'excel'
+                            ],
+                        "title": 'Data export',
+                         "ordering": false
+                    });
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+   
+
+  });
+
 });//end of document ready
 
 
@@ -903,6 +967,24 @@ function detailDocumentValidation()
     });
 
     return isValid;
+}
+
+
+function grandTotal(){
+
+    var rownum = $("#rownum").val();
+    var totalmark=0;
+    //alert(rownum);
+    for(var i=1;i<rownum;i++){
+        if ($("#obtaintotalmarks_"+i).val()!='') {
+         totalmark =totalmark+parseInt($("#obtaintotalmarks_"+i).val());   
+        }
+   
+   //alert($("#obtaintotalmarks_"+rownum).val());
+
+   }
+    
+    $('#grandtotalmarks').val(totalmark);
 }
 
 

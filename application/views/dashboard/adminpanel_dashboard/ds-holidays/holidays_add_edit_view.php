@@ -1,4 +1,10 @@
-  <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/holidays.js"></script> 
+  <script src="<?php echo base_url(); ?>application/assets/js_scripts/adm_scripts/holidays.js"></script> <style type="text/css">
+    .checkbox input[type="checkbox"] {
+    position: relative;
+    right: 0px;
+
+}
+  </style>
    <section class="content-header">
       <h1>
         Dashboard
@@ -32,14 +38,38 @@
                   <div class="form-group">
                     <input type="hidden" name="holidaysID" id="holidaysID" value="<?php if($bodycontent['mode']=="EDIT"){echo $bodycontent['HolidaysEditdata']->id;}else{echo "0";}?>" />
                     <input type="hidden" name="mode" id="mode" value="<?php echo $bodycontent['mode']; ?>" />
+                    <div class="form-group">
+                  <div class="checkbox">
+                    <label style="font-weight: 600;">
+                      <input type="checkbox" name="dtrange" id="dtrange" 
+                       <?php if($bodycontent['mode']=="EDIT"){ if($bodycontent['HolidaysEditdata']->is_daterange=='Y'){ echo "checked";}}?> >
+                      Date Range
+                     
+                    </label>
+                  </div></div>
                   
-                     <label>Date </label>
+                     <label id="todatelebel">Date </label>
 
                 <div class="input-group date">
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input class="form-control pull-right datepicker" id="dtholiday" name="dtholiday" type="text" value="<?php if($bodycontent['mode']=="EDIT"){echo date("d/m/Y",strtotime($bodycontent['HolidaysEditdata']->date));}else{echo date('d/m/Y');}  ?>">
+                  <input class="form-control pull-right datepicker" id="dtholiday" name="dtholiday" type="text" value="<?php if($bodycontent['mode']=="EDIT"){echo date("d/m/Y",strtotime($bodycontent['HolidaysEditdata']->date));}else{echo date('d/m/Y');}  ?>" readonly>
+                  </div>
+                  
+                  <div id="todate_div">
+                   <label>To Date </label>
+                  <div class="input-group date">
+                  <div class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </div>
+                  <input class="form-control pull-right datepicker" id="todtholiday" name="todtholiday" type="text" value="<?php if($bodycontent['mode']=="EDIT"){
+                    if($bodycontent['HolidaysEditdata']->todate!=''){
+                    echo date("d/m/Y",strtotime($bodycontent['HolidaysEditdata']->todate));
+                   }
+                  }else{echo date('d/m/Y');}  ?>" readonly>
+                  </div>
+
                   </div>
 
                   

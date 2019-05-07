@@ -1,5 +1,5 @@
    <!-- jQuery -->
-    <script src="<?php echo base_url(); ?>application/assets_student_pannel/js/jquery.js"></script>
+  <script src="<?php echo base_url();?>application/web_assets/perfect_gallery/plugins/jquery/dist/jquery.min.js"></script>
  <script src="<?php echo base_url();?>application/web_assets/js/home.js"></script>
  
 <!--Wrapper Start-->  
@@ -88,7 +88,7 @@ AND NEAR AJOY PETROL PUMP</p>
 										<h5><i class="fa fa-envelope-o"></i>Contact & Email</h5>
 										<ul class="fax_info">
 											<li>+91-9733069624</li>
-											<li>+91-9476241557</li>
+											<li>+91-9333986937</li>
 										</ul>
 										<p>asimsbbm@gmail.com</p>
 									</div>

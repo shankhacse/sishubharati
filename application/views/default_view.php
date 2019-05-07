@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">  
-  <link rel="shortcut icon" href="<?php echo base_url();?>application/web_assets/images/favicon.png">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>SB | Admin-Dashboard</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -47,7 +46,7 @@
   <link href="<?php echo base_url(); ?>application/assets/css/bootstrapselect.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>application/assets/css/searchable_dropdown.min.css" rel="stylesheet">
   <link href="<?php echo base_url(); ?>application/assets/css/transition.min.css" rel="stylesheet">
-   <link href="<?php echo base_url(); ?>application/assets/css/typeahead.css" rel="stylesheet">
+ <!--   <link href="<?php echo base_url(); ?>application/assets/css/typeahead.css" rel="stylesheet"> -->
    <link rel="stylesheet" href="<?php echo base_url();?>application/assets/css/bootstrap-timepicker.min.css" />
  
 
@@ -91,7 +90,7 @@
 <!-- Sparkline -->
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
-<script src="<?php echo base_url();?>application/assets/sishubharati_theme/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<!-- <script src="<?php echo base_url();?>application/assets/sishubharati_theme/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script> -->
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 <!-- jQuery Knob Chart -->
 <script src="<?php echo base_url();?>application/assets/sishubharati_theme/bower_components/jquery-knob/dist/jquery.knob.min.js"></script>

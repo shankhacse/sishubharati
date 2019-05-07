@@ -175,7 +175,7 @@ class generaterank extends CI_Controller {
 				'session_id' => $session['yid'],
 				'rank' => $rank[$i],
 				'grand_total' => $grand_total[$i],
-				
+				'original_rank' => $rank[$i],
 				  );
 
 				

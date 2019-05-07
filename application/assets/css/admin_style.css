@@ -91,6 +91,17 @@
 
 }
 
+.bimg2{
+  background: #f5f5f5;
+  background-image: url(../images/chalkboard-background.jpg);
+  background-repeat: no-repeat;
+  background-size: cover; /* Fit by window size */
+    background-position: center; /* Which side will stay after resize */
+    background-attachment: fixed;
+    
+
+}
+
 
 .admin_text{
 font: 40 32px/1.5 'Lobster Two', Helvetica, sans-serif;

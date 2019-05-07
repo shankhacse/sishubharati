@@ -393,6 +393,20 @@ public function DeleteData($table,$where)
             echo $err->getTraceAsString();
         }
 	}
+
+	 public function duplicateValueCheck($table="",$where="")
+        {
+            
+            $query = $this->db->select("*")->from($table)->where($where)->get();
+            if($query->num_rows()>0){
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+
+	}
 	
 	
 }

@@ -36,6 +36,7 @@ class transferstudentmodel extends CI_Model{
 				->from('rank_details')
 				
 				->where($where)
+				->order_by('rank_details.rank')
 				->get();
 				 #q();
 			

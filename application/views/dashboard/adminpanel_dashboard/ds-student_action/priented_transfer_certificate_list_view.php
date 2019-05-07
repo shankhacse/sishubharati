@@ -39,6 +39,7 @@
                   <th>Last Class</th>
                   <th>Session</th>
                   <th>Certificate Print Date</th>
+                  <th>Certificate Type</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,7 @@
             <td><?php echo $value->currentclass; ?></td>
             <td><?php echo $value->session_year; ?></td>
             <td><?php echo date('d-m-Y', strtotime($value->created_on)); ?></td>
+            <td><?php echo $value->certificate_type; ?></td>
 						
 						
 						

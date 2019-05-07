@@ -1,0 +1,6 @@
+SELECT * FROM `student_academic_details`
+INNER JOIN `class_master`
+ON `class_master`.`id`=`student_academic_details`.`class_id`
+WHERE `student_academic_details`.`student_uniq_id`='PSB000002'
+AND `student_academic_details`.`is_active`='Y'
+AND `student_academic_details`.`session_id` NOT IN (2) 

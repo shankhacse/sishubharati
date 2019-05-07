@@ -275,7 +275,7 @@ h2.header {
 	color: #4e4e4e;
 	background: transparent;
 	overflow: hidden;
-	height:76px;
+	//height:76px;
 	padding: 10px;
 	line-height:20px;
 	list-style: none;

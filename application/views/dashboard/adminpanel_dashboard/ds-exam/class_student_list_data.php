@@ -72,7 +72,11 @@
              
               Edit Marks
               </a>
-
+                <?php  
+                if ($value->is_applicable_first_term_upload=='Y') {
+                 
+              
+                ?>
                <a href="javascript:;" class="btn btn-warning btn-xs subjectpaper"
               data-toggle="modal" data-target="#subject_marks" 
               data-title="Edit"
@@ -89,7 +93,11 @@
 
               </a>
 
-            <?php } ?>
+
+            <?php 
+          }
+
+          } ?>
             </td>
 
             <td>

@@ -35,8 +35,9 @@
                <?php
                 $i=1;
                 $row=1;
+                $grandtotalmarks=0;
                 foreach ($subjestList as $value) {
-                  
+                  $grandtotalmarks=$grandtotalmarks+$value->obtain_total_marks;
 
                 ?>
             
@@ -82,6 +83,12 @@
            </tr>          
                <?php $row++;}?> 
                <input type="hidden" name="rownum" id="rownum" value="<?php echo $row;?>">
+                <tr style="background-color: #dbdb92;font-weight: bold;font-size: 20px;">
+                <td colspan="6"></td>
+                <td colspan="2">Grand Total</td>
+                <td><input type="text" class="form-control" name="grandtotalmarks" id="grandtotalmarks" value="<?php echo $grandtotalmarks;?>" readonly></td>
+                <td> </td>
+              </tr>
              
                 </tbody>
                

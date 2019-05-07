@@ -10,6 +10,7 @@
                   <th>Roll</th>
                   <th>Gender</th>
                   <th>DOB</th>
+                  <th></th>
                   
                 </tr>
                 </thead>
@@ -40,7 +41,19 @@
                  </td>
             <td><?php echo date("d M Y", strtotime($value->date_of_birth));?></td>
            
-           
+           <td>
+             <button type="button" class="btn btn-sm btn-danger editroll" 
+             data-toggle="modal" 
+             data-target="#rolleditModal" 
+             data-studentid="<?php echo $value->student_uniq_id;?>"
+             data-studentdtlmode ="EDITROLL" 
+             data-studentname="<?php echo $value->name; ?>"
+             data-studentcls="<?php echo $value->class_name; ?>"
+             data-studentroll="<?php echo $value->class_roll; ?>"
+              data-acdid="<?php echo $value->academic_id; ?>"
+              data-classid="<?php echo $value->classid; ?>"
+               ><i class="glyphicon glyphicon-edit"></i></button> 
+           </td>
          
           </tr>
                     

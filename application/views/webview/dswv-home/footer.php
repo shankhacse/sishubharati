@@ -28,9 +28,11 @@
                         <div class="foo_col_2 widget">
                             <h5>Sign In</h5>
                             <ul>
-                                <li><a href="<?php echo base_url();?>studentlogin">Students</a></li>
+                             <!--    <li><a href="<?php echo base_url();?>studentlogin">Students</a></li> -->
                                 
-                                <li><a href="<?php echo base_url();?>admin">Admin</a></li>
+                                <li><a href="<?php echo base_url();?>administratorpanel">Admin</a></li>
+
+                                <li><a href="<?php echo base_url();?>teacher/login">Teacher</a></li>
                             </ul>
                         </div>
                     </div>
@@ -41,7 +43,7 @@
                             <ul>
                                 <li><a href="<?php echo base_url();?>home/admissionpage">Admisssion</a></li>
                                 
-                                <li><a href="#">Results</a></li>
+                                <li><a href="<?php echo base_url();?>home/resultlist">Results</a></li>
                             </ul>
                         </div>
                     </div>

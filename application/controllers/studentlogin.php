@@ -34,12 +34,32 @@ class studentlogin extends CI_Controller {
      $result=  $this->studentloginmodel->verifyStudentLogin($studentid,$password);
      if(sizeof($result)>0 && !empty($result)){
         
+
+        /*----------------- student login record ----------*/
+
+          $user_activity = array(
+            "student_uniq_id" => $result['studentID'],
+            "academic_id" => $result['academicID'],
+            "academic_session_id" => $result['academic_session_id'],
+            "activity_date" => date("Y-m-d"),
+            "activity_module" => 'Student login',
+            "action" => 'Login',
+            "from_method" => 'studentlogin/login',
+            "logintime" => date("Y-m-d H:i:s"),
+            "ip_address" => getUserIPAddress(),
+            "user_browser" => getUserBrowserName(),
+            "user_platform" => getUserPlatform()
+           );
+
+      $activity_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('student_activity',$user_activity);
+
         $sessionData = array(
         "student_autoid" => $result['student_autoid'],
         "studentID" => $result['studentID'],
         "academicID" => $result['academicID'],    
         "academic_session_id" => $result['academic_session_id'],    
         "logintime" => date("Y-m-d H:i:s"),
+        "activity_id" => $activity_id,
         "token" => $this->getSecureToken()
       );
         $this->setSessionData($sessionData);

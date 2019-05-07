@@ -10,6 +10,7 @@ class payment extends CI_Controller
 	   $this->load->model('paymentomodel','paymentomodel',TRUE);
 	   $this->load->model('admissionmodel','admissionmodel',TRUE);
 	    $this->load->model('marksmodel','marksmodel',TRUE);
+	    $this->load->model('exammodel','exammodel',TRUE);
 	     $this->payment_method_call_view =& get_instance();
 		
 	}
@@ -134,6 +135,7 @@ public function unpaidSessionFee()
 			$academicid = trim(htmlspecialchars($this->input->post('academicid')));
 			$classname = trim(htmlspecialchars($this->input->post('classname')));
 			$classroll = trim(htmlspecialchars($this->input->post('classroll')));
+			
 			 $where_academic = array('student_academic_details.academic_id' => $academicid);
 			$academicData=$this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where_academic);
 
@@ -184,6 +186,15 @@ public function unpaidSessionFee()
 				$orderby='monthly_tution_fees.id';
 				$data['monthList']=$this->commondatamodel->getAllDropdownData('months_master');
 				$data['tutionFeeList'] = $this->commondatamodel->getAllRecordWhereOrderBy('monthly_tution_fees',$where,$orderby);		
+
+				$PaymentDetailView = $this->load->view($page,$data);
+				
+			}elseif ($mode=="EPUFEE") {
+				$term = $data['term'] = $this->input->post('term');
+				$page = "dashboard/adminpanel_dashboard/ds-payment/payment-modal/pay_paper_upload_fee_partial_modal_view.php";
+				
+			
+				$data['uploadFeeList'] = $this->paymentomodel->getPaymentFeelistPaperUpload($session['yid'],$class_id,$term);	//pre($data['uploadFeeList'])	;
 
 				$PaymentDetailView = $this->load->view($page,$data);
 				
@@ -270,7 +281,9 @@ public function savepayAdmissionFee()
     								'amount' => $totalamount,
     								'fine_amount' => 0,
     								'total_amt' => $totalamount,
-    								'bill_master_id' => $billmasterid
+    								'bill_master_id' => $billmasterid,
+    								'created_by' => $session['userid'],
+									'role' => $session['role']
     								
     							   );
     	
@@ -397,7 +410,9 @@ public function savepaySessionFee()
     								'amount' => $totalamount,
     								'fine_amount' => 0,
     								'total_amt' => $totalamount,
-    								'bill_master_id' => $billmasterid
+    								'bill_master_id' => $billmasterid,
+    								'created_by' => $session['userid'],
+									'role' => $session['role']
     								
     							   );
     	
@@ -589,7 +604,9 @@ public function savepayTutionFee()
     								'total_amt' => $monthly_fee+$fine_amt,
     								'for_month' => $sel_month,
     								'note' => $note,
-    								'bill_master_id' => $billmasterid
+    								'bill_master_id' => $billmasterid,
+    								'created_by' => $session['userid'],
+									'role' => $session['role']
     								
     							   );
     	
@@ -603,7 +620,8 @@ $payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('
 
 						$json_response = array(
 							"msg_status" => 1,
-							"msg_data" => "saved successfully"
+							"msg_data" => "saved successfully",
+							"patmentid" => $payment_insert_id
 							
 						);
 					}
@@ -618,10 +636,20 @@ $payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('
 
 
 				}else{
+					
+
+					$where_check_paid = array(
+			 							'payment_master.academic_id' => $academicid,
+			 							'payment_master.for_month' => $sel_month
+			 						   );
+					$paymentData=$this->commondatamodel->getSingleRowByWhereCls('payment_master',$where_check_paid);
+					$paymentid=$paymentData->payment_master_id;
+
 
 					$json_response = array(
 							"msg_status" => 0,
-							"msg_data" => "Already Paid."
+							"msg_data" => "Already Paid.",
+							"patmentid" => $paymentid
 						);
 				}
 
@@ -651,7 +679,10 @@ $payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('
 			$header = "";
 			$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
 			$result['StudentIdList']=$this->paymentomodel->getStudentIdList($session['yid']);
-			//pre($result['StudentIdList']);
+
+			$today=date('Y-m-d');
+			
+			$result['paymentList'] = $this->paymentomodel->getPaymentListbyDate($today);
 			
 			createbody_method($result, $page, $header, $session);
 		}
@@ -850,7 +881,15 @@ public function printPaymentReceipt()
 		$result['billno']=$billdetailsData->bill_no;
 		$result['paymentdate']=$paymentData->payment_dt;
 		$result['payment_for']=$paymentData->payment_for;
+		$result['for_term']=$paymentData->for_term;
+		$result['for_month']=$paymentData->for_month;
 		$result['fine_amount']=$paymentData->fine_amount;
+		
+
+		$where_session = array('session_year.session_id' => $paymentData->session_id);
+			$sessionData=$this->commondatamodel->getSingleRowByWhereCls('session_year',$where_session);
+
+			$result['year']=$sessionData->year;
 			
 			$result['student_uniq_id']=$paymentData->student_uniq_id;
 			$academic_id=$paymentData->academic_id;
@@ -1058,6 +1097,284 @@ public function no_to_words($no) {
 					echo json_encode( $json_response );
 					exit; 
 
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+
+
+	/* dissmiss student*/
+
+	public function setDissmissStatus(){
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$academicid = trim($this->input->post('academicid'));
+			$mode = trim($this->input->post('mode'));
+			
+			$update_array  = array(
+				"is_dismiss" => 'Y'
+				);
+				
+			$where = array(
+				"student_academic_details.academic_id" => $academicid
+				);
+			
+			
+			$user_activity = array(
+					"activity_module" => 'Notice',
+					"action" => "Update",
+					"from_method" => "payment/setDissmissStatus",
+					"user_id" => $session['userid'],
+					"ip_address" => getUserIPAddress(),
+					"user_browser" => getUserBrowserName(),
+					"user_platform" => getUserPlatform()
+					
+					
+				);
+				$update = $this->commondatamodel->updateData_WithUserActivity('student_academic_details',$update_array,$where,'user_activity_report',$user_activity);
+			if($update)
+			{
+				$json_response = array(
+					"msg_status" => 1,
+					"msg_data" => "Status updated"
+				);
+			}
+			else
+			{
+				$json_response = array(
+					"msg_status" => 0,
+					"msg_data" => "Failed to update"
+				);
+			}
+
+
+		header('Content-Type: application/json');
+		echo json_encode( $json_response );
+		exit;
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+	/* for payment history by date view*/
+	public function getPaymentHistoryByDate()
+	{   $session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data'))
+		{
+				 $payment_dt = $this->input->post('datepickeratt');
+
+				     if($payment_dt!=""){
+							$payment_dt = str_replace('/', '-', $payment_dt);
+							$payment_dt = date("Y-m-d",strtotime($payment_dt));
+						 }
+						 else{
+							 $payment_dt = NULL;
+						 }
+     $data['paymentList'] = $this->paymentomodel->getPaymentListbyDate($payment_dt);
+       
+       $viewTemp = $this->load->view('dashboard/adminpanel_dashboard/ds-payment/payment_history_list_data_by_date',$data);
+			echo $viewTemp;
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+
+/* get all students list of paperupload fees*/		
+	public function paperuploadfee()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-payment/paper_upload_fee_list_view.php';
+			$result = [];
+			$header = "";
+			$result['classList']=$this->commondatamodel->getAllDropdownData('class_master');
+			$result['unpaidStudentList']=$this->paymentomodel->getUnpaidAdmissionFees($session['yid']);
+			//pre($result['unpaidStudentList']);
+			
+			createbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+		
+	}
+
+
+
+	public function paperuploadstudentList()
+	{ 
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-payment/class_student_list_data_upload_paper';
+			$result = [];
+			$header = "";
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			$sel_class = $dataArry['sel_class'];
+			$session_id=$session['yid'];
+
+			$where_class = array('class_master.id' => $sel_class );
+				$classData=$this->commondatamodel->getSingleRowByWhereCls('class_master',$where_class);
+
+				$result['classname']=$classData->name;
+			
+			$result['studentList']=$this->exammodel->getActiveStudentListByClass($sel_class,$session_id);
+			//pre($result['studentList']);
+			$partial_view = $this->load->view($page,$result);
+			echo $partial_view;
+			
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+
+/* save exam paper fee details of a student working on 21.04.2019*/
+public function savepayExamPaperFee()
+	{
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$formData = $this->input->post('formDatas');
+			parse_str($formData, $dataArry);
+			$result=[];
+
+			$academicid=$dataArry['academicid'];
+			$payment_dt=$dataArry['payment_dt'];
+			$term=$dataArry['term'];
+			$upload_fee=$dataArry['upload_fee'];
+			
+			$note=$dataArry['note'];
+			$fine_amt=0;
+
+			if($payment_dt!=""){
+				$payment_dt = str_replace('/', '-', $payment_dt);
+				$payment_dt = date("Y-m-d",strtotime($payment_dt));
+			 }
+			 else{
+				 $payment_dt = NULL;
+			 }
+		
+		    $where = array('student_academic_details.academic_id' => $academicid);
+			$academicData=$this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
+
+			$student_uniq_id=$academicData->student_uniq_id;
+			$class_id=$academicData->class_id;
+			$class_roll=$academicData->class_roll;
+			$session_id=$academicData->session_id;
+
+
+			$latest_serial = $this->admissionmodel->getLatestSerialNumber("PUB"); //it will change
+			$billno = "PUB/".$latest_serial;
+
+			$billmaster_data = array(
+									 'bill_no' => $billno,
+									 'payment_for' => 'Exam Paper Fee',
+									 'student_uniq_id' => $student_uniq_id,
+									 'academic_id' => $academicid,
+									 'session_id' => $session_id,
+									 );
+
+			/*Insert into billmaster*/
+			$billmasterid=$this->commondatamodel->insertSingleTableDataRerurnInsertId('bill_master',$billmaster_data);
+
+
+    /*Insert into billdetails*/
+
+ 
+
+    	$bill_details_data = array(
+    								'bill_master_id' => $billmasterid, 
+    								'payment_desc' => 'Exam Paper Digital Copy', 
+    								'amount' => $upload_fee+$fine_amt, 
+    								'session_id' => $session_id
+    							   );
+    
+        $this->commondatamodel->insertSingleTableData('bill_details',$bill_details_data);
+
+
+    
+
+    	$paymentmaster_data = array(
+    								'payment_dt' => $payment_dt,
+    								'payment_for' => 'PUB',
+    								'student_uniq_id' => $student_uniq_id,
+    								'academic_id' => $academicid,
+    								'session_id' => $session_id,
+    								'amount' => $upload_fee,
+    								'fine_amount' => $fine_amt,
+    								'total_amt' => $upload_fee+$fine_amt,
+    								'for_term' => $term,
+    								'note' => $note,
+    								'bill_master_id' => $billmasterid,
+    								'created_by' => $session['userid'],
+									'role' => $session['role']
+    								
+    							   );
+    	
+
+
+$payment_insert_id=$this->commondatamodel->insertSingleTableDataRerurnInsertId('payment_master',$paymentmaster_data);
+
+		$academic_details_where = array('student_academic_details.academic_id' =>$academicid );
+		if ($term=='first') {
+			$academic_details_upd = array('student_academic_details.is_applicable_first_term_upload' =>'Y');
+		}else if($term=='second'){
+			$academic_details_upd = array('student_academic_details.is_applicable_second_term_upload' =>'Y');
+		}else if($term=='third'){
+			$academic_details_upd = array('student_academic_details.is_applicable_third_term_upload' =>'Y');
+		}
+		$updateAcademicDetails=$this->commondatamodel->updateDataSingleTable('student_academic_details',$academic_details_upd,$academic_details_where);
+
+
+					if($payment_insert_id)
+					{
+
+						$json_response = array(
+							"msg_status" => 1,
+							"msg_data" => "saved successfully",
+							"patmentid" => $payment_insert_id
+							
+						);
+					}
+					else
+					{
+						$json_response = array(
+							"msg_status" => 0,
+							"msg_data" => "There is some problem while saving ...Please try again."
+						);
+					}
+
+
+
+		
+
+
+
+
+					header('Content-Type: application/json');
+					echo json_encode( $json_response );
+					exit;
 
 		}
 		else

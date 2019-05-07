@@ -47,4 +47,24 @@ class activitylog extends CI_Controller {
 		}
 	}
 
+
+	public function activityreportstudent()
+	{
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$header = "";
+			$result['activityList'] = $this->activitylogmodel->getAllActivitylogStudent();  
+			
+
+			$page = "dashboard/adminpanel_dashboard/activity_log/student_activity_report_view.php";
+			createbody_method($result, $page, $header, $session);
+			
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
 }// end of class

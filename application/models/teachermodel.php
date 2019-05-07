@@ -5,15 +5,79 @@ class teachermodel extends CI_Model{
 
 public function getAllTeachersList(){
 		$data = [];
-		$where = array('uploaded_documents_all.upload_from_module' =>'Teacher' );
+		$where = array(
+						
+						'teachers.employee_type' =>'TEACHER'
+						 );
 		$query = $this->db->select("teachers.*,
 									uploaded_documents_all.random_file_name,
 									uploaded_documents_all.id as docid
 									")
 				->from('teachers')
-				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','left')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id and upload_from_module="Teacher"','left')
 				->where($where)
 				->order_by('teachers.teacher_id')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+	public function getAllNonStaffList(){
+		$data = [];
+		$where = array(
+						
+						'teachers.employee_type' =>'NONSTAFF'
+						 );
+		$query = $this->db->select("teachers.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('teachers')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id and upload_from_module="Teacher"','left')
+				->where($where)
+				->order_by('teachers.teacher_id')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+
+	public function getAllTeachersListForWeb(){
+		$data = [];
+		$where = array(
+						'teachers.is_active' =>1,
+						'teachers.employee_type' =>'TEACHER' 
+					);
+		$query = $this->db->select("teachers.*,
+									uploaded_documents_all.random_file_name,
+									uploaded_documents_all.id as docid
+									")
+				->from('teachers')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id and upload_from_module="Teacher"','left')
+				->order_by('teachers.teacher_id')
+				->where($where)
 				->get();
 				 #q();
 			
@@ -34,7 +98,7 @@ public function getAllTeachersList(){
 	public function getTeachersByTeacherId($teacherid){
 		$data = [];
 		$where = array(
-						'uploaded_documents_all.upload_from_module' =>'Teacher',
+						
 						'teachers.teacher_id' =>$teacherid
 						 );
 		$query = $this->db->select("teachers.*,
@@ -42,7 +106,7 @@ public function getAllTeachersList(){
 									uploaded_documents_all.id as docid
 									")
 				->from('teachers')
-				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id','left')
+				->join('uploaded_documents_all','uploaded_documents_all.upload_from_module_id = teachers.teacher_id and upload_from_module="Teacher"','left')
 				->where($where)
 				->order_by('teachers.teacher_id')
 				->limit(1)
@@ -72,25 +136,30 @@ public function inserIntoTeacher($data,$sesion_data)
 			$is_file_uploaded = "N";
 
 
-			
-			
-			if(isset($data['docFile']['fileName']))
-			{
-				if(sizeof($data['docFile']['fileName']['name'])>0)
-				{
-					$is_file_uploaded = "Y";
-				}
-				else
-				{
-					$is_file_uploaded = "N";
-				}
+			if ($data['docFile']['fileName']['error'][0]==4) {
+				$is_file_uploaded = "N";
+			}else{
+
+             	$is_file_uploaded = "Y";
 			}
-             
+			 if ($data['employee_type']=='TEACHER') {
+			 	 $latest_serial = $this->getLatestSerialNumber("TREG"); //it will change
+			     $teacherUniqID = "TSB".$latest_serial;
+			 }else{
+			 	 $latest_serial = $this->getLatestSerialNumber("NSREG"); //it will change
+			     $teacherUniqID = "NSSB".$latest_serial;
+
+			 }
+			
 
 			$insert_teacher_data = array(
+				'teacher_uniq_id' => $teacherUniqID,  
 				'name' => $data['teacher'],  
 				'subject' => $data['subject'],  
+				'employee_type' => $data['employee_type'],  
 				'is_file_uploaded' => $is_file_uploaded,
+				'date_of_birth' => $data['date_of_birth'],
+				'password' => $data['password'],
 				'created_by' => $sesion_data['userid'],  
 				'is_active' => 1,  
 				
@@ -166,12 +235,14 @@ public function inserIntoTeacher($data,$sesion_data)
 					$is_file_uploaded = "N";
 				}
 			}
+
 			$upd_where = array("teachers.teacher_id" => $data['teacherID']);
 
 				$insert_teacher_data = array(
 				'name' => $data['teacher'],  
 				'subject' => $data['subject'],  
 				'is_file_uploaded' => $is_file_uploaded,
+				'date_of_birth' =>  $data['date_of_birth'],
 				'created_by' => $sesion_data['userid'],  
 				'is_active' => 1,  
 				
@@ -189,6 +260,7 @@ public function inserIntoTeacher($data,$sesion_data)
 			if($is_file_uploaded=="Y")
 			{
 				$detail_insert = $this->insertIntoUploadFile($data,$sesion_data,$insert_where);
+				
 			}
 
 			/*else{
@@ -263,9 +335,9 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 				#q();
 		}
 
-		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/teacher_upload'; //server
+		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/application/assets/ds-documents/teacher_upload'; //server
 
-		$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/teacher_upload'; //local
+		//$dir1 = $_SERVER['DOCUMENT_ROOT'].'/sishubharati/application/assets/ds-documents/teacher_upload'; //local
 		
 		
 		
@@ -346,6 +418,109 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 			}
         }
 
+	}
+
+
+	public function getLatestSerialNumber($from){
+        $lastnumber = (int)(0);
+        $serialno="";
+        $sql="SELECT *
+            FROM serial_master
+            WHERE serial_master.type='".$from."'
+			LOCK IN SHARE MODE";
+        $query = $this->db->query($sql);
+		if ($query->num_rows() > 0) {
+			  $row = $query->row(); 
+			  $lastnumber = $row->next_serial_no;
+        }
+        $digit = (int)(log($lastnumber,10)+1) ; 
+      
+       
+        if($digit==3){
+            $serialno ="0".$lastnumber;
+        }
+		elseif($digit==2){
+              $serialno = "00".$lastnumber;
+        }
+		elseif($digit==1){
+            $serialno = "000".$lastnumber;
+        }
+		
+        $lastnumber = $lastnumber + 1;
+        
+        //update
+        $upddata = [
+			'serial_master.next_serial_no' => $lastnumber,
+        ];
+        $where = [
+			'serial_master.type' => $from
+			];
+        $this->db->where($where); 
+        $this->db->update('serial_master', $upddata);
+        return $serialno;
+    }
+
+
+
+    	public function getTeacherAttendanceById($sel_teacher,$fromdate,$todate){
+		$data = [];
+
+		$fdt=date("Y-m-d",strtotime($fromdate));
+		$todt=date("Y-m-d",strtotime($todate));
+		$where = array('teacher_attendance.teacher_master_id' =>$sel_teacher );
+		$query = $this->db->select("*")
+				->from('teacher_attendance')
+				->join('teachers','teachers.teacher_id = teacher_attendance.teacher_master_id','INNER')
+				->where($where)
+				->where('teacher_attendance.att_date >=', $fdt)
+				->where('teacher_attendance.att_date <=', $todt)
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+
+	    public function getTeacherAttendanceCount($fromdate,$todate){
+		$data = [];
+
+		$fdt=date("Y-m-d",strtotime($fromdate));
+		$todt=date("Y-m-d",strtotime($todate));
+
+		$query = $this->db->select("
+									count(*) as no_of_days,
+  									teachers.name, 
+  									teachers.employee_type
+  									")
+				->from('teacher_attendance')
+				->join('teachers','teachers.teacher_id = teacher_attendance.teacher_master_id','INNER')
+				->where('teacher_attendance.att_date >=', $fdt)
+				->where('teacher_attendance.att_date <=', $todt)
+				->group_by('teachers.teacher_id')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
 	}
 
 

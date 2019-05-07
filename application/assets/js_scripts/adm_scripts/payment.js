@@ -10,6 +10,14 @@ $('.selectpicker').selectpicker('deselectAll');
 
     });
 
+     $('#datepickeratt').datepicker({
+                     format: 'dd/mm/yyyy',
+                     todayHighlight: true,
+                     uiLibrary: 'bootstrap',
+                     'setDate': 'today',
+                      'orientation': "bottom"
+                    });
+
 
  // For Listing Unpaid Admission Fees student by class
     $(document).on("submit","#UnpaidAdmListForm",function(event){
@@ -478,7 +486,9 @@ $("#total_amt").html(total_amtount);
 
                     $(".loaderbtn").css("display","none");
                    
-                    $("#tutpaymsg").html('<span class="glyphicon glyphicon-ok"></span> '+result.msg_data);
+                     $("#tutpaymsg").html('<span class="glyphicon glyphicon-ok"></span>'+result.msg_data+
+                        '<center><a href="'+basepath+'payment/printPaymentReceipt/'+result.patmentid+'" class="btn btn-primary btn-md" data-title="Pdf" target="_blank" ><span class="glyphicon glyphicon-print"></span>&nbspPrint</a><center>');
+                    
                     
                     $(".closebtn").attr("disabled", false);
                 }, 
@@ -770,6 +780,256 @@ $(document).on("change","#payment_dt,#sel_month",function(){
 
     });
 
+/* ------------------------------------dissmiss student-------------*/
+
+//make session fee payment
+$(document).on('click','.dismiss_student',function(){
+      
+        var academicid = $(this).data('academicid');
+       
+        var mode = $(this).data("mode");
+        
+       if(ConfirmDelete()){
+
+        $.ajax({
+            type: "POST",
+            url: basepath+'payment/setDissmissStatus',
+            dataType: "html",
+            data: {
+                academicid:academicid,mode:mode},
+            success: function (result) {
+                $('#UnpaidSesListForm').submit();
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+
+    }//end if
+    });
+
+
+
+//on change payment history
+$(document).on('change','#datepickeratt',function(){
+        var datepickeratt = $("#datepickeratt").val();
+        $("#loadStudentPaymentHistory").html('');
+        $(".dashboardloader").css("display","block");
+        $.ajax({
+            type: "POST",
+            url: basepath+'payment/getPaymentHistoryByDate',
+            dataType: "html",
+            data: {datepickeratt:datepickeratt},
+            success: function (result) {
+              $(".dashboardloader").css("display","none");
+               $("#loadStudentPaymentHistory").html(result);
+                 $('.dataTables').DataTable();
+                
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+    });
+
+
+    /*student list by class for paper Upload */
+
+   
+    $(document).on("submit","#PaperUploadPaymentForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#PaperUploadPaymentForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+             $("#loadPaperUploadFeeStudentList").html('');
+          
+            $(".dashboardloader").css("display","block");
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'payment/paperuploadstudentList',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadPaperUploadFeeStudentList").html(result);
+                     $('.selectpicker').selectpicker();
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+   
+
+  });
+
+
+
+//make exam paper fee payment working on 21.04.2019
+$(document).on('click','.ViewPaperUploadMakePayment',function(){
+        var studentid = $(this).data('studentid');
+        var academicid = $(this).data('academicid');
+        var studentname = $(this).data('studentname');
+        var classname = $(this).data('classname');
+        var classroll = $(this).data('classroll');
+        var mode = $(this).data("mode");
+        var term='';
+         term = $(this).data("term");
+
+        $.ajax({
+            type: "POST",
+            url: basepath+'payment/getDetailsForPayment',
+            dataType: "html",
+            data: {studentid:studentid,studentname:studentname,
+                academicid:academicid,classname:classname,classroll:classroll,mode:mode,term:term},
+            success: function (result) {
+                $("#title_info").html("Exam Paper Upload Fees Details");
+                $("#detail_information_view").html(result);
+                  $( ".datepicker" ).datepicker({
+       
+                   changeMonth: true,
+                   changeYear: true,
+                   format: 'dd/mm/yyyy'
+
+                });
+                  $('.selectpicker').selectpicker();
+            }, 
+            error: function (jqXHR, exception) {
+              var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Not connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+               // alert(msg);  
+            }
+        }); /*end ajax call*/
+    });
+
+
+ // For save exam paper upload payment working on 21.04.2019
+    $(document).on("submit","#PaymentPaperUploadForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#PaymentPaperUploadForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+            
+              if (validationPaperUploadFee()) {
+
+               $("#paperpaysavebtn").css("display","none");
+               $(".loaderbtn").css("display","block");
+               $("#loadTutionFeeStudentList").html("");
+               $(".closebtn").attr("disabled", true);
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'payment/savepayExamPaperFee',
+                data: formData,
+                dataType: 'json',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+
+                    $(".loaderbtn").css("display","none");
+                   
+                     $("#paperuploadpaymsg").html('<span class="glyphicon glyphicon-ok"></span>'+result.msg_data+
+                        '<center><a href="'+basepath+'payment/printPaymentReceipt/'+result.patmentid+'" class="btn btn-primary btn-md" data-title="Pdf" target="_blank" ><span class="glyphicon glyphicon-print"></span>&nbspPrint</a><center>');
+                    $("#PaperUploadPaymentForm").submit();
+                    
+                    $(".closebtn").attr("disabled", false);
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       }//enf of validation
+
+    });
+
+
 
 });// end of document ready
 
@@ -877,4 +1137,36 @@ function validationTutionFee()
 
    
     return true;
+}
+
+function validationPaperUploadFee()
+{
+    
+
+    var payment_dt = $("#payment_dt").val();
+   
+
+    $("#paperuploadpaymsg").text("").css("dispaly", "none").removeClass("form_error");
+
+
+
+    if(payment_dt=="")
+    {
+        $("#payment_dt").focus();
+        $("#paperuploadpaymsg")
+        .text("Error : Select Payment Date")
+        .addClass("form_error")
+        .css("display", "block");
+        return false;
+    }
+
+   
+    return true;
+}
+
+function ConfirmDelete()
+{
+ 
+      return confirm("Are you sure you want to delete?");
+   
 }

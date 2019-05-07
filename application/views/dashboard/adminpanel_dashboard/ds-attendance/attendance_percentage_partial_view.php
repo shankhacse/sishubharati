@@ -26,20 +26,25 @@ text-align:center;padding:10px;padding: 10px;margin-bottom: 50px;display:none;
 
           ?>
   <button type="button" class=" bg-purple btn-flat margin">Attendance Information of <?php echo $classname->name?></button>
+
+
   <button type="button" class=" bg-purple btn-flat margin" style="float:right;"><?php echo date("F", mktime(0, 0, 0, $sel_month, 10));
   ?></button>
+    <button type="button" class=" bg-green btn-flat margin" style="float:right;">Total Days : <?php echo $monthlyopendays?></button>
           <div style="">
               <table class="table table-bordered table-striped table-responsive dataTables" id="studentlistTbl" style="border-collapse: collapse !important;" >
                 <thead>
                 <tr style="color: #4a356c;">
                   <th style="width:10%;">Sl No.</th>
                  
-                    <th style="text-align:left;width:20%;">Student ID</th>
-                    <th style="text-align:left;width:30%;">Name</th>
-                    <th style="text-align:left;width:10%;">Class Roll</th>
-                    <th style="text-align:left;width:10%;">Present </th>
-                    <th style="text-align:left;width:10%;">Absent</th>
-                    <th style="text-align:left;width:10%;">Action </th>
+                    <th style="text-align:left;width:10%;">Student ID</th>
+                    <th style="text-align:left;width:20%;">Name</th>
+                    <th style="text-align:center;width:10%;">Class Roll</th>
+                    <th style="text-align:center;width:10%;">Present Count</th>
+                    <th style="text-align:left;width:10%;">Present %</th>
+                    <th style="text-align:center;width:10%;">Absent Count</th>
+                    <th style="text-align:left;width:10%;">Absent %</th>
+                    <th style="text-align:center;width:10%;">Action </th>
                     
                 </tr>
                 </thead>
@@ -75,10 +80,12 @@ text-align:center;padding:10px;padding: 10px;margin-bottom: 50px;display:none;
              <input type="hidden" id="absent_<?php echo $i;?>" name="absent[]" value="<?php echo number_format($absentpercentage,2)?>">
            <td><?php echo $student_list['attendanceMasterData']->student_uniq_id;  ?></td>
            <td><?php echo $student_list['attendanceMasterData']->student_name; ?></td>
-           <td><?php echo $student_list['attendanceMasterData']->class_roll; ?></td>
+           <td style="text-align:center"><?php echo $student_list['attendanceMasterData']->class_roll; ?></td>
+           <td style="color: #39ad39;font-weight: bold;text-align:center"><?php echo $presentCount;?> </td>
            <td style="color: #39ad39;font-weight: bold;"><?php echo number_format($presentpercentage,2)." %"?> </td>
+           <td style="color: #ca6f7d;;font-weight: bold;text-align:center"><?php echo $absentCount;?> </td>
            <td style="color: #ca6f7d;;font-weight: bold;"><?php echo number_format($absentpercentage,2)." %"?> </td>
-           <td>
+           <td style="text-align:center">
           <button type="button" 
           class="btn btn-sm bg-yellow viewattendainfo" data-toggle="modal" data-target="#attendance_info" data-studentid="<?php echo $student_list['attendanceMasterData']->student_uniq_id;?>" 
           data-studentname ="<?php echo $student_list['attendanceMasterData']->student_name; ?>" 
@@ -127,7 +134,7 @@ else{
 
       <!-- Modal -->
   <div class="modal fade bd-example-modal-lg" id="attendance_info" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-md">
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -136,7 +143,7 @@ else{
      
       <button type="button" class="btn-xs bg-green margin"><h4 class="modal-title" id="st_name">Rana</h4></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" style=" display: block;height: 450px;overflow-y: scroll;">
         <div id="detail_information_view"></div>
 
         
