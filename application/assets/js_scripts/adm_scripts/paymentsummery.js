@@ -67,6 +67,70 @@ $(document).ready(function(){
     });
 
 
+
+
+
+    $(document).on("submit","#paymentReportForm",function(event){
+        event.preventDefault();
+
+           var formDataserialize = $("#paymentReportForm" ).serialize();
+            formDataserialize = decodeURI(formDataserialize);
+            console.log(formDataserialize);
+            var formData = {formDatas: formDataserialize};
+            
+
+            if (validateSummery()) {
+            $(".dashboardloader").css("display","block");
+
+            $.ajax({
+                type: "POST",
+                url: basepath+'paymentsummery/paymentreportview',
+                data: formData,
+                dataType: 'html',
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+                success: function (result) {
+                   
+                    $("#loadPaymentReport").html(result);
+                     $('.dataTables').DataTable({
+                         'paging' : false,
+                         "dom": 'Bfrtip',
+                            "buttons": [
+                                'copy', 'csv', 'excel','pdf','print'
+                            ],
+                        "title": 'Data export',
+                         "ordering": false
+                    });
+
+                   
+                    $(".dashboardloader").css("display","none");
+                    
+                }, 
+                error: function (jqXHR, exception) {
+                      var msg = '';
+                        if (jqXHR.status === 0) {
+                            msg = 'Not connect.\n Verify Network.';
+                        } else if (jqXHR.status == 404) {
+                            msg = 'Requested page not found. [404]';
+                        } else if (jqXHR.status == 500) {
+                            msg = 'Internal Server Error [500].';
+                        } else if (exception === 'parsererror') {
+                            msg = 'Requested JSON parse failed.';
+                        } else if (exception === 'timeout') {
+                            msg = 'Time out error.';
+                        } else if (exception === 'abort') {
+                            msg = 'Ajax request aborted.';
+                        } else {
+                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                        }
+                       // alert(msg);  
+                    }
+                }); /*end ajax call*/
+
+       }//end of if block
+
+    });
+
+
 });//end of document ready
 
 function validateSummery()

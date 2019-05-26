@@ -12,6 +12,7 @@ class studentdashboard extends CI_Controller
 	    $this->load->model('paymentomodel','paymentomodel',TRUE);
 	    $this->load->model('marksmodel','marksmodel',TRUE);
 	    $this->load->model('holidaysmodel','holidaysmodel',TRUE);
+	    $this->load->model('grademodel','grademodel',TRUE);
         $this->load->library('pdfl');//load PHPExcel library
 	      $this->highest_marks_method_call_view =& get_instance();
 	       $this->payment_method_call_view =& get_instance();
@@ -1074,5 +1075,100 @@ $result['studentInfo']=$this->marksmodel->getStudentInfo($academic_id);
 		
 	}
 
+
+	public function getMydocuments()
+ 	{ 
+ 		$session = $this->session->userdata('student_data');
+		if($this->session->userdata('student_data'))
+		{   $header='';
+			$mid = trim(htmlspecialchars($this->input->post('mid')));
+			$mode = "DOCS";
+			$info = trim(htmlspecialchars($this->input->post('info')));
+
+			$where = array('student_master.student_uniq_id' =>$session['studentID']);
+			$result['studentData']= $this->commondatamodel->getSingleRowByWhereCls('student_master',$where);
+
+			$mid=$result['studentData']->student_id;
+			
+			if($mode=="DOCS")
+			{
+				 $page = 'student/dashboard/documents/documents_list.php';
+				
+				$data['documentDetailData'] = $this->admmodel->getStudentUploadedDocuments($mid,"Admission");
+				
+				$data['uplodedFolder'] = "admission_upload" ;
+				//$documentDetailView = $this->load->view($page,$data);
+			}
+			
+			studentbody_method($data, $page, $header, $session);
+			//echo $documentDetailView;
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+ 	}
+
+ 	public function gradelist()
+	{ 
+		if($this->session->userdata('student_data'))
+		{
+			$session = $this->session->userdata('student_data');
+			
+			 $page = 'student/dashboard/exam/grade_list_view';
+			$result = [];
+			$header = "";
+			
+			$result['gradeList']=$this->grademodel->getGradeList();
+			
+			//pre($result['gradeList']);
+			studentbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
+
+
+
+
+
+/* class notes by student class*/
+
+
+
+	public function classnotes()
+	{
+		$session = $this->session->userdata('student_data');
+		if($this->session->userdata('student_data'))
+		{
+			
+			$where = array('student_academic_details.academic_id' =>$session['academicID']);
+			$studentData= $this->commondatamodel->getSingleRowByWhereCls('student_academic_details',$where);
+
+			$classnotesID=$studentData->class_id;
+				
+				$where_classnotes = array(
+							"uploaded_exam_papers.upload_from_module_id" => $classnotesID,
+							"uploaded_exam_papers.upload_from_module" => 'ClassNotes'
+							);
+				// getSingleRowByWhereCls(tablename,where params)
+				$result['resultPublishdata'] = $this->commondatamodel->getAllRecordWhere('uploaded_exam_papers',$where_classnotes); 
+				
+				
+			
+
+			$header = "";
+			
+			
+			$page = "student/dashboard/classnotes/classnotes_list_view.php";
+			studentbody_method($result, $page, $header,$session);
+		}
+		else
+		{
+			redirect('studentlogin','refresh');
+		}
+	}
 
 }// end of class

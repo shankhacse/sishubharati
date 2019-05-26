@@ -69,11 +69,11 @@ class studentlogin extends CI_Controller {
 
          $json_response = array("msg_code"=>1,"msg_data"=>"");
      }else{
-          $json_response = array("msg_code"=>3,"msg_data"=>"Incorrect mobilenumber or password");
+          $json_response = array("msg_code"=>3,"msg_data"=>"Incorrect Student ID or Password");
      }
  
  }else{
-	   $json_response = array("msg_code"=>0,"msg_data"=>"Student ID or password cannot be blank");
+	   $json_response = array("msg_code"=>0,"msg_data"=>"Student ID or Password cannot be blank");
 	
            
            

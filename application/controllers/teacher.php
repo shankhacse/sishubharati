@@ -542,6 +542,8 @@ public function getTeacherAttendanceList()
 
             $result['teacherAttendance']=[];
             $result['teacherAttendanceCount']=[];
+
+            $result['schoolOpenData']=$this->teachermodel->getSchoolOpenDates($fromdate,$todate);
 			if ($sel_teacher!=0) {
 			$result['teacherAttendance'] = $this->teachermodel->getTeacherAttendanceById($sel_teacher,$fromdate,$todate);
 			

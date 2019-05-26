@@ -88,13 +88,33 @@
       <span class="badge " style="color:purple;background-color:#fff; "><?php echo $bodycontent['message'];?></span>
       </button></a>
   </div>
-
+<?php
+      if ($bodycontent['userType']=='Superadmin' || $bodycontent['userType']== 'Developer') {
+       
+?>
   <div class="col-lg-3 col-xs-6">
     <a href="<?php echo base_url();?>paymentsummery" >
     <button class="btn bg-maroon btn-flat margin" style="width: 92%;" ><i class="fa fa-rupee"></i>&nbsp;&nbsp; Payment Summary&nbsp;&nbsp;
      
       </button></a>
   </div>
+
+    <div class="col-lg-3 col-xs-6">
+    <a href="<?php echo base_url();?>usercontrol" >
+    <button class="btn bg-purple btn-flat margin" style="width: 92%;" ><i class="fa fa-user"></i>&nbsp;&nbsp; User Control&nbsp;&nbsp;
+     
+      </button></a>
+  </div>
+
+      <div class="col-lg-3 col-xs-6">
+    <a href="<?php echo base_url();?>paymentsummery/report" >
+    <button class="btn bg-olive btn-flat margin" style="width: 92%;" ><i class="fa fa-rupee"></i>&nbsp;&nbsp; Payment Report&nbsp;&nbsp;
+     
+      </button></a>
+  </div>
+
+
+<?php }?>
   
 </div>
 

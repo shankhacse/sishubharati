@@ -517,7 +517,7 @@ public function getActiveStudentListByClassForMarksDetails($class_id,$session_id
     	$where = array(
 			
 			"class_subject_asign_master.class_master_id"=>$class_id,
-			"class_subject_asign_master.session_id"=>$session_id
+		//	"class_subject_asign_master.session_id"=>$session_id
 		);
         $data = array();
 		$this->db->select("class_subject_asign_master.*,

@@ -1,5 +1,6 @@
-    <div class="" style="overflow-x:auto;">
-              <table class="table table-bordered table-striped" style="border-collapse: collapse !important;">
+<hr>
+    <div class="datatalberes"  style="overflow-x:auto;">
+              <table  class="table table-bordered table-striped dataTables" style="border-collapse: collapse !important;">
                 <thead style="background-color: #cd558e;color: #fff;">
                 <tr>
                   <th style="width:5%;">Sl</th>
@@ -9,9 +10,9 @@
                   <th style="width:10%;">Payment Date</th>
                   <th style="width:10%;">Payment For</th>
                   <th style="width:5%;">For Month</th>
-                  <th style="width:10%;">Amount</th>
+                 
                   <th style="width:10%;">Fine Amount</th>
-                  <th style="width:10%;">Total Amount</th>
+               
                  
                   
                 </tr>
@@ -21,12 +22,12 @@
                 <?php 
                   $i = 1;
                   $row=1;
-                  $total_amount=0;
+                  $total_fine_amount=0;
                   foreach ($paymentList as $key => $value) {
 
-                $total_amount=$total_amount+$value->total_amt;
+                $total_fine_amount+=$value->fine_amount;
 
-                  
+                  if ($value->fine_amount!='0') {
                   ?>
 
           <tr>
@@ -48,14 +49,14 @@
 
             ?></td>
             <td><?php echo $value->for_month; ?></td>
-            <td align="right"><?php echo $value->amount; ?></td>
+           
             <td align="right"><?php 
             if ($value->fine_amount!='0') {
               echo $value->fine_amount;
             }
 
              ?></td>
-            <td align="right"><?php echo $value->total_amt; ?></td>
+          
        
 
                
@@ -65,14 +66,20 @@
           </tr>
                     
                 <?php $row++;
+              }
                   }
 
                 ?>
-             <tr style="font-weight: bold;font-size: 18px;background-color:#ddd;">
-              <td colspan="7"></td>
-               <td>Total Amount</td>
-               <td align="right" ><?php echo number_format($total_amount,2);?></td>
-             </tr>
+
+                 <tfoot>
+            <tr style="font-weight: bold;font-size: 18px;    background-color: #e1dada;color: #274aad;">
+                <th colspan="4" style="text-align:right">Total Fine Amount:</th>
+                <th></th>
+                <th></th>
+                <th  style="text-align:right"><?php echo number_format($total_fine_amount,2);?></th>
+            </tr>
+        </tfoot>
+         
                 </tbody>
                
               </table>

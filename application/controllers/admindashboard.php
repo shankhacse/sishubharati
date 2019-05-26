@@ -35,6 +35,15 @@ class admindashboard extends CI_Controller
 			);
 
 			 $result['totalStudent']=$this->commondatamodel->rowcountwhere('student_academic_details',$where_acd_dtl);
+
+			  $where_user = array(
+            				'administrator_user_master.id' => $session['userid']
+            				
+            				 );
+            $admuserData=$this->commondatamodel->getSingleRowByWhereCls('administrator_user_master',$where_user);
+
+
+           $result['userType']=$admuserData->usertype;
 			
 			createbody_method($result, $page, $header, $session);
 		}

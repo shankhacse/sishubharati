@@ -1,5 +1,6 @@
-    <div class="" style="overflow-x:auto;">
-              <table class="table table-bordered table-striped" style="border-collapse: collapse !important;">
+<hr>
+    <div class="datatalberes"  style="overflow-x:auto;">
+              <table  class="table table-bordered table-striped dataTables" style="border-collapse: collapse !important;">
                 <thead style="background-color: #cd558e;color: #fff;">
                 <tr>
                   <th style="width:5%;">Sl</th>
@@ -68,11 +69,20 @@
                   }
 
                 ?>
-             <tr style="font-weight: bold;font-size: 18px;background-color:#ddd;">
+
+                 <tfoot>
+            <tr style="font-weight: bold;font-size: 18px;    background-color: #e1dada;color: #274aad;">
+                <th colspan="6" style="text-align:right">Total Amount:</th>
+                <th></th>
+                <th></th>
+                <th  style="text-align:right"><?php echo number_format($total_amount,2);?></th>
+            </tr>
+        </tfoot>
+           <!--   <tr style="font-weight: bold;font-size: 18px;background-color:#ddd;">
               <td colspan="7"></td>
                <td>Total Amount</td>
                <td align="right" ><?php echo number_format($total_amount,2);?></td>
-             </tr>
+             </tr> -->
                 </tbody>
                
               </table>

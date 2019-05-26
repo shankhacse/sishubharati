@@ -695,4 +695,38 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
         }
 	}
 
+
+	/* Student academic details data */
+	public function getStudentAcademicHistory($student_id){
+		$data = [];
+		$where = array('student_master.student_id' =>$student_id);
+		$query = $this->db->select("
+									student_academic_details.*,
+									class_master.name as classname,
+									session_year.year
+									
+									")
+				->from('student_academic_details')
+				->join('student_master','student_master.student_uniq_id=student_academic_details.student_uniq_id','INNER')
+				->join('class_master','class_master.id = student_academic_details.class_id','INNER')
+				->join('session_year','session_year.session_id = student_academic_details.session_id','INNER')
+
+				->where($where)
+			    ->order_by('student_academic_details.academic_id')
+				->get();
+			#q();
+			if($query->num_rows()> 0)
+			{
+	          foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+	        }
+			
+	        return $data;
+	       
+		
+	}
+
 }//end of class

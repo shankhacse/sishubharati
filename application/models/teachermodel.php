@@ -524,4 +524,35 @@ public function insertIntoUploadFile($data,$session_data,$where_data)
 	}
 
 
+   public function getSchoolOpenDates($fromdate,$todate){
+		$data = [];
+
+		$fdt=date("Y-m-d",strtotime($fromdate));
+		$todt=date("Y-m-d",strtotime($todate));
+
+		$query = $this->db->select("
+									*
+  									
+  									")
+				->from('teacher_attendance')
+				->where('teacher_attendance.att_date >=', $fdt)
+				->where('teacher_attendance.att_date <=', $todt)
+				->group_by('teacher_attendance.att_date')
+				->get();
+				 #q();
+			
+			if($query->num_rows()> 0)
+			{
+                            foreach($query->result() as $rows)
+				{
+					$data[] = $rows;
+				}
+	             
+                        }
+			
+	        return $data;
+	       
+	}
+
+
 }//teacher model close

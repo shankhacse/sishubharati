@@ -89,7 +89,7 @@ class admission extends CI_Controller {
 			$result['year']= $this->commondatamodel->getSingleRowByWhereCls('session_year',$wheresession);
 			$result['categoryList'] = $this->commondatamodel->getAllDropdownData('category_master');
 
-			
+			$result['studentAcademicData'] = $this->admmodel->getStudentAcademicHistory($studentID);
 			$page = "dashboard/adminpanel_dashboard/ds-admission/admisson_add_edit_view";
 			createbody_method($result, $page, $header,$session);
 		}

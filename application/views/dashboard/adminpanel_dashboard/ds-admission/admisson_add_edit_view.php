@@ -575,6 +575,53 @@
 <!-- end of Add document-->
 
 
+<?php if($bodycontent['mode']=="EDIT"){?>
+<!-- Academic History-->
+
+
+  <p class="formSubTitle"><span class="glyphicon glyphicon-pencil"></span> Academic Historical data</p>
+
+                    <div class="row">
+                       <div class="col-md-12">
+                                 
+                  
+                                      <table class="table table-bordered table-striped table-condensed">
+                                        <thead style="background-color: #ac66bd;color: #fff;">
+                                          <tr>
+                                            <th style="width: 25%">Sl. No.</th>
+                                            <th style="width: 25%">Academic Session</th>
+                                            <th>Class</th>
+                                           
+                                            <th>Roll</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <?php  
+                                          $acdsl=1;
+                                          if($bodycontent['studentAcademicData']) {
+                                             foreach($bodycontent['studentAcademicData'] as $value){
+                                            ?>
+                                          <tr>
+                                            <td><?php echo $acdsl++;?></td>
+                                            <td><?php echo $value->year?></td>
+                                            <td><?php echo $value->classname;?></td>
+                                         
+                                            <td><?php echo $value->class_roll?></td>
+                                          </tr>
+                                        <?php }}?>
+
+                                        </tbody>
+                                      </table>
+                                 
+
+                              </div>
+
+                          </div>
+<!-- end of Academic History-->
+
+<?php } ?>
+
+
                     				
 					
                   <p id="admmsg" class="form_error"></p>

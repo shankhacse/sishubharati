@@ -43,6 +43,12 @@ class home extends CI_Controller {
 
 			$result['NoticeList'] = $this->noticemodel->getAllActiveNoticeList();
 			$result['EventsList'] = $this->eventsmodel->getAllActiveEventsListLimit();
+
+			$where_pubmsg = array(
+                'published_message.id' =>1,
+                
+            );
+            $result['PublishMsgData']= $this->commondatamodel->getSingleRowByWhereCls('published_message',$where_pubmsg);
 			
 
 		//pre($result['birthdayStudentListToday']);

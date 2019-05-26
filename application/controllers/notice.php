@@ -291,4 +291,144 @@ public function deleteNotice()
 			redirect('administratorpanel','refresh');
 		}
 	}
+
+
+	public function PublishedMessage()
+	{ 
+		if($this->session->userdata('user_data'))
+		{
+			$session = $this->session->userdata('user_data');
+			$page = 'dashboard/adminpanel_dashboard/ds-notice/publish_msg_list_view.php';
+			$result = [];
+			$header = "";
+			
+			$where = array(
+                'published_message.id' =>1,
+                
+            );
+            $result['PublishMsgData']= $this->commondatamodel->getSingleRowByWhereCls('published_message',$where);
+			
+			//pre($result['aboutUsData']);
+			createbody_method($result, $page, $header, $session);
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+	public function updatePublishedMessage(){
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$pubmsgid = $this->input->post('pubmsgid');
+			$columnname = $this->input->post('columnname');
+			$message = $this->input->post('message');
+		
+			
+			if ($columnname=='message') {
+				$update_array  = array("message" => $message);
+			}
+			
+				
+			$where = array(
+				"published_message.id" => $pubmsgid
+				);
+			
+			
+			$user_activity = array(
+					"activity_module" => 'Publias Message',
+					"action" => "Update",
+					"from_method" => "notice/updatePublushed Message",
+					"user_id" => $session['userid'],
+					"ip_address" => getUserIPAddress(),
+					"user_browser" => getUserBrowserName(),
+					"user_platform" => getUserPlatform()
+					
+					
+				);
+				$update = $this->commondatamodel->updateData_WithUserActivity('published_message',$update_array,$where,'user_activity_report',$user_activity);
+			if($update)
+			{
+				$json_response = array(
+					"msg_status" => 1,
+					"msg_data" => $columnname." updated"
+				);
+			}
+			else
+			{
+				$json_response = array(
+					"msg_status" => 0,
+					"msg_data" => "Failed to update"
+				);
+			}
+
+
+		header('Content-Type: application/json');
+		echo json_encode( $json_response );
+		exit;
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
+
+
+	public function setStatusPublishMsg(){
+		$session = $this->session->userdata('user_data');
+		if($this->session->userdata('user_data') && isset($session['security_token']))
+		{
+			$updID = trim($this->input->post('uid'));
+			$setstatus = trim($this->input->post('setstatus'));
+			
+			$update_array  = array(
+				"is_active" => $setstatus
+				);
+				
+			$where = array(
+				"published_message.id" => $updID
+				);
+			
+			
+			$user_activity = array(
+					"activity_module" => 'Notice',
+					"action" => "Update",
+					"from_method" => "notice/setStatusPublishMsg",
+					"user_id" => $session['userid'],
+					"ip_address" => getUserIPAddress(),
+					"user_browser" => getUserBrowserName(),
+					"user_platform" => getUserPlatform()
+					
+					
+				);
+				$update = $this->commondatamodel->updateData_WithUserActivity('published_message',$update_array,$where,'user_activity_report',$user_activity);
+			if($update)
+			{
+				$json_response = array(
+					"msg_status" => 1,
+					"msg_data" => "Status updated"
+				);
+			}
+			else
+			{
+				$json_response = array(
+					"msg_status" => 0,
+					"msg_data" => "Failed to update"
+				);
+			}
+
+
+		header('Content-Type: application/json');
+		echo json_encode( $json_response );
+		exit;
+
+		}
+		else
+		{
+			redirect('administratorpanel','refresh');
+		}
+	}
 }//end of class

@@ -10,8 +10,9 @@ class loginmodel extends CI_Model{
 				*
 				FROM administrator_user_master
 				WHERE
-				administrator_user_master.`username`='".$username."' AND 
-				administrator_user_master.`password`='".$password."'";
+				administrator_user_master.username='".$username."' AND 
+				administrator_user_master.password='".$password."'
+				and administrator_user_master.is_active='Y'";
 				
 		#echo $sql;
 		 $query = $this->db->query($sql);
@@ -40,8 +41,9 @@ class loginmodel extends CI_Model{
 				*
 				FROM teachers
 				WHERE
-				teachers.`teacher_uniq_id`='".$username."' AND 
-				teachers.`password`='".$password."'";
+				teachers.teacher_uniq_id='".$username."' AND 
+				teachers.password='".$password."'
+				and teachers.is_active='1'";
 				
 		#echo $sql;
 		 $query = $this->db->query($sql);

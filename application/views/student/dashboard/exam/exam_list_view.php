@@ -10,6 +10,7 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                            Exam results
+                            <a href="<?php echo base_url();?>studentdashboard/gradelist" style="color: #fff;float: right;" ><span class="glyphicon glyphicon-list"></span> Grade List</a>
                         </div>
                         <div class="panel-body">
                             <div class="row">

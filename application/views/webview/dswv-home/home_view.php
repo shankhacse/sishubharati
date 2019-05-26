@@ -1,4 +1,3 @@
- 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"><div class="banner_outer_wrap">
       <ul class="main_slider">
           <li>
@@ -39,26 +38,18 @@
         
     </div>
 
-<!--
-
-<section class="home_option_wrap">
-  <div class="container">
-    <div class="row">
-
-
-<div class="col-md-12">
-    <div class="alert alert-danger alert-dismissible" role="alert">
-  
-   <marquee><p style=" font-size: 12pt">Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor!</p></marquee>
-</div>
-</div>
-    </div>
-  </div>
-</section>
-
--->
 <section class="home_option_wrap">
             <div class="container">
+                        <?php
+          if($bodycontent['PublishMsgData']->is_active=="1")
+             {
+          ?>
+
+          <div class="alert alert-info"" style="margin-top: 20px">
+      <marquee behavior="scroll" direction="left" style="font-size: 16px;font-weight: bold;" ><?php echo $bodycontent['PublishMsgData']->message?></marquee>
+
+       </div>
+     <?php } ?>
     <div class="row">
         <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
           <img src="<?php echo base_url();?>application/web_assets/images/id-card.png" width="100" height="100" class="option_img"> 
@@ -72,12 +63,13 @@
             <h3><a href="<?php echo base_url();?>home/importantinfo">Important Info</a></h3> 
             
             </div>
+            <a href="<?php echo base_url();?>home/resultlist">
             <div class="adminhome1 col-md-3 col-sm-4 col-xs-3 ">
              
            <img src="<?php echo base_url();?>application/web_assets/images/desktop.png" width="100" height="100" class="option_img" >
-            <h3><a href="<?php echo base_url();?>home/resultlist">Results</a></h3> 
+            <h3>Results</h3> 
               
-            </div>
+            </div></a>
             <div class=" adminhome1 col-md-3 col-sm-4 col-xs-3">
             <img src="<?php echo base_url();?>application/web_assets/images/laptop.png" width="100" height="100"  class="option_img" >
             
@@ -96,6 +88,10 @@
             
 
           </div>
+
+
+
+
   </div>
 </section>
     <!--Banner Wrap End-->
