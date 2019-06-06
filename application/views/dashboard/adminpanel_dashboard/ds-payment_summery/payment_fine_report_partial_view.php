@@ -6,6 +6,8 @@
                   <th style="width:5%;">Sl</th>
                   
                   <th style="width:10%;">Student ID</th>
+                  <th style="width:10%;">Student Name</th>
+                  <th style="width:5%;">Class</th>
                   <th style="width:10%;">Bill No</th>
                   <th style="width:10%;">Payment Date</th>
                   <th style="width:10%;">Payment For</th>
@@ -33,6 +35,8 @@
           <tr>
             <td><?php echo $i++; ?></td>
             <td><?php echo $value->student_uniq_id; ?></td>
+            <td><?php echo $value->student_name; ?></td>
+            <td><?php echo $value->classname; ?></td>
             <td><?php echo $value->bill_no; ?></td>
             <td><?php echo date("d-m-Y",strtotime($value->payment_dt)); ?></td>
             <td><?php 
@@ -73,7 +77,7 @@
 
                  <tfoot>
             <tr style="font-weight: bold;font-size: 18px;    background-color: #e1dada;color: #274aad;">
-                <th colspan="4" style="text-align:right">Total Fine Amount:</th>
+                <th colspan="6" style="text-align:right">Total Fine Amount:</th>
                 <th></th>
                 <th></th>
                 <th  style="text-align:right"><?php echo number_format($total_fine_amount,2);?></th>

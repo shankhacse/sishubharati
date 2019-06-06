@@ -29,10 +29,17 @@ class paymentsummerymodel extends CI_Model{
 	public function getPaymentList($fromdt,$todt){
 		$data = [];
 		
-		$sql="select payment_master.*,bill_master.bill_no 
+		$sql="select payment_master.*,bill_master.bill_no,class_master.name as classname,
+  			  student_master.name as student_name 
 			  from payment_master
 			  inner join bill_master
               on bill_master.bill_master_id=payment_master.bill_master_id
+              inner join student_academic_details
+		      on student_academic_details.academic_id=payment_master.academic_id
+		      inner join class_master
+		      on class_master.id = student_academic_details.class_id
+		      INNER JOIN student_master
+		      on student_master.student_uniq_id = student_academic_details.student_uniq_id
 			  where `payment_master`.`payment_dt` 
 			  between '".$fromdt."' and '".$todt."' order by payment_master.payment_dt";
 		
@@ -57,10 +64,17 @@ class paymentsummerymodel extends CI_Model{
 		public function getPaymentListByPaymentType($fromdt,$todt,$paymentType){
 		$data = [];
 		
-		$sql="select payment_master.*,bill_master.bill_no 
+		$sql="select payment_master.*,bill_master.bill_no,class_master.name as classname,
+  			  student_master.name as student_name 
 			  from payment_master
 			  inner join bill_master
               on bill_master.bill_master_id=payment_master.bill_master_id
+              inner join student_academic_details
+   			  on student_academic_details.academic_id=payment_master.academic_id
+   			  inner join class_master
+   			  on class_master.id = student_academic_details.class_id
+   			  INNER JOIN student_master
+  			  on student_master.student_uniq_id = student_academic_details.student_uniq_id
 			  where `payment_master`.`payment_dt` 
 			  between '".$fromdt."' and '".$todt."' and payment_master.payment_for='".$paymentType."'
 			  order by payment_master.payment_dt";

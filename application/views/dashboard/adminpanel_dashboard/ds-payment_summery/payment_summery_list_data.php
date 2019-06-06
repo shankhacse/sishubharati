@@ -5,6 +5,8 @@
                   <th style="width:5%;">Sl</th>
                   
                   <th style="width:10%;">Student ID</th>
+                  <th style="width:10%;">Student Name</th>
+                  <th style="width:5%;">Class</th>
                   <th style="width:10%;">Bill No</th>
                   <th style="width:10%;">Payment Date</th>
                   <th style="width:10%;">Payment For</th>
@@ -32,6 +34,8 @@
           <tr>
             <td><?php echo $i++; ?></td>
             <td><?php echo $value->student_uniq_id; ?></td>
+            <td><?php echo $value->student_name; ?></td>
+            <td><?php echo $value->classname; ?></td>
             <td><?php echo $value->bill_no; ?></td>
             <td><?php echo date("d-m-Y",strtotime($value->payment_dt)); ?></td>
             <td><?php 
@@ -69,7 +73,7 @@
 
                 ?>
              <tr style="font-weight: bold;font-size: 18px;background-color:#ddd;">
-              <td colspan="7"></td>
+              <td colspan="9"></td>
                <td>Total Amount</td>
                <td align="right" ><?php echo number_format($total_amount,2);?></td>
              </tr>

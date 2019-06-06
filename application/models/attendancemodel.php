@@ -376,4 +376,35 @@ public function getAttendanceDtlbyStudent($month,$student_uniq_id,$academic_id)
              return $data;
          }
 	}
+
+
+
+	public function getMonthofAttendanceByClass($class_id,$session_id)
+	{
+		$data = array();
+		$where = array(
+						'attendance_master.class_id' =>$class_id ,
+						'attendance_master.session_id' =>$session_id  );
+		$this->db->select('*')
+				->from('attendance_master')
+				->where($where)
+				->group_by('MONTH(attendance_master.taken_date)');
+				
+		$query = $this->db->get();
+		#echo $this->db->last_query();
+
+		if($query->num_rows()> 0)
+		{
+            foreach ($query->result() as $rows)
+			{
+				$data[] = $rows;
+            }
+            return $data;
+             
+        }
+		else
+		{
+             return $data;
+         }
+	}
 }//end of class

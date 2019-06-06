@@ -371,6 +371,9 @@ public function getPescentageStudentList()
 			}else{
 
 		    $result['studentlistData']=$this->attmodel->getSudentYearlyAttendance($sel_class,$session_id);
+
+		    $result['attMonths']=$this->attmodel->getMonthofAttendanceByClass($sel_class,$session_id);
+		    
 			$page = "dashboard/adminpanel_dashboard/ds-attendance/attendance_percentage_partial_view_yearly";
 		}
 			$partial_view = $this->load->view($page,$result);

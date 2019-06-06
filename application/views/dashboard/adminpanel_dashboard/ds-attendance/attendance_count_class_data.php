@@ -26,7 +26,8 @@ text-align:center;padding:10px;padding: 10px;margin-bottom: 50px;display:none;
 
           ?>
   <button type="button" class=" bg-purple btn-flat margin">Attendance Entry of <?php echo $classname->name?></button>
-  <button type="button" class=" bg-purple btn-flat margin" style="float:right;"><?php echo date("F", strtotime($sel_month));?></button>
+  <button type="button" class=" bg-purple btn-flat margin" style="float:right;"><?php echo date("F", mktime(0, 0, 0, $sel_month, 10));
+  ?></button>
           <div style="">
               <table class="table table-bordered table-striped table-responsive dataTables" id="studentlistTbl" style="border-collapse: collapse !important;" >
                 <thead>
@@ -82,7 +83,8 @@ echo "<pre>";*/
           class="btn btn-sm bg-yellow calassattendainfo" data-toggle="modal" data-target="#attendance_info_class" 
           data-attmastid="<?php echo $countDetails->id;?>"
           data-classname="<?php echo $countDetails->classname;?>"
-          data-month="<?php echo date("F", strtotime($sel_month));?>"
+          data-month="<?php echo date("F", mktime(0, 0, 0, $sel_month, 10));
+  ?>"
            >Details </button> </td>
           
          <td>
